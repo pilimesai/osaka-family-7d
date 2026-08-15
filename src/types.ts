@@ -4,6 +4,7 @@ export interface Activity {
   location?: string;
   description: string;
   tips?: string[];
+  guideImages?: { url: string; caption: string }[];
 }
 
 export interface DayItinerary {

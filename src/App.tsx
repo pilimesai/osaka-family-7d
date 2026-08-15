@@ -254,6 +254,23 @@ function App() {
                                 </ul>
                               </div>
                             )}
+
+                            {/* Guide Images */}
+                            {activity.guideImages && activity.guideImages.length > 0 && (
+                              <div className="mt-4 space-y-4">
+                                <div className="text-stone-700 font-bold text-sm border-b border-stone-100 pb-2">
+                                  📸 路線指引 (請參考圖片說明)
+                                </div>
+                                {activity.guideImages.map((image, i) => (
+                                  <div key={i} className="rounded-xl overflow-hidden border border-stone-100 shadow-sm bg-stone-50">
+                                    <div className="bg-white p-3 text-sm text-stone-700 font-bold border-b border-stone-100">
+                                      {image.caption}
+                                    </div>
+                                    <img src={image.url} alt={image.caption} className="w-full h-auto object-cover" />
+                                  </div>
+                                ))}
+                              </div>
+                            )}
                           </div>
                         </div>
 

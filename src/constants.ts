@@ -20,9 +20,19 @@ export const ITINERARY: DayItinerary[] = [
       {
         time: '18:05',
         name: '抵達關西國際機場 (航班 14:20 - 18:05)',
-        location: '關西國際機場 T2',
-        description: '搭乘從高雄小港起飛的班機抵達關西空港第二航廈。搭乘接駁車前往第一航廈/車站換乘。入境後先到機場內的兌換所換日幣，匯率通常比台灣好。',
-        tips: ['T2 到車站需搭乘免費接駁車，預留約 15-20 分鐘', '建議準備少量日幣現金，到了再換比較划算'],
+        location: '關西國際機場 T2 -> 轉乘接駁車到 T1',
+        description: '搭乘從高雄小港起飛的班機抵達關西空港第二航廈 (T2)。因為所有電車都在第一航廈 (T1)，抵達後請先搭乘「免費接駁車」前往 T1。',
+        tips: [
+          '步驟1：領完行李入境後，直走尋找「Terminal 1 / Shuttle Bus」的指示牌',
+          '步驟2：走出大門外，就會看到綠白相間的免費接駁車 (約7-9分鐘一班)',
+          '步驟3：上車不需付費，車程約10分鐘。下車後搭乘手扶梯上2樓，跟著指標走即可抵達JR/南海電車站 (關西空港駅)',
+          'T2 到車站需搭乘免費接駁車，含等車請預留約 20 分鐘'
+        ],
+        guideImages: [
+          { url: 'images/guide/kix_t2_exit.jpg', caption: '1. 出境後尋找「Terminal 1 (T1) / Shuttle Bus」的藍色指示牌' },
+          { url: 'images/guide/kix_t2_bus.jpg', caption: '2. 走到室外，搭乘有標示「Terminal 1」的綠白色免費接駁車' },
+          { url: 'images/guide/kix_t1_arrival.jpg', caption: '3. 下車抵達 T1 (Aeroplaza) 後，跟著指標上樓前往「關西空港駅 (鐵道)」' }
+        ]
       },
       {
         time: '19:15',
