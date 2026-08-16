@@ -204,7 +204,7 @@ function App() {
                           <div className="relative">
                             {/* Time & Location header */}
                             <div className="flex items-center justify-between mb-3">
-                              <div className="bg-rose-50 text-rose-600 px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5">
+                              <div className="bg-rose-50 text-rose-600 px-3.5 py-2 rounded-xl text-sm font-bold flex items-center gap-1.5">
                                 <Clock className="w-3.5 h-3.5" />
                                 {activity.time}
                               </div>
@@ -225,29 +225,29 @@ function App() {
 
                             {/* Location badge */}
                             {activity.location && (
-                              <div className="text-stone-400 text-xs font-medium flex items-center gap-1 mb-3">
+                              <div className="text-stone-500 text-sm font-medium flex items-center gap-1 mb-3">
                                 <MapPin className="w-3 h-3 text-rose-400" />
                                 {activity.location}
                               </div>
                             )}
 
                             {/* Description */}
-                            <p className="text-stone-500 text-sm leading-relaxed mb-4">{activity.description}</p>
+                            <p className="text-stone-600 text-base leading-relaxed mb-4">{activity.description}</p>
 
                             {/* Tips */}
                             {activity.tips && activity.tips.length > 0 && (
                               <div className="bg-amber-50/80 rounded-xl p-4 border border-amber-100/80">
-                                <div className="flex items-center gap-2 text-amber-700 mb-2.5 font-bold text-xs">
+                                <div className="flex items-center gap-2 text-amber-800 mb-2.5 font-bold text-sm">
                                   <Lightbulb className="w-3.5 h-3.5" />
                                   <span>親子提醒</span>
                                 </div>
-                                <ul className="space-y-1.5">
+                                <ul className="space-y-2">
                                   {activity.tips.map((tip, i) => (
                                     <li
                                       key={i}
-                                      className="text-amber-700 text-xs flex items-start gap-2 leading-relaxed"
+                                      className="text-amber-800 text-sm flex items-start gap-2 leading-relaxed"
                                     >
-                                      <ChevronRight className="w-3 h-3 mt-0.5 shrink-0 text-amber-400" />
+                                      <ChevronRight className="w-4 h-4 mt-0.5 shrink-0 text-amber-400" />
                                       {tip}
                                     </li>
                                   ))}
@@ -258,12 +258,12 @@ function App() {
                             {/* Guide Images */}
                             {activity.guideImages && activity.guideImages.length > 0 && (
                               <div className="mt-4 space-y-4">
-                                <div className="text-stone-700 font-bold text-sm border-b border-stone-100 pb-2">
+                                <div className="text-stone-800 font-bold text-base border-b border-stone-200 pb-3">
                                   📸 路線指引 (請參考圖片說明)
                                 </div>
                                 {activity.guideImages.map((image, i) => (
                                   <div key={i} className="rounded-xl overflow-hidden border border-stone-100 shadow-sm bg-stone-50">
-                                    <div className="bg-white p-3 text-sm text-stone-700 font-bold border-b border-stone-100">
+                                    <div className="bg-white p-4 text-base text-stone-800 font-bold border-b border-stone-100">
                                       {image.caption}
                                     </div>
                                     <img src={image.url} alt={image.caption} className="w-full h-auto object-cover" />
@@ -312,10 +312,10 @@ function App() {
                         <div className="flex items-start justify-between mb-3">
                           <div className="flex-1">
                             <div className="flex items-center gap-2 mb-1.5">
-                              <span className="bg-rose-50 text-rose-600 text-[10px] font-bold px-2.5 py-1 rounded-full border border-rose-100">
+                              <span className="bg-rose-50 text-rose-600 text-xs font-bold px-2.5 py-1 rounded-full border border-rose-100">
                                 {restaurant.area}
                               </span>
-                              <span className="bg-stone-50 text-stone-500 text-[10px] font-bold px-2.5 py-1 rounded-full border border-stone-100">
+                              <span className="bg-stone-50 text-stone-600 text-xs font-bold px-2.5 py-1 rounded-full border border-stone-100">
                                 {restaurant.category}
                               </span>
                             </div>
@@ -324,29 +324,29 @@ function App() {
                             </h3>
                           </div>
                           <div className="flex items-center gap-1 bg-amber-50 px-2.5 py-1.5 rounded-xl border border-amber-100 shrink-0 ml-3">
-                            <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
-                            <span className="font-black text-amber-700 text-xs">{restaurant.rating}</span>
+                            <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
+                            <span className="font-black text-amber-700 text-sm">{restaurant.rating}</span>
                           </div>
                         </div>
 
-                        <p className="text-stone-500 text-sm mb-4 leading-relaxed flex-1">
+                        <p className="text-stone-600 text-base mb-4 leading-relaxed flex-1">
                           {restaurant.recommendation}
                         </p>
 
                         <div className="flex items-center justify-between pt-3 border-t border-stone-50">
-                          <div className="flex items-center gap-1.5 text-stone-400 text-xs">
-                            <MapPin className="w-3 h-3" />
+                          <div className="flex items-center gap-1.5 text-stone-500 text-sm">
+                            <MapPin className="w-3.5 h-3.5" />
                             <span>{restaurant.location}</span>
                           </div>
                           <div className="flex items-center gap-3">
-                            <span className="text-rose-500 text-xs font-bold">{restaurant.priceRange}</span>
+                            <span className="text-rose-500 text-sm font-bold">{restaurant.priceRange}</span>
                             <a
                               href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(restaurant.name + ' ' + restaurant.area)}`}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-rose-500 text-xs font-black flex items-center gap-1 hover:underline underline-offset-4"
+                              className="text-rose-500 text-sm font-black flex items-center gap-1 hover:underline underline-offset-4"
                             >
-                              MAP <ExternalLink className="w-3 h-3" />
+                              MAP <ExternalLink className="w-3.5 h-3.5" />
                             </a>
                           </div>
                         </div>
@@ -383,10 +383,10 @@ function App() {
                           {item.icon}
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h3 className="font-bold text-stone-900 text-base mb-1 leading-tight">
+                          <h3 className="font-bold text-stone-900 text-lg mb-1.5 leading-tight">
                             {item.title}
                           </h3>
-                          <p className="text-stone-500 text-sm leading-relaxed">{item.content}</p>
+                          <p className="text-stone-600 text-base leading-relaxed">{item.content}</p>
                         </div>
                       </motion.div>
                     ))}
@@ -421,8 +421,8 @@ function App() {
                           )}
                         </div>
                         <div>
-                          <h4 className="font-bold text-white text-sm">{info.name}</h4>
-                          <p className="text-stone-400 text-xs mt-1 leading-relaxed">{info.description}</p>
+                          <h4 className="font-bold text-white text-base">{info.name}</h4>
+                          <p className="text-stone-300 text-sm mt-1.5 leading-relaxed">{info.description}</p>
                         </div>
                       </div>
                     ))}
@@ -439,8 +439,8 @@ function App() {
                       <Heart className="w-5 h-5 text-rose-500" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-rose-800 text-base mb-2">關於這個行程</h3>
-                      <p className="text-rose-700/80 text-sm leading-relaxed">
+                      <h3 className="font-bold text-rose-800 text-lg mb-2">關於這個行程</h3>
+                      <p className="text-rose-700/90 text-base leading-relaxed">
                         此行程專為帶 6 歲小孩的家庭設計，採取「慢遊」方式，每天行程不趕、不走回頭路。
                         Day 2 選擇「伏見稻荷 + 嵐山」而非單一景點，更加值得。
                         冬季的京阪神雖然較冷，但遊客較少、住宿較便宜，加上六甲山雪樂園的體驗，是親子旅行的好選擇！
