@@ -72,6 +72,14 @@ function App() {
               <span className="text-xs font-bold text-white">{TRIP_INFO.dateRange}</span>
             </div>
             <div className="bg-white/20 backdrop-blur-sm px-3.5 py-2 rounded-xl border border-white/20 flex items-center gap-2">
+              <Plane className="w-4 h-4 text-white" />
+              <span className="text-xs font-bold text-white">{TRIP_INFO.flights?.outbound}</span>
+            </div>
+            <div className="bg-white/20 backdrop-blur-sm px-3.5 py-2 rounded-xl border border-white/20 flex items-center gap-2">
+              <Plane className="w-4 h-4 text-white transform rotate-180" />
+              <span className="text-xs font-bold text-white">{TRIP_INFO.flights?.inbound}</span>
+            </div>
+            <div className="bg-white/20 backdrop-blur-sm px-3.5 py-2 rounded-xl border border-white/20 flex items-center gap-2">
               <Heart className="w-4 h-4 text-white" />
               <span className="text-xs font-bold text-white">{TRIP_INFO.note}</span>
             </div>
@@ -178,13 +186,15 @@ function App() {
                     </motion.div>
 
                     {/* Queue Tips Card */}
-                    <motion.div variants={itemVariants} className="col-span-1 md:col-span-2 bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-5 border border-orange-100 shadow-sm">
-                      <div className="flex items-center gap-2 mb-3">
-                        <div className="p-2 bg-orange-100 rounded-lg"><AlertTriangle className="w-5 h-5 text-orange-600" /></div>
-                        <h3 className="font-bold text-orange-900 text-lg">避開排隊提醒</h3>
-                      </div>
-                      <p className="text-orange-800 font-medium leading-relaxed whitespace-pre-wrap">{currentDay.queueTips}</p>
-                    </motion.div>
+                    {currentDay.queueTips && (
+                      <motion.div variants={itemVariants} className="col-span-1 md:col-span-2 bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-5 border border-orange-100 shadow-sm">
+                        <div className="flex items-center gap-2 mb-3">
+                          <div className="p-2 bg-orange-100 rounded-lg"><AlertTriangle className="w-5 h-5 text-orange-600" /></div>
+                          <h3 className="font-bold text-orange-900 text-lg">避開排隊提醒</h3>
+                        </div>
+                        <p className="text-orange-800 font-medium leading-relaxed whitespace-pre-wrap">{currentDay.queueTips}</p>
+                      </motion.div>
+                    )}
 
                     {/* Child Card */}
                     <motion.div variants={itemVariants} className="bg-pink-50 rounded-2xl p-5 border border-pink-100 shadow-sm">

@@ -6,6 +6,10 @@ export const TRIP_INFO = {
   dateRange: '1/31（日）～ 2/6（六）',
   season: '冬季',
   note: '6 歲小孩、不趕行程、盡量不走回頭路',
+  flights: {
+    outbound: '去程：小港 14:20 ✈️ 關西 18:05',
+    inbound: '回程：關西 16:00 ✈️ 小港 18:40'
+  }
 };
 
 export const ITINERARY: DayItinerary[] = [

@@ -7,7 +7,7 @@ export interface DayItinerary {
   transport: string;
   childHighlights: string;
   food: string;
-  queueTips: string;
+  queueTips?: string;
 }
 
 export interface QueueStrategy {
