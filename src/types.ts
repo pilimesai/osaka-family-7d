@@ -1,20 +1,18 @@
-export interface Activity {
-  time: string;
-  name: string;
-  location?: string;
-  description: string;
-  tips?: string[];
-  guideImages?: { url: string; caption: string }[];
-}
-
 export interface DayItinerary {
   day: number;
   date: string;
-  title: string;
-  subtitle: string;
-  tag: string;
   tagColor: string;
-  activities: Activity[];
+  highlights: string;
+  schedule: string;
+  transport: string;
+  childHighlights: string;
+  food: string;
+  queueTips: string;
+}
+
+export interface QueueStrategy {
+  category: string;
+  advice: string;
 }
 
 export interface EssentialInfo {

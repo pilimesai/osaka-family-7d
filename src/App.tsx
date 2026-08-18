@@ -1,31 +1,13 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Calendar,
-  MapPin,
-  Utensils,
-  Info,
-  Clock,
-  Navigation,
-  CheckCircle2,
-  Bus,
-  Train,
-  Heart,
-  Baby,
-  ExternalLink,
-  Star,
-  Snowflake,
-  Ticket,
-  Lightbulb,
-  ChevronRight,
-  Plane,
+  Calendar, MapPin, Utensils, Info, Clock, Navigation, CheckCircle2,
+  Bus, Train, Heart, Baby, ExternalLink, Star, Snowflake, Ticket,
+  Lightbulb, ChevronRight, Plane, AlertTriangle, Zap, Target
 } from 'lucide-react';
 import { useState } from 'react';
 import {
-  ITINERARY,
-  ESSENTIAL_INFO,
-  RESTAURANTS,
-  TRANSPORT_INFO,
-  TRIP_INFO,
+  ITINERARY, ESSENTIAL_INFO, RESTAURANTS, TRANSPORT_INFO,
+  TRIP_INFO, QUEUE_STRATEGIES
 } from './constants';
 
 const TAG_COLORS: Record<string, { bg: string; text: string; border: string }> = {
@@ -41,7 +23,7 @@ const TAG_COLORS: Record<string, { bg: string; text: string; border: string }> =
 const DAY_EMOJIS = ['🚄', '⛩️', '🌊', '🛍️', '⛷️', '🐋', '✈️'];
 
 function App() {
-  const [activeTab, setActiveTab] = useState<'itinerary' | 'info' | 'food'>('itinerary');
+  const [activeTab, setActiveTab] = useState<'itinerary' | 'strategy' | 'food' | 'info'>('itinerary');
   const [activeDay, setActiveDay] = useState(1);
 
   const containerVariants = {
@@ -61,7 +43,6 @@ function App() {
     <div className="min-h-screen bg-stone-50 font-sans text-stone-900 pb-24 md:pb-8">
       {/* Header */}
       <header className="bg-gradient-to-br from-rose-500 via-pink-500 to-orange-400 py-8 px-4 relative overflow-hidden">
-        {/* Decorative circles */}
         <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -mr-20 -mt-20 blur-2xl" />
         <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/10 rounded-full -ml-16 -mb-16 blur-xl" />
         <div className="absolute top-1/2 right-8 w-24 h-24 bg-pink-300/20 rounded-full blur-2xl" />
@@ -102,7 +83,8 @@ function App() {
         {/* Navigation Tabs */}
         <div className="flex overflow-x-auto no-scrollbar border-b border-stone-200 sticky top-0 bg-white z-40 px-4 shadow-sm">
           {[
-            { id: 'itinerary', label: '行程規劃', icon: Calendar },
+            { id: 'itinerary', label: '每日行程', icon: Calendar },
+            { id: 'strategy', label: '排隊攻略', icon: Target },
             { id: 'food', label: '美食推薦', icon: Utensils },
             { id: 'info', label: '實用資訊', icon: Info },
           ].map((tab) => (
@@ -122,16 +104,10 @@ function App() {
         </div>
 
         <div className="p-4 md:p-6">
-          {/* ===================== TAB: ITINERARY ===================== */}
           <AnimatePresence mode="wait">
+            {/* ===================== TAB: ITINERARY ===================== */}
             {activeTab === 'itinerary' && (
-              <motion.div
-                key="itinerary"
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
-                exit={{ opacity: 0 }}
-              >
+              <motion.div key="itinerary" variants={containerVariants} initial="hidden" animate="visible" exit={{ opacity: 0 }}>
                 {/* Day Selector */}
                 <div className="flex gap-2 mb-6 overflow-x-auto no-scrollbar pb-2">
                   {ITINERARY.map((day) => (
@@ -144,7 +120,7 @@ function App() {
                           : 'bg-white border-stone-100 text-stone-400 hover:border-rose-200 hover:text-rose-400'
                       }`}
                     >
-                      <span className="text-lg mb-0.5">{DAY_EMOJIS[day.day - 1]}</span>
+                      <span className="text-lg mb-0.5">{DAY_EMOJIS[day.day - 1] || '✨'}</span>
                       <span className="text-[10px] uppercase font-bold tracking-wider mb-0.5">Day</span>
                       <span className="text-lg font-black leading-none">{day.day}</span>
                     </button>
@@ -153,186 +129,133 @@ function App() {
 
                 {/* Day Header */}
                 {currentDay && (
-                  <motion.div
-                    key={activeDay}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="mb-6"
-                  >
+                  <motion.div key={activeDay} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mb-6">
                     <div className="flex items-center gap-3 mb-2">
                       <div className="w-1.5 h-8 bg-gradient-to-b from-rose-500 to-pink-400 rounded-full" />
                       <div className="flex-1">
-                        <div className="flex items-center gap-2 flex-wrap">
-                          <h2 className="text-2xl font-black text-stone-900 leading-none">
-                            {currentDay.title}
-                          </h2>
-                          <span
-                            className={`text-[10px] font-bold px-2.5 py-1 rounded-full border ${tagStyle.bg} ${tagStyle.text} ${tagStyle.border}`}
-                          >
-                            {currentDay.tag}
+                        <h2 className="text-2xl font-black text-stone-900 leading-none mb-2">
+                          Day {currentDay.day} 總覽
+                        </h2>
+                        <div className="flex items-center gap-2">
+                          <span className={`text-[11px] font-bold px-3 py-1.5 rounded-full border ${tagStyle.bg} ${tagStyle.text} ${tagStyle.border}`}>
+                            {currentDay.date}
                           </span>
                         </div>
-                        <p className="text-stone-400 text-sm mt-1.5 flex items-center gap-2">
-                          <span className="font-semibold text-rose-400">{currentDay.date}</span>
-                          <span>·</span>
-                          <span>{currentDay.subtitle}</span>
-                        </p>
                       </div>
                     </div>
                   </motion.div>
                 )}
 
-                {/* Activities Timeline */}
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeDay}
-                    variants={containerVariants}
-                    initial="hidden"
-                    animate="visible"
-                    className="space-y-4"
-                  >
-                    {currentDay?.activities.map((activity, idx) => (
-                      <motion.div
-                        key={idx}
-                        variants={itemVariants}
-                        className="bg-white rounded-2xl border border-stone-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow group"
-                      >
-                        <div className="p-5 relative">
-                          {/* Decorative corner */}
-                          <div className="absolute top-0 right-0 w-20 h-20 bg-rose-50 rounded-full -mr-10 -mt-10 opacity-60 group-hover:scale-110 transition-transform" />
+                {/* Dashboard Grid */}
+                {currentDay && (
+                  <motion.div key={`grid-${activeDay}`} variants={containerVariants} initial="hidden" animate="visible" className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {/* Highlight Card */}
+                    <motion.div variants={itemVariants} className="col-span-1 md:col-span-2 bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl p-5 border border-blue-100 shadow-sm relative overflow-hidden">
+                      <div className="absolute -right-4 -top-4 w-24 h-24 bg-blue-500/10 rounded-full blur-xl"></div>
+                      <div className="flex items-center gap-2 mb-3">
+                        <div className="p-2 bg-blue-100 rounded-lg"><Zap className="w-5 h-5 text-blue-600" /></div>
+                        <h3 className="font-bold text-blue-900 text-lg">今日行程亮點</h3>
+                      </div>
+                      <p className="text-blue-800 leading-relaxed whitespace-pre-wrap">{currentDay.highlights}</p>
+                    </motion.div>
 
-                          <div className="relative">
-                            {/* Time & Location header */}
-                            <div className="flex items-center justify-between mb-3">
-                              <div className="bg-rose-50 text-rose-600 px-3.5 py-2 rounded-xl text-sm font-bold flex items-center gap-1.5">
-                                <Clock className="w-3.5 h-3.5" />
-                                {activity.time}
-                              </div>
-                              {activity.location && (
-                                <a
-                                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(activity.location)}`}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="text-stone-300 hover:text-rose-500 transition-colors flex items-center gap-1 text-xs"
-                                >
-                                  <Navigation className="w-4 h-4" />
-                                </a>
-                              )}
-                            </div>
+                    {/* Schedule Card */}
+                    <motion.div variants={itemVariants} className="bg-white rounded-2xl p-5 border border-stone-200 shadow-sm">
+                      <div className="flex items-center gap-2 mb-3">
+                        <div className="p-2 bg-stone-100 rounded-lg"><Clock className="w-5 h-5 text-stone-600" /></div>
+                        <h3 className="font-bold text-stone-900 text-lg">時間安排</h3>
+                      </div>
+                      <p className="text-stone-600 leading-relaxed whitespace-pre-wrap">{currentDay.schedule}</p>
+                    </motion.div>
 
-                            {/* Activity name */}
-                            <h3 className="text-lg font-bold text-stone-900 mb-1.5">{activity.name}</h3>
+                    {/* Transport Card */}
+                    <motion.div variants={itemVariants} className="bg-white rounded-2xl p-5 border border-stone-200 shadow-sm">
+                      <div className="flex items-center gap-2 mb-3">
+                        <div className="p-2 bg-stone-100 rounded-lg"><Train className="w-5 h-5 text-stone-600" /></div>
+                        <h3 className="font-bold text-stone-900 text-lg">交通方式</h3>
+                      </div>
+                      <p className="text-stone-600 leading-relaxed whitespace-pre-wrap">{currentDay.transport}</p>
+                    </motion.div>
 
-                            {/* Location badge */}
-                            {activity.location && (
-                              <div className="text-stone-500 text-sm font-medium flex items-center gap-1 mb-3">
-                                <MapPin className="w-3 h-3 text-rose-400" />
-                                {activity.location}
-                              </div>
-                            )}
+                    {/* Queue Tips Card */}
+                    <motion.div variants={itemVariants} className="col-span-1 md:col-span-2 bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-5 border border-orange-100 shadow-sm">
+                      <div className="flex items-center gap-2 mb-3">
+                        <div className="p-2 bg-orange-100 rounded-lg"><AlertTriangle className="w-5 h-5 text-orange-600" /></div>
+                        <h3 className="font-bold text-orange-900 text-lg">避開排隊提醒</h3>
+                      </div>
+                      <p className="text-orange-800 font-medium leading-relaxed whitespace-pre-wrap">{currentDay.queueTips}</p>
+                    </motion.div>
 
-                            {/* Description */}
-                            <p className="text-stone-600 text-base leading-relaxed mb-4">{activity.description}</p>
+                    {/* Child Card */}
+                    <motion.div variants={itemVariants} className="bg-pink-50 rounded-2xl p-5 border border-pink-100 shadow-sm">
+                      <div className="flex items-center gap-2 mb-3">
+                        <div className="p-2 bg-pink-100 rounded-lg"><Baby className="w-5 h-5 text-pink-600" /></div>
+                        <h3 className="font-bold text-pink-900 text-lg">6歲小孩亮點</h3>
+                      </div>
+                      <p className="text-pink-800 leading-relaxed whitespace-pre-wrap">{currentDay.childHighlights}</p>
+                    </motion.div>
 
-                            {/* Tips */}
-                            {activity.tips && activity.tips.length > 0 && (
-                              <div className="bg-amber-50/80 rounded-xl p-4 border border-amber-100/80">
-                                <div className="flex items-center gap-2 text-amber-800 mb-2.5 font-bold text-sm">
-                                  <Lightbulb className="w-3.5 h-3.5" />
-                                  <span>親子提醒</span>
-                                </div>
-                                <ul className="space-y-2">
-                                  {activity.tips.map((tip, i) => (
-                                    <li
-                                      key={i}
-                                      className="text-amber-800 text-sm flex items-start gap-2 leading-relaxed"
-                                    >
-                                      <ChevronRight className="w-4 h-4 mt-0.5 shrink-0 text-amber-400" />
-                                      {tip}
-                                    </li>
-                                  ))}
-                                </ul>
-                              </div>
-                            )}
-
-                            {/* Guide Images */}
-                            {activity.guideImages && activity.guideImages.length > 0 && (
-                              <div className="mt-4 space-y-4">
-                                <div className="text-stone-800 font-bold text-base border-b border-stone-200 pb-3">
-                                  📸 路線指引 (請參考圖片說明)
-                                </div>
-                                {activity.guideImages.map((image, i) => (
-                                  <div key={i} className="rounded-xl overflow-hidden border border-stone-100 shadow-sm bg-stone-50">
-                                    <div className="bg-white p-4 text-base text-stone-800 font-bold border-b border-stone-100">
-                                      {image.caption}
-                                    </div>
-                                    <img src={image.url} alt={image.caption} className="w-full h-auto object-cover" />
-                                  </div>
-                                ))}
-                              </div>
-                            )}
-                          </div>
-                        </div>
-
-                        {/* Activity index indicator */}
-                        <div className="h-1 bg-gradient-to-r from-rose-400 via-pink-400 to-orange-300 opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </motion.div>
-                    ))}
+                    {/* Food Card */}
+                    <motion.div variants={itemVariants} className="bg-emerald-50 rounded-2xl p-5 border border-emerald-100 shadow-sm">
+                      <div className="flex items-center gap-2 mb-3">
+                        <div className="p-2 bg-emerald-100 rounded-lg"><Utensils className="w-5 h-5 text-emerald-600" /></div>
+                        <h3 className="font-bold text-emerald-900 text-lg">不吃牛美食建議</h3>
+                      </div>
+                      <p className="text-emerald-800 leading-relaxed whitespace-pre-wrap">{currentDay.food}</p>
+                    </motion.div>
                   </motion.div>
-                </AnimatePresence>
+                )}
+              </motion.div>
+            )}
+
+            {/* ===================== TAB: STRATEGY ===================== */}
+            {activeTab === 'strategy' && (
+              <motion.div key="strategy" variants={containerVariants} initial="hidden" animate="visible" exit={{ opacity: 0 }}>
+                <div className="mb-6">
+                  <h2 className="text-xl font-black text-stone-900 mb-1">排隊攻略 🎯</h2>
+                  <p className="text-stone-500 text-sm">遵守這些核心原則，讓旅程更順暢</p>
+                </div>
+                <div className="space-y-4">
+                  {QUEUE_STRATEGIES.map((strategy, idx) => (
+                    <motion.div key={idx} variants={itemVariants} className="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm flex flex-col md:flex-row items-start md:items-center gap-4">
+                      <div className="bg-rose-100 text-rose-600 font-black text-sm px-3 py-1.5 rounded-lg whitespace-nowrap">
+                        {strategy.category}
+                      </div>
+                      <p className="text-stone-700 font-medium leading-relaxed">
+                        {strategy.advice}
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
               </motion.div>
             )}
 
             {/* ===================== TAB: FOOD ===================== */}
             {activeTab === 'food' && (
-              <motion.div
-                key="food"
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
-                exit={{ opacity: 0 }}
-              >
-                {/* Area filter chips */}
+              <motion.div key="food" variants={containerVariants} initial="hidden" animate="visible" exit={{ opacity: 0 }}>
                 <div className="mb-6">
                   <h2 className="text-xl font-black text-stone-900 mb-1">美食地圖 🍜</h2>
-                  <p className="text-stone-400 text-sm">精選京阪神必吃美食，帶小孩也能輕鬆享用</p>
+                  <p className="text-stone-400 text-sm">精選京阪神美食</p>
                 </div>
-
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   {RESTAURANTS.map((restaurant, index) => (
-                    <motion.div
-                      key={index}
-                      variants={itemVariants}
-                      className="bg-white rounded-2xl border border-stone-100 overflow-hidden flex flex-col group hover:shadow-md transition-shadow"
-                    >
-                      {/* Colored top strip */}
+                    <motion.div key={index} variants={itemVariants} className="bg-white rounded-2xl border border-stone-100 overflow-hidden flex flex-col group hover:shadow-md transition-shadow">
                       <div className="h-1.5 bg-gradient-to-r from-rose-400 via-pink-400 to-orange-300" />
-
                       <div className="p-5 flex-1 flex flex-col">
                         <div className="flex items-start justify-between mb-3">
                           <div className="flex-1">
                             <div className="flex items-center gap-2 mb-1.5">
-                              <span className="bg-rose-50 text-rose-600 text-xs font-bold px-2.5 py-1 rounded-full border border-rose-100">
-                                {restaurant.area}
-                              </span>
-                              <span className="bg-stone-50 text-stone-600 text-xs font-bold px-2.5 py-1 rounded-full border border-stone-100">
-                                {restaurant.category}
-                              </span>
+                              <span className="bg-rose-50 text-rose-600 text-xs font-bold px-2.5 py-1 rounded-full border border-rose-100">{restaurant.area}</span>
+                              <span className="bg-stone-50 text-stone-600 text-xs font-bold px-2.5 py-1 rounded-full border border-stone-100">{restaurant.category}</span>
                             </div>
-                            <h3 className="text-lg font-black text-stone-900 leading-tight">
-                              {restaurant.name}
-                            </h3>
+                            <h3 className="text-lg font-black text-stone-900 leading-tight">{restaurant.name}</h3>
                           </div>
                           <div className="flex items-center gap-1 bg-amber-50 px-2.5 py-1.5 rounded-xl border border-amber-100 shrink-0 ml-3">
                             <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
                             <span className="font-black text-amber-700 text-sm">{restaurant.rating}</span>
                           </div>
                         </div>
-
-                        <p className="text-stone-600 text-base mb-4 leading-relaxed flex-1">
-                          {restaurant.recommendation}
-                        </p>
-
+                        <p className="text-stone-600 text-base mb-4 leading-relaxed flex-1">{restaurant.recommendation}</p>
                         <div className="flex items-center justify-between pt-3 border-t border-stone-50">
                           <div className="flex items-center gap-1.5 text-stone-500 text-sm">
                             <MapPin className="w-3.5 h-3.5" />
@@ -340,14 +263,7 @@ function App() {
                           </div>
                           <div className="flex items-center gap-3">
                             <span className="text-rose-500 text-sm font-bold">{restaurant.priceRange}</span>
-                            <a
-                              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(restaurant.name + ' ' + restaurant.area)}`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-rose-500 text-sm font-black flex items-center gap-1 hover:underline underline-offset-4"
-                            >
-                              MAP <ExternalLink className="w-3.5 h-3.5" />
-                            </a>
+                            <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(restaurant.name + ' ' + restaurant.area)}`} target="_blank" rel="noopener noreferrer" className="text-rose-500 text-sm font-black flex items-center gap-1 hover:underline underline-offset-4">MAP <ExternalLink className="w-3.5 h-3.5" /></a>
                           </div>
                         </div>
                       </div>
@@ -359,33 +275,16 @@ function App() {
 
             {/* ===================== TAB: INFO ===================== */}
             {activeTab === 'info' && (
-              <motion.div
-                key="info"
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
-                exit={{ opacity: 0 }}
-                className="space-y-6"
-              >
-                {/* Essential Info */}
+              <motion.div key="info" variants={containerVariants} initial="hidden" animate="visible" exit={{ opacity: 0 }} className="space-y-6">
                 <div>
                   <h2 className="text-xl font-black text-stone-900 mb-1">行前必知 📋</h2>
                   <p className="text-stone-400 text-sm mb-5">帶小孩出國的實用資訊整理</p>
-
                   <div className="grid grid-cols-1 gap-3">
                     {ESSENTIAL_INFO.map((item, index) => (
-                      <motion.div
-                        key={index}
-                        variants={itemVariants}
-                        className="bg-white p-5 rounded-2xl border border-stone-100 shadow-sm flex gap-4 items-start hover:shadow-md transition-shadow"
-                      >
-                        <div className="w-11 h-11 bg-rose-50 rounded-xl flex items-center justify-center shrink-0 text-xl">
-                          {item.icon}
-                        </div>
+                      <motion.div key={index} variants={itemVariants} className="bg-white p-5 rounded-2xl border border-stone-100 shadow-sm flex gap-4 items-start hover:shadow-md transition-shadow">
+                        <div className="w-11 h-11 bg-rose-50 rounded-xl flex items-center justify-center shrink-0 text-xl">{item.icon}</div>
                         <div className="flex-1 min-w-0">
-                          <h3 className="font-bold text-stone-900 text-lg mb-1.5 leading-tight">
-                            {item.title}
-                          </h3>
+                          <h3 className="font-bold text-stone-900 text-lg mb-1.5 leading-tight">{item.title}</h3>
                           <p className="text-stone-600 text-base leading-relaxed">{item.content}</p>
                         </div>
                       </motion.div>
@@ -393,32 +292,18 @@ function App() {
                   </div>
                 </div>
 
-                {/* Transport Info */}
-                <motion.div
-                  variants={itemVariants}
-                  className="bg-stone-900 rounded-3xl p-6 md:p-8 text-white relative overflow-hidden"
-                >
+                <motion.div variants={itemVariants} className="bg-stone-900 rounded-3xl p-6 md:p-8 text-white relative overflow-hidden">
                   <div className="absolute bottom-0 right-0 w-40 h-40 bg-rose-500/15 rounded-full -mb-20 -mr-20 blur-3xl" />
                   <div className="absolute top-0 left-1/2 w-32 h-32 bg-pink-500/10 rounded-full -mt-16 blur-3xl" />
-
                   <h3 className="text-xl font-black mb-6 flex items-center gap-3 leading-none relative">
                     <Train className="w-6 h-6 text-rose-400" />
                     交通攻略
                   </h3>
-
                   <div className="space-y-5 relative">
                     {TRANSPORT_INFO.map((info, idx) => (
                       <div key={idx} className="flex gap-4">
                         <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center shrink-0 border border-white/10">
-                          {info.type === 'bus' ? (
-                            <Bus className="w-5 h-5 text-rose-400" />
-                          ) : info.type === 'pass' ? (
-                            <Ticket className="w-5 h-5 text-rose-400" />
-                          ) : info.type === 'tip' ? (
-                            <Lightbulb className="w-5 h-5 text-rose-400" />
-                          ) : (
-                            <Train className="w-5 h-5 text-rose-400" />
-                          )}
+                          {info.type === 'bus' ? <Bus className="w-5 h-5 text-rose-400" /> : info.type === 'pass' ? <Ticket className="w-5 h-5 text-rose-400" /> : info.type === 'tip' ? <Lightbulb className="w-5 h-5 text-rose-400" /> : <Train className="w-5 h-5 text-rose-400" />}
                         </div>
                         <div>
                           <h4 className="font-bold text-white text-base">{info.name}</h4>
@@ -429,11 +314,7 @@ function App() {
                   </div>
                 </motion.div>
 
-                {/* Trip Note */}
-                <motion.div
-                  variants={itemVariants}
-                  className="bg-gradient-to-br from-rose-50 to-pink-50 rounded-2xl p-6 border border-rose-100"
-                >
+                <motion.div variants={itemVariants} className="bg-gradient-to-br from-rose-50 to-pink-50 rounded-2xl p-6 border border-rose-100">
                   <div className="flex items-start gap-3">
                     <div className="w-10 h-10 bg-rose-100 rounded-xl flex items-center justify-center shrink-0">
                       <Heart className="w-5 h-5 text-rose-500" />
@@ -441,9 +322,7 @@ function App() {
                     <div>
                       <h3 className="font-bold text-rose-800 text-lg mb-2">關於這個行程</h3>
                       <p className="text-rose-700/90 text-base leading-relaxed">
-                        此行程專為帶 6 歲小孩的家庭設計，採取「慢遊」方式，每天行程不趕、不走回頭路。
-                        Day 2 選擇「伏見稻荷 + 嵐山」而非單一景點，更加值得。
-                        冬季的京阪神雖然較冷，但遊客較少、住宿較便宜，加上六甲山雪樂園的體驗，是親子旅行的好選擇！
+                        避開排隊・不吃牛 專屬版！為帶 6 歲小孩的家庭設計，確保旅途順暢、充滿回憶。
                       </p>
                     </div>
                   </div>
@@ -454,10 +333,10 @@ function App() {
         </div>
       </main>
 
-      {/* Mobile Footer Navigation */}
       <footer className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-xl border-t border-stone-100 p-2 md:hidden flex justify-around items-center z-50">
         {[
           { id: 'itinerary', label: '行程', icon: Calendar },
+          { id: 'strategy', label: '攻略', icon: Target },
           { id: 'food', label: '美食', icon: Utensils },
           { id: 'info', label: '資訊', icon: Info },
         ].map((tab) => (
