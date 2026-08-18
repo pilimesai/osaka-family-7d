@@ -20,6 +20,16 @@ export const ITINERARY: DayItinerary[] = [
     "highlights": "關西機場 → 京都入住\r\nHARUKA → 京都車站 → Porta／京都站周邊逛街",
     "schedule": "抵達後\r\n→ 京都入住\r\n→ 晚餐\r\n→ 早點休息",
     "transport": "關空特急 HARUKA\r\n關西機場 → 京都",
+    "transportDetails": {
+      "price": "大人 2,200 日圓 / 兒童 (6-11歲) 1,100 日圓",
+      "whereToBuy": "建議提前在 Klook / KKday 購買電子票以節省時間，也可至現場 JR 綠色售票機或人工窗口購買",
+      "scheduleOptions": [
+        "19:16 發車 → 20:34 抵達京都 (HARUKA 54號)",
+        "19:46 發車 → 21:04 抵達京都 (HARUKA 56號)",
+        "20:16 發車 → 21:34 抵達京都 (HARUKA 58號)"
+      ],
+      "note": "班機 18:05 抵達，出關加接駁車時間約需 1 小時，建議搭乘 19:16 之後的班次最保險。"
+    },
     "childHighlights": "第一次搭 HARUKA 特急\r\n沿途看冬季日本風景",
     "food": "名代炸豬排 Katsukura\r\n黑豬炸豬排／炸蝦",
     "queueTips": "第一天不排景點\r\n抵達後以休息為主",

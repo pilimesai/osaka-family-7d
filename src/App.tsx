@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   Calendar, MapPin, Utensils, Info, Clock, Navigation, CheckCircle2,
   Bus, Train, Heart, Baby, ExternalLink, Star, Snowflake, Ticket,
-  Lightbulb, ChevronRight, Plane, AlertTriangle, Zap, Target
+  Lightbulb, ChevronRight, Plane, AlertTriangle, Zap, Target, Store
 } from 'lucide-react';
 import { useState } from 'react';
 import {
@@ -183,6 +183,38 @@ function App() {
                         <h3 className="font-bold text-stone-900 text-lg">交通方式</h3>
                       </div>
                       <p className="text-stone-600 leading-relaxed whitespace-pre-wrap">{currentDay.transport}</p>
+                      {currentDay.transportDetails && (
+                        <div className="mt-4 pt-4 border-t border-stone-100 space-y-3">
+                          <div className="flex items-start gap-2">
+                            <Ticket className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                            <div className="text-sm">
+                              <span className="font-bold text-stone-700">票價：</span>
+                              <span className="text-stone-600">{currentDay.transportDetails.price}</span>
+                            </div>
+                          </div>
+                          <div className="flex items-start gap-2">
+                            <Store className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
+                            <div className="text-sm">
+                              <span className="font-bold text-stone-700">購票：</span>
+                              <span className="text-stone-600">{currentDay.transportDetails.whereToBuy}</span>
+                            </div>
+                          </div>
+                          <div className="flex items-start gap-2">
+                            <Clock className="w-4 h-4 text-indigo-600 shrink-0 mt-0.5" />
+                            <div className="text-sm w-full">
+                              <span className="font-bold text-stone-700">推薦時刻表：</span>
+                              <ul className="mt-1 space-y-1">
+                                {currentDay.transportDetails.scheduleOptions.map((opt, idx) => (
+                                  <li key={idx} className="text-stone-600 bg-stone-50 px-2 py-1 rounded text-xs border border-stone-100">{opt}</li>
+                                ))}
+                              </ul>
+                              {currentDay.transportDetails.note && (
+                                <p className="mt-2 text-xs text-amber-700 bg-amber-50 p-2 rounded border border-amber-100">{currentDay.transportDetails.note}</p>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </motion.div>
 
                     {/* Queue Tips Card */}

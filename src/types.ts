@@ -4,6 +4,14 @@ export interface DayItinerary {
   tagColor: string;
   highlights: string;
   schedule: string;
+  transport: string;
+  transportDetails?: {
+    price: string;
+    whereToBuy: string;
+    scheduleOptions: string[];
+    note?: string;
+  };
+  childHighlights: string;
   food: string;
   queueTips?: string;
   guide?: {
