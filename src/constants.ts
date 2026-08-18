@@ -22,7 +22,21 @@ export const ITINERARY: DayItinerary[] = [
     "transport": "關空特急 HARUKA\r\n關西機場 → 京都",
     "childHighlights": "第一次搭 HARUKA 特急\r\n沿途看冬季日本風景",
     "food": "名代炸豬排 Katsukura\r\n黑豬炸豬排／炸蝦",
-    "queueTips": "第一天不排景點\r\n抵達後以休息為主"
+    "queueTips": "第一天不排景點\r\n抵達後以休息為主",
+    "guide": {
+      "title": "長輩與小孩專用：機場轉航廈圖文指南 (T2 → T1)",
+      "description": "搭乘從高雄小港起飛的班機將抵達關西空港第二航廈 (T2)。因為所有電車都在第一航廈 (T1)，抵達後請先搭乘「免費接駁車」前往 T1。",
+      "steps": [
+        "步驟1：領完行李入境後，直走尋找「Terminal 1 / Shuttle Bus」的指示牌",
+        "步驟2：走出大門外，就會看到綠白相間的免費接駁車 (約7-9分鐘一班)",
+        "步驟3：上車不需付費，車程約10分鐘。下車後搭乘手扶梯上2樓，跟著指標走即可抵達JR/南海電車站 (關西空港駅)"
+      ],
+      "images": [
+        { "url": "images/guide/kix_t2_exit.jpg", "caption": "1. 尋找藍色指示牌" },
+        { "url": "images/guide/kix_t2_bus.jpg", "caption": "2. 搭乘綠白色接駁車" },
+        { "url": "images/guide/kix_t1_arrival.jpg", "caption": "3. 下車後跟著指標上樓" }
+      ]
+    }
   },
   {
     "day": 2,

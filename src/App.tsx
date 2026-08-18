@@ -196,6 +196,35 @@ function App() {
                       </motion.div>
                     )}
 
+                    {/* Guide Card */}
+                    {currentDay.guide && (
+                      <motion.div variants={itemVariants} className="col-span-1 md:col-span-2 bg-gradient-to-br from-stone-800 to-stone-900 rounded-2xl p-6 border border-stone-700 shadow-lg text-white">
+                        <div className="flex items-center gap-2 mb-4">
+                          <div className="p-2 bg-white/10 rounded-lg"><Navigation className="w-5 h-5 text-white" /></div>
+                          <h3 className="font-bold text-white text-lg">{currentDay.guide.title}</h3>
+                        </div>
+                        <p className="text-stone-300 leading-relaxed mb-5">{currentDay.guide.description}</p>
+                        <div className="bg-white/5 rounded-xl p-5 border border-white/10 mb-5">
+                          <ul className="space-y-3">
+                            {currentDay.guide.steps.map((step, idx) => (
+                              <li key={idx} className="flex items-start gap-3 text-stone-200">
+                                <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                                <span>{step}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                          {currentDay.guide.images.map((img, idx) => (
+                            <div key={idx} className="rounded-xl overflow-hidden border border-white/10 bg-black/20">
+                              <img src={img.url} alt={img.caption} className="w-full h-32 object-cover opacity-80 hover:opacity-100 transition-opacity" />
+                              <div className="p-2.5 text-xs text-center text-stone-300 font-medium">{img.caption}</div>
+                            </div>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+
                     {/* Child Card */}
                     <motion.div variants={itemVariants} className="bg-pink-50 rounded-2xl p-5 border border-pink-100 shadow-sm">
                       <div className="flex items-center gap-2 mb-3">
