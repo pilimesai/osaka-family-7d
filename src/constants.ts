@@ -1,4 +1,4 @@
-import { DayItinerary, EssentialInfo, Restaurant, TransportInfo, QueueStrategy } from './types';
+import { DayItinerary, EssentialInfo, Restaurant, TransportInfo, QueueStrategy, HotelInfo } from './types';
 
 export const TRIP_INFO = {
   title: '京阪神親子 7 天 6 夜',
@@ -12,14 +12,84 @@ export const TRIP_INFO = {
   }
 };
 
+export const HOTELS: HotelInfo[] = [
+  {
+    id: 'vischio_kyoto',
+    name: 'Hotel Vischio Kyoto by GRANVIA',
+    japaneseName: 'ホテルヴィスキオ京都 by GRANVIA',
+    checkInDate: '1月31日 15:00',
+    checkOutDate: '2月2日 11:00',
+    stayDuration: '2 晚（1/31 入住 ～ 2/2 退房）',
+    area: '京都・JR京都車站八條口',
+    address: '京都府京都市南区東九条上殿田町44-1',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=Hotel+Vischio+Kyoto+by+GRANVIA',
+    phone: '+81 75-280-1111',
+    coverImage: 'images/hotels/vischio_kyoto_entrance.jpg',
+    routeImage: 'images/hotels/vischio_kyoto_route.jpg',
+    stationExit: 'JR京都站「八條西口」步行約 2 分鐘（無障礙平坦步道）',
+    routeTitle: 'JR京都站（八條西口）→ 飯店詳細步行路線',
+    routeDescription: '從關西機場搭乘 HARUKA 抵達京都車站後，出站步行僅約 2 分鐘即可抵達！全程平坦寬敞無階梯，非常適合推嬰兒車與攜帶多件大行李的親子家庭。',
+    routeSteps: [
+      '【步驟 1】搭乘 HARUKA 特急抵達 JR 京都車站月台後，依站內指標前往 1 樓「八條西口（Hachijo West Gate）」出剪票口。',
+      '【步驟 2】踏出八條西口大門，正前方對面為 Avanti 百貨與京阪巴士候車亭，前方有平整斑馬線。',
+      '【步驟 3】順著斑馬線過馬路至對面，沿著「竹田街道」往南（直行）約 80 公尺（約 2 分鐘路程）。',
+      '【步驟 4】左側即可看到「HOTEL VISCHIO KYOTO」質感大門與迎賓落地窗大廳，進入 1 樓大廳即可出示預訂憑證辦理 Check-in！'
+    ],
+    highlights: [
+      '♨️ 住客專用大浴場＆桑拿（附設人工溫泉，洗淨飛行與走路的疲倦）',
+      '☕ 自助備品吧（大廳提供多款高品質茶包、濾掛咖啡、洗沐與保養備品自由挑選）',
+      '🧺 自助洗烘衣房（配備投幣式洗烘衣機，隨時清洗小孩衣物）',
+      '🛍️ 周邊機能極強：步行 1 分鐘到 Avanti 百貨（B1 有唐吉訶德驚安殿堂）、7-11 便利商店與地下街 Porta 美食'
+    ],
+    familyTips: [
+      '推推車時從八條西口出來均為無障礙平面步道，不必上下樓梯或搬行李。',
+      '2 樓大浴場開放時間：06:00-10:00 / 15:00-01:00，晚上可帶小朋友先泡舒服的熱水澡再睡覺。'
+    ]
+  },
+  {
+    id: 'flag_shinsaibashi',
+    name: '心齋橋法拉格飯店 (Hotel The Flag Shinsaibashi)',
+    japaneseName: 'ホテル ザ フラッグ 心斎橋',
+    bookingNumber: '73529171015643',
+    checkInDate: '2月2日 15:00',
+    checkOutDate: '2月6日 11:00',
+    stayDuration: '4 晚連住（2/2 入住 ～ 2/6 退房）',
+    area: '大阪・心齋橋 / 道頓堀商圈',
+    address: '大阪府大阪市中央区東心斎橋1-18-30',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=HOTEL+THE+FLAG+Shinsaibashi',
+    phone: '+81 6-6121-8111',
+    coverImage: 'images/hotels/flag_shinsaibashi_entrance.jpg',
+    routeImage: 'images/hotels/flag_shinsaibashi_route.jpg',
+    stationExit: '地下鐵御堂筋線「心齋橋站」6號出口（電梯走大丸南館或長堀地下街南12）步行 3 分鐘',
+    routeTitle: '心齋橋站（御堂筋線）→ 飯店詳細步行路線',
+    routeDescription: '座落於心齋橋筋商店街旁寧靜巷弄內，鬧中取靜。從心齋橋站步行僅約 3-4 分鐘，出巷口就能逛街用餐，帶小孩回房午睡或放戰利品都超方便！',
+    routeSteps: [
+      '【步驟 1】搭乘御堂筋線至「心齋橋站（M19）」。推推車或拉大行李建議搭「大丸百貨南館電梯」或 Crysta 長堀地下街「南12號電梯」直達 1 樓地面；輕裝可直接走「6號出口」。',
+      '【步驟 2】出站後進入繁華熱鬧的「心齋橋筋商店街」，往難波／道頓堀方向（往南）前行約 1 分鐘（約 80 公尺）。',
+      '【步驟 3】在「鰻谷南通（Unagidani Minami-dori）」路口（見三木樂器／PABLO附近十字路口）左轉（往東轉入巷內）。',
+      '【步驟 4】沿著鰻谷南通直走約 150 公尺（約 2 分鐘），右手邊即可看到黑色現代外觀、門口擺放標誌性日式青苔球盆栽與巨石造景的「HOTEL THE FLAG」大門，進入大廳辦理 Check-in！'
+    ],
+    highlights: [
+      '☕ 24小時 免費迎賓 Lounge（全天無限供應高品質研磨咖啡、精選茶飲與舒適休憩沙發）',
+      '🧺 自助洗衣房（配備高效率洗脫烘衣機，連住 4 晚洗衣服超省心）',
+      '🚶 黃金便利位置：出巷口即達心齋橋筋商店街，步行 7-8 分鐘可達道頓堀跑跑人招牌與眾多美食名店',
+      '🛏️ 高評價設計旅店：客房隔音極佳、床鋪舒適，大廳寬敞原木長桌氛圍典雅大方'
+    ],
+    familyTips: [
+      '心齋橋逛街若買太多戰利品或小孩喊累，隨時可步行 2 分鐘回飯店放東西、上廁所或小憩。',
+      '最後一天（2/6）早上 11:00 退房後，可將全部行李免費寄放在櫃檯，輕裝在心齋橋周邊吃午餐採買，下午再回飯店提行李去搭南海電鐵 Rapi:t。'
+    ]
+  }
+];
+
 export const ITINERARY: DayItinerary[] = [
   {
     "day": 1,
     "date": "1/31（日）",
     "tagColor": "blue",
-    "highlights": "關西機場 → 京都入住\r\nHARUKA → 京都車站 → Porta／京都站周邊逛街",
-    "schedule": "抵達後\r\n→ 京都入住\r\n→ 晚餐\r\n→ 早點休息",
-    "transport": "關空特急 HARUKA\r\n關西機場 → 京都",
+    "highlights": "關西機場 → 京都入住 Hotel Vischio Kyoto\r\nHARUKA → 京都車站八條口 → 飯店Check-in → Porta／周邊逛街",
+    "schedule": "抵達後搭 HARUKA 前往京都\r\n→ 京都車站八條西口步行 2 分鐘直達「Hotel Vischio Kyoto」辦理入住\r\n→ 享用名代炸豬排晚餐\r\n→ 享受飯店大浴場泡湯，早點休息",
+    "transport": "關空特急 HARUKA\r\n關西機場 → 京都車站（八條口）",
     "transportDetails": {
       "price": "大人 2,200 日圓 / 兒童 (6-11歲) 1,100 日圓",
       "whereToBuy": "建議提前在 Klook / KKday 購買電子票以節省時間，也可至現場 JR 綠色售票機或人工窗口購買",
@@ -30,9 +100,10 @@ export const ITINERARY: DayItinerary[] = [
       ],
       "note": "班機 18:05 抵達，出關加接駁車時間約需 1 小時，建議搭乘 19:16 之後的班次最保險。"
     },
-    "childHighlights": "第一次搭 HARUKA 特急\r\n沿途看冬季日本風景",
-    "food": "名代炸豬排 Katsukura\r\n黑豬炸豬排／炸蝦",
-    "queueTips": "第一天不排景點\r\n抵達後以休息為主",
+    "hotelId": "vischio_kyoto",
+    "childHighlights": "第一次搭 HARUKA 特急\r\n沿途看冬季日本風景\r\n飯店 2 樓泡大浴場",
+    "food": "名代炸豬排 Katsukura（Porta地下街）\r\n黑豬炸豬排／炸蝦定食",
+    "queueTips": "第一天不排景點\r\n出站 2 分鐘迅速進飯店休息",
     "guide": {
       "title": "長輩與小孩專用：機場轉航廈圖文指南 (T2 → T1)",
       "description": "搭乘從高雄小港起飛的班機將抵達關西空港第二航廈 (T2)。因為所有電車都在第一航廈 (T1)，抵達後請先搭乘「免費接駁車」前往 T1。",
@@ -52,10 +123,11 @@ export const ITINERARY: DayItinerary[] = [
     "day": 2,
     "date": "2/1（一）",
     "tagColor": "orange",
-    "highlights": "京都親子漫遊日\r\n上午：嵐山（渡月橋、竹林小徑）\r\n下午：京都鐵道博物館",
-    "schedule": "08:30 飯店早餐\r\n09:30 出發嵐山\r\n10:00-12:00 嵐山漫步\r\n12:00 嵐山午餐\r\n14:00-16:30 鐵道博物館",
+    "highlights": "京都親子漫遊日\r\n上午：嵐山（渡月橋、竹林小徑）\r\n下午：京都鐵道博物館\r\n晚上：續住 Hotel Vischio Kyoto",
+    "schedule": "08:30 飯店悠閒早餐\r\n09:30 出發嵐山（JR京都站搭乘 15 分鐘）\r\n10:00-12:00 嵐山漫步\r\n12:00 嵐山午餐\r\n14:00-16:30 鐵道博物館\r\n晚上回 Hotel Vischio Kyoto 泡湯休息",
     "transport": "京都站搭 JR 15分鐘到嵐山。中午搭乘「嵐電」路面電車轉巴士前往鐵道博物館，最不費力。",
-    "childHighlights": "竹林、渡月橋\r\n下午火車、蒸汽火車、模擬駕駛",
+    "hotelId": "vischio_kyoto",
+    "childHighlights": "竹林、渡月橋\r\n下午火車、蒸汽火車、模擬駕駛\r\n晚上大浴場泡澡",
     "food": "湯豆腐／京野菜天婦羅\r\n嵐山豆腐料理",
     "queueTips": "嵐山早上先去\r\n不排猴子公園\r\n鐵道博物館提前買票／查活動"
   },
@@ -63,20 +135,22 @@ export const ITINERARY: DayItinerary[] = [
     "day": 3,
     "date": "2/2（二）",
     "tagColor": "green",
-    "highlights": "KKDAY一日遊\r\n天橋立 → 伊根舟屋 → 大阪難波入住",
-    "schedule": "早上京都集合\r\n天橋立\r\n→ 伊根\r\n→ 晚上大阪",
-    "transport": "KKday／一日遊專車\r\n行李放巴士行李廂",
-    "childHighlights": "伊根灣遊船餵海鷗\r\n蝦條餵鳥",
+    "highlights": "KKDAY一日遊 → 大阪心齋橋入住\r\n天橋立 → 伊根舟屋 → 抵達大阪入住心齋橋法拉格飯店",
+    "schedule": "早上京都站退房集合（行李放KKday遊覽車行李廂）\r\n天橋立\r\n→ 伊根舟屋餵海鷗\r\n→ 晚上專車抵達大阪心齋橋\r\n→ 入住「心齋橋法拉格飯店」（行程編號：73529171015643）\r\n→ Lounge 享用免費咖啡，回房好好休息",
+    "transport": "KKday 一日遊專車（專車載送行李直達大阪）",
+    "hotelId": "flag_shinsaibashi",
+    "childHighlights": "伊根灣遊船餵海鷗\r\n蝦條餵鳥\r\n入住現代質感法拉格飯店",
     "food": "北極星蛋包飯\r\n雞肉／蝦仁口味",
-    "queueTips": "這天是全程較累的一天\r\n晚上抵達大阪後直接入住休息"
+    "queueTips": "這天是全程較累的一天\r\n晚上抵達大阪後直接入住休息，不安排夜間逛街"
   },
   {
     "day": 4,
     "date": "2/3（三）",
     "tagColor": "purple",
-    "highlights": "大阪放空日\r\n難波 → 心齋橋 → 道頓堀 → 藥妝／伴手禮",
-    "schedule": "睡到自然醒\r\n上午休息\r\n下午逛街\r\n晚上道頓堀",
-    "transport": "主要步行\r\nICOCA／手機交通卡備用",
+    "highlights": "大阪放空日・宿心齋橋法拉格飯店\r\n心齋橋筋 → 道頓堀 → 藥妝／伴手禮採買",
+    "schedule": "睡到自然醒，享用飯店 Lounge 咖啡\r\n上午休息放空\r\n下午心齋橋商店街逛街\r\n累了隨時步行 2 分鐘回飯店休息放戰利品\r\n晚上道頓堀看固力果跑跑人",
+    "transport": "主要步行（飯店出巷口即是心齋橋商店街）\r\nICOCA／手機交通卡備用",
+    "hotelId": "flag_shinsaibashi",
     "childHighlights": "草莓大福、日式甜點\r\n元祖串炸達摩（蝦／蔬菜／起司）",
     "food": "不排固定景點\r\n累了可直接回飯店休息"
   },
@@ -84,9 +158,10 @@ export const ITINERARY: DayItinerary[] = [
     "day": 5,
     "date": "2/4（四）",
     "tagColor": "cyan",
-    "highlights": "神戶玩雪日\r\n難波 → 六甲山雪樂園 → 三宮 → 難波",
-    "schedule": "08:00 難波出發\r\n10:00–14:00 玩雪\r\n15:30 三宮\r\n19:00 回大阪",
-    "transport": "阪神電車 → 三宮\r\n再轉六甲山交通",
+    "highlights": "神戶玩雪日・宿心齋橋法拉格飯店\r\n心齋橋 → 六甲山雪樂園 → 三宮 → 返回飯店",
+    "schedule": "08:00 心齋橋出發\r\n10:00–14:00 六甲山玩雪\r\n15:30 三宮逛街\r\n19:00 返回心齋橋法拉格飯店，利用洗衣房清洗玩雪衣物",
+    "transport": "阪神電車 → 三宮\r\n再轉六甲山交通纜車與巴士",
+    "hotelId": "flag_shinsaibashi",
     "childHighlights": "雪盆、堆雪人、打雪仗",
     "food": "明石燒\r\n南京町豬肉包／海鮮類",
     "queueTips": "取消神戶動物王國\r\n全日只專心玩雪\r\n2027雪樂園營業資訊待官方公告"
@@ -95,9 +170,10 @@ export const ITINERARY: DayItinerary[] = [
     "day": 6,
     "date": "2/5（五）",
     "tagColor": "pink",
-    "highlights": "大阪海遊館 → 天保山大摩天輪",
-    "schedule": "10:30 難波附近早餐\r\n11:30 出發\r\n12:30–13:00 入場\r\n約16:00離開\r\n摩天輪＋晚餐",
-    "transport": "御堂筋線 難波 → 本町\r\n轉中央線 → 大阪港",
+    "highlights": "大阪海遊館 → 天保山大摩天輪・宿心齋橋法拉格飯店",
+    "schedule": "10:30 心齋橋附近悠閒早餐\r\n11:30 出發海遊館\r\n12:30–13:00 入場海遊館\r\n約16:00離開\r\n天保山摩天輪＋晚餐\r\n回心齋橋法拉格飯店打包行李",
+    "transport": "御堂筋線 心齋橋 → 本町\r\n轉中央線 → 大阪港",
+    "hotelId": "flag_shinsaibashi",
     "childHighlights": "鯨鯊、企鵝、水母\r\n天保山摩天輪",
     "food": "鶴橋風月大阪燒\r\n豬肉海鮮口味",
     "queueTips": "海遊館提前購買指定入館時間\r\n避免現場排隊"
@@ -106,10 +182,11 @@ export const ITINERARY: DayItinerary[] = [
     "day": 7,
     "date": "2/6（六）",
     "tagColor": "rose",
-    "highlights": "難波最後採買 → 關西機場 → 返台",
-    "schedule": "退房寄行李\r\n上午最後採買\r\n午餐\r\n回飯店取行李\r\n搭 Rapi:t",
-    "transport": "南海電鐵 Rapi:t\r\n難波 → 關西機場",
-    "childHighlights": "搭藍色特急 Rapi:t\r\n全車指定席",
+    "highlights": "心齋橋法拉格飯店退房寄行李 → 最後採買 → 關西機場 → 返台",
+    "schedule": "11:00 前辦理退房，行李免費寄放法拉格飯店櫃檯\r\n上午心齋橋周邊最後採買與午餐\r\n下午 13:00 回飯店取行李\r\n步行或搭車至難波站搭乘南海電鐵 Rapi:t 特急\r\n14:00 前抵達關西機場辦理登機（16:00 班機）",
+    "transport": "南海電鐵 Rapi:t\r\n難波 → 關西機場（38分鐘直達）",
+    "hotelId": "flag_shinsaibashi",
+    "childHighlights": "搭乘酷炫藍色特急 Rapi:t\r\n全車指定席放鬆看海景",
     "food": "黑豬涮涮鍋／百貨海鮮壽司",
     "queueTips": "不要安排遠距離景點\r\n預留取行李與前往機場時間"
   }

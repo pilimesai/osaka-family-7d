@@ -14,6 +14,7 @@ export interface DayItinerary {
   childHighlights: string;
   food: string;
   queueTips?: string;
+  hotelId?: string;
   guide?: {
     title: string;
     description: string;
@@ -41,6 +42,28 @@ export interface Restaurant {
   area: string;
   recommendation: string;
   priceRange: string;
+}
+
+export interface HotelInfo {
+  id: string;
+  name: string;
+  japaneseName: string;
+  bookingNumber?: string;
+  checkInDate: string;
+  checkOutDate: string;
+  stayDuration: string;
+  area: string;
+  address: string;
+  googleMapsUrl: string;
+  phone: string;
+  coverImage: string;
+  routeImage: string;
+  routeTitle: string;
+  routeDescription: string;
+  routeSteps: string[];
+  stationExit: string;
+  highlights: string[];
+  familyTips: string[];
 }
 
 export interface TransportInfo {

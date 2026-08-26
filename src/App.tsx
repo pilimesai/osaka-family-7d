@@ -2,13 +2,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   Calendar, MapPin, Utensils, Info, Clock, Navigation, CheckCircle2,
   Bus, Train, Heart, Baby, ExternalLink, Star, Snowflake, Ticket,
-  Lightbulb, ChevronRight, Plane, AlertTriangle, Zap, Target, Store
+  Lightbulb, ChevronRight, Plane, AlertTriangle, Zap, Target, Store,
+  Building2, Phone, Sparkles, Footprints, ShieldCheck, BedDouble,
+  Coffee, Compass, Copy, Check
 } from 'lucide-react';
 import { useState } from 'react';
 import {
   ITINERARY, ESSENTIAL_INFO, RESTAURANTS, TRANSPORT_INFO,
-  TRIP_INFO, QUEUE_STRATEGIES
+  TRIP_INFO, QUEUE_STRATEGIES, HOTELS
 } from './constants';
+import { HotelInfo } from './types';
 
 const TAG_COLORS: Record<string, { bg: string; text: string; border: string }> = {
   blue: { bg: 'bg-blue-50', text: 'text-blue-700', border: 'border-blue-200' },
@@ -23,8 +26,11 @@ const TAG_COLORS: Record<string, { bg: string; text: string; border: string }> =
 const DAY_EMOJIS = ['🚄', '⛩️', '🌊', '🛍️', '⛷️', '🐋', '✈️'];
 
 function App() {
-  const [activeTab, setActiveTab] = useState<'itinerary' | 'strategy' | 'food' | 'info'>('itinerary');
+  const [activeTab, setActiveTab] = useState<'itinerary' | 'hotels' | 'strategy' | 'food' | 'info'>('itinerary');
   const [activeDay, setActiveDay] = useState(1);
+  const [selectedHotelId, setSelectedHotelId] = useState<string>('vischio_kyoto');
+  const [copiedText, setCopiedText] = useState<string | null>(null);
+  const [previewImage, setPreviewImage] = useState<{ url: string; caption: string } | null>(null);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -37,7 +43,16 @@ function App() {
   };
 
   const currentDay = ITINERARY.find((d) => d.day === activeDay);
+  const currentDayHotel = currentDay?.hotelId ? HOTELS.find(h => h.id === currentDay.hotelId) : null;
   const tagStyle = currentDay ? TAG_COLORS[currentDay.tagColor] || TAG_COLORS.pink : TAG_COLORS.pink;
+
+  const handleCopy = (text: string, label: string) => {
+    navigator.clipboard.writeText(text);
+    setCopiedText(label);
+    setTimeout(() => setCopiedText(null), 2000);
+  };
+
+  const selectedHotel = HOTELS.find(h => h.id === selectedHotelId) || HOTELS[0];
 
   return (
     <div className="min-h-screen bg-stone-50 font-sans text-stone-900 pb-24 md:pb-8">
@@ -92,6 +107,7 @@ function App() {
         <div className="flex overflow-x-auto no-scrollbar border-b border-stone-200 sticky top-0 bg-white z-40 px-4 shadow-sm">
           {[
             { id: 'itinerary', label: '每日行程', icon: Calendar },
+            { id: 'hotels', label: '住宿路線', icon: Building2 },
             { id: 'strategy', label: '排隊攻略', icon: Target },
             { id: 'food', label: '美食推薦', icon: Utensils },
             { id: 'info', label: '實用資訊', icon: Info },
@@ -217,6 +233,48 @@ function App() {
                       )}
                     </motion.div>
 
+                    {/* Accommodation Quick Card */}
+                    {currentDayHotel && (
+                      <motion.div variants={itemVariants} className="col-span-1 md:col-span-2 bg-gradient-to-br from-purple-50 via-pink-50 to-white rounded-2xl p-5 border border-purple-100 shadow-sm">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                          <div className="flex items-start gap-3.5">
+                            <img
+                              src={currentDayHotel.coverImage}
+                              alt={currentDayHotel.name}
+                              className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl object-cover border border-purple-200 shrink-0 shadow-sm cursor-pointer"
+                              onClick={() => setPreviewImage({ url: currentDayHotel.coverImage, caption: currentDayHotel.name })}
+                            />
+                            <div>
+                              <div className="flex items-center gap-2 mb-1 flex-wrap">
+                                <span className="bg-purple-600 text-white text-[11px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+                                  <BedDouble className="w-3 h-3" /> 今日入住
+                                </span>
+                                {currentDayHotel.bookingNumber && (
+                                  <span className="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded-full border border-emerald-200">
+                                    編號 {currentDayHotel.bookingNumber}
+                                  </span>
+                                )}
+                              </div>
+                              <h3 className="font-black text-stone-900 text-base sm:text-lg leading-snug">
+                                {currentDayHotel.name}
+                              </h3>
+                              <p className="text-xs text-stone-500 font-medium mt-0.5">{currentDayHotel.stationExit}</p>
+                            </div>
+                          </div>
+                          <button
+                            onClick={() => {
+                              setSelectedHotelId(currentDayHotel.id);
+                              setActiveTab('hotels');
+                            }}
+                            className="bg-white hover:bg-purple-50 text-purple-700 border border-purple-200 px-4 py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm transition-colors whitespace-nowrap self-stretch sm:self-center"
+                          >
+                            <span>查看詳細步行路線 & 照片</span>
+                            <ChevronRight className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </motion.div>
+                    )}
+
                     {/* Queue Tips Card */}
                     {currentDay.queueTips && (
                       <motion.div variants={itemVariants} className="col-span-1 md:col-span-2 bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-5 border border-orange-100 shadow-sm">
@@ -228,7 +286,7 @@ function App() {
                       </motion.div>
                     )}
 
-                    {/* Guide Card */}
+                    {/* Guide Card (Airport or other specific) */}
                     {currentDay.guide && (
                       <motion.div variants={itemVariants} className="col-span-1 md:col-span-2 bg-gradient-to-br from-stone-800 to-stone-900 rounded-2xl p-6 border border-stone-700 shadow-lg text-white">
                         <div className="flex items-center gap-2 mb-4">
@@ -248,8 +306,12 @@ function App() {
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                           {currentDay.guide.images.map((img, idx) => (
-                            <div key={idx} className="rounded-xl overflow-hidden border border-white/10 bg-black/20">
-                              <img src={img.url} alt={img.caption} className="w-full h-32 object-cover opacity-80 hover:opacity-100 transition-opacity" />
+                            <div
+                              key={idx}
+                              onClick={() => setPreviewImage({ url: img.url, caption: img.caption })}
+                              className="rounded-xl overflow-hidden border border-white/10 bg-black/20 cursor-pointer group"
+                            >
+                              <img src={img.url} alt={img.caption} className="w-full h-32 object-cover opacity-80 group-hover:opacity-100 transition-opacity group-hover:scale-105 duration-300" />
                               <div className="p-2.5 text-xs text-center text-stone-300 font-medium">{img.caption}</div>
                             </div>
                           ))}
@@ -274,6 +336,266 @@ function App() {
                       </div>
                       <p className="text-emerald-800 leading-relaxed whitespace-pre-wrap">{currentDay.food}</p>
                     </motion.div>
+                  </motion.div>
+                )}
+              </motion.div>
+            )}
+
+            {/* ===================== TAB: HOTELS & ROUTES ===================== */}
+            {activeTab === 'hotels' && (
+              <motion.div key="hotels" variants={containerVariants} initial="hidden" animate="visible" exit={{ opacity: 0 }} className="space-y-6">
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="bg-rose-100 text-rose-600 text-xs font-black px-2.5 py-1 rounded-md">HOTEL GUIDE</span>
+                    <h2 className="text-xl font-black text-stone-900">住宿與詳細圖文路線 🏨</h2>
+                  </div>
+                  <p className="text-stone-500 text-sm">點選切換京都與大阪住宿，查看無障礙步行指引、實景照片與設施亮點</p>
+                </div>
+
+                {/* Hotel Switcher Tabs */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {HOTELS.map((hotel) => (
+                    <button
+                      key={hotel.id}
+                      onClick={() => setSelectedHotelId(hotel.id)}
+                      className={`p-4 rounded-2xl border text-left transition-all relative overflow-hidden flex items-center gap-3.5 ${
+                        selectedHotelId === hotel.id
+                          ? 'bg-gradient-to-r from-rose-500 to-pink-500 text-white border-rose-500 shadow-md shadow-rose-200'
+                          : 'bg-white text-stone-700 border-stone-200 hover:border-rose-300 hover:bg-stone-50'
+                      }`}
+                    >
+                      <img
+                        src={hotel.coverImage}
+                        alt={hotel.name}
+                        className="w-14 h-14 rounded-xl object-cover shrink-0 border border-white/30"
+                      />
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center gap-1.5 mb-1">
+                          <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                            selectedHotelId === hotel.id ? 'bg-white/20 text-white' : 'bg-rose-50 text-rose-600'
+                          }`}>
+                            {hotel.stayDuration}
+                          </span>
+                        </div>
+                        <h4 className="font-bold text-sm sm:text-base truncate">{hotel.name}</h4>
+                        <p className={`text-xs truncate mt-0.5 ${selectedHotelId === hotel.id ? 'text-white/80' : 'text-stone-400'}`}>
+                          {hotel.area}
+                        </p>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+
+                {/* Active Hotel Details Card */}
+                {selectedHotel && (
+                  <motion.div
+                    key={selectedHotel.id}
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="space-y-6"
+                  >
+                    {/* Hotel Header Overview */}
+                    <div className="bg-white rounded-3xl p-6 border border-stone-200 shadow-sm relative overflow-hidden">
+                      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-stone-100">
+                        <div>
+                          <div className="flex items-center gap-2 mb-2 flex-wrap">
+                            <span className="bg-emerald-500 text-white text-xs font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1">
+                              <CheckCircle2 className="w-3.5 h-3.5" /> 已預訂
+                            </span>
+                            {selectedHotel.bookingNumber && (
+                              <span className="bg-emerald-50 text-emerald-700 text-xs font-bold px-2.5 py-0.5 rounded-full border border-emerald-200">
+                                行程編號：{selectedHotel.bookingNumber}
+                              </span>
+                            )}
+                            <span className="bg-stone-100 text-stone-600 text-xs font-semibold px-2.5 py-0.5 rounded-full">
+                              {selectedHotel.area}
+                            </span>
+                          </div>
+                          <h3 className="text-2xl font-black text-stone-900 leading-tight">
+                            {selectedHotel.name}
+                          </h3>
+                          <p className="text-stone-400 text-sm font-medium mt-0.5">{selectedHotel.japaneseName}</p>
+                          <div className="flex items-center gap-2 mt-3 text-xs font-bold text-stone-600">
+                            <Clock className="w-4 h-4 text-rose-500 shrink-0" />
+                            <span>入住：{selectedHotel.checkInDate} ｜ 退房：{selectedHotel.checkOutDate}</span>
+                          </div>
+                        </div>
+
+                        {/* Action Buttons */}
+                        <div className="flex flex-wrap sm:flex-nowrap gap-2.5">
+                          <a
+                            href={selectedHotel.googleMapsUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-1 sm:flex-none bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white font-bold text-xs px-4 py-2.5 rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition-all"
+                          >
+                            <MapPin className="w-4 h-4" />
+                            <span>Google 導航</span>
+                            <ExternalLink className="w-3.5 h-3.5" />
+                          </a>
+                          <button
+                            onClick={() => handleCopy(selectedHotel.address, selectedHotel.id + '_addr')}
+                            className="flex-1 sm:flex-none bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold text-xs px-3.5 py-2.5 rounded-xl flex items-center justify-center gap-1.5 transition-all"
+                          >
+                            {copiedText === selectedHotel.id + '_addr' ? (
+                              <>
+                                <Check className="w-4 h-4 text-emerald-600" />
+                                <span className="text-emerald-700">已複製地址</span>
+                              </>
+                            ) : (
+                              <>
+                                <Copy className="w-4 h-4" />
+                                <span>複製日文地址</span>
+                              </>
+                            )}
+                          </button>
+                          <a
+                            href={`tel:${selectedHotel.phone}`}
+                            className="bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold text-xs px-3.5 py-2.5 rounded-xl flex items-center justify-center gap-1.5 transition-all"
+                          >
+                            <Phone className="w-4 h-4" />
+                            <span>撥打電話</span>
+                          </a>
+                        </div>
+                      </div>
+
+                      {/* Address Bar */}
+                      <div className="mt-4 pt-1 flex items-start gap-2 text-xs text-stone-500">
+                        <MapPin className="w-4 h-4 text-stone-400 shrink-0 mt-0.5" />
+                        <span>{selectedHotel.address}</span>
+                      </div>
+                    </div>
+
+                    {/* Real Photos Gallery */}
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2">
+                        <Sparkles className="w-4 h-4 text-rose-500" />
+                        <h4 className="font-bold text-stone-900 text-base">實景照片導覽</h4>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div
+                          onClick={() => setPreviewImage({ url: selectedHotel.coverImage, caption: `${selectedHotel.name} - 飯店門口外觀` })}
+                          className="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm cursor-pointer group"
+                        >
+                          <div className="relative aspect-[4/3] overflow-hidden bg-stone-100">
+                            <img
+                              src={selectedHotel.coverImage}
+                              alt="飯店門口外觀"
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
+                            <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1 rounded-full flex items-center gap-1.5">
+                              <Building2 className="w-3.5 h-3.5 text-rose-300" />
+                              <span>飯店門口外觀實景</span>
+                            </div>
+                            <div className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-md text-stone-800 text-[10px] font-bold px-2.5 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                              點擊放大檢視 🔍
+                            </div>
+                          </div>
+                          <div className="p-3.5 bg-white text-xs font-bold text-stone-700 flex items-center justify-between">
+                            <span>🏨 {selectedHotel.name} 外觀入口</span>
+                            <span className="text-stone-400 font-normal">實景指引</span>
+                          </div>
+                        </div>
+
+                        <div
+                          onClick={() => setPreviewImage({ url: selectedHotel.routeImage, caption: `${selectedHotel.name} - 步行路線街景` })}
+                          className="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm cursor-pointer group"
+                        >
+                          <div className="relative aspect-[4/3] overflow-hidden bg-stone-100">
+                            <img
+                              src={selectedHotel.routeImage}
+                              alt="車站與街角路線指引"
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
+                            <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1 rounded-full flex items-center gap-1.5">
+                              <Compass className="w-3.5 h-3.5 text-amber-300" />
+                              <span>車站周邊與街角路線指引</span>
+                            </div>
+                            <div className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-md text-stone-800 text-[10px] font-bold px-2.5 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                              點擊放大檢視 🔍
+                            </div>
+                          </div>
+                          <div className="p-3.5 bg-white text-xs font-bold text-stone-700 flex items-center justify-between">
+                            <span>🚶 {selectedHotel.stationExit}</span>
+                            <span className="text-stone-400 font-normal">轉角地標</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Step-by-Step Walking Route */}
+                    <div className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 rounded-3xl p-6 md:p-8 text-white relative overflow-hidden shadow-lg">
+                      <div className="absolute top-0 right-0 w-48 h-48 bg-rose-500/10 rounded-full blur-3xl" />
+                      <div className="flex items-center gap-3 mb-3 relative">
+                        <div className="p-2.5 bg-rose-500/20 text-rose-400 rounded-xl border border-rose-500/30">
+                          <Footprints className="w-6 h-6" />
+                        </div>
+                        <div>
+                          <h4 className="text-xl font-black text-white">{selectedHotel.routeTitle}</h4>
+                          <p className="text-stone-400 text-xs mt-0.5">推薦出口：{selectedHotel.stationExit}</p>
+                        </div>
+                      </div>
+
+                      <p className="text-stone-300 text-sm leading-relaxed mb-6 relative">
+                        {selectedHotel.routeDescription}
+                      </p>
+
+                      <div className="space-y-3 relative">
+                        {selectedHotel.routeSteps.map((step, idx) => (
+                          <div
+                            key={idx}
+                            className="bg-white/5 hover:bg-white/10 transition-colors p-4 rounded-2xl border border-white/10 flex items-start gap-3.5"
+                          >
+                            <div className="w-7 h-7 rounded-xl bg-gradient-to-br from-rose-500 to-pink-500 text-white font-black text-xs flex items-center justify-center shrink-0 shadow-md">
+                              {idx + 1}
+                            </div>
+                            <p className="text-stone-200 text-sm leading-relaxed font-medium pt-0.5">
+                              {step}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Highlights & Family Tips Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {/* Highlights */}
+                      <div className="bg-white rounded-3xl p-6 border border-stone-200 shadow-sm">
+                        <div className="flex items-center gap-2 mb-4">
+                          <div className="p-2 bg-rose-50 text-rose-600 rounded-xl">
+                            <Sparkles className="w-5 h-5" />
+                          </div>
+                          <h4 className="font-black text-stone-900 text-base">飯店特色與設施</h4>
+                        </div>
+                        <ul className="space-y-3">
+                          {selectedHotel.highlights.map((h, idx) => (
+                            <li key={idx} className="text-xs sm:text-sm text-stone-700 font-medium leading-relaxed flex items-start gap-2">
+                              <span className="w-1.5 h-1.5 rounded-full bg-rose-500 mt-2 shrink-0" />
+                              <span>{h}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {/* Family Tips */}
+                      <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-6 border border-orange-100 shadow-sm">
+                        <div className="flex items-center gap-2 mb-4">
+                          <div className="p-2 bg-orange-100 text-orange-600 rounded-xl">
+                            <Baby className="w-5 h-5" />
+                          </div>
+                          <h4 className="font-black text-orange-950 text-base">親子友善與出行貼士</h4>
+                        </div>
+                        <ul className="space-y-3">
+                          {selectedHotel.familyTips.map((tip, idx) => (
+                            <li key={idx} className="text-xs sm:text-sm text-orange-900 font-medium leading-relaxed flex items-start gap-2">
+                              <CheckCircle2 className="w-4 h-4 text-orange-500 mt-0.5 shrink-0" />
+                              <span>{tip}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
                   </motion.div>
                 )}
               </motion.div>
@@ -306,7 +628,7 @@ function App() {
               <motion.div key="food" variants={containerVariants} initial="hidden" animate="visible" exit={{ opacity: 0 }}>
                 <div className="mb-6">
                   <h2 className="text-xl font-black text-stone-900 mb-1">美食地圖 🍜</h2>
-                  <p className="text-stone-400 text-sm">精選京阪神美食</p>
+                  <p className="text-stone-400 text-sm">精選京阪神美食（避開牛肉專屬）</p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   {RESTAURANTS.map((restaurant, index) => (
@@ -404,9 +726,50 @@ function App() {
         </div>
       </main>
 
-      <footer className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-xl border-t border-stone-100 p-2 md:hidden flex justify-around items-center z-50">
+      {/* Image Preview Lightbox Modal */}
+      <AnimatePresence>
+        {previewImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setPreviewImage(null)}
+            className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+              className="max-w-3xl w-full bg-stone-900 rounded-3xl overflow-hidden shadow-2xl border border-white/20"
+            >
+              <div className="relative">
+                <img
+                  src={previewImage.url}
+                  alt={previewImage.caption}
+                  className="w-full max-h-[75vh] object-contain bg-black"
+                />
+                <button
+                  onClick={() => setPreviewImage(null)}
+                  className="absolute top-4 right-4 bg-black/60 hover:bg-black/80 text-white rounded-full w-10 h-10 flex items-center justify-center font-black transition-all"
+                >
+                  ✕
+                </button>
+              </div>
+              <div className="p-4 bg-stone-900 border-t border-white/10 flex items-center justify-between text-white">
+                <span className="font-bold text-sm">{previewImage.caption}</span>
+                <span className="text-xs text-stone-400">點擊任意處關閉</span>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Mobile Bottom Navigation Bar */}
+      <footer className="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-xl border-t border-stone-100 p-2 md:hidden flex justify-around items-center z-40">
         {[
           { id: 'itinerary', label: '行程', icon: Calendar },
+          { id: 'hotels', label: '住宿', icon: Building2 },
           { id: 'strategy', label: '攻略', icon: Target },
           { id: 'food', label: '美食', icon: Utensils },
           { id: 'info', label: '資訊', icon: Info },
@@ -414,14 +777,14 @@ function App() {
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id as any)}
-            className={`flex flex-col items-center gap-1.5 transition-all px-5 py-2 rounded-2xl ${
+            className={`flex flex-col items-center gap-1 transition-all px-3.5 py-1.5 rounded-2xl ${
               activeTab === tab.id
-                ? 'text-rose-500 bg-rose-50 shadow-sm'
-                : 'text-stone-400'
+                ? 'text-rose-500 bg-rose-50 font-black shadow-sm'
+                : 'text-stone-400 font-medium'
             }`}
           >
             <tab.icon className="w-5 h-5" />
-            <span className="text-[10px] font-black tracking-tighter">{tab.label}</span>
+            <span className="text-[10px] tracking-tight">{tab.label}</span>
           </button>
         ))}
       </footer>
