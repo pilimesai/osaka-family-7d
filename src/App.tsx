@@ -409,16 +409,14 @@ function App() {
                                   <Sparkles className="w-3 h-3" /> TheShorty 那個矮子 逛店特輯
                                 </span>
                                 <span className="bg-white/10 text-white/90 text-[11px] font-bold px-2 py-0.5 rounded-full border border-white/20">
-                                  📍 {isKyoto ? '京都・河原町／烏丸御池精選' : '大阪・心齋橋法拉格飯店步行直達'}
+                                  📍 大阪・心齋橋法拉格飯店步行直達
                                 </span>
                               </div>
                               <h3 className="text-xl sm:text-2xl font-black text-white leading-tight">
-                                {isKyoto ? '京都日潮選物・特價挖寶好店地圖 🛍️' : '大阪日潮選物・省時防迷路指南 🛍️'}
+                                大阪日潮選物・省時防迷路指南 🛍️
                               </h3>
                               <p className="text-xs sm:text-sm text-stone-300 mt-1 leading-relaxed">
-                                {isKyoto
-                                  ? '精選 Needles 蝴蝶褲神店 LOFTMAN、新風館 1LDK、HUMAN MADE 1928 藍瓶聯名店與 KAPITAL，附精確尋店指引！'
-                                  : '以飯店為中心規劃南船場、堀江橘子街與大丸 9F，標記精確樓層、門牌與尋找路徑，省去無謂繞路！'}
+                                以飯店為中心規劃南船場、堀江橘子街與大丸 9F，標記精確樓層、門牌與尋找路徑，省去無謂繞路！
                               </p>
                             </div>
 
