@@ -71,3 +71,23 @@ export interface TransportInfo {
   description: string;
   type: 'train' | 'bus' | 'pass' | 'tip';
 }
+
+export interface ShoppingSpot {
+  id: string;
+  name: string;
+  japaneseName: string;
+  city: '大阪' | '京都';
+  zone: string;
+  brands: string[];
+  styleCategory: string;
+  floorInfo: string;
+  address: string;
+  walkingTimeFromHotel: string;
+  howToFind: string;
+  theShortyTip: string;
+  googleMapsUrl: string;
+  openingHours?: string;
+  tagEmoji?: string;
+}
+
+
