@@ -407,10 +407,10 @@ function App() {
                               </span>
                             </div>
                             <h3 className="text-xl sm:text-2xl font-black text-white leading-tight">
-                              大阪日潮選物・零折返逛街路線庫 🛍️
+                              大阪 NANGA ＆ HUMAN MADE 潮流零折返路線 🛍️
                             </h3>
                             <p className="text-xs sm:text-sm text-stone-300 leading-relaxed max-w-xl">
-                              已為您整合南船場農林會館（AURALEE / S.F.C）、堀江橘子街、大丸 9F 動漫及梅田百貨，標記精確樓層、門牌與無痛卸貨指引！
+                              已為您鎖定 SORA 堀江店（找 NANGA 聯名羽絨）、NANGA 旗艦店、HUMAN MADE（心齋橋 PARCO 1F）與 FREAK'S STORE（NAUTICA JP），標記精確地圖與無痛卸貨指引！
                             </p>
                           </div>
 
@@ -796,9 +796,9 @@ function App() {
                     {[
                       {
                         id: 'osaka_loop',
-                        title: '🚩 路線 1：大阪下午精華日潮選物',
-                        subtitle: '南船場農林會館・堀江橘子街・飯店卸貨',
-                        badge: 'Day 4 下午首選・省時 40%',
+                        title: '🚩 路線 1：大阪 NANGA ＆ HUMAN MADE 潮流線',
+                        subtitle: 'FREAK\'S STORE・SORA (NANGA)・堀江・PARCO',
+                        badge: 'Day 4 首選・精準不繞路',
                         color: 'from-rose-500 to-pink-600',
                       },
                       {
@@ -840,14 +840,14 @@ function App() {
                       {/* Summary Banner */}
                       <div className="bg-rose-950/50 rounded-2xl p-4 border border-rose-500/30 text-xs space-y-2">
                         <div className="flex flex-wrap items-center justify-between gap-2 text-rose-200">
-                          <span className="font-bold text-rose-300 text-sm">⏱️ 建議時段：14:00 - 21:00（逛街約 4 小時 ＋ 晚餐 2 小時）</span>
-                          <span className="font-bold text-emerald-400">🚶 全程步行總計僅約 20 分鐘（順向閉環・零折返）</span>
+                          <span className="font-bold text-rose-300 text-sm">⏱️ 建議時段：14:00 - 20:45（逛街約 3.5 小時 ＋ 晚餐 2 小時）</span>
+                          <span className="font-bold text-emerald-400">🚶 全程步行總計僅約 18 分鐘（順向閉環・零折返）</span>
                           <span className="bg-rose-500/20 text-rose-300 px-2.5 py-0.5 rounded-md border border-rose-500/30 font-bold">
                             🏨 傍晚回飯店卸貨再出門吃晚餐
                           </span>
                         </div>
                         <p className="text-stone-300 leading-relaxed">
-                          <strong>【TheShorty 矮子逛店精選策略】</strong>：早上前往箕面勝尾寺祈福，中午吃飽回心齋橋！下午 14:00 順向展開：<strong>南船場農林會館（Strato 試 AURALEE ＋ S.F.C）➔ FREAK'S STORE（NAUTICA JP 寬鬆 City Boy）➔ 西口靴下與 ZABOU（修身神褲）➔ 堀江 BIOTOP 露天咖啡 ＋ HW DOG 復古帽 ＋ SOPH. ➔ 心齋橋 PARCO（BEAMS ＋ STUDIOUS 日製極簡 ＋ HUMAN MADE）➔ 18:30 回飯店卸貨 ➔ 19:00 道頓堀跑跑人吃晚餐！</strong>
+                          <strong>【精準聚焦省時策略】</strong>：早上前往箕面勝尾寺祈福，中午吃飽回心齋橋！下午 14:00 順向展開：<strong>FREAK'S STORE（NAUTICA JP 寬鬆 City Boy）➔ SORA 堀江店（找 NANGA 聯名羽絨/Patagonia）➔ NANGA SHOP OSAKA 旗艦店（全系列羽絨服）➔ 堀江 BIOTOP 4F 露天咖啡 ➔ 心齋橋 PARCO（1F HUMAN MADE 心齋橋限定款 ➔ 2F BEAMS）➔ 18:15 回飯店卸貨 ➔ 18:45 道頓堀跑跑人吃晚餐！</strong>
                         </p>
                       </div>
 
@@ -856,45 +856,18 @@ function App() {
                         {/* Zone 1: Minamisemba */}
                         <div className="space-y-2.5">
                           <div className="flex items-center gap-2 text-xs font-black text-indigo-400 uppercase tracking-wider bg-indigo-500/10 px-3 py-1.5 rounded-xl border border-indigo-500/20">
-                            <span>🏢 第 1 區塊：南船場・日潮選貨 ＋ 美式 City Boy 工裝（往北直行）</span>
+                            <span>🏢 第 1 區塊：南船場・City Boy 寬鬆美式工裝（往北順行）</span>
                           </div>
 
                           {[
                             {
                               step: '地點 ①',
                               time: '14:00 - 14:45',
-                              title: '南船場・大阪農林會館 3 樓（301室 Strato ＋ 303室 STUDY SHOWROOM）',
-                              transit: '🚶 從法拉格飯店往北直走 5 分鐘到達農林會館，搭復古電梯上 3 樓',
-                              desc: '【兩大神店同一層搞定】301 室 Strato 試齊 AURALEE、Graphpaper、YAECA；走出門轉身 5 步路進 303 室 STUDY SHOWROOM 試 S.F.C 寬鬆 City Boy，同一層樓解決兩大神店！',
-                              tags: ['AURALEE', 'Graphpaper', 'S.F.C (Stripes For Creative)', 'YAECA'],
-                              maps: 'https://www.google.com/maps/search/?api=1&query=Osaka+Norin+Kaikan',
-                            },
-                            {
-                              step: '地點 ②',
-                              time: '14:45 - 15:15',
                               title: 'FREAK\'S STORE 大阪・心齋橋店',
-                              transit: '🚶 從農林會館下樓步行 2 分鐘（南船場 3 丁目）',
-                              desc: '【City Boy 寬鬆必買・台灣專櫃 5 折】NAUTICA JP（長谷川昭雄監修）重磅衛衣、牛津襯衫與工裝寬褲在日本入手極划算，版型挺拔小個子穿也超好看！',
+                              transit: '🚶 從法拉格飯店步行 3 分鐘（南船場 3 丁目）',
+                              desc: '【City Boy 寬鬆必買・台灣專櫃 5 折】長谷川昭雄監修 NAUTICA JP 重磅衛衣、牛津襯衫與工裝寬褲在日本入手極划算，版型挺拔小個子穿也超好看！',
                               tags: ['NAUTICA JP', 'FREAK\'S STORE', 'City Boy', '美式工裝'],
                               maps: 'https://www.google.com/maps/search/?api=1&query=FREAK%27S+STORE+Shinsaibashi',
-                            },
-                            {
-                              step: '地點 ③',
-                              time: '15:15 - 15:35',
-                              title: '西口靴下 (NISHIGUCHI KUTSUSHITA 直營店)',
-                              transit: '🚶 往西走 150 公尺（2 分鐘）',
-                              desc: '【日本頂級手工襪】奈良近百年天然纖維手工襪，腳感極度包覆親膚，是高質感穿搭必備與伴手禮首選！',
-                              tags: ['西口靴下', '天然纖維', '伴手禮首選'],
-                              maps: 'https://www.google.com/maps/search/?api=1&query=NISHIGUCHI+KUTSUSHITA+Minamisemba',
-                            },
-                            {
-                              step: '地點 ④',
-                              time: '15:35 - 16:00',
-                              title: 'ZABOU OSAKA 2F',
-                              transit: '🚶 同條街往前走 100 公尺（1 分鐘）上 2 樓',
-                              desc: '【神級牛仔褲】林芳亨操刀 RESOLUTE 710 神級修身日本丹寧褲、Saint James 條紋衫，修飾身形效果一流。',
-                              tags: ['RESOLUTE 710', 'Saint James', '日本丹寧'],
-                              maps: 'https://www.google.com/maps/search/?api=1&query=ZABOU+OSAKA',
                             },
                           ].map((s, idx) => (
                             <div key={idx} className="bg-white/5 hover:bg-white/[0.08] p-3.5 sm:p-4 rounded-2xl border border-white/10 flex gap-3 items-start transition-all">
@@ -928,36 +901,36 @@ function App() {
                         {/* Zone 2: Horie Orange Street */}
                         <div className="space-y-2.5">
                           <div className="flex items-center gap-2 text-xs font-black text-amber-400 uppercase tracking-wider bg-amber-500/10 px-3 py-1.5 rounded-xl border border-amber-500/20">
-                            <span>🍊 第 2 區塊：堀江橘子街 (Orange Street)・順路向西同一條街逛到底</span>
+                            <span>🍊 第 2 區塊：堀江橘子街・NANGA 尋寶 ＆ 露天咖啡（向西順行）</span>
                           </div>
 
                           {[
                             {
-                              step: '地點 ⑤',
-                              time: '16:05 - 16:50',
+                              step: '地點 ②',
+                              time: '14:45 - 15:30',
+                              title: 'SORA 堀江店（戶外潮流選物・NANGA / Patagonia）',
+                              transit: '🚶 沿長堀通往西步行 6 分鐘直達橘子街口 SORA',
+                              desc: '【找 NANGA 必逛神店】專門引進 NANGA 聯名羽絨外套、保暖背心與機能露營服飾，還有齊全的 Patagonia 與 Gramicci，戶外山系潮流必巡！',
+                              tags: ['NANGA (羽絨服)', 'Patagonia', 'Gramicci', 'Mountain Research'],
+                              maps: 'https://www.google.com/maps/search/?api=1&query=SORA+Horie+Osaka',
+                            },
+                            {
+                              step: '地點 ③',
+                              time: '15:30 - 16:15',
+                              title: 'NANGA SHOP OSAKA（官方直營旗艦店）',
+                              transit: '🚶 沿橘子街往西直走 3 分鐘',
+                              desc: '【NANGA 最齊全官方殿堂】全日本最權威的羽絨直營店！招牌 AURORA-TEX 白金防水透氣羽絨外套、TAKIBI 難燃外套、隨身配件尺寸顏色最齊，在日本買退稅超划算！',
+                              tags: ['NANGA 直營旗艦', 'AURORA DOWN', 'TAKIBI', '極致保暖'],
+                              maps: 'https://www.google.com/maps/search/?api=1&query=NANGA+SHOP+OSAKA',
+                            },
+                            {
+                              step: '地點 ④',
+                              time: '16:15 - 17:00',
                               title: 'BIOTOP OSAKA（橘子街東入口）＋ 4F 露天庭園咖啡小憩',
-                              transit: '🚶 沿長堀通往西步行 4 分鐘進入橘子街口',
-                              desc: '【生活美學＋下午茶歇腳】1F~4F 網羅 Margiela、LE LABO、生活選物；頂樓 4F 露天綠意花園喝手沖咖啡吃甜點小憩，全家補充體力！',
-                              tags: ['Margiela', 'LE LABO', '4F 庭園咖啡', '甜點小憩'],
+                              transit: '🚶 沿橘子街往東漫步 3 分鐘回 BIOTOP',
+                              desc: '【逛街小憩神級中繼站】頂樓 4F 露天綠意花園喝手沖拿鐵、吃塊甜點，全家補充電力放鬆！',
+                              tags: ['4F 露天花園咖啡', '甜點小憩', 'LE LABO', 'Margiela'],
                               maps: 'https://www.google.com/maps/search/?api=1&query=BIOTOP+OSAKA',
-                            },
-                            {
-                              step: '地點 ⑥',
-                              time: '16:50 - 17:10',
-                              title: 'THE H.W.DOG&CO. OSAKA',
-                              transit: '🚶 沿橘子街往前走 100 公尺（1 分鐘）',
-                              desc: '【神級復古帽飾】1860~1980 年代美日工裝復古帽，報童帽、棒球帽與水洗漁夫帽，版型修飾臉型。',
-                              tags: ['THE H.W.DOG&CO.', '復古報童帽', '工裝帽飾'],
-                              maps: 'https://www.google.com/maps/search/?api=1&query=THE+H.W.DOG%26CO.+Osaka',
-                            },
-                            {
-                              step: '地點 ⑦',
-                              time: '17:10 - 17:30',
-                              title: 'SOPH. OSAKA (F.C.R.B. / UE)',
-                              transit: '🚶 往前走 50 公尺（1 分鐘）',
-                              desc: '【機能街頭潮流】清原浩創立經典品牌，F.C.Real Bristol (F.C.R.B.) 足球機能休閒系列。',
-                              tags: ['SOPHNET.', 'F.C.R.B.', 'uniform experiment'],
-                              maps: 'https://www.google.com/maps/search/?api=1&query=SOPH.+OSAKA',
                             },
                           ].map((s, idx) => (
                             <div key={idx} className="bg-white/5 hover:bg-white/[0.08] p-3.5 sm:p-4 rounded-2xl border border-white/10 flex gap-3 items-start transition-all">
@@ -991,17 +964,17 @@ function App() {
                         {/* Zone 3: Shinsaibashi PARCO */}
                         <div className="space-y-2.5">
                           <div className="flex items-center gap-2 text-xs font-black text-rose-400 uppercase tracking-wider bg-rose-500/10 px-3 py-1.5 rounded-xl border border-rose-500/20">
-                            <span>🏢 第 3 區塊：心齋橋 PARCO・日潮四大天王 ＆ 純日製極簡（向東順行）</span>
+                            <span>🏢 第 3 區塊：心齋橋 PARCO・HUMAN MADE ＆ BEAMS（向東順行）</span>
                           </div>
 
                           {[
                             {
-                              step: '地點 ⑧',
-                              time: '17:40 - 18:30',
-                              title: '心齋橋 PARCO（1F HUMAN MADE ➔ 2F BEAMS ➔ 3F STUDIOUS）',
-                              transit: '🚶 從堀江沿長堀通往東漫步 6 分鐘直達心齋橋 PARCO',
-                              desc: '【一棟網羅三大神級潮牌】1F HUMAN MADE 買限定款 ➔ 2F BEAMS 挑選 BEAMS PLUS 經典紳士工裝 ➔ 3F STUDIOUS 試穿 100% Made in Japan（CULLNI、NEEDLES）極致垂墜剪裁！',
-                              tags: ['BEAMS PLUS', 'STUDIOUS (日製)', 'HUMAN MADE', 'CULLNI'],
+                              step: '地點 ⑤',
+                              time: '17:15 - 18:15',
+                              title: '心齋橋 PARCO（1F HUMAN MADE ➔ 2F BEAMS）',
+                              transit: '🚶 從橘子街沿長堀通往東漫步 6 分鐘直達心齋橋 PARCO',
+                              desc: '【直衝兩大日潮核心】1F HUMAN MADE 挑選心齋橋限定款動物 T 恤與經典愛心配件 ➔ 2F BEAMS 挑選 BEAMS PLUS 經典紳士工裝與 SSZ 街頭系列！',
+                              tags: ['HUMAN MADE (限定款)', 'BEAMS PLUS', 'NIGO 主理', '日潮經典'],
                               maps: 'https://www.google.com/maps/search/?api=1&query=Shinsaibashi+PARCO',
                             },
                           ].map((s, idx) => (
@@ -1041,17 +1014,17 @@ function App() {
 
                           {[
                             {
-                              step: '地點 ⑨',
-                              time: '18:30 - 19:00',
+                              step: '地點 ⑥',
+                              time: '18:15 - 18:45',
                               title: '心齋橋法拉格飯店（卸貨・戰利品全放回房小歇）',
                               transit: '🚶 從 PARCO 出門步行 3 分鐘回飯店',
-                              desc: '【全身無負擔】將下午買的所有服飾、帽子與選物全部放回房間，換上輕便休閒鞋，全家洗手喝水，輕鬆出門吃晚餐！',
+                              desc: '【全身無負擔】將下午買的所有 NANGA 羽絨服、HUMAN MADE 戰利品全部放回房間，換上輕便休閒鞋，全家洗手喝水，輕鬆出門吃晚餐！',
                               tags: ['房間卸貨', 'Lounge 休憩', '不帶重物逛街'],
                               maps: 'https://www.google.com/maps/search/?api=1&query=HOTEL+THE+FLAG+Shinsaibashi',
                             },
                             {
-                              step: '地點 ⑩',
-                              time: '19:00 - 21:00',
+                              step: '地點 ⑦',
+                              time: '18:45 - 20:45',
                               title: '道頓堀固力果跑跑人 ＋ 不吃牛美食晚餐',
                               transit: '🚶 飯店往南漫步 6 分鐘直達道頓堀',
                               desc: '【經典大阪夜景】輕裝拍固力果跑跑人招牌與巨型立體螃蟹，享用千房大阪燒（海鮮/豬肉）或道頓堀今井豆皮烏龍麵，結束充實完美的一天！',
