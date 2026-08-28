@@ -1136,11 +1136,11 @@ function App() {
                           <span className="font-bold text-indigo-300 text-sm">⏱️ 建議時段：14:00 - 18:30（全程約 3.5 小時）</span>
                           <span className="font-bold text-emerald-400">🚶 全程直線散步約 18 分鐘（一路向南零折返）</span>
                           <span className="bg-indigo-500/20 text-indigo-300 px-2.5 py-0.5 rounded-md border border-indigo-500/30 font-bold">
-                            ⛩️ 京都日潮精選路線
+                            ⛩️ 京都日潮精選路線（含 Day 2 傍晚精華）
                           </span>
                         </div>
                         <p className="text-stone-300 leading-relaxed">
-                          <strong>【核心省時策略】</strong>：由北向南一條直線！從<strong>「地點 ① 烏丸御池新風館」➔「地點 ② 三條通 HUMAN MADE 藍瓶」➔「地點 ③ 河原町 KAPITAL」➔「地點 ④ 寺町通 LOFTMAN 蝴蝶褲」</strong>，一路順逛到底，零回頭路！
+                          <strong>【核心省時策略】</strong>：由北向南一條直線！從<strong>「地點 ① 烏丸御池新風館」➔「地點 ② 三條通 HUMAN MADE 藍瓶」➔「地點 ③ TNF STANDARD 紫標神褲」➔「地點 ④ 河原町 KAPITAL」➔「地點 ⑤ 寺町通 LOFTMAN 蝴蝶褲」</strong>，一路順逛到底，零回頭路！
                         </p>
                       </div>
 
@@ -1166,7 +1166,16 @@ function App() {
                           },
                           {
                             step: '地點 ③',
-                            time: '16:20 - 17:00',
+                            time: '16:15 - 16:50',
+                            title: 'THE NORTH FACE STANDARD 京都店（TNF 紫標限定）',
+                            transit: '🚶 從 HUMAN MADE 步行 3 分鐘（約 200 公尺）',
+                            desc: '【日本限定紫標專賣店】TheShorty 影片推薦！入手日本限定 TNF 紫標（Purple Label）神級打摺工裝寬褲與機能羽絨。',
+                            tags: ['TNF 紫標', 'THE NORTH FACE STANDARD', 'Purple Label', '神級工裝褲'],
+                            maps: 'https://www.google.com/maps/search/?api=1&query=THE+NORTH+FACE+STANDARD+KYOTO',
+                          },
+                          {
+                            step: '地點 ④',
+                            time: '16:50 - 17:30',
                             title: 'KAPITAL KYOTO（傳統町家工藝門市）',
                             transit: '🚶 往東南走 3 分鐘進入三條河原町巷內',
                             desc: '【日本國寶級工藝】古樸木造町家建築，笑臉襪、水洗骨頭毛衣與刺子繡拼接外套款式齊全。',
@@ -1174,8 +1183,8 @@ function App() {
                             maps: 'https://www.google.com/maps/search/?api=1&query=KAPITAL+KYOTO',
                           },
                           {
-                            step: '地點 ④',
-                            time: '17:05 - 18:30',
+                            step: '地點 ⑤',
+                            time: '17:30 - 18:30',
                             title: 'LOFTMAN COOP KYOTO ＆ 藤井大丸百貨',
                             transit: '🚶 走進寺町通商店街 2 分鐘即達',
                             desc: '【影片主角 Needles 特價挖寶】Needles 蝴蝶褲關西最齊，常有驚喜折扣；順路逛藤井大丸（4F PORTER 包、Bshop）。',

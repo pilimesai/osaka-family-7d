@@ -123,13 +123,13 @@ export const ITINERARY: DayItinerary[] = [
     "day": 2,
     "date": "2/1（一）",
     "tagColor": "orange",
-    "highlights": "京都親子漫遊日\r\n上午：嵐山（渡月橋、竹林小徑）\r\n下午：京都鐵道博物館\r\n晚上：續住 Hotel Vischio Kyoto",
-    "schedule": "08:30 飯店悠閒享用早餐\r\n09:30 從 JR 京都站出發前往嵐山（搭乘 JR 嵯峨野線約 15 分鐘）\r\n10:00-12:00 嵐山悠閒漫步（渡月橋、竹林小徑散策）\r\n12:00 嵐山享用道地午餐（京豆腐料理／京野菜天婦羅）\r\n14:00-16:30 京都鐵道博物館（扇形車庫看蒸汽火車、體驗模擬駕駛）\r\n17:30 返回京都車站周邊品嚐美食\r\n19:30 返回 Hotel Vischio Kyoto 享受大浴場泡湯休息",
-    "transport": "京都站搭 JR 15分鐘到嵐山。中午搭乘「嵐電」路面電車轉巴士前往鐵道博物館，最不費力。",
+    "highlights": "京都嵐山自然 ＆ 鐵道博物館 ＆ 傍晚三條日潮專線（HUMAN MADE 1928 / TNF 紫標）・宿 Hotel Vischio Kyoto\r\n上午：嵐山（渡月橋、竹林小徑） → 下午：京都鐵道博物館 → 傍晚：HUMAN MADE 1928（藍瓶咖啡）＋TNF STANDARD（紫標神褲） → 四條河原町美食 → 返回飯店大浴場泡湯",
+    "schedule": "08:30 飯店悠閒享用早餐\r\n09:30 從 JR 京都站出發前往嵐山（搭乘 JR 嵯峨野線約 15 分鐘）\r\n10:00-12:00 嵐山悠閒漫步（渡月橋、竹林小徑散策）\r\n12:00 嵐山享用道地午餐（京豆腐料理／京野菜天婦羅）\r\n13:30-16:00 京都鐵道博物館（扇形車庫看蒸汽火車、體驗模擬駕駛）\r\n16:30 搭車 12 分鐘前往三條商圈\r\n16:45-17:30【地點①】HUMAN MADE 1928（1928洋樓古蹟、京都限定款、店內 Blue Bottle 藍瓶咖啡小憩）\r\n17:30-18:15【地點②】THE NORTH FACE STANDARD 京都店（步行3分鐘・入手日本限定 TNF 紫標工裝神褲與羽絨）\r\n18:30-19:45 四條河原町／先斗町周邊品嚐道地美食晚餐（名代炸豬排／京都豆皮烏龍麵）\r\n20:00 地鐵烏丸線「四條站」搭車 3 分鐘直達京都站，返回 Hotel Vischio Kyoto 享受大浴場泡湯休息",
+    "transport": "上午：京都站搭 JR 15分鐘到嵐山\r\n下午：嵐電轉巴士前往鐵道博物館\r\n傍晚：搭車 12 分鐘至三條商圈（HUMAN MADE / TNF 紫標），晚餐後地鐵烏丸線 3 分鐘直達京都站",
     "hotelId": "vischio_kyoto",
-    "childHighlights": "竹林、渡月橋\r\n下午火車、蒸汽火車、模擬駕駛\r\n晚上大浴場泡澡",
-    "food": "湯豆腐／京野菜天婦羅\r\n嵐山豆腐料理",
-    "queueTips": "嵐山早上先去\r\n不排猴子公園\r\n鐵道博物館提前買票／查活動"
+    "childHighlights": "嵐山竹林漫步\r\n鐵道博物館蒸汽火車與模擬駕駛\r\nHUMAN MADE 1928 店內 Blue Bottle 藍瓶咖啡點心\r\n飯店 2 樓大浴場泡澡",
+    "food": "嵐山豆腐料理／京野菜天婦羅\r\n名代炸豬排 Katsukura（四條寺町店／京都站店）\r\nBlue Bottle Coffee 藍瓶咖啡（HUMAN MADE 1928店）",
+    "queueTips": "鐵道博物館下午 16:00 前結束，傍晚 16:30 接三條商圈兩大神店時間最順、避開人潮！\r\nHUMAN MADE 1928 內建藍瓶咖啡，長輩小孩可坐著喝咖啡吃鬆餅，大人輪流試穿 TNF 紫標神褲！"
   },
   {
     "day": 3,
@@ -742,6 +742,23 @@ export const SHOPPING_SPOTS: ShoppingSpot[] = [
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=HUMAN+MADE+1928+Kyoto',
     openingHours: '11:00 - 19:00',
     tagEmoji: '🦆'
+  },
+  {
+    id: 'tnf_standard_kyoto',
+    name: 'THE NORTH FACE STANDARD 京都店 (TNF 紫標限定)',
+    japaneseName: 'ザ・ノース・フェイス スタンダード 京都店',
+    city: '京都',
+    zone: '京都四條河原町/三條',
+    brands: ['THE NORTH FACE PURPLE LABEL (日本限定紫標)', 'THE NORTH FACE STANDARD', 'Urban Outdoor 機能工裝'],
+    styleCategory: '日本限定紫標 Purple Label 專賣・頂級山系城市工裝・神級防潑水打摺寬褲',
+    floorInfo: '1F~3F 獨棟現代清水模旗艦店',
+    address: '京都府京都市中京区坂井町452',
+    walkingTimeFromHotel: '從 HUMAN MADE 1928 步行 3 分鐘（約 200 公尺）',
+    howToFind: '位於三條通與六角通之間巷弄，極簡清水模現代建築與醒目黑色 THE NORTH FACE STANDARD 標誌。',
+    theShortyTip: '【入手日本限定紫標神褲首選】全關西最齊全的 TNF 紫標專賣店！招牌寬版打摺工裝長褲、防潑水山系風衣與羽絨外套剪裁極佳，小個子穿俐落挺拔，台灣買不到的日本獨家系列！',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=THE+NORTH+FACE+STANDARD+KYOTO',
+    openingHours: '11:00 - 20:00',
+    tagEmoji: '🏔️'
   },
   {
     id: 'kapital_kyoto',
