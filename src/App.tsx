@@ -899,167 +899,331 @@ function App() {
 
                   {/* Route Detail Container */}
                   {selectedRoute === 'osaka_loop' && (
-                    <div className="space-y-3.5 pt-2">
+                    <div className="space-y-4 pt-2">
                       {/* Summary Banner */}
-                      <div className="bg-rose-950/40 rounded-2xl p-4 border border-rose-500/30 text-xs space-y-2">
+                      <div className="bg-rose-950/50 rounded-2xl p-4 border border-rose-500/30 text-xs space-y-2">
                         <div className="flex flex-wrap items-center justify-between gap-2 text-rose-200">
-                          <span className="font-bold text-rose-300">⏱️ 建議時段：10:30 - 20:30（約 5.5 小時）</span>
-                          <span className="font-bold text-emerald-400">🚶 全程步行總計僅約 22 分鐘（零搭車浪費）</span>
-                          <span className="bg-rose-500/20 text-rose-300 px-2 py-0.5 rounded-md border border-rose-500/30">
-                            🏨 飯店為圓心中繼放戰利品 2 次
+                          <span className="font-bold text-rose-300 text-sm">⏱️ 建議時段：10:30 - 20:30（全程約 5.5 小時）</span>
+                          <span className="font-bold text-emerald-400">🚶 總步行時間僅 22 分鐘（同區一網打盡・零折返）</span>
+                          <span className="bg-rose-500/20 text-rose-300 px-2.5 py-0.5 rounded-md border border-rose-500/30 font-bold">
+                            🏨 飯店為圓心中繼卸貨 2 次
                           </span>
                         </div>
                         <p className="text-stone-300 leading-relaxed">
-                          <strong>【核心省時策略】</strong>：10:30 先去大丸本館 9F（動漫剛開門免排隊）並走室內空橋逛 PARCO → 中午 B2 食堂街吃完「第 1 次回房卸貨」→ 13:30 農林會館（13:00 店開時間剛好銜接，Strato 一站試齊 AURALEE/Graphpaper）→ 沿橘子街散步喝咖啡逛童裝 → 17:30「第 2 次回房放戰利品」輕鬆整裝 → 晚上出門拍跑跑人吃晚餐！
+                          <strong>【核心省時策略】</strong>：嚴格依據<strong>「同一建築 → 同一條街 → 順向往西 → 順向回東」</strong>規劃，南船場店家 13:00 開門前先逛大丸 9F 動漫，中午吃飽回房放貨，下午農林會館與橘子街一網打盡，傍晚二次放貨再去道頓堀吃晚餐，全家全程免扛重物！
                         </p>
                       </div>
 
-                      {/* Step by Step Timeline */}
-                      <div className="space-y-3">
-                        {[
-                          {
-                            step: '1',
-                            time: '10:30 - 12:00',
-                            title: '大丸心齋橋本館 9F ＋ 心齋橋 PARCO（室內直通）',
-                            transit: '🚶 從法拉格飯店步行 3 分鐘直達大丸本館',
-                            desc: '【剛開門免排隊＋空橋直通】平日早上 10:30 剛開門直上 9 樓（任天堂/寶可夢/Jump Shop 人潮最少）；逛完走 8F/9F 室內空橋直通 PARCO 1F~5F（HUMAN MADE、BAO BAO），全程免走回 1 樓吹風淋雨！',
-                            tags: ['Nintendo OSAKA', 'Pokémon Center', 'Jump Shop', 'HUMAN MADE', 'BAO BAO'],
-                            maps: 'https://www.google.com/maps/search/?api=1&query=Daimaru+Shinsaibashi+Main+Building',
-                          },
-                          {
-                            step: '2',
-                            time: '12:00 - 13:15',
-                            title: 'PARCO B2 霓虹食堂街午餐 ＋ 飯店第 1 次卸貨小憩',
-                            transit: '🚶 搭電梯直達 B2 美食街，吃完步行 3 分鐘回飯店',
-                            desc: '【無痛放貨＋能量補充】B2 有章魚燒、炸豬排、拉麵定食（不吃牛友善）；用餐後步行 3 分鐘回法拉格飯店放下大包動漫戰利品，大人小孩上廁所吹冷氣休息 20 分鐘，雙手空空再出發！',
-                            tags: ['PARCO B2 美食街', '法拉格飯店放戰利品', '24H免費咖啡'],
-                            maps: 'https://www.google.com/maps/search/?api=1&query=HOTEL+THE+FLAG+Shinsaibashi',
-                          },
-                          {
-                            step: '3',
-                            time: '13:30 - 15:00',
-                            title: '南船場・大阪農林會館（神級日潮選物一站齊）',
-                            transit: '🚶 飯店往北步行 5 分鐘直達農林會館',
-                            desc: '【13:00 開門時間完美銜接】搭復古電梯上 3 樓，301 室 Strato 試齊 AURALEE、Graphpaper、YAECA；轉身 303 室 STUDY SHOWROOM 試 S.F.C 寬鬆 City Boy；下樓順路走 2 分鐘買西口靴下手工襪＋ZABOU 牛仔褲。',
-                            tags: ['AURALEE', 'Graphpaper', 'S.F.C (Stripes For Creative)', '西口靴下', 'RESOLUTE 710'],
-                            maps: 'https://www.google.com/maps/search/?api=1&query=Osaka+Norin+Kaikan',
-                          },
-                          {
-                            step: '4',
-                            time: '15:15 - 17:15',
-                            title: '堀江橘子街 (Orange Street) 生活休閒與親子童裝',
-                            transit: '🚶 沿長堀通往西漫步 7 分鐘進入橘子街',
-                            desc: '【露天咖啡＋日系親子裝】BIOTOP（1F~4F Margiela/LE LABO，頂樓花園喝手沖咖啡小憩）；THE H.W.DOG&CO. 試復古帽子；DESCENDANT 為 6 歲小孩購入頂級日系 KIDS 親子裝。',
-                            tags: ['Margiela', 'LE LABO', 'THE H.W.DOG&CO.', 'DESCENDANT (KIDS 童裝)'],
-                            maps: 'https://www.google.com/maps/search/?api=1&query=BIOTOP+OSAKA',
-                          },
-                          {
-                            step: '5',
-                            time: '17:30 - 18:30',
-                            title: '飯店第 2 次卸貨放戰利品 ＋ 整裝休息',
-                            transit: '🚶 沿南堀江往東漫步 8 分鐘返回飯店',
-                            desc: '【戰利品全部放回房間】將下午買好的服裝鞋襪放進房間，換上輕便休閒鞋，小孩洗手喝水充飽電，輕鬆出門吃晚餐！',
-                            tags: ['房間卸貨', 'Lounge 休憩', '不帶重物逛街'],
-                            maps: 'https://www.google.com/maps/search/?api=1&query=HOTEL+THE+FLAG+Shinsaibashi',
-                          },
-                          {
-                            step: '6',
-                            time: '18:30 - 20:30',
-                            title: '道頓堀跑跑人夜景 ＋ 晚餐（千房大阪燒／今井烏龍麵）',
-                            transit: '🚶 飯店往南散步 6 分鐘直達道頓堀',
-                            desc: '【經典大阪夜景】輕裝拍固力果跑跑人招牌與巨型立體螃蟹，享用千房大阪燒（海鮮/豬肉）或道頓堀今井豆皮烏龍麵，結束充實完美的一天！',
-                            tags: ['固力果跑跑人', '千房大阪燒', '道頓堀今井烏龍麵'],
-                            maps: 'https://www.google.com/maps/search/?api=1&query=Dotonbori+Glico+Sign',
-                          },
-                        ].map((s) => (
-                          <div key={s.step} className="bg-white/5 hover:bg-white/[0.08] p-3.5 sm:p-4 rounded-2xl border border-white/10 flex gap-3 items-start transition-all">
-                            <div className="w-7 h-7 rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 text-white font-black text-xs flex items-center justify-center shrink-0 mt-0.5 shadow-md">
-                              {s.step}
-                            </div>
-                            <div className="flex-1 space-y-1.5 min-w-0">
-                              <div className="flex flex-wrap items-center justify-between gap-1.5">
-                                <span className="text-amber-300 font-bold text-xs">{s.time}</span>
-                                <span className="text-stone-400 text-[11px]">{s.transit}</span>
-                              </div>
-                              <h4 className="text-sm font-black text-white leading-tight">{s.title}</h4>
-                              <p className="text-xs text-stone-300 leading-relaxed">{s.desc}</p>
-                              <div className="flex items-center justify-between gap-2 flex-wrap pt-1">
-                                <div className="flex items-center gap-1.5 flex-wrap">
-                                  {s.tags.map((tg, tIdx) => (
-                                    <span key={tIdx} className="bg-stone-800 text-stone-300 text-[10px] font-semibold px-2 py-0.5 rounded-md border border-white/10">
-                                      {tg}
-                                    </span>
-                                  ))}
-                                </div>
-                                <a
-                                  href={s.maps}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="text-[11px] text-rose-400 hover:text-rose-300 font-bold flex items-center gap-1 shrink-0"
-                                >
-                                  <MapPin className="w-3 h-3" /> 導航
-                                </a>
-                              </div>
-                            </div>
+                      {/* Sequential Step by Step Navigation */}
+                      <div className="space-y-4">
+                        {/* Zone 1: Shinsaibashi Indoor */}
+                        <div className="space-y-2.5">
+                          <div className="flex items-center gap-2 text-xs font-black text-rose-400 uppercase tracking-wider bg-rose-500/10 px-3 py-1.5 rounded-xl border border-rose-500/20">
+                            <span>🏢 第 1 區塊：心齋橋室內連通（大丸本館 ＋ PARCO 空橋直通，零吹風淋雨）</span>
                           </div>
-                        ))}
+
+                          {[
+                            {
+                              step: '地點 ①',
+                              time: '10:30 - 11:30',
+                              title: '大丸心齋橋店 本館 9F（動漫親子天堂）',
+                              transit: '🚶 出飯店步行 3 分鐘（約 120 公尺）直達大丸本館',
+                              desc: '【剛開門免排隊】早上 10:30 直衝 9 樓（任天堂 OSAKA、寶可夢中心 DX、Jump Shop），免抽整理券、人潮最少，小孩拍照最開心！',
+                              tags: ['Nintendo OSAKA', 'Pokémon Center DX', 'Jump Shop'],
+                              maps: 'https://www.google.com/maps/search/?api=1&query=Daimaru+Shinsaibashi+Main+Building',
+                            },
+                            {
+                              step: '地點 ②',
+                              time: '11:30 - 12:15',
+                              title: '心齋橋 PARCO 1F~5F（空橋直通）',
+                              transit: '🏢 從地點 ① 走大丸 8F/9F 室內連通空橋直達 PARCO（0 分鐘免走回地面）',
+                              desc: '【不用下樓吹風】經由室內空橋直接跨入 PARCO 逛 1F HUMAN MADE（心齋橋限定款）、2F BAO BAO ISSEY MIYAKE。',
+                              tags: ['HUMAN MADE', 'BAO BAO ISSEY MIYAKE', 'Maison Kitsuné'],
+                              maps: 'https://www.google.com/maps/search/?api=1&query=Shinsaibashi+PARCO',
+                            },
+                            {
+                              step: '地點 ③',
+                              time: '12:15 - 13:15',
+                              title: 'PARCO B2「心齋橋霓虹食堂街」午餐 ＋ 飯店第 1 次卸貨',
+                              transit: '🚶 搭電梯直達 B2 美食街，吃完步行 3 分鐘回飯店',
+                              desc: '【無痛放貨充電】B2 享用炸豬排、章魚燒或烏龍麵（不吃牛友善）；飯後步行 3 分鐘回法拉格飯店放下大包動漫戰利品，吹冷氣上廁所小憩，雙手空空再出發！',
+                              tags: ['PARCO B2 霓虹食堂街', '心齋橋法拉格飯店 (第1次放戰利品)'],
+                              maps: 'https://www.google.com/maps/search/?api=1&query=HOTEL+THE+FLAG+Shinsaibashi',
+                            },
+                          ].map((s, idx) => (
+                            <div key={idx} className="bg-white/5 hover:bg-white/[0.08] p-3.5 sm:p-4 rounded-2xl border border-white/10 flex gap-3 items-start transition-all">
+                              <div className="w-16 text-center py-1 rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 text-white font-black text-xs shrink-0 mt-0.5 shadow-md">
+                                {s.step}
+                              </div>
+                              <div className="flex-1 space-y-1.5 min-w-0">
+                                <div className="flex flex-wrap items-center justify-between gap-1.5">
+                                  <span className="text-amber-300 font-bold text-xs">{s.time}</span>
+                                  <span className="text-stone-400 text-[11px] font-medium">{s.transit}</span>
+                                </div>
+                                <h4 className="text-sm font-black text-white leading-tight">{s.title}</h4>
+                                <p className="text-xs text-stone-300 leading-relaxed">{s.desc}</p>
+                                <div className="flex items-center justify-between gap-2 flex-wrap pt-1">
+                                  <div className="flex items-center gap-1.5 flex-wrap">
+                                    {s.tags.map((tg, tIdx) => (
+                                      <span key={tIdx} className="bg-stone-800 text-stone-300 text-[10px] font-semibold px-2 py-0.5 rounded-md border border-white/10">
+                                        {tg}
+                                      </span>
+                                    ))}
+                                  </div>
+                                  <a href={s.maps} target="_blank" rel="noopener noreferrer" className="text-[11px] text-rose-400 hover:text-rose-300 font-bold flex items-center gap-1 shrink-0">
+                                    <MapPin className="w-3 h-3" /> 導航
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Zone 2: Minamisemba */}
+                        <div className="space-y-2.5">
+                          <div className="flex items-center gap-2 text-xs font-black text-indigo-400 uppercase tracking-wider bg-indigo-500/10 px-3 py-1.5 rounded-xl border border-indigo-500/20">
+                            <span>🏢 第 2 區塊：南船場・農林會館同一棟大樓 ＋ 同一條街（往北直行）</span>
+                          </div>
+
+                          {[
+                            {
+                              step: '地點 ④',
+                              time: '13:35 - 14:30',
+                              title: '南船場・大阪農林會館 3 樓（301室 Strato ＋ 303室 STUDY SHOWROOM）',
+                              transit: '🚶 從飯店往北直走 5 分鐘到達農林會館，搭復古電梯上 3 樓',
+                              desc: '【13:00 店開時間完美銜接】301 室 Strato 試齊 AURALEE、Graphpaper、YAECA；走出門轉身 5 步路進 303 室 STUDY SHOWROOM 試 S.F.C 寬鬆 City Boy，同一層樓解決兩大神店！',
+                              tags: ['AURALEE', 'Graphpaper', 'S.F.C (Stripes For Creative)', 'YAECA'],
+                              maps: 'https://www.google.com/maps/search/?api=1&query=Osaka+Norin+Kaikan',
+                            },
+                            {
+                              step: '地點 ⑤',
+                              time: '14:30 - 14:50',
+                              title: '西口靴下 (NISHIGUCHI KUTSUSHITA 直營店)',
+                              transit: '🚶 從農林會館下樓，往西走 150 公尺（2 分鐘）',
+                              desc: '【日本頂級手工襪】奈良近百年天然纖維手工襪，腳感極度包覆親膚，是高質感穿搭必備與伴手禮首選！',
+                              tags: ['西口靴下', '天然纖維', '伴手禮首選'],
+                              maps: 'https://www.google.com/maps/search/?api=1&query=NISHIGUCHI+KUTSUSHITA+Minamisemba',
+                            },
+                            {
+                              step: '地點 ⑥',
+                              time: '14:50 - 15:15',
+                              title: 'ZABOU OSAKA 2F',
+                              transit: '🚶 同條街往前走 100 公尺（1 分鐘）上 2 樓',
+                              desc: '【神級牛仔褲】林芳亨操刀 RESOLUTE 710 神級修身日本丹寧褲、Saint James 條紋衫，修飾身形效果一流。',
+                              tags: ['RESOLUTE 710', 'Saint James', '日本丹寧'],
+                              maps: 'https://www.google.com/maps/search/?api=1&query=ZABOU+OSAKA',
+                            },
+                          ].map((s, idx) => (
+                            <div key={idx} className="bg-white/5 hover:bg-white/[0.08] p-3.5 sm:p-4 rounded-2xl border border-white/10 flex gap-3 items-start transition-all">
+                              <div className="w-16 text-center py-1 rounded-xl bg-gradient-to-br from-indigo-500 to-blue-600 text-white font-black text-xs shrink-0 mt-0.5 shadow-md">
+                                {s.step}
+                              </div>
+                              <div className="flex-1 space-y-1.5 min-w-0">
+                                <div className="flex flex-wrap items-center justify-between gap-1.5">
+                                  <span className="text-amber-300 font-bold text-xs">{s.time}</span>
+                                  <span className="text-stone-400 text-[11px] font-medium">{s.transit}</span>
+                                </div>
+                                <h4 className="text-sm font-black text-white leading-tight">{s.title}</h4>
+                                <p className="text-xs text-stone-300 leading-relaxed">{s.desc}</p>
+                                <div className="flex items-center justify-between gap-2 flex-wrap pt-1">
+                                  <div className="flex items-center gap-1.5 flex-wrap">
+                                    {s.tags.map((tg, tIdx) => (
+                                      <span key={tIdx} className="bg-stone-800 text-stone-300 text-[10px] font-semibold px-2 py-0.5 rounded-md border border-white/10">
+                                        {tg}
+                                      </span>
+                                    ))}
+                                  </div>
+                                  <a href={s.maps} target="_blank" rel="noopener noreferrer" className="text-[11px] text-indigo-400 hover:text-indigo-300 font-bold flex items-center gap-1 shrink-0">
+                                    <MapPin className="w-3 h-3" /> 導航
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Zone 3: Horie Orange Street */}
+                        <div className="space-y-2.5">
+                          <div className="flex items-center gap-2 text-xs font-black text-amber-400 uppercase tracking-wider bg-amber-500/10 px-3 py-1.5 rounded-xl border border-amber-500/20">
+                            <span>🍊 第 3 區塊：堀江橘子街 (Orange Street)・一路向西同一條街順著逛</span>
+                          </div>
+
+                          {[
+                            {
+                              step: '地點 ⑦',
+                              time: '15:20 - 16:15',
+                              title: 'BIOTOP OSAKA（橘子街東入口）＋ 4F 露天庭園咖啡小憩',
+                              transit: '🚶 沿長堀通往西步行 4 分鐘進入橘子街口',
+                              desc: '【生活美學＋下午茶歇腳】1F~4F 網羅 Margiela、LE LABO、生活選物；頂樓 4F 露天綠意花園喝手沖咖啡吃甜點小憩，全家補充體力！',
+                              tags: ['Margiela', 'LE LABO', '4F 庭園咖啡', '甜點小憩'],
+                              maps: 'https://www.google.com/maps/search/?api=1&query=BIOTOP+OSAKA',
+                            },
+                            {
+                              step: '地點 ⑧',
+                              time: '16:15 - 16:40',
+                              title: 'THE H.W.DOG&CO. OSAKA',
+                              transit: '🚶 沿橘子街往前走 100 公尺（1 分鐘）',
+                              desc: '【神級復古帽飾】1860~1980 年代美日工裝復古帽，報童帽、棒球帽與水洗漁夫帽，版型修飾臉型。',
+                              tags: ['THE H.W.DOG&CO.', '復古報童帽', '工裝帽飾'],
+                              maps: 'https://www.google.com/maps/search/?api=1&query=THE+H.W.DOG%26CO.+Osaka',
+                            },
+                            {
+                              step: '地點 ⑨',
+                              time: '16:40 - 17:00',
+                              title: 'SOPH. OSAKA',
+                              transit: '🚶 往前走 50 公尺（1 分鐘）',
+                              desc: '【機能街頭潮流】清原浩創立經典品牌，F.C.Real Bristol (F.C.R.B.) 足球機能休閒系列。',
+                              tags: ['SOPHNET.', 'F.C.R.B.', 'uniform experiment'],
+                              maps: 'https://www.google.com/maps/search/?api=1&query=SOPH.+OSAKA',
+                            },
+                            {
+                              step: '地點 ⑩',
+                              time: '17:00 - 17:40',
+                              title: 'DESCENDANT OSAKA（西山徹日潮童裝/親子裝）',
+                              transit: '🚶 往前走 120 公尺（2 分鐘）到南堀江 1 丁目街角',
+                              desc: '【親子家庭穿搭首選】西山徹日常美式工裝，布料厚實耐洗；特別設有 KIDS 童裝系列，為 6 歲小孩購入頂級日系親子裝的最佳地點！',
+                              tags: ['DESCENDANT', 'KIDS 童裝系列', '日系親子裝'],
+                              maps: 'https://www.google.com/maps/search/?api=1&query=DESCENDANT+OSAKA',
+                            },
+                          ].map((s, idx) => (
+                            <div key={idx} className="bg-white/5 hover:bg-white/[0.08] p-3.5 sm:p-4 rounded-2xl border border-white/10 flex gap-3 items-start transition-all">
+                              <div className="w-16 text-center py-1 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 text-stone-950 font-black text-xs shrink-0 mt-0.5 shadow-md">
+                                {s.step}
+                              </div>
+                              <div className="flex-1 space-y-1.5 min-w-0">
+                                <div className="flex flex-wrap items-center justify-between gap-1.5">
+                                  <span className="text-amber-300 font-bold text-xs">{s.time}</span>
+                                  <span className="text-stone-400 text-[11px] font-medium">{s.transit}</span>
+                                </div>
+                                <h4 className="text-sm font-black text-white leading-tight">{s.title}</h4>
+                                <p className="text-xs text-stone-300 leading-relaxed">{s.desc}</p>
+                                <div className="flex items-center justify-between gap-2 flex-wrap pt-1">
+                                  <div className="flex items-center gap-1.5 flex-wrap">
+                                    {s.tags.map((tg, tIdx) => (
+                                      <span key={tIdx} className="bg-stone-800 text-stone-300 text-[10px] font-semibold px-2 py-0.5 rounded-md border border-white/10">
+                                        {tg}
+                                      </span>
+                                    ))}
+                                  </div>
+                                  <a href={s.maps} target="_blank" rel="noopener noreferrer" className="text-[11px] text-amber-400 hover:text-amber-300 font-bold flex items-center gap-1 shrink-0">
+                                    <MapPin className="w-3 h-3" /> 導航
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Zone 4: Hotel Drop & Dotonbori Dinner */}
+                        <div className="space-y-2.5">
+                          <div className="flex items-center gap-2 text-xs font-black text-emerald-400 uppercase tracking-wider bg-emerald-500/10 px-3 py-1.5 rounded-xl border border-emerald-500/20">
+                            <span>🌙 第 4 區塊：回飯店卸貨 ＋ 道頓堀夜景晚餐（一路向東回飯店，再向南道頓堀）</span>
+                          </div>
+
+                          {[
+                            {
+                              step: '地點 ⑪',
+                              time: '17:45 - 18:30',
+                              title: '心齋橋法拉格飯店（第 2 次卸貨・戰利品全放回房）',
+                              transit: '🚶 沿南堀江往東漫步 8 分鐘返回飯店',
+                              desc: '【全身無負擔】將下午買的所有服飾、帽子與童裝全部放回房間，換上輕便休閒鞋，全家洗手喝水，輕鬆出門吃晚餐！',
+                              tags: ['房間卸貨', 'Lounge 休憩', '不帶重物逛街'],
+                              maps: 'https://www.google.com/maps/search/?api=1&query=HOTEL+THE+FLAG+Shinsaibashi',
+                            },
+                            {
+                              step: '地點 ⑫',
+                              time: '18:30 - 20:30',
+                              title: '道頓堀固力果跑跑人 ＋ 不吃牛美食晚餐',
+                              transit: '🚶 飯店往南漫步 6 分鐘直達道頓堀',
+                              desc: '【經典大阪夜景】輕裝拍固力果跑跑人招牌與巨型立體螃蟹，享用千房大阪燒（海鮮/豬肉）或道頓堀今井豆皮烏龍麵，結束充實完美的一天！',
+                              tags: ['固力果跑跑人', '千房大阪燒', '道頓堀今井烏龍麵'],
+                              maps: 'https://www.google.com/maps/search/?api=1&query=Dotonbori+Glico+Sign',
+                            },
+                          ].map((s, idx) => (
+                            <div key={idx} className="bg-white/5 hover:bg-white/[0.08] p-3.5 sm:p-4 rounded-2xl border border-white/10 flex gap-3 items-start transition-all">
+                              <div className="w-16 text-center py-1 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white font-black text-xs shrink-0 mt-0.5 shadow-md">
+                                {s.step}
+                              </div>
+                              <div className="flex-1 space-y-1.5 min-w-0">
+                                <div className="flex flex-wrap items-center justify-between gap-1.5">
+                                  <span className="text-amber-300 font-bold text-xs">{s.time}</span>
+                                  <span className="text-stone-400 text-[11px] font-medium">{s.transit}</span>
+                                </div>
+                                <h4 className="text-sm font-black text-white leading-tight">{s.title}</h4>
+                                <p className="text-xs text-stone-300 leading-relaxed">{s.desc}</p>
+                                <div className="flex items-center justify-between gap-2 flex-wrap pt-1">
+                                  <div className="flex items-center gap-1.5 flex-wrap">
+                                    {s.tags.map((tg, tIdx) => (
+                                      <span key={tIdx} className="bg-stone-800 text-stone-300 text-[10px] font-semibold px-2 py-0.5 rounded-md border border-white/10">
+                                        {tg}
+                                      </span>
+                                    ))}
+                                  </div>
+                                  <a href={s.maps} target="_blank" rel="noopener noreferrer" className="text-[11px] text-emerald-400 hover:text-emerald-300 font-bold flex items-center gap-1 shrink-0">
+                                    <MapPin className="w-3 h-3" /> 導航
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   )}
 
                   {selectedRoute === 'umeda_blast' && (
-                    <div className="space-y-3.5 pt-2">
-                      <div className="bg-amber-950/40 rounded-2xl p-4 border border-amber-500/30 text-xs space-y-2">
+                    <div className="space-y-4 pt-2">
+                      <div className="bg-amber-950/50 rounded-2xl p-4 border border-amber-500/30 text-xs space-y-2">
                         <div className="flex flex-wrap items-center justify-between gap-2 text-amber-200">
-                          <span className="font-bold text-amber-300">⏱️ 建議時段：10:30 - 16:30（約 4~5 小時）</span>
+                          <span className="font-bold text-amber-300 text-sm">⏱️ 建議時段：10:30 - 16:30（全程約 4~5 小時）</span>
                           <span className="font-bold text-emerald-400">🚇 地鐵 6 分鐘直達・100% 全程地下道連通</span>
-                          <span className="bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded-md border border-amber-500/30">
+                          <span className="bg-amber-500/20 text-amber-300 px-2.5 py-0.5 rounded-md border border-amber-500/30 font-bold">
                             🌧️ 雨天推車爆買首選
                           </span>
                         </div>
                         <p className="text-stone-300 leading-relaxed">
-                          <strong>【核心省時策略】</strong>：御堂筋線心齋橋站直達梅田（3 站 6 分），出站地下通道直通 LUCUA 1100（男女裝與生活美妝一次買齊）→ 轉身直奔阪急百貨 B1 伴手禮街搶購 ÉCHIRÉ 艾許奶油餅乾與 Bâton d'or 高級 Pocky → 帶小孩登上 HEP FIVE 7 樓紅色摩天輪俯瞰大阪！
+                          <strong>【核心省時策略】</strong>：心齋橋搭御堂筋線 6 分鐘直達梅田地下街，全程室內無風雨。依序從<strong>「地點 ① LUCUA（男女裝）」➔「地點 ② 阪急 B1（伴手禮）」➔「地點 ③ HEP FIVE（摩天輪）」</strong>順向逛完，再搭地鐵直達回飯店！
                         </p>
                       </div>
 
-                      <div className="space-y-3">
+                      <div className="space-y-2.5">
                         {[
                           {
-                            step: '1',
+                            step: '地點 ①',
                             time: '10:30 - 13:00',
                             title: 'LUCUA 1100 ＆ LUCUA osaka（男女裝生活選物買爆）',
-                            transit: '🚇 心齋橋搭御堂筋線（3 站 6 分）直達梅田地下街',
+                            transit: '🚇 心齋橋搭御堂筋線（3 站 6 分）出剪票口地下通道直達',
                             desc: '【一隻阿圓激推 No.1 百貨】JR 大阪站直通！BEAMS、Freak\'s Store、Bshop、Maison Kitsuné、Kastane 男女裝一次買齊，9F 蔦屋書店有超美星巴克可歇腳。',
                             tags: ['BEAMS', 'Freak\'s Store', 'Bshop', 'Maison Kitsuné', 'Cosme Kitchen', '蔦屋書店'],
                             maps: 'https://www.google.com/maps/search/?api=1&query=LUCUA+osaka',
                           },
                           {
-                            step: '2',
+                            step: '地點 ②',
                             time: '13:00 - 14:30',
                             title: '阪急百貨 梅田總店 B1（神級伴手禮甜點天花板）',
-                            transit: '🚶 梅田地下街走 2 分鐘直達阪急 B1',
+                            transit: '🚶 梅田地下街往東走 2 分鐘直達阪急 B1',
                             desc: '【伴手禮掃貨天花板】B1/B2 地下街聚集全日本最頂級限定甜點，搶購 ÉCHIRÉ 艾許奶油餅乾、Bâton d\'or 高級版 Pocky；樓上美妝專櫃齊全。',
                             tags: ['ÉCHIRÉ (艾許奶油)', 'Bâton d\'or (高級Pocky)', '日本專櫃美妝'],
                             maps: 'https://www.google.com/maps/search/?api=1&query=Hankyu+Department+Store+Umeda',
                           },
                           {
-                            step: '3',
+                            step: '地點 ③',
                             time: '14:45 - 16:30',
                             title: 'HEP FIVE 摩天輪 ＆ 平價流行飾品女裝',
-                            transit: '🚶 往東步行 3 分鐘即達 HEP FIVE',
+                            transit: '🚶 從阪急百貨往東步行 3 分鐘即達 HEP FIVE',
                             desc: '【平價日系＋小孩景觀】WEGO 與平價女裝飾品集中地；帶 6 歲小孩搭乘 7F 標誌性紅色巨大摩天輪俯瞰大阪梅田市景！',
                             tags: ['WEGO', 'BEAMS STREET', 'RED FERRIS WHEEL (紅色摩天輪)'],
                             maps: 'https://www.google.com/maps/search/?api=1&query=HEP+FIVE+Osaka',
                           },
-                        ].map((s) => (
-                          <div key={s.step} className="bg-white/5 hover:bg-white/[0.08] p-3.5 sm:p-4 rounded-2xl border border-white/10 flex gap-3 items-start transition-all">
-                            <div className="w-7 h-7 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 text-stone-950 font-black text-xs flex items-center justify-center shrink-0 mt-0.5 shadow-md">
+                        ].map((s, idx) => (
+                          <div key={idx} className="bg-white/5 hover:bg-white/[0.08] p-3.5 sm:p-4 rounded-2xl border border-white/10 flex gap-3 items-start transition-all">
+                            <div className="w-16 text-center py-1 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 text-stone-950 font-black text-xs shrink-0 mt-0.5 shadow-md">
                               {s.step}
                             </div>
                             <div className="flex-1 space-y-1.5 min-w-0">
                               <div className="flex flex-wrap items-center justify-between gap-1.5">
                                 <span className="text-amber-300 font-bold text-xs">{s.time}</span>
-                                <span className="text-stone-400 text-[11px]">{s.transit}</span>
+                                <span className="text-stone-400 text-[11px] font-medium">{s.transit}</span>
                               </div>
                               <h4 className="text-sm font-black text-white leading-tight">{s.title}</h4>
                               <p className="text-xs text-stone-300 leading-relaxed">{s.desc}</p>
@@ -1071,12 +1235,7 @@ function App() {
                                     </span>
                                   ))}
                                 </div>
-                                <a
-                                  href={s.maps}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="text-[11px] text-amber-400 hover:text-amber-300 font-bold flex items-center gap-1 shrink-0"
-                                >
+                                <a href={s.maps} target="_blank" rel="noopener noreferrer" className="text-[11px] text-amber-400 hover:text-amber-300 font-bold flex items-center gap-1 shrink-0">
                                   <MapPin className="w-3 h-3" /> 導航
                                 </a>
                               </div>
@@ -1088,42 +1247,42 @@ function App() {
                   )}
 
                   {selectedRoute === 'kyoto_dig' && (
-                    <div className="space-y-3.5 pt-2">
-                      <div className="bg-indigo-950/40 rounded-2xl p-4 border border-indigo-500/30 text-xs space-y-2">
+                    <div className="space-y-4 pt-2">
+                      <div className="bg-indigo-950/50 rounded-2xl p-4 border border-indigo-500/30 text-xs space-y-2">
                         <div className="flex flex-wrap items-center justify-between gap-2 text-indigo-200">
-                          <span className="font-bold text-indigo-300">⏱️ 建議時段：14:00 - 18:30（約 3.5 小時）</span>
+                          <span className="font-bold text-indigo-300 text-sm">⏱️ 建議時段：14:00 - 18:30（全程約 3.5 小時）</span>
                           <span className="font-bold text-emerald-400">🚶 全程直線散步約 18 分鐘（一路向南零折返）</span>
-                          <span className="bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded-md border border-indigo-500/30">
+                          <span className="bg-indigo-500/20 text-indigo-300 px-2.5 py-0.5 rounded-md border border-indigo-500/30 font-bold">
                             ⛩️ Day 2 漫遊／傍晚推薦
                           </span>
                         </div>
                         <p className="text-stone-300 leading-relaxed">
-                          <strong>【核心省時策略】</strong>：烏丸御池站 4 號出口直通新風館（1LDK / BEAMS JAPAN）→ 沿三條通往東散步至 1928 大樓喝藍瓶咖啡買 HUMAN MADE 愛心周邊 → 河原町巷內欣賞 KAPITAL 町家刺子繡 → 走入寺町通 LOFTMAN 挖寶 Needles 蝴蝶褲與藤井大丸！
+                          <strong>【核心省時策略】</strong>：由北向南一條直線！從<strong>「地點 ① 烏丸御池新風館」➔「地點 ② 三條通 HUMAN MADE 藍瓶」➔「地點 ③ 河原町 KAPITAL」➔「地點 ④ 寺町通 LOFTMAN 蝴蝶褲」</strong>，一路順逛到底，零回頭路！
                         </p>
                       </div>
 
-                      <div className="space-y-3">
+                      <div className="space-y-2.5">
                         {[
                           {
-                            step: '1',
+                            step: '地點 ①',
                             time: '14:00 - 15:15',
                             title: '新風館 ShinPuhKan（1LDK / BEAMS JAPAN）',
-                            transit: '🚇 地下鐵烏丸線「烏丸御池站」4 號出口直通',
+                            transit: '🚇 地下鐵烏丸線「烏丸御池站」4 號出口地下直通 1F',
                             desc: '【隈研吾綠意庭園】關西唯一 1LDK 直營極簡選物，BEAMS JAPAN 京都限定和風托特包，無障礙推車極好走。',
                             tags: ['1LDK KYOTO', 'BEAMS JAPAN', 'LE LABO', 'TRAVELER\'S FACTORY'],
                             maps: 'https://www.google.com/maps/search/?api=1&query=ShinPuhKan+Kyoto',
                           },
                           {
-                            step: '2',
+                            step: '地點 ②',
                             time: '15:20 - 16:15',
                             title: 'HUMAN MADE 1928 ＆ 藍瓶咖啡概念店',
-                            transit: '🚶 沿三條通往東漫步 5 分鐘',
+                            transit: '🚶 沿三條通往東直線漫步 5 分鐘',
                             desc: '【昭和洋樓＋限定愛心】在百年紅磚洋樓內喝 Blue Bottle 拿鐵，選購京都限定愛心與鴨子 T 恤、周邊小物。',
                             tags: ['HUMAN MADE', 'BLUE BOTTLE COFFEE', 'CURRY UP'],
                             maps: 'https://www.google.com/maps/search/?api=1&query=HUMAN+MADE+1928+Kyoto',
                           },
                           {
-                            step: '3',
+                            step: '地點 ③',
                             time: '16:20 - 17:00',
                             title: 'KAPITAL KYOTO（傳統町家工藝門市）',
                             transit: '🚶 往東南走 3 分鐘進入三條河原町巷內',
@@ -1132,7 +1291,7 @@ function App() {
                             maps: 'https://www.google.com/maps/search/?api=1&query=KAPITAL+KYOTO',
                           },
                           {
-                            step: '4',
+                            step: '地點 ④',
                             time: '17:05 - 18:30',
                             title: 'LOFTMAN COOP KYOTO ＆ 藤井大丸百貨',
                             transit: '🚶 走進寺町通商店街 2 分鐘即達',
@@ -1140,15 +1299,15 @@ function App() {
                             tags: ['Needles (蝴蝶褲)', 'Engineered Garments', 'PORTER (吉田包)', 'Bshop'],
                             maps: 'https://www.google.com/maps/search/?api=1&query=LOFTMAN+COOP+KYOTO',
                           },
-                        ].map((s) => (
-                          <div key={s.step} className="bg-white/5 hover:bg-white/[0.08] p-3.5 sm:p-4 rounded-2xl border border-white/10 flex gap-3 items-start transition-all">
-                            <div className="w-7 h-7 rounded-xl bg-gradient-to-br from-indigo-500 to-blue-600 text-white font-black text-xs flex items-center justify-center shrink-0 mt-0.5 shadow-md">
+                        ].map((s, idx) => (
+                          <div key={idx} className="bg-white/5 hover:bg-white/[0.08] p-3.5 sm:p-4 rounded-2xl border border-white/10 flex gap-3 items-start transition-all">
+                            <div className="w-16 text-center py-1 rounded-xl bg-gradient-to-br from-indigo-500 to-blue-600 text-white font-black text-xs shrink-0 mt-0.5 shadow-md">
                               {s.step}
                             </div>
                             <div className="flex-1 space-y-1.5 min-w-0">
                               <div className="flex flex-wrap items-center justify-between gap-1.5">
                                 <span className="text-amber-300 font-bold text-xs">{s.time}</span>
-                                <span className="text-stone-400 text-[11px]">{s.transit}</span>
+                                <span className="text-stone-400 text-[11px] font-medium">{s.transit}</span>
                               </div>
                               <h4 className="text-sm font-black text-white leading-tight">{s.title}</h4>
                               <p className="text-xs text-stone-300 leading-relaxed">{s.desc}</p>
@@ -1160,12 +1319,7 @@ function App() {
                                     </span>
                                   ))}
                                 </div>
-                                <a
-                                  href={s.maps}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="text-[11px] text-indigo-400 hover:text-indigo-300 font-bold flex items-center gap-1 shrink-0"
-                                >
+                                <a href={s.maps} target="_blank" rel="noopener noreferrer" className="text-[11px] text-indigo-400 hover:text-indigo-300 font-bold flex items-center gap-1 shrink-0">
                                   <MapPin className="w-3 h-3" /> 導航
                                 </a>
                               </div>
