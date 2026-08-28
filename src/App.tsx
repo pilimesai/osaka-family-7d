@@ -387,10 +387,9 @@ function App() {
                       </motion.div>
                     )}
 
-                    {/* Shopping Guide Card (Day 2 for Kyoto, Day 4 & Day 7 for Osaka) */}
-                    {(currentDay.day === 2 || currentDay.day === 4 || currentDay.day === 7) && (() => {
-                      const isKyoto = currentDay.day === 2;
-                      const dayCity = isKyoto ? '京都' : '大阪';
+                    {/* Shopping Guide Card (Day 4 & Day 7 for Osaka) */}
+                    {(currentDay.day === 4 || currentDay.day === 7) && (() => {
+                      const dayCity = '大阪';
                       const citySpots = SHOPPING_SPOTS.filter(s => s.city === dayCity);
                       const availableZones = Array.from(new Set(citySpots.map(s => s.zone)));
 
@@ -937,7 +936,7 @@ function App() {
                         id: 'kyoto_dig',
                         title: '⛩️ 路線 3：京都日潮特價挖寶線',
                         subtitle: '新風館・HUMAN MADE・LOFTMAN',
-                        badge: 'Day 2 傍晚・一路向南零折返',
+                        badge: '京都日潮精選・一路向南零折返',
                         color: 'from-indigo-500 to-blue-600',
                       },
                     ].map((rt) => (
@@ -1315,7 +1314,7 @@ function App() {
                           <span className="font-bold text-indigo-300 text-sm">⏱️ 建議時段：14:00 - 18:30（全程約 3.5 小時）</span>
                           <span className="font-bold text-emerald-400">🚶 全程直線散步約 18 分鐘（一路向南零折返）</span>
                           <span className="bg-indigo-500/20 text-indigo-300 px-2.5 py-0.5 rounded-md border border-indigo-500/30 font-bold">
-                            ⛩️ Day 2 漫遊／傍晚推薦
+                            ⛩️ 京都日潮精選路線
                           </span>
                         </div>
                         <p className="text-stone-300 leading-relaxed">
