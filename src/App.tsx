@@ -840,14 +840,14 @@ function App() {
                       {/* Summary Banner */}
                       <div className="bg-rose-950/50 rounded-2xl p-4 border border-rose-500/30 text-xs space-y-2">
                         <div className="flex flex-wrap items-center justify-between gap-2 text-rose-200">
-                          <span className="font-bold text-rose-300 text-sm">⏱️ 建議時段：14:00 - 20:30（逛街約 3.5 小時 ＋ 晚餐 2 小時）</span>
-                          <span className="font-bold text-emerald-400">🚶 全程步行總計僅約 18 分鐘（同區一網打盡・零折返）</span>
+                          <span className="font-bold text-rose-300 text-sm">⏱️ 建議時段：14:00 - 21:00（逛街約 4 小時 ＋ 晚餐 2 小時）</span>
+                          <span className="font-bold text-emerald-400">🚶 全程步行總計僅約 20 分鐘（順向閉環・零折返）</span>
                           <span className="bg-rose-500/20 text-rose-300 px-2.5 py-0.5 rounded-md border border-rose-500/30 font-bold">
                             🏨 傍晚回飯店卸貨再出門吃晚餐
                           </span>
                         </div>
                         <p className="text-stone-300 leading-relaxed">
-                          <strong>【核心省時策略】</strong>：早上前往箕面勝尾寺祈福，中午吃飽返回心齋橋！下午 14:00 順向展開精華日潮選物：<strong>南船場農林會館（Strato 一站試齊 AURALEE/Graphpaper ＋ S.F.C）➔ 西口靴下與 ZABOU ➔ 堀江橘子街 BIOTOP 露天咖啡 ＋ HW DOG 復古帽 ＋ SOPH. ➔ 17:00 回飯店卸貨放戰利品 ➔ 18:00 道頓堀跑跑人夜景吃晚餐！</strong>
+                          <strong>【TheShorty 矮子逛店精選策略】</strong>：早上前往箕面勝尾寺祈福，中午吃飽回心齋橋！下午 14:00 順向展開：<strong>南船場農林會館（Strato 試 AURALEE ＋ S.F.C）➔ FREAK'S STORE（NAUTICA JP 寬鬆 City Boy）➔ 西口靴下與 ZABOU（修身神褲）➔ 堀江 BIOTOP 露天咖啡 ＋ HW DOG 復古帽 ＋ SOPH. ➔ 心齋橋 PARCO（BEAMS ＋ STUDIOUS 日製極簡 ＋ HUMAN MADE）➔ 18:30 回飯店卸貨 ➔ 19:00 道頓堀跑跑人吃晚餐！</strong>
                         </p>
                       </div>
 
@@ -856,7 +856,7 @@ function App() {
                         {/* Zone 1: Minamisemba */}
                         <div className="space-y-2.5">
                           <div className="flex items-center gap-2 text-xs font-black text-indigo-400 uppercase tracking-wider bg-indigo-500/10 px-3 py-1.5 rounded-xl border border-indigo-500/20">
-                            <span>🏢 第 1 區塊：南船場・農林會館同一棟大樓 ＋ 同一條街（往北直行）</span>
+                            <span>🏢 第 1 區塊：南船場・日潮選貨 ＋ 美式 City Boy 工裝（往北直行）</span>
                           </div>
 
                           {[
@@ -871,16 +871,25 @@ function App() {
                             },
                             {
                               step: '地點 ②',
-                              time: '14:45 - 15:05',
+                              time: '14:45 - 15:15',
+                              title: 'FREAK\'S STORE 大阪・心齋橋店',
+                              transit: '🚶 從農林會館下樓步行 2 分鐘（南船場 3 丁目）',
+                              desc: '【City Boy 寬鬆必買・台灣專櫃 5 折】NAUTICA JP（長谷川昭雄監修）重磅衛衣、牛津襯衫與工裝寬褲在日本入手極划算，版型挺拔小個子穿也超好看！',
+                              tags: ['NAUTICA JP', 'FREAK\'S STORE', 'City Boy', '美式工裝'],
+                              maps: 'https://www.google.com/maps/search/?api=1&query=FREAK%27S+STORE+Shinsaibashi',
+                            },
+                            {
+                              step: '地點 ③',
+                              time: '15:15 - 15:35',
                               title: '西口靴下 (NISHIGUCHI KUTSUSHITA 直營店)',
-                              transit: '🚶 從農林會館下樓，往西走 150 公尺（2 分鐘）',
+                              transit: '🚶 往西走 150 公尺（2 分鐘）',
                               desc: '【日本頂級手工襪】奈良近百年天然纖維手工襪，腳感極度包覆親膚，是高質感穿搭必備與伴手禮首選！',
                               tags: ['西口靴下', '天然纖維', '伴手禮首選'],
                               maps: 'https://www.google.com/maps/search/?api=1&query=NISHIGUCHI+KUTSUSHITA+Minamisemba',
                             },
                             {
-                              step: '地點 ③',
-                              time: '15:05 - 15:30',
+                              step: '地點 ④',
+                              time: '15:35 - 16:00',
                               title: 'ZABOU OSAKA 2F',
                               transit: '🚶 同條街往前走 100 公尺（1 分鐘）上 2 樓',
                               desc: '【神級牛仔褲】林芳亨操刀 RESOLUTE 710 神級修身日本丹寧褲、Saint James 條紋衫，修飾身形效果一流。',
@@ -919,13 +928,13 @@ function App() {
                         {/* Zone 2: Horie Orange Street */}
                         <div className="space-y-2.5">
                           <div className="flex items-center gap-2 text-xs font-black text-amber-400 uppercase tracking-wider bg-amber-500/10 px-3 py-1.5 rounded-xl border border-amber-500/20">
-                            <span>🍊 第 2 區塊：堀江橘子街 (Orange Street)・一路向西同一條街順著逛</span>
+                            <span>🍊 第 2 區塊：堀江橘子街 (Orange Street)・順路向西同一條街逛到底</span>
                           </div>
 
                           {[
                             {
-                              step: '地點 ④',
-                              time: '15:35 - 16:30',
+                              step: '地點 ⑤',
+                              time: '16:05 - 16:50',
                               title: 'BIOTOP OSAKA（橘子街東入口）＋ 4F 露天庭園咖啡小憩',
                               transit: '🚶 沿長堀通往西步行 4 分鐘進入橘子街口',
                               desc: '【生活美學＋下午茶歇腳】1F~4F 網羅 Margiela、LE LABO、生活選物；頂樓 4F 露天綠意花園喝手沖咖啡吃甜點小憩，全家補充體力！',
@@ -933,8 +942,8 @@ function App() {
                               maps: 'https://www.google.com/maps/search/?api=1&query=BIOTOP+OSAKA',
                             },
                             {
-                              step: '地點 ⑤',
-                              time: '16:30 - 16:50',
+                              step: '地點 ⑥',
+                              time: '16:50 - 17:10',
                               title: 'THE H.W.DOG&CO. OSAKA',
                               transit: '🚶 沿橘子街往前走 100 公尺（1 分鐘）',
                               desc: '【神級復古帽飾】1860~1980 年代美日工裝復古帽，報童帽、棒球帽與水洗漁夫帽，版型修飾臉型。',
@@ -942,22 +951,13 @@ function App() {
                               maps: 'https://www.google.com/maps/search/?api=1&query=THE+H.W.DOG%26CO.+Osaka',
                             },
                             {
-                              step: '地點 ⑥',
-                              time: '16:50 - 17:10',
-                              title: 'SOPH. OSAKA',
+                              step: '地點 ⑦',
+                              time: '17:10 - 17:30',
+                              title: 'SOPH. OSAKA (F.C.R.B. / UE)',
                               transit: '🚶 往前走 50 公尺（1 分鐘）',
                               desc: '【機能街頭潮流】清原浩創立經典品牌，F.C.Real Bristol (F.C.R.B.) 足球機能休閒系列。',
                               tags: ['SOPHNET.', 'F.C.R.B.', 'uniform experiment'],
                               maps: 'https://www.google.com/maps/search/?api=1&query=SOPH.+OSAKA',
-                            },
-                            {
-                              step: '地點 ⑦',
-                              time: '17:10 - 17:45',
-                              title: 'DESCENDANT OSAKA（西山徹日潮童裝/親子裝）',
-                              transit: '🚶 往前走 120 公尺（2 分鐘）到南堀江 1 丁目街角',
-                              desc: '【親子家庭穿搭首選】西山徹日常美式工裝，布料厚實耐洗；特別設有 KIDS 童裝系列，為 6 歲小孩購入頂級日系親子裝的最佳地點！',
-                              tags: ['DESCENDANT', 'KIDS 童裝系列', '日系親子裝'],
-                              maps: 'https://www.google.com/maps/search/?api=1&query=DESCENDANT+OSAKA',
                             },
                           ].map((s, idx) => (
                             <div key={idx} className="bg-white/5 hover:bg-white/[0.08] p-3.5 sm:p-4 rounded-2xl border border-white/10 flex gap-3 items-start transition-all">
@@ -988,25 +988,70 @@ function App() {
                           ))}
                         </div>
 
-                        {/* Zone 3: Hotel Drop & Dotonbori Dinner */}
+                        {/* Zone 3: Shinsaibashi PARCO */}
                         <div className="space-y-2.5">
-                          <div className="flex items-center gap-2 text-xs font-black text-emerald-400 uppercase tracking-wider bg-emerald-500/10 px-3 py-1.5 rounded-xl border border-emerald-500/20">
-                            <span>🌙 第 3 區塊：回飯店卸貨 ＋ 道頓堀夜景晚餐（一路向東回飯店，再向南道頓堀）</span>
+                          <div className="flex items-center gap-2 text-xs font-black text-rose-400 uppercase tracking-wider bg-rose-500/10 px-3 py-1.5 rounded-xl border border-rose-500/20">
+                            <span>🏢 第 3 區塊：心齋橋 PARCO・日潮四大天王 ＆ 純日製極簡（向東順行）</span>
                           </div>
 
                           {[
                             {
-                              step: '地點 ⑦',
-                              time: '17:00 - 18:00',
+                              step: '地點 ⑧',
+                              time: '17:40 - 18:30',
+                              title: '心齋橋 PARCO（1F HUMAN MADE ➔ 2F BEAMS ➔ 3F STUDIOUS）',
+                              transit: '🚶 從堀江沿長堀通往東漫步 6 分鐘直達心齋橋 PARCO',
+                              desc: '【一棟網羅三大神級潮牌】1F HUMAN MADE 買限定款 ➔ 2F BEAMS 挑選 BEAMS PLUS 經典紳士工裝 ➔ 3F STUDIOUS 試穿 100% Made in Japan（CULLNI、NEEDLES）極致垂墜剪裁！',
+                              tags: ['BEAMS PLUS', 'STUDIOUS (日製)', 'HUMAN MADE', 'CULLNI'],
+                              maps: 'https://www.google.com/maps/search/?api=1&query=Shinsaibashi+PARCO',
+                            },
+                          ].map((s, idx) => (
+                            <div key={idx} className="bg-white/5 hover:bg-white/[0.08] p-3.5 sm:p-4 rounded-2xl border border-white/10 flex gap-3 items-start transition-all">
+                              <div className="w-16 text-center py-1 rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 text-white font-black text-xs shrink-0 mt-0.5 shadow-md">
+                                {s.step}
+                              </div>
+                              <div className="flex-1 space-y-1.5 min-w-0">
+                                <div className="flex flex-wrap items-center justify-between gap-1.5">
+                                  <span className="text-amber-300 font-bold text-xs">{s.time}</span>
+                                  <span className="text-stone-400 text-[11px] font-medium">{s.transit}</span>
+                                </div>
+                                <h4 className="text-sm font-black text-white leading-tight">{s.title}</h4>
+                                <p className="text-xs text-stone-300 leading-relaxed">{s.desc}</p>
+                                <div className="flex items-center justify-between gap-2 flex-wrap pt-1">
+                                  <div className="flex items-center gap-1.5 flex-wrap">
+                                    {s.tags.map((tg, tIdx) => (
+                                      <span key={tIdx} className="bg-stone-800 text-stone-300 text-[10px] font-semibold px-2 py-0.5 rounded-md border border-white/10">
+                                        {tg}
+                                      </span>
+                                    ))}
+                                  </div>
+                                  <a href={s.maps} target="_blank" rel="noopener noreferrer" className="text-[11px] text-rose-400 hover:text-rose-300 font-bold flex items-center gap-1 shrink-0">
+                                    <MapPin className="w-3 h-3" /> 導航
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Zone 4: Hotel Drop & Dotonbori Dinner */}
+                        <div className="space-y-2.5">
+                          <div className="flex items-center gap-2 text-xs font-black text-emerald-400 uppercase tracking-wider bg-emerald-500/10 px-3 py-1.5 rounded-xl border border-emerald-500/20">
+                            <span>🌙 第 4 區塊：回飯店卸貨 ＋ 道頓堀夜景晚餐（向南漫步）</span>
+                          </div>
+
+                          {[
+                            {
+                              step: '地點 ⑨',
+                              time: '18:30 - 19:00',
                               title: '心齋橋法拉格飯店（卸貨・戰利品全放回房小歇）',
-                              transit: '🚶 沿南堀江往東漫步 8 分鐘返回飯店',
+                              transit: '🚶 從 PARCO 出門步行 3 分鐘回飯店',
                               desc: '【全身無負擔】將下午買的所有服飾、帽子與選物全部放回房間，換上輕便休閒鞋，全家洗手喝水，輕鬆出門吃晚餐！',
                               tags: ['房間卸貨', 'Lounge 休憩', '不帶重物逛街'],
                               maps: 'https://www.google.com/maps/search/?api=1&query=HOTEL+THE+FLAG+Shinsaibashi',
                             },
                             {
-                              step: '地點 ⑧',
-                              time: '18:00 - 20:30',
+                              step: '地點 ⑩',
+                              time: '19:00 - 21:00',
                               title: '道頓堀固力果跑跑人 ＋ 不吃牛美食晚餐',
                               transit: '🚶 飯店往南漫步 6 分鐘直達道頓堀',
                               desc: '【經典大阪夜景】輕裝拍固力果跑跑人招牌與巨型立體螃蟹，享用千房大阪燒（海鮮/豬肉）或道頓堀今井豆皮烏龍麵，結束充實完美的一天！',
