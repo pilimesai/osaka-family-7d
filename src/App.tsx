@@ -387,182 +387,60 @@ function App() {
                       </motion.div>
                     )}
 
-                    {/* Shopping Guide Card (Day 4 & Day 7 for Osaka) */}
-                    {(currentDay.day === 4 || currentDay.day === 7) && (() => {
-                      const dayCity = '大阪';
-                      const citySpots = SHOPPING_SPOTS.filter(s => s.city === dayCity);
-                      const availableZones = Array.from(new Set(citySpots.map(s => s.zone)));
+                    {/* Shopping Hub Quick Access Card (Day 4 & Day 7 for Osaka) */}
+                    {(currentDay.day === 4 || currentDay.day === 7) && (
+                      <motion.div
+                        variants={itemVariants}
+                        className="col-span-1 md:col-span-2 bg-gradient-to-br from-stone-900 via-slate-900 to-stone-950 rounded-3xl p-5 sm:p-6 border border-rose-500/30 shadow-xl text-white relative overflow-hidden"
+                      >
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-rose-500/10 rounded-full -mr-20 -mt-20 blur-3xl pointer-events-none" />
+                        <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/10 rounded-full -ml-20 -mb-20 blur-3xl pointer-events-none" />
 
-                      return (
-                        <motion.div
-                          variants={itemVariants}
-                          className="col-span-1 md:col-span-2 bg-gradient-to-br from-stone-900 via-slate-900 to-stone-950 rounded-3xl p-5 md:p-6 border border-rose-500/30 shadow-xl text-white relative overflow-hidden"
-                        >
-                          <div className="absolute top-0 right-0 w-64 h-64 bg-rose-500/10 rounded-full -mr-20 -mt-20 blur-3xl pointer-events-none" />
-                          <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/10 rounded-full -ml-20 -mb-20 blur-3xl pointer-events-none" />
-
-                          {/* Card Header */}
-                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5 pb-4 border-b border-white/10 relative">
-                            <div>
-                              <div className="flex items-center gap-2 mb-1.5 flex-wrap">
-                                <span className="bg-rose-500 text-white text-[11px] font-black px-2.5 py-0.5 rounded-full flex items-center gap-1">
-                                  <Sparkles className="w-3 h-3" /> TheShorty 那個矮子 逛店特輯
-                                </span>
-                                <span className="bg-white/10 text-white/90 text-[11px] font-bold px-2 py-0.5 rounded-full border border-white/20">
-                                  📍 大阪・心齋橋法拉格飯店步行直達
-                                </span>
-                              </div>
-                              <h3 className="text-xl sm:text-2xl font-black text-white leading-tight">
-                                大阪日潮選物・省時防迷路指南 🛍️
-                              </h3>
-                              <p className="text-xs sm:text-sm text-stone-300 mt-1 leading-relaxed">
-                                以飯店為中心規劃南船場、堀江橘子街與大丸 9F，標記精確樓層、門牌與尋找路徑，省去無謂繞路！
-                              </p>
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 relative z-10">
+                          <div className="space-y-1.5">
+                            <div className="flex items-center gap-2 flex-wrap">
+                              <span className="bg-rose-500 text-white text-[11px] font-black px-2.5 py-0.5 rounded-full flex items-center gap-1">
+                                <Sparkles className="w-3 h-3" /> TheShorty & 一隻阿圓
+                              </span>
+                              <span className="bg-white/10 text-white/90 text-[11px] font-bold px-2 py-0.5 rounded-full border border-white/20">
+                                📍 大阪・心齋橋 ＆ 梅田商圈
+                              </span>
                             </div>
+                            <h3 className="text-xl sm:text-2xl font-black text-white leading-tight">
+                              大阪日潮選物・零折返逛街路線庫 🛍️
+                            </h3>
+                            <p className="text-xs sm:text-sm text-stone-300 leading-relaxed max-w-xl">
+                              已為您整合南船場農林會館（AURALEE / S.F.C）、堀江橘子街、大丸 9F 動漫及梅田百貨，標記精確樓層、門牌與無痛卸貨指引！
+                            </p>
+                          </div>
 
+                          <div className="flex flex-col sm:flex-row gap-2 shrink-0">
                             <button
                               onClick={() => {
-                                setShoppingCityFilter(dayCity);
+                                setShoppingCityFilter('大阪');
+                                setSelectedRoute('osaka_loop');
                                 setActiveTab('shopping');
                               }}
-                              className="self-start sm:self-center bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white text-xs font-bold px-3.5 py-2 rounded-xl flex items-center gap-1.5 shadow-md shadow-rose-900/30 shrink-0 transition-all"
+                              className="bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl flex items-center justify-center gap-1.5 shadow-md shadow-rose-900/30 transition-all cursor-pointer"
                             >
-                              <span>開啟完整選物資料庫</span>
+                              <Navigation className="w-4 h-4" />
+                              <span>查看大阪零折返動線</span>
+                            </button>
+                            <button
+                              onClick={() => {
+                                setShoppingCityFilter('大阪');
+                                setShoppingZoneFilter('ALL');
+                                setActiveTab('shopping');
+                              }}
+                              className="bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs font-bold px-4 py-2.5 rounded-xl flex items-center justify-center gap-1.5 transition-all cursor-pointer"
+                            >
+                              <span>查看全部 18 家潮店</span>
                               <ChevronRight className="w-4 h-4" />
                             </button>
                           </div>
-
-                          {/* Quick Zone Filter Tabs */}
-                          <div className="flex gap-2 overflow-x-auto no-scrollbar pb-2 mb-4">
-                            <button
-                              onClick={() => setShoppingZoneFilter('ALL')}
-                              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5 border ${
-                                shoppingZoneFilter === 'ALL'
-                                  ? 'bg-white text-stone-900 border-white shadow-sm'
-                                  : 'bg-white/5 text-stone-300 border-white/10 hover:bg-white/10 hover:text-white'
-                              }`}
-                            >
-                              全部{dayCity}店家 ({citySpots.length})
-                            </button>
-                            {availableZones.map((zone) => (
-                              <button
-                                key={zone}
-                                onClick={() => setShoppingZoneFilter(zone)}
-                                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5 border ${
-                                  shoppingZoneFilter === zone
-                                    ? 'bg-white text-stone-900 border-white shadow-sm'
-                                    : 'bg-white/5 text-stone-300 border-white/10 hover:bg-white/10 hover:text-white'
-                                }`}
-                              >
-                                {zone}
-                              </button>
-                            ))}
-                          </div>
-
-                          {/* Store Cards Grid */}
-                          <div className="space-y-4">
-                            {citySpots
-                              .filter(s => shoppingZoneFilter === 'ALL' || s.zone === shoppingZoneFilter)
-                              .map((spot) => (
-                                <div
-                                  key={spot.id}
-                                  className="bg-white/5 hover:bg-white/[0.08] rounded-2xl p-4 sm:p-5 border border-white/10 transition-all space-y-3.5"
-                                >
-                                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                                    <div>
-                                      <div className="flex items-center gap-2 flex-wrap mb-1">
-                                        <span className="text-base">{spot.tagEmoji || '✨'}</span>
-                                        <h4 className="text-lg font-black text-white">{spot.name}</h4>
-                                        <span className="text-xs text-stone-400 font-medium">({spot.japaneseName})</span>
-                                      </div>
-                                      <div className="flex items-center gap-2 flex-wrap text-xs">
-                                        <span className="bg-rose-500/20 text-rose-300 font-bold px-2 py-0.5 rounded-md border border-rose-500/30">
-                                          {spot.zone}
-                                        </span>
-                                        <span className="bg-indigo-500/20 text-indigo-300 font-bold px-2 py-0.5 rounded-md border border-indigo-500/30">
-                                          📍 {spot.floorInfo}
-                                        </span>
-                                        <span className="text-emerald-400 font-bold flex items-center gap-1">
-                                          <Footprints className="w-3.5 h-3.5" /> {spot.walkingTimeFromHotel}
-                                        </span>
-                                      </div>
-                                    </div>
-
-                                    <div className="flex items-center gap-2 pt-2 sm:pt-0">
-                                      <a
-                                        href={spot.googleMapsUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="bg-rose-500 hover:bg-rose-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1 transition-all"
-                                      >
-                                        <MapPin className="w-3.5 h-3.5" />
-                                        <span>導航</span>
-                                        <ExternalLink className="w-3 h-3" />
-                                      </a>
-                                      <button
-                                        onClick={() => handleCopy(spot.address, spot.id + '_addr')}
-                                        className="bg-white/10 hover:bg-white/20 text-stone-200 text-xs font-bold px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition-all"
-                                      >
-                                        {copiedText === spot.id + '_addr' ? (
-                                          <>
-                                            <Check className="w-3.5 h-3.5 text-emerald-400" />
-                                            <span className="text-emerald-300">已複製</span>
-                                          </>
-                                        ) : (
-                                          <>
-                                            <Copy className="w-3.5 h-3.5" />
-                                            <span>複製地址</span>
-                                          </>
-                                        )}
-                                      </button>
-                                    </div>
-                                  </div>
-
-                                  {/* Brand Tags */}
-                                  <div className="flex items-center gap-1.5 flex-wrap">
-                                    <span className="text-[11px] text-stone-400 font-bold mr-1 flex items-center gap-1">
-                                      <Tag className="w-3 h-3 text-rose-400" /> 主打品牌:
-                                    </span>
-                                    {spot.brands.map((brand, bIdx) => (
-                                      <span
-                                        key={bIdx}
-                                        className="bg-stone-800 text-stone-200 text-xs font-semibold px-2 py-0.5 rounded-md border border-white/10"
-                                      >
-                                        {brand}
-                                      </span>
-                                    ))}
-                                  </div>
-
-                                  {/* How to Find (Time-saving instruction) */}
-                                  <div className="bg-indigo-950/60 rounded-xl p-3.5 border border-indigo-500/30 text-xs text-stone-200 space-y-1">
-                                    <div className="font-black text-indigo-300 flex items-center gap-1.5">
-                                      <Navigation className="w-3.5 h-3.5 text-indigo-400" />
-                                      <span>【如何尋找・防迷路指引】</span>
-                                    </div>
-                                    <p className="text-indigo-100/90 leading-relaxed">{spot.howToFind}</p>
-                                  </div>
-
-                                  {/* TheShorty Advice */}
-                                  <div className="bg-amber-950/40 rounded-xl p-3.5 border border-amber-500/30 text-xs text-stone-200 space-y-1">
-                                    <div className="font-black text-amber-300 flex items-center gap-1.5">
-                                      <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                                      <span>【矮子選店推薦與挑選心法】</span>
-                                    </div>
-                                    <p className="text-amber-100/90 leading-relaxed">{spot.theShortyTip}</p>
-                                  </div>
-
-                                  {spot.openingHours && (
-                                    <div className="text-[11px] text-stone-400 flex items-center gap-1">
-                                      <Clock className="w-3 h-3 text-stone-500" />
-                                      <span>營業時間：{spot.openingHours}</span>
-                                    </div>
-                                  )}
-                                </div>
-                              ))}
-                          </div>
-                        </motion.div>
-                      );
-                    })()}
+                        </div>
+                      </motion.div>
+                    )}
 
                     {/* Child Card */}
                     <motion.div variants={itemVariants} className="bg-pink-50 rounded-2xl p-5 border border-pink-100 shadow-sm">
