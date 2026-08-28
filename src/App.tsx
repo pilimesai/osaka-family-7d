@@ -847,7 +847,7 @@ function App() {
                           </span>
                         </div>
                         <p className="text-stone-300 leading-relaxed">
-                          <strong>【核心省時策略】</strong>：早上前往箕面勝尾寺祈福，中午吃飽返回心齋橋！下午 14:00 順向展開精華日潮選物：<strong>南船場農林會館（Strato 一站試齊 AURALEE/Graphpaper ＋ S.F.C）➔ 西口靴下與 ZABOU ➔ 堀江橘子街 BIOTOP 露天咖啡與 DESCENDANT 日潮親子童裝 ➔ 17:45 回飯店卸貨放戰利品 ➔ 18:30 道頓堀跑跑人夜景吃晚餐！</strong>
+                          <strong>【核心省時策略】</strong>：早上前往箕面勝尾寺祈福，中午吃飽返回心齋橋！下午 14:00 順向展開精華日潮選物：<strong>南船場農林會館（Strato 一站試齊 AURALEE/Graphpaper ＋ S.F.C）➔ 西口靴下與 ZABOU ➔ 堀江橘子街 BIOTOP 露天咖啡 ＋ HW DOG 復古帽 ＋ SOPH. ➔ 17:00 回飯店卸貨放戰利品 ➔ 18:00 道頓堀跑跑人夜景吃晚餐！</strong>
                         </p>
                       </div>
 
@@ -996,17 +996,17 @@ function App() {
 
                           {[
                             {
-                              step: '地點 ⑧',
-                              time: '17:45 - 18:30',
+                              step: '地點 ⑦',
+                              time: '17:00 - 18:00',
                               title: '心齋橋法拉格飯店（卸貨・戰利品全放回房小歇）',
                               transit: '🚶 沿南堀江往東漫步 8 分鐘返回飯店',
-                              desc: '【全身無負擔】將下午買的所有服飾、帽子與童裝全部放回房間，換上輕便休閒鞋，全家洗手喝水，輕鬆出門吃晚餐！',
+                              desc: '【全身無負擔】將下午買的所有服飾、帽子與選物全部放回房間，換上輕便休閒鞋，全家洗手喝水，輕鬆出門吃晚餐！',
                               tags: ['房間卸貨', 'Lounge 休憩', '不帶重物逛街'],
                               maps: 'https://www.google.com/maps/search/?api=1&query=HOTEL+THE+FLAG+Shinsaibashi',
                             },
                             {
-                              step: '地點 ⑨',
-                              time: '18:30 - 20:30',
+                              step: '地點 ⑧',
+                              time: '18:00 - 20:30',
                               title: '道頓堀固力果跑跑人 ＋ 不吃牛美食晚餐',
                               transit: '🚶 飯店往南漫步 6 分鐘直達道頓堀',
                               desc: '【經典大阪夜景】輕裝拍固力果跑跑人招牌與巨型立體螃蟹，享用千房大阪燒（海鮮/豬肉）或道頓堀今井豆皮烏龍麵，結束充實完美的一天！',
