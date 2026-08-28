@@ -189,17 +189,79 @@ function App() {
                       <p className="text-blue-800 leading-relaxed whitespace-pre-wrap">{currentDay.highlights}</p>
                     </motion.div>
 
-                    {/* Schedule Card */}
-                    <motion.div variants={itemVariants} className="bg-white rounded-2xl p-5 border border-stone-200 shadow-sm">
-                      <div className="flex items-center gap-2 mb-3">
-                        <div className="p-2 bg-stone-100 rounded-lg"><Clock className="w-5 h-5 text-stone-600" /></div>
-                        <h3 className="font-bold text-stone-900 text-lg">時間安排</h3>
+                    {/* Schedule Card - Beautified Timeline */}
+                    <motion.div variants={itemVariants} className="col-span-1 md:col-span-2 bg-white rounded-2xl p-5 sm:p-6 border border-stone-200 shadow-sm relative overflow-hidden">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 mb-4 border-b border-stone-100">
+                        <div className="flex items-center gap-2.5">
+                          <div className="p-2.5 bg-gradient-to-br from-rose-500 to-pink-600 rounded-xl text-white shadow-md shadow-rose-500/20">
+                            <Clock className="w-5 h-5" />
+                          </div>
+                          <div>
+                            <h3 className="font-black text-stone-900 text-lg sm:text-xl">
+                              當日時間安排與流暢動線
+                            </h3>
+                            <p className="text-xs text-stone-500 font-medium">按時間推進・清晰節點與避排隊提示</p>
+                          </div>
+                        </div>
+                        <span className="self-start sm:self-center bg-stone-100 text-stone-700 text-xs font-bold px-3 py-1 rounded-full border border-stone-200 flex items-center gap-1.5">
+                          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                          共 {currentDay.schedule.split(/\r?\n/).filter(l => l.trim().length > 0).length} 個行程時段
+                        </span>
                       </div>
-                      <p className="text-stone-600 leading-relaxed whitespace-pre-wrap">{currentDay.schedule}</p>
+
+                      {/* Interactive Time Nodes */}
+                      <div className="relative pl-6 sm:pl-8 space-y-3.5 before:absolute before:left-2.5 sm:before:left-3.5 before:top-3 before:bottom-3 before:w-0.5 before:bg-gradient-to-b before:from-rose-500 before:via-pink-400 before:to-emerald-400">
+                        {currentDay.schedule.split(/\r?\n/).filter(line => line.trim().length > 0).map((line, idx) => {
+                          const timeMatch = line.match(/^(\d{1,2}:\d{2}(?:[–-]\d{1,2}:\d{2})?|早上|上午|中午|下午|傍晚|晚上|抵達後|約\d{1,2}:\d{2})/);
+                          const time = timeMatch ? timeMatch[1] : null;
+                          let content = timeMatch ? line.slice(timeMatch[0].length).trim() : line.replace(/^[→\-•]\s*/, '').trim();
+
+                          const tagMatch = content.match(/^【([^】]+)】/);
+                          const tag = tagMatch ? tagMatch[1] : null;
+                          if (tag) {
+                            content = content.slice(tagMatch[0].length).trim();
+                          }
+
+                          return (
+                            <div key={idx} className="relative flex items-start gap-3 group">
+                              {/* Node Circle */}
+                              <div className="absolute -left-6 sm:-left-8 top-1.5 w-4 sm:w-5 h-4 sm:h-5 rounded-full bg-white border-2 border-rose-500 shadow-sm flex items-center justify-center group-hover:scale-125 group-hover:border-pink-600 transition-all z-10">
+                                <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-rose-500 group-hover:bg-pink-600 transition-colors" />
+                              </div>
+
+                              {/* Content Card */}
+                              <div className="flex-1 bg-stone-50/90 hover:bg-rose-50/50 p-3 sm:p-3.5 rounded-xl sm:rounded-2xl border border-stone-200/80 hover:border-rose-200 transition-all shadow-xs">
+                                <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                                  {time && (
+                                    <span className="bg-stone-900 text-amber-300 text-[11px] sm:text-xs font-black px-2.5 py-0.5 rounded-lg flex items-center gap-1 shadow-xs tracking-wide">
+                                      <Clock className="w-3 h-3 text-amber-400" />
+                                      {time}
+                                    </span>
+                                  )}
+                                  {tag && (
+                                    <span className={`text-[10px] sm:text-[11px] font-black px-2.5 py-0.5 rounded-lg border shadow-2xs ${
+                                      tag.includes('地點')
+                                        ? 'bg-rose-500 text-white border-rose-600'
+                                        : tag.includes('放戰利品') || tag.includes('卸貨') || tag.includes('飯店')
+                                        ? 'bg-purple-600 text-white border-purple-700'
+                                        : 'bg-indigo-600 text-white border-indigo-700'
+                                    }`}>
+                                      {tag}
+                                    </span>
+                                  )}
+                                </div>
+                                <p className="text-xs sm:text-sm font-bold text-stone-800 leading-relaxed">
+                                  {content}
+                                </p>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
                     </motion.div>
 
                     {/* Transport Card */}
-                    <motion.div variants={itemVariants} className="bg-white rounded-2xl p-5 border border-stone-200 shadow-sm">
+                    <motion.div variants={itemVariants} className="col-span-1 md:col-span-2 bg-white rounded-2xl p-5 border border-stone-200 shadow-sm">
                       <div className="flex items-center gap-2 mb-3">
                         <div className="p-2 bg-stone-100 rounded-lg"><Train className="w-5 h-5 text-stone-600" /></div>
                         <h3 className="font-bold text-stone-900 text-lg">交通方式</h3>
