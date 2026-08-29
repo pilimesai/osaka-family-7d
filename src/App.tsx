@@ -840,14 +840,14 @@ function App() {
                       {/* Summary Banner */}
                       <div className="bg-rose-950/50 rounded-2xl p-4 border border-rose-500/30 text-xs space-y-2">
                         <div className="flex flex-wrap items-center justify-between gap-2 text-rose-200">
-                          <span className="font-bold text-rose-300 text-sm">⏱️ 建議時段：14:00 - 20:30（逛街約 3.5 小時 ＋ 晚餐 2 小時）</span>
+                          <span className="font-bold text-rose-300 text-sm">⏱️ 建議時段：13:00 - 20:15（逛街約 4 小時 ＋ 晚餐 2 小時）</span>
                           <span className="font-bold text-emerald-400">🚶 全程步行總計僅約 16 分鐘（順向閉環・零折返）</span>
                           <span className="bg-rose-500/20 text-rose-300 px-2.5 py-0.5 rounded-md border border-rose-500/30 font-bold">
                             🏨 傍晚回飯店卸貨再出門吃晚餐
                           </span>
                         </div>
                         <p className="text-stone-300 leading-relaxed">
-                          <strong>【精準聚焦省時策略】</strong>：早上前往箕面勝尾寺祈福，中午吃飽回心齋橋！下午 14:00 順向展開：<strong>FREAK'S STORE（NAUTICA JP 寬鬆 City Boy）➔ SORA 堀江店（找 NANGA 聯名羽絨/Patagonia）➔ NANGA SHOP OSAKA 旗艦店（全系列羽絨服）➔ 心齋橋 PARCO（1F HUMAN MADE 心齋橋限定款 ➔ 2F BEAMS）➔ 17:45 回飯店卸貨 ➔ 18:30 道頓堀跑跑人吃晚餐！</strong>
+                          <strong>【精準聚焦省時策略】</strong>：早上前往箕面勝尾寺祈福，中午吃飽回心齋橋！下午 13:00 順向展開：<strong>FREAK'S STORE（NAUTICA JP 寬鬆 City Boy）➔ SORA 堀江店（找 NANGA 聯名羽絨/Patagonia）➔ Carhartt WIP（日本限定工裝）➔ NANGA SHOP OSAKA 旗艦店（全系列羽絨服）➔ 心齋橋 PARCO（1F HUMAN MADE ➔ 2F BEAMS）➔ 17:30 回飯店卸貨 ➔ 18:15 道頓堀跑跑人吃晚餐！</strong>
                         </p>
                       </div>
 
@@ -862,7 +862,7 @@ function App() {
                           {[
                             {
                               step: '地點 ①',
-                              time: '14:00 - 14:45',
+                              time: '13:00 - 13:45',
                               title: 'FREAK\'S STORE 大阪・心齋橋店',
                               transit: '🚶 從法拉格飯店步行 3 分鐘（南船場 3 丁目）',
                               desc: '【City Boy 寬鬆必買・台灣專櫃 5 折】長谷川昭雄監修 NAUTICA JP 重磅衛衣、牛津襯衫與工裝寬褲在日本入手極划算，版型挺拔小個子穿也超好看！',
@@ -907,7 +907,7 @@ function App() {
                           {[
                             {
                               step: '地點 ②',
-                              time: '14:45 - 15:25',
+                              time: '13:45 - 14:25',
                               title: 'SORA 堀江店（戶外潮流選物・找 NANGA / Patagonia）',
                               transit: '🚶 沿長堀通往西步行 6 分鐘直達橘子街口 SORA',
                               desc: '【找 NANGA 必逛神店】專門引進 NANGA 聯名羽絨外套、保暖背心與機能露營服飾，還有齊全的 Patagonia 與 Gramicci，戶外山系潮流必巡！',
@@ -916,7 +916,7 @@ function App() {
                             },
                             {
                               step: '地點 ③',
-                              time: '15:25 - 16:00',
+                              time: '14:25 - 15:00',
                               title: 'Carhartt WIP Osaka（日本限定工裝大本營）',
                               transit: '🚶 從 SORA 往西步行 3~5 分鐘（橘子街同一條路）',
                               desc: '【百年工裝的街頭進化】Carhartt WIP 日本限定帆布工裝外套、牛仔褲與配件！台灣買不到的限定配色，堀江直接一站購足，順路完全不繞路！',
@@ -925,7 +925,7 @@ function App() {
                             },
                             {
                               step: '地點 ④',
-                              time: '16:00 - 17:00',
+                              time: '15:00 - 16:00',
                               title: 'NANGA SHOP OSAKA（官方直營旗艦店）',
                               transit: '🚶 沿橘子街往西繼續直走 3 分鐘',
                               desc: '【NANGA 最齊全官方殿堂】全日本最權威的羽絨直營店！招牌 AURORA-TEX 白金防水透氣羽絨外套、TAKIBI 難燃外套、隨身配件尺寸顏色最齊，在日本買退稅超划算！',
@@ -970,7 +970,7 @@ function App() {
                           {[
                             {
                               step: '地點 ⑤',
-                              time: '17:15 - 18:00',
+                              time: '16:15 - 17:15',
                               title: '心齋橋 PARCO（1F HUMAN MADE ➔ 2F BEAMS）',
                               transit: '🚶 從橘子街沿長堀通往東漫步 6 分鐘直達心齋橋 PARCO',
                               desc: '【直衝兩大日潮核心】1F HUMAN MADE 挑選心齋橋限定款動物 T 恤與經典愛心配件 ➔ 2F BEAMS 挑選 BEAMS PLUS 經典紳士工裝與 SSZ 街頭系列！',
@@ -1015,7 +1015,7 @@ function App() {
                           {[
                             {
                               step: '地點 ⑥',
-                              time: '18:00 - 18:30',
+                              time: '17:30 - 18:15',
                               title: '心齋橋法拉格飯店（卸貨・戰利品全放回房小歇）',
                               transit: '🚶 從 PARCO 出門步行 3 分鐘回飯店',
                               desc: '【全身無負擔】將下午買的所有 NANGA 羽絨服、HUMAN MADE 戰利品全部放回房間，換上輕便休閒鞋，全家洗手喝水，輕鬆出門吃晚餐！',
@@ -1024,7 +1024,7 @@ function App() {
                             },
                             {
                               step: '地點 ⑦',
-                              time: '18:30 - 20:30',
+                              time: '18:15 - 20:15',
                               title: '道頓堀固力果跑跑人 ＋ 不吃牛美食晚餐',
                               transit: '🚶 飯店往南漫步 6 分鐘直達道頓堀',
                               desc: '【經典大阪夜景】輕裝拍固力果跑跑人招牌與巨型立體螃蟹，享用千房大阪燒（海鮮/豬肉）或道頓堀今井豆皮烏龍麵，結束充實完美的一天！',
