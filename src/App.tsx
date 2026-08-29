@@ -1149,7 +1149,7 @@ function App() {
                           </span>
                         </div>
                         <p className="text-stone-300 leading-relaxed">
-                          <strong>【核心省時策略】</strong>：由北向南一條直線！從<strong>「地點 ① 烏丸御池新風館」➔「地點 ② 三條通 HUMAN MADE 藍瓶」➔「地點 ③ TNF STANDARD 紫標神褲」➔「地點 ④ 河原町 KAPITAL」➔「地點 ⑤ 寺町通 LOFTMAN 蝴蝶褲」</strong>，一路順逛到底，零回頭路！
+                          <strong>【核心省時策略】</strong>：由北向南一條直線！從<strong>「地點 ① 烏丸御池新風館」➔「地點 ② 三條通 HUMAN MADE 藍瓶」➔「地點 ③ TNF STANDARD 紫標神褲」➔「地點 ④ 新京極 SOU・SOU 村」➔「地點 ⑤ 河原町 KAPITAL」➔「地點 ⑥ 寺町通 LOFTMAN 蝴蝶褲」</strong>，一路順逛到底，零回頭路！
                         </p>
                       </div>
 
@@ -1184,7 +1184,16 @@ function App() {
                           },
                           {
                             step: '地點 ④',
-                            time: '16:50 - 17:30',
+                            time: '16:50 - 17:35',
+                            title: 'SOU・SOU 京都總部聚落（全球唯一 SOU・SOU 村）',
+                            transit: '🚶 往南漫步 4 分鐘進入新京極通巷內',
+                            desc: '【京都國寶級和風大本營】整條小巷都是 SOU・SOU 各主題館！招牌彩色數字分趾鞋、十數口金包、超萌童裝わらべぎ與日系生活雜貨，全家必逛！',
+                            tags: ['SOU・SOU 總部', '數字分趾鞋', '超萌童裝 (わらべぎ)', '口金包/雜貨'],
+                            maps: 'https://www.google.com/maps/search/?api=1&query=SOU+SOU+Kyoto+Main+Shop',
+                          },
+                          {
+                            step: '地點 ⑤',
+                            time: '17:35 - 18:10',
                             title: 'KAPITAL KYOTO（傳統町家工藝門市）',
                             transit: '🚶 往東南走 3 分鐘進入三條河原町巷內',
                             desc: '【日本國寶級工藝】古樸木造町家建築，笑臉襪、水洗骨頭毛衣與刺子繡拼接外套款式齊全。',
@@ -1192,8 +1201,8 @@ function App() {
                             maps: 'https://www.google.com/maps/search/?api=1&query=KAPITAL+KYOTO',
                           },
                           {
-                            step: '地點 ⑤',
-                            time: '17:30 - 18:30',
+                            step: '地點 ⑥',
+                            time: '18:10 - 19:00',
                             title: 'LOFTMAN COOP KYOTO ＆ 藤井大丸百貨',
                             transit: '🚶 走進寺町通商店街 2 分鐘即達',
                             desc: '【影片主角 Needles 特價挖寶】Needles 蝴蝶褲關西最齊，常有驚喜折扣；順路逛藤井大丸（4F PORTER 包、Bshop）。',

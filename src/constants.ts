@@ -123,13 +123,13 @@ export const ITINERARY: DayItinerary[] = [
     "day": 2,
     "date": "2/1（一）",
     "tagColor": "orange",
-    "highlights": "京都嵐山自然 ＆ 鐵道博物館 ＆ 傍晚三條日潮專線（HUMAN MADE 1928 / TNF 紫標）・宿 Hotel Vischio Kyoto\r\n上午：嵐山（渡月橋、竹林小徑） → 下午：京都鐵道博物館 → 傍晚：HUMAN MADE 1928（藍瓶咖啡）＋TNF STANDARD（紫標神褲） → 四條河原町美食 → 返回飯店大浴場泡湯",
-    "schedule": "08:30 飯店悠閒享用早餐\r\n09:30 從 JR 京都站出發前往嵐山（搭乘 JR 嵯峨野線約 15 分鐘）\r\n10:00-12:00 嵐山悠閒漫步（渡月橋、竹林小徑散策）\r\n12:00 嵐山享用道地午餐（京豆腐料理／京野菜天婦羅）\r\n13:30-16:00 京都鐵道博物館（扇形車庫看蒸汽火車、體驗模擬駕駛）\r\n16:30 搭車 12 分鐘前往三條商圈\r\n16:45-17:30【地點①】HUMAN MADE 1928（1928洋樓古蹟、京都限定款、店內 Blue Bottle 藍瓶咖啡小憩）\r\n17:30-18:15【地點②】THE NORTH FACE STANDARD 京都店（步行3分鐘・入手日本限定 TNF 紫標工裝神褲與羽絨）\r\n18:30-19:45 四條河原町／先斗町周邊品嚐道地美食晚餐（名代炸豬排／京都豆皮烏龍麵）\r\n20:00 地鐵烏丸線「四條站」搭車 3 分鐘直達京都站，返回 Hotel Vischio Kyoto 享受大浴場泡湯休息",
-    "transport": "上午：京都站搭 JR 15分鐘到嵐山\r\n下午：嵐電轉巴士前往鐵道博物館\r\n傍晚：搭車 12 分鐘至三條商圈（HUMAN MADE / TNF 紫標），晚餐後地鐵烏丸線 3 分鐘直達京都站",
+    "highlights": "京都嵐山自然 ＆ 鐵道博物館 ＆ 傍晚三條至河原町日潮選物（HUMAN MADE/TNF紫標/SOU・SOU村）・宿 Hotel Vischio Kyoto\r\n上午：嵐山（渡月橋、竹林小徑） → 下午：京都鐵道博物館 → 傍晚：HUMAN MADE 1928（藍瓶咖啡）＋TNF STANDARD（紫標神褲）＋SOU・SOU 京都總部聚落 → 四條河原町美食 → 返回飯店大浴場泡湯",
+    "schedule": "08:30 飯店悠閒享用早餐\r\n09:30 從 JR 京都站出發前往嵐山（搭乘 JR 嵯峨野線約 15 分鐘）\r\n10:00-12:00 嵐山悠閒漫步（渡月橋、竹林小徑散策）\r\n12:00 嵐山享用道地午餐（京豆腐料理／京野菜天婦羅）\r\n13:30-16:00 京都鐵道博物館（扇形車庫看蒸汽火車、體驗模擬駕駛）\r\n16:30 搭車 12 分鐘前往三條商圈\r\n16:45-17:30【地點①】HUMAN MADE 1928（1928洋樓古蹟、京都限定款、店內 Blue Bottle 藍瓶咖啡小憩）\r\n17:30-18:15【地點②】THE NORTH FACE STANDARD 京都店（步行3分鐘・入手日本限定 TNF 紫標工裝神褲與羽絨）\r\n18:15-19:00【地點③】SOU・SOU 京都總部聚落（步行4分鐘・新京極巷弄內朝聖 SOU・SOU 村：招牌數字分趾鞋、數字口金包、超萌和風童裝わらべぎ）\r\n19:00-20:15 四條河原町／先斗町周邊品嚐道地美食晚餐（名代炸豬排／京都豆皮烏龍麵）\r\n20:30 地鐵烏丸線「四條站」搭車 3 分鐘直達京都站，返回 Hotel Vischio Kyoto 享受大浴場泡湯休息",
+    "transport": "上午：京都站搭 JR 15分鐘到嵐山\r\n下午：嵐電轉巴士前往鐵道博物館\r\n傍晚：搭車 12 分鐘至三條商圈（HUMAN MADE / TNF 紫標 / SOU・SOU），晚餐後地鐵烏丸線 3 分鐘直達京都站",
     "hotelId": "vischio_kyoto",
-    "childHighlights": "嵐山竹林漫步\r\n鐵道博物館蒸汽火車與模擬駕駛\r\nHUMAN MADE 1928 店內 Blue Bottle 藍瓶咖啡點心\r\n飯店 2 樓大浴場泡澡",
-    "food": "嵐山豆腐料理／京野菜天婦羅\r\n名代炸豬排 Katsukura（四條寺町店）\r\nBlue Bottle Coffee 藍瓶咖啡（HUMAN MADE 1928店）",
-    "queueTips": "鐵道博物館下午 16:00 前結束，傍晚 16:30 接三條商圈兩大神店時間最順、避開人潮！\r\nHUMAN MADE 1928 內建藍瓶咖啡，長輩小孩可坐著喝咖啡吃鬆餅，大人輪流試穿 TNF 紫標神褲！"
+    "childHighlights": "嵐山竹林漫步\r\n鐵道博物館蒸汽火車與模擬駕駛\r\nHUMAN MADE 1928 店內 Blue Bottle 藍瓶咖啡點心\r\nSOU・SOU 超萌童裝わらべぎ與十數配件\r\n飯店 2 樓大浴場泡澡",
+    "food": "嵐山豆腐料理／京野菜天婦羅\r\n名代炸豬排 Katsukura（四條寺町店）\r\nBlue Bottle Coffee 藍瓶咖啡（HUMAN MADE 1928店）\r\nSOU・SOU 在茶寮（和菓子與抹茶）",
+    "queueTips": "鐵道博物館下午 16:00 前結束，傍晚接三條至新京極商圈時間最順、避開人潮！\r\nHUMAN MADE 1928 內建藍瓶咖啡，長輩小孩可坐著喝咖啡吃鬆餅，大人輪流試穿 TNF 紫標神褲！\r\nSOU・SOU 聚落有多個主題分館（童裝、足袋、布袋），集中在同一條靜謐巷弄內很好逛！"
   },
   {
     "day": 3,
@@ -776,6 +776,23 @@ export const SHOPPING_SPOTS: ShoppingSpot[] = [
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=THE+NORTH+FACE+STANDARD+KYOTO',
     openingHours: '11:00 - 20:00',
     tagEmoji: '🏔️'
+  },
+  {
+    id: 'sousou_kyoto',
+    name: 'SOU・SOU 京都總部聚落 (SOU・SOU 村)',
+    japaneseName: 'ソウソウ 京都本店',
+    city: '京都',
+    zone: '京都四條河原町/新京極',
+    brands: ['SOU・SOU (全球總部聚落)', 'SOU・SOU 足袋 (分趾鞋/襪)', 'SOU・SOU わらべぎ (童裝)', 'SOU・SOU 布袋 (口金包/托特包)', 'SOU・SOU 著衣/傾衣 (男女服飾)', 'SOU・SOU 在茶寮 (和菓子)'],
+    styleCategory: '京都發源國寶級和風設計・招牌彩色數字・分趾鞋・超萌童裝與日系生活雜貨',
+    floorInfo: '新京極通巷內一整條街區獨立主題門市聚落',
+    address: '京都府京都市中京区新京極通四条上ル中之町565-72',
+    walkingTimeFromHotel: '從 THE NORTH FACE STANDARD 往南步行約 4 分鐘 / 阪急河原町站步行 2 分鐘',
+    howToFind: '四條河原町新京極通商店街巷弄內，整條小巷聚集了 SOU・SOU 各主題門市（足袋、童裝、布袋、服飾），沿著白色布簾與十數圖騰極好認。',
+    theShortyTip: '【全球唯一 SOU・SOU 街區大本營】京都最具代表性的現代和風品牌！整條巷子都是 SOU・SOU 村：招牌彩色數字分趾襪、十數口金包是送禮自用首選；家有小孩必逛「わらべぎ童裝館」，小浴衣與斗篷可愛到融化！',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=SOU+SOU+Kyoto+Main+Shop',
+    openingHours: '11:00 - 20:00',
+    tagEmoji: '🌸'
   },
   {
     id: 'kapital_kyoto',
