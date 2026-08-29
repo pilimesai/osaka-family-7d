@@ -744,23 +744,6 @@ export const SHOPPING_SPOTS: ShoppingSpot[] = [
     tagEmoji: '⛩️'
   },
   {
-    id: 'stussy_kyoto',
-    name: 'Stüssy Kyoto Chapter Store（京都限定直營）',
-    japaneseName: 'ステューシー 京都チャプター',
-    city: '京都',
-    zone: '京都三條通',
-    brands: ['Stüssy (京都 Chapter 限定款)', 'Stüssy × 京都地域聯名', 'Stüssy Basic Collections'],
-    styleCategory: '全球 Chapter 限定・街頭潮流始祖・京都限定 Logo 商品',
-    floorInfo: '1F 獨棟門市',
-    address: '京都府京都市中京区弁慶石町57（HUMAN MADE 1928 隔壁！）',
-    walkingTimeFromHotel: '地下鐵「京都市役所前站」步行 5 分鐘 / 從 HUMAN MADE 1928 步行 30 秒',
-    howToFind: '三條通弁慶石町，與 HUMAN MADE 1928 幾乎比鄰而居，白色極簡外觀。',
-    theShortyTip: '【全球限定 Chapter 必朝聖】Stüssy Chapter Store 是全球僅數十間的官方限定門市，販售京都地區限定的 Logo T 恤、帽T與配件，只有在現場才買得到，必收京都限定款！',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=Stussy+Kyoto+Chapter',
-    openingHours: '11:00 - 19:00',
-    tagEmoji: '🌊'
-  },
-  {
     id: 'human_made_1928',
     name: 'HUMAN MADE 1928 by NIGO (京都概念店)',
     japaneseName: 'ヒューマンメイド 1928 京都',
