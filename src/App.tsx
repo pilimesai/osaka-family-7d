@@ -907,7 +907,7 @@ function App() {
                           {[
                             {
                               step: '地點 ②',
-                              time: '14:45 - 15:30',
+                              time: '14:45 - 15:25',
                               title: 'SORA 堀江店（戶外潮流選物・找 NANGA / Patagonia）',
                               transit: '🚶 沿長堀通往西步行 6 分鐘直達橘子街口 SORA',
                               desc: '【找 NANGA 必逛神店】專門引進 NANGA 聯名羽絨外套、保暖背心與機能露營服飾，還有齊全的 Patagonia 與 Gramicci，戶外山系潮流必巡！',
@@ -916,9 +916,18 @@ function App() {
                             },
                             {
                               step: '地點 ③',
-                              time: '15:30 - 16:30',
+                              time: '15:25 - 16:00',
+                              title: 'Carhartt WIP Osaka（日本限定工裝大本營）',
+                              transit: '🚶 從 SORA 往西步行 3~5 分鐘（橘子街同一條路）',
+                              desc: '【百年工裝的街頭進化】Carhartt WIP 日本限定帆布工裝外套、牛仔褲與配件！台灣買不到的限定配色，堀江直接一站購足，順路完全不繞路！',
+                              tags: ['Carhartt WIP', '日本限定款', '帆布工裝外套', '工裝牛仔'],
+                              maps: 'https://www.google.com/maps/search/?api=1&query=Carhartt+WIP+Osaka',
+                            },
+                            {
+                              step: '地點 ④',
+                              time: '16:00 - 17:00',
                               title: 'NANGA SHOP OSAKA（官方直營旗艦店）',
-                              transit: '🚶 沿橘子街往西直走 3 分鐘',
+                              transit: '🚶 沿橘子街往西繼續直走 3 分鐘',
                               desc: '【NANGA 最齊全官方殿堂】全日本最權威的羽絨直營店！招牌 AURORA-TEX 白金防水透氣羽絨外套、TAKIBI 難燃外套、隨身配件尺寸顏色最齊，在日本買退稅超划算！',
                               tags: ['NANGA 直營旗艦', 'AURORA DOWN', 'TAKIBI', '極致保暖'],
                               maps: 'https://www.google.com/maps/search/?api=1&query=NANGA+SHOP+OSAKA',
@@ -960,8 +969,8 @@ function App() {
 
                           {[
                             {
-                              step: '地點 ④',
-                              time: '16:45 - 17:45',
+                              step: '地點 ⑤',
+                              time: '17:15 - 18:00',
                               title: '心齋橋 PARCO（1F HUMAN MADE ➔ 2F BEAMS）',
                               transit: '🚶 從橘子街沿長堀通往東漫步 6 分鐘直達心齋橋 PARCO',
                               desc: '【直衝兩大日潮核心】1F HUMAN MADE 挑選心齋橋限定款動物 T 恤與經典愛心配件 ➔ 2F BEAMS 挑選 BEAMS PLUS 經典紳士工裝與 SSZ 街頭系列！',
@@ -1005,8 +1014,8 @@ function App() {
 
                           {[
                             {
-                              step: '地點 ⑤',
-                              time: '17:45 - 18:15',
+                              step: '地點 ⑥',
+                              time: '18:00 - 18:30',
                               title: '心齋橋法拉格飯店（卸貨・戰利品全放回房小歇）',
                               transit: '🚶 從 PARCO 出門步行 3 分鐘回飯店',
                               desc: '【全身無負擔】將下午買的所有 NANGA 羽絨服、HUMAN MADE 戰利品全部放回房間，換上輕便休閒鞋，全家洗手喝水，輕鬆出門吃晚餐！',
@@ -1014,7 +1023,7 @@ function App() {
                               maps: 'https://www.google.com/maps/search/?api=1&query=HOTEL+THE+FLAG+Shinsaibashi',
                             },
                             {
-                              step: '地點 ⑥',
+                              step: '地點 ⑦',
                               time: '18:30 - 20:30',
                               title: '道頓堀固力果跑跑人 ＋ 不吃牛美食晚餐',
                               transit: '🚶 飯店往南漫步 6 分鐘直達道頓堀',

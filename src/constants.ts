@@ -518,6 +518,23 @@ export const SHOPPING_SPOTS: ShoppingSpot[] = [
     tagEmoji: '🏕️'
   },
   {
+    id: 'carhartt_wip_osaka',
+    name: 'Carhartt WIP Osaka（日本限定工裝大本營）',
+    japaneseName: 'カーハート ダブリュー アイ ピー 大阪',
+    city: '大阪',
+    zone: '堀江橘子街',
+    brands: ['Carhartt WIP (Work In Progress)', 'Carhartt WIP × 日本限定聯名', 'Carhartt WIP Accessories'],
+    styleCategory: '百年美式工裝品牌潮流版・日本限定款・機能帆布外套',
+    floorInfo: '1F 獨棟街邊門市',
+    address: '大阪府大阪市西区南堀江1-16-1',
+    walkingTimeFromHotel: '步行約 10 分鐘（SORA 堀江步行 3-5 分鐘）',
+    howToFind: '南堀江橘子街商圈內，SORA 往西步行 3~5 分鐘，Carhartt WIP 黑色標誌門面極為醒目。',
+    theShortyTip: '【百年工裝的街頭進化】Carhartt WIP 是 Carhartt 工裝美學融入街頭潮流的精髓！日本限定帆布工裝外套、牛仔褲與配件在台灣買不到的限定配色，堀江直接一站購足！',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=Carhartt+WIP+Osaka',
+    openingHours: '11:00 - 20:00',
+    tagEmoji: '🔨'
+  },
+  {
     id: 'nanga_shop_osaka',
     name: 'NANGA SHOP OSAKA (官方直營旗艦店)',
     japaneseName: 'ナンガ ショップ オオサカ',
