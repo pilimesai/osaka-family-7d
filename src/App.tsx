@@ -1092,10 +1092,10 @@ function App() {
                           {
                             step: '地點 ②',
                             time: '17:15 - 18:15',
-                            title: '阪急百貨 梅田總店 B1（神級伴手禮甜點天花板）',
-                            transit: '🚶 梅田地下街往東走 2 分鐘直達阪急 B1',
-                            desc: '【伴手禮掃貨天花板】B1/B2 地下街聚集全日本最頂級限定甜點，搶購 ÉCHIRÉ 艾許奶油餅乾、Bâton d\'or 高級版 Pocky；樓上美妝專櫃齊全。',
-                            tags: ['ÉCHIRÉ (艾許奶油)', 'Bâton d\'or (高級Pocky)', '日本專櫃美妝'],
+                            title: '阪急百貨 梅田總店（3F The Row 頂級靜奢 ＆ B1 神級伴手禮）',
+                            transit: '🚶 梅田地下街往東走 2 分鐘直達阪急百貨',
+                            desc: '【全關西 The Row 最齊專櫃＋伴手禮天花板】直衝 3 樓 The Row 官方專櫃，親自試揹神級 Margaux、Park Tote 與簡約樂福鞋；隨後搭手扶梯直下 B1/B2 掃貨 ÉCHIRÉ 頂級奶油餅乾與高級版 Pocky！',
+                            tags: ['The Row (3F 專櫃)', 'Margaux 包款', 'Park Tote', 'ÉCHIRÉ (艾許奶油)', 'Bâton d\'or'],
                             maps: 'https://www.google.com/maps/search/?api=1&query=Hankyu+Department+Store+Umeda',
                           },
                           {
