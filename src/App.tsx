@@ -1074,7 +1074,7 @@ function App() {
                           </span>
                         </div>
                         <p className="text-stone-300 leading-relaxed">
-                          <strong>【核心省時策略】</strong>：心齋橋搭御堂筋線 6 分鐘直達梅田地下街，全程室內無風雨。依序從<strong>「地點 ① LUCUA（男女裝）」➔「地點 ② 阪急 B1（伴手禮）」➔「地點 ③ HEP FIVE（摩天輪）」</strong>順向逛完，再搭地鐵直達回飯店！
+                          <strong>【核心省時策略】</strong>：JR 大阪站／梅田地下街直通，全程室內無風雨。依序從<strong>「地點 ① LUCUA（7F FREAK'S STORE NAUTICA JP / 6F TNF+ 紫標 / 3F BEAMS）」➔「地點 ② 阪急 B1（伴手禮天花板）」➔「地點 ③ HEP FIVE（5F Carhartt WIP / 7F 摩天輪）」</strong>順向逛完，再搭地鐵直達回飯店！
                         </p>
                       </div>
 
@@ -1082,16 +1082,16 @@ function App() {
                         {[
                           {
                             step: '地點 ①',
-                            time: '10:30 - 13:00',
-                            title: 'LUCUA 1100 ＆ LUCUA osaka（男女裝生活選物買爆）',
-                            transit: '🚇 心齋橋搭御堂筋線（3 站 6 分）出剪票口地下通道直達',
-                            desc: '【一隻阿圓激推 No.1 百貨】JR 大阪站直通！BEAMS、Freak\'s Store、Bshop、Maison Kitsuné、Kastane 男女裝一次買齊，9F 蔦屋書店有超美星巴克可歇腳。',
-                            tags: ['BEAMS', 'Freak\'s Store', 'Bshop', 'Maison Kitsuné', 'Cosme Kitchen', '蔦屋書店'],
+                            time: '15:30 - 17:15',
+                            title: 'LUCUA 1100 ＆ LUCUA osaka（TNF紫標 / FREAK\'S STORE / BEAMS）',
+                            transit: '🚇 三宮搭 JR 22 分直達大阪站（或心齋橋搭御堂筋線 6 分）出剪票口地下通道直達',
+                            desc: '【阿圓激推 No.1 百貨＋日牌大本營】直衝 7F FREAK\'S STORE（NAUTICA JP 專區超大）、6F THE NORTH FACE+ 關西旗艦店（入手日本限定紫標 Purple Label 工裝褲）、3F BEAMS，9F 蔦屋書店有超美星巴克可歇腳。',
+                            tags: ['TNF 紫標 (6F)', 'FREAK\'S STORE (7F)', 'NAUTICA JP', 'BEAMS (3F)', 'Bshop (4F)', '蔦屋書店 (9F)'],
                             maps: 'https://www.google.com/maps/search/?api=1&query=LUCUA+osaka',
                           },
                           {
                             step: '地點 ②',
-                            time: '13:00 - 14:30',
+                            time: '17:15 - 18:15',
                             title: '阪急百貨 梅田總店 B1（神級伴手禮甜點天花板）',
                             transit: '🚶 梅田地下街往東走 2 分鐘直達阪急 B1',
                             desc: '【伴手禮掃貨天花板】B1/B2 地下街聚集全日本最頂級限定甜點，搶購 ÉCHIRÉ 艾許奶油餅乾、Bâton d\'or 高級版 Pocky；樓上美妝專櫃齊全。',
@@ -1100,11 +1100,11 @@ function App() {
                           },
                           {
                             step: '地點 ③',
-                            time: '14:45 - 16:30',
-                            title: 'HEP FIVE 摩天輪 ＆ 平價流行飾品女裝',
+                            time: '18:15 - 19:15',
+                            title: 'HEP FIVE（5F Carhartt WIP 直營店 ➔ 7F 紅色摩天輪）',
                             transit: '🚶 從阪急百貨往東步行 3 分鐘即達 HEP FIVE',
-                            desc: '【平價日系＋小孩景觀】WEGO 與平價女裝飾品集中地；帶 6 歲小孩搭乘 7F 標誌性紅色巨大摩天輪俯瞰大阪梅田市景！',
-                            tags: ['WEGO', 'BEAMS STREET', 'RED FERRIS WHEEL (紅色摩天輪)'],
+                            desc: '【Carhartt 直營店＋摩天輪夜景】5F 有 Carhartt WIP 梅田官方直營店，販售日本限定帆布工裝夾克、牛仔寬褲與配件；7F 搭乘地標紅色巨大摩天輪俯瞰大阪梅田璀璨夜景！',
+                            tags: ['Carhartt WIP (5F)', 'BEAMS STREET (1F)', 'RED FERRIS WHEEL (7F 摩天輪)'],
                             maps: 'https://www.google.com/maps/search/?api=1&query=HEP+FIVE+Osaka',
                           },
                         ].map((s, idx) => (
