@@ -1157,12 +1157,12 @@ function App() {
                           },
                           {
                             step: '地點 ②',
-                            time: '15:20 - 16:15',
-                            title: 'HUMAN MADE 1928 ＆ 藍瓶咖啡概念店',
+                            time: '15:20 - 16:20',
+                            title: 'Stüssy Kyoto Chapter ＋ HUMAN MADE 1928 ＆ 藍瓶咖啡',
                             transit: '🚶 沿三條通往東直線漫步 5 分鐘',
-                            desc: '【昭和洋樓＋限定愛心】在百年紅磚洋樓內喝 Blue Bottle 拿鐵，選購京都限定愛心與鴨子 T 恤、周邊小物。',
-                            tags: ['HUMAN MADE', 'BLUE BOTTLE COFFEE', 'CURRY UP'],
-                            maps: 'https://www.google.com/maps/search/?api=1&query=HUMAN+MADE+1928+Kyoto',
+                            desc: '【隔壁兩大神店一次收！】先逛 Stüssy Kyoto Chapter 限定款 T 恤與帽T（弁慶石町57），走 30 秒轉入 HUMAN MADE 1928（弁慶石町56），在百年紅磚洋樓喝 Blue Bottle 拿鐵，選購京都限定愛心鴨子周邊。',
+                            tags: ['Stüssy 京都限定', 'Chapter Store', 'HUMAN MADE', 'BLUE BOTTLE COFFEE'],
+                            maps: 'https://www.google.com/maps/search/?api=1&query=Stussy+Kyoto+Chapter',
                           },
                           {
                             step: '地點 ③',
