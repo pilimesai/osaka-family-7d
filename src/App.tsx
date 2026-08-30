@@ -1393,6 +1393,11 @@ function App() {
                               <span className="bg-rose-50 text-rose-700 font-bold px-2.5 py-0.5 rounded-full border border-rose-200">
                                 {spot.zone}
                               </span>
+                              {spot.theShortyTip.includes('老辣妹') && (
+                                <span className="bg-rose-100 text-rose-700 font-bold px-2.5 py-0.5 rounded-full border border-rose-200 shadow-2xs">
+                                  老辣妹推薦
+                                </span>
+                              )}
                               <span className="bg-indigo-50 text-indigo-700 font-bold px-2.5 py-0.5 rounded-full border border-indigo-200">
                                 📍 {spot.floorInfo}
                               </span>
@@ -1459,13 +1464,33 @@ function App() {
                           <p className="text-indigo-950/90 leading-relaxed font-medium pl-5">{spot.howToFind}</p>
                         </div>
 
-                        {/* TheShorty Advice */}
-                        <div className="bg-amber-50/80 rounded-xl p-3.5 border border-amber-200/70 text-xs sm:text-sm text-stone-800 space-y-1">
-                          <div className="font-bold text-amber-900 flex items-center gap-1.5">
-                            <Sparkles className="w-4 h-4 text-amber-600 shrink-0" />
-                            <span>【那個矮子選店推薦與挑選心法】</span>
+                        {/* Recommendation Advice */}
+                        <div className={`rounded-xl p-3.5 border text-xs sm:text-sm text-stone-800 space-y-1 ${
+                          spot.theShortyTip.includes('老辣妹')
+                            ? 'bg-rose-50/80 border-rose-200/70'
+                            : 'bg-amber-50/80 border-amber-200/70'
+                        }`}>
+                          <div className={`font-bold flex items-center gap-1.5 ${
+                            spot.theShortyTip.includes('老辣妹')
+                              ? 'text-rose-900'
+                              : 'text-amber-900'
+                          }`}>
+                            <Sparkles className={`w-4 h-4 shrink-0 ${
+                              spot.theShortyTip.includes('老辣妹')
+                                ? 'text-rose-600'
+                                : 'text-amber-600'
+                            }`} />
+                            <span>
+                              {spot.theShortyTip.includes('老辣妹')
+                                ? '【老辣妹推薦與挑選心法】'
+                                : '【那個矮子選店推薦與挑選心法】'}
+                            </span>
                           </div>
-                          <p className="text-amber-950/90 leading-relaxed font-medium pl-5">{spot.theShortyTip}</p>
+                          <p className={`leading-relaxed font-medium pl-5 ${
+                            spot.theShortyTip.includes('老辣妹')
+                              ? 'text-rose-950/90'
+                              : 'text-amber-950/90'
+                          }`}>{spot.theShortyTip}</p>
                         </div>
 
                         {/* Footer: Opening hours */}
@@ -1517,7 +1542,7 @@ function App() {
                       <span className="text-rose-500">🍜</span>
                     </h2>
                     <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
-                      精選京阪神美食・老辣妹大阪推薦 ＆ 避開牛肉家庭首選
+                      精選京阪神美食（避開牛肉專屬・含老辣妹推薦）
                     </p>
                   </div>
 
@@ -1526,41 +1551,6 @@ function App() {
                   </span>
                 </div>
 
-                {/* 老辣妹 Special Feature Banner */}
-                <motion.div
-                  variants={itemVariants}
-                  className="bg-gradient-to-r from-rose-500 via-pink-500 to-amber-500 rounded-3xl p-5 sm:p-6 text-white relative overflow-hidden shadow-lg shadow-rose-500/15"
-                >
-                  <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full blur-2xl -mr-16 -mt-16 pointer-events-none" />
-                  <div className="relative flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                    <div className="space-y-1.5 max-w-xl">
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <span className="bg-white text-rose-600 text-[11px] font-black px-2.5 py-0.5 rounded-md shadow-xs flex items-center gap-1">
-                          <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-                          YOUTUBE 推薦特輯
-                        </span>
-                        <span className="text-white/90 text-xs font-bold">老辣妹《心齋橋必做六件事！天滿、新世界好好逛》</span>
-                      </div>
-                      <h3 className="text-lg sm:text-xl font-black text-white leading-snug">
-                        老辣妹私藏大阪道地美食 ＆ 甜點全收錄
-                      </h3>
-                      <p className="text-white/85 text-xs sm:text-sm leading-relaxed">
-                        包含心齋橋わなか章魚燒（鹽味/柚子醋）、美國村元祖冰淇淋熱狗、鰻谷厚切炭火牛舌、新世界達摩串炸總本店、天滿西洋茶館英式蛋糕與鳴門鯛魚燒！
-                      </p>
-                    </div>
-
-                    <a
-                      href="https://www.youtube.com/watch?v=vwqKXsYACrs"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 bg-white hover:bg-stone-100 text-rose-600 font-black text-xs sm:text-sm px-4 py-2.5 rounded-2xl shadow-md transition-all shrink-0 self-start sm:self-center"
-                    >
-                      <span>觀看原影片</span>
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
-                  </div>
-                </motion.div>
-
                 {/* Filter & Search Controls */}
                 <div className="bg-white rounded-2xl p-4 border border-stone-200 shadow-sm space-y-3">
                   <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-between">
@@ -1568,9 +1558,9 @@ function App() {
                     <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 sm:pb-0">
                       {[
                         { id: 'ALL', label: '全部美食' },
-                        { id: '老辣妹', label: '🔥 老辣妹介紹' },
-                        { id: '大阪', label: '📍 大阪' },
-                        { id: '京都', label: '⛩️ 京都' },
+                        { id: '老辣妹', label: '老辣妹推薦' },
+                        { id: '大阪', label: '大阪' },
+                        { id: '京都', label: '京都' },
                       ].map((tab) => (
                         <button
                           key={tab.id}
@@ -1613,7 +1603,7 @@ function App() {
                   {RESTAURANTS
                     .filter((restaurant) => {
                       if (foodFilter === '老辣妹') {
-                        if (restaurant.source !== '老辣妹介紹') return false;
+                        if (restaurant.source !== '老辣妹推薦') return false;
                       } else if (foodFilter !== 'ALL') {
                         if (restaurant.area !== foodFilter) return false;
                       }
@@ -1634,8 +1624,8 @@ function App() {
                         className="bg-white rounded-3xl border border-stone-200 overflow-hidden flex flex-col group hover:shadow-md transition-shadow relative"
                       >
                         <div className={`h-1.5 bg-gradient-to-r ${
-                          restaurant.source === '老辣妹介紹'
-                            ? 'from-rose-500 via-pink-500 to-amber-400'
+                          restaurant.source === '老辣妹推薦'
+                            ? 'from-rose-500 via-pink-400 to-amber-400'
                             : 'from-rose-400 via-pink-400 to-orange-300'
                         }`} />
 
@@ -1650,8 +1640,8 @@ function App() {
                                   {restaurant.category}
                                 </span>
                                 {restaurant.source && (
-                                  <span className="bg-gradient-to-r from-rose-500 to-pink-500 text-white text-[10px] font-black px-2 py-0.5 rounded-md shadow-2xs flex items-center gap-0.5">
-                                    🔥 {restaurant.source}
+                                  <span className="bg-rose-100 text-rose-700 text-[10px] font-bold px-2 py-0.5 rounded-md border border-rose-200 shadow-2xs">
+                                    {restaurant.source}
                                   </span>
                                 )}
                               </div>
