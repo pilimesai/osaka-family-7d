@@ -457,9 +457,11 @@ function App() {
                     <motion.div variants={itemVariants} className="bg-emerald-50 rounded-2xl p-5 border border-emerald-100 shadow-sm">
                       <div className="flex items-center gap-2 mb-3">
                         <div className="p-2 bg-emerald-100 rounded-lg"><Utensils className="w-5 h-5 text-emerald-600" /></div>
-                        <h3 className="font-bold text-emerald-900 text-lg">不吃牛美食建議</h3>
+                        <h3 className="font-bold text-emerald-900 text-lg">當日推薦美食（多選一彈性備選）🍽️</h3>
                       </div>
-                      <p className="text-emerald-800 leading-relaxed whitespace-pre-wrap">{currentDay.food}</p>
+                      <div className="text-emerald-950 text-xs sm:text-sm leading-relaxed whitespace-pre-wrap font-medium">
+                        {currentDay.food}
+                      </div>
                     </motion.div>
                   </motion.div>
                 )}
