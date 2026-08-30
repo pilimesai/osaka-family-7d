@@ -1390,14 +1390,27 @@ function App() {
                             <p className="text-xs text-stone-400 font-medium mb-2">{spot.japaneseName}</p>
 
                             <div className="flex items-center gap-2 flex-wrap text-xs">
+                              {spot.theShortyTip.includes('老辣妹') && (
+                                <span className="bg-gradient-to-r from-rose-500 to-pink-500 text-white text-xs font-black px-3 py-1 rounded-full shadow-xs flex items-center gap-1">
+                                  <span>✨</span>
+                                  <span>老辣妹推薦</span>
+                                </span>
+                              )}
+                              {spot.theShortyTip.includes('那個矮子') && (
+                                <span className="bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-black px-3 py-1 rounded-full shadow-xs flex items-center gap-1">
+                                  <span>✨</span>
+                                  <span>那個矮子推薦</span>
+                                </span>
+                              )}
+                              {spot.theShortyTip.includes('阿圓') && (
+                                <span className="bg-gradient-to-r from-orange-500 to-amber-600 text-white text-xs font-black px-3 py-1 rounded-full shadow-xs flex items-center gap-1">
+                                  <span>✨</span>
+                                  <span>一隻阿圓推薦</span>
+                                </span>
+                              )}
                               <span className="bg-rose-50 text-rose-700 font-bold px-2.5 py-0.5 rounded-full border border-rose-200">
                                 {spot.zone}
                               </span>
-                              {spot.theShortyTip.includes('老辣妹') && (
-                                <span className="bg-rose-100 text-rose-700 font-bold px-2.5 py-0.5 rounded-full border border-rose-200 shadow-2xs">
-                                  老辣妹推薦
-                                </span>
-                              )}
                               <span className="bg-indigo-50 text-indigo-700 font-bold px-2.5 py-0.5 rounded-full border border-indigo-200">
                                 📍 {spot.floorInfo}
                               </span>
@@ -1640,8 +1653,9 @@ function App() {
                                   {restaurant.category}
                                 </span>
                                 {restaurant.source && (
-                                  <span className="bg-rose-100 text-rose-700 text-[10px] font-bold px-2 py-0.5 rounded-md border border-rose-200 shadow-2xs">
-                                    {restaurant.source}
+                                  <span className="bg-gradient-to-r from-rose-500 to-pink-500 text-white text-[11px] font-black px-2.5 py-0.5 rounded-full shadow-xs flex items-center gap-1">
+                                    <span>✨</span>
+                                    <span>{restaurant.source}</span>
                                   </span>
                                 )}
                               </div>
