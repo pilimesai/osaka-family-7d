@@ -35,6 +35,8 @@ function App() {
   const [shoppingCityFilter, setShoppingCityFilter] = useState<'ALL' | '大阪' | '京都'>('ALL');
   const [shoppingZoneFilter, setShoppingZoneFilter] = useState<string>('ALL');
   const [shoppingSearch, setShoppingSearch] = useState<string>('');
+  const [foodFilter, setFoodFilter] = useState<'ALL' | '老辣妹' | '大阪' | '京都'>('ALL');
+  const [foodSearch, setFoodSearch] = useState<string>('');
   const [selectedRoute, setSelectedRoute] = useState<'osaka_loop' | 'umeda_blast' | 'kyoto_dig'>('osaka_loop');
 
   const containerVariants = {
@@ -1325,18 +1327,19 @@ function App() {
                   <div className="flex items-center gap-1.5 flex-wrap pt-1.5 border-t border-stone-100">
                     <span className="text-[11px] text-stone-400 font-bold">熱門品牌快選：</span>
                     {[
+                      'Fueki',
+                      'WEGO',
+                      'SPINNS',
+                      'HUMAN MADE',
                       'Needles',
                       'AURALEE',
-                      'Graphpaper',
                       'S.F.C',
                       '1LDK',
                       'KAPITAL',
                       'RESOLUTE',
                       'BIOTOP',
                       'THE H.W.DOG&CO.',
-                      'DESCENDANT',
                       'Nintendo',
-                      'HUMAN MADE',
                     ].map((brand) => (
                       <button
                         key={brand}
@@ -1505,43 +1508,196 @@ function App() {
 
             {/* ===================== TAB: FOOD ===================== */}
             {activeTab === 'food' && (
-              <motion.div key="food" variants={containerVariants} initial="hidden" animate="visible" exit={{ opacity: 0 }}>
-                <div className="mb-6">
-                  <h2 className="text-xl font-black text-stone-900 mb-1">美食地圖 🍜</h2>
-                  <p className="text-stone-400 text-sm">精選京阪神美食（避開牛肉專屬）</p>
+              <motion.div key="food" variants={containerVariants} initial="hidden" animate="visible" exit={{ opacity: 0 }} className="space-y-6">
+                {/* Food Header & Intro */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div>
+                    <h2 className="text-xl sm:text-2xl font-black text-stone-900 leading-tight flex items-center gap-2">
+                      <span>美食地圖</span>
+                      <span className="text-rose-500">🍜</span>
+                    </h2>
+                    <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
+                      精選京阪神美食・老辣妹大阪推薦 ＆ 避開牛肉家庭首選
+                    </p>
+                  </div>
+
+                  <span className="self-start sm:self-center bg-rose-50 text-rose-700 text-xs font-bold px-3 py-1.5 rounded-full border border-rose-200">
+                    共 {RESTAURANTS.length} 家精選名店
+                  </span>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  {RESTAURANTS.map((restaurant, index) => (
-                    <motion.div key={index} variants={itemVariants} className="bg-white rounded-2xl border border-stone-100 overflow-hidden flex flex-col group hover:shadow-md transition-shadow">
-                      <div className="h-1.5 bg-gradient-to-r from-rose-400 via-pink-400 to-orange-300" />
-                      <div className="p-5 flex-1 flex flex-col">
-                        <div className="flex items-start justify-between mb-3">
-                          <div className="flex-1">
-                            <div className="flex items-center gap-2 mb-1.5">
-                              <span className="bg-rose-50 text-rose-600 text-xs font-bold px-2.5 py-1 rounded-full border border-rose-100">{restaurant.area}</span>
-                              <span className="bg-stone-50 text-stone-600 text-xs font-bold px-2.5 py-1 rounded-full border border-stone-100">{restaurant.category}</span>
-                            </div>
-                            <h3 className="text-lg font-black text-stone-900 leading-tight">{restaurant.name}</h3>
-                          </div>
-                          <div className="flex items-center gap-1 bg-amber-50 px-2.5 py-1.5 rounded-xl border border-amber-100 shrink-0 ml-3">
-                            <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
-                            <span className="font-black text-amber-700 text-sm">{restaurant.rating}</span>
-                          </div>
-                        </div>
-                        <p className="text-stone-600 text-base mb-4 leading-relaxed flex-1">{restaurant.recommendation}</p>
-                        <div className="flex items-center justify-between pt-3 border-t border-stone-50">
-                          <div className="flex items-center gap-1.5 text-stone-500 text-sm">
-                            <MapPin className="w-3.5 h-3.5" />
-                            <span>{restaurant.location}</span>
-                          </div>
-                          <div className="flex items-center gap-3">
-                            <span className="text-rose-500 text-sm font-bold">{restaurant.priceRange}</span>
-                            <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(restaurant.name + ' ' + restaurant.area)}`} target="_blank" rel="noopener noreferrer" className="text-rose-500 text-sm font-black flex items-center gap-1 hover:underline underline-offset-4">MAP <ExternalLink className="w-3.5 h-3.5" /></a>
-                          </div>
-                        </div>
+
+                {/* 老辣妹 Special Feature Banner */}
+                <motion.div
+                  variants={itemVariants}
+                  className="bg-gradient-to-r from-rose-500 via-pink-500 to-amber-500 rounded-3xl p-5 sm:p-6 text-white relative overflow-hidden shadow-lg shadow-rose-500/15"
+                >
+                  <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full blur-2xl -mr-16 -mt-16 pointer-events-none" />
+                  <div className="relative flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div className="space-y-1.5 max-w-xl">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className="bg-white text-rose-600 text-[11px] font-black px-2.5 py-0.5 rounded-md shadow-xs flex items-center gap-1">
+                          <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                          YOUTUBE 推薦特輯
+                        </span>
+                        <span className="text-white/90 text-xs font-bold">老辣妹《心齋橋必做六件事！天滿、新世界好好逛》</span>
                       </div>
-                    </motion.div>
-                  ))}
+                      <h3 className="text-lg sm:text-xl font-black text-white leading-snug">
+                        老辣妹私藏大阪道地美食 ＆ 甜點全收錄
+                      </h3>
+                      <p className="text-white/85 text-xs sm:text-sm leading-relaxed">
+                        包含心齋橋わなか章魚燒（鹽味/柚子醋）、美國村元祖冰淇淋熱狗、鰻谷厚切炭火牛舌、新世界達摩串炸總本店、天滿西洋茶館英式蛋糕與鳴門鯛魚燒！
+                      </p>
+                    </div>
+
+                    <a
+                      href="https://www.youtube.com/watch?v=vwqKXsYACrs"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 bg-white hover:bg-stone-100 text-rose-600 font-black text-xs sm:text-sm px-4 py-2.5 rounded-2xl shadow-md transition-all shrink-0 self-start sm:self-center"
+                    >
+                      <span>觀看原影片</span>
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </div>
+                </motion.div>
+
+                {/* Filter & Search Controls */}
+                <div className="bg-white rounded-2xl p-4 border border-stone-200 shadow-sm space-y-3">
+                  <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-between">
+                    {/* Filter Pills */}
+                    <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 sm:pb-0">
+                      {[
+                        { id: 'ALL', label: '全部美食' },
+                        { id: '老辣妹', label: '🔥 老辣妹介紹' },
+                        { id: '大阪', label: '📍 大阪' },
+                        { id: '京都', label: '⛩️ 京都' },
+                      ].map((tab) => (
+                        <button
+                          key={tab.id}
+                          onClick={() => setFoodFilter(tab.id as any)}
+                          className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap border ${
+                            foodFilter === tab.id
+                              ? 'bg-rose-500 text-white border-rose-500 shadow-sm shadow-rose-200'
+                              : 'bg-stone-50 text-stone-600 border-stone-200 hover:border-rose-200 hover:text-rose-600'
+                          }`}
+                        >
+                          {tab.label}
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Search Input */}
+                    <div className="relative sm:w-64">
+                      <Search className="w-4 h-4 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                      <input
+                        type="text"
+                        placeholder="搜尋餐廳、章魚燒、甜點..."
+                        value={foodSearch}
+                        onChange={(e) => setFoodSearch(e.target.value)}
+                        className="w-full pl-9 pr-3 py-1.5 text-xs bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:border-rose-400 focus:bg-white transition-all"
+                      />
+                      {foodSearch && (
+                        <button
+                          onClick={() => setFoodSearch('')}
+                          className="absolute right-2.5 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600 text-xs font-bold"
+                        >
+                          ✕
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Restaurant Cards Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  {RESTAURANTS
+                    .filter((restaurant) => {
+                      if (foodFilter === '老辣妹') {
+                        if (restaurant.source !== '老辣妹介紹') return false;
+                      } else if (foodFilter !== 'ALL') {
+                        if (restaurant.area !== foodFilter) return false;
+                      }
+                      if (!foodSearch.trim()) return true;
+                      const q = foodSearch.toLowerCase().trim();
+                      return (
+                        restaurant.name.toLowerCase().includes(q) ||
+                        restaurant.category.toLowerCase().includes(q) ||
+                        restaurant.location.toLowerCase().includes(q) ||
+                        restaurant.recommendation.toLowerCase().includes(q) ||
+                        (restaurant.source && restaurant.source.toLowerCase().includes(q))
+                      );
+                    })
+                    .map((restaurant, index) => (
+                      <motion.div
+                        key={index}
+                        variants={itemVariants}
+                        className="bg-white rounded-3xl border border-stone-200 overflow-hidden flex flex-col group hover:shadow-md transition-shadow relative"
+                      >
+                        <div className={`h-1.5 bg-gradient-to-r ${
+                          restaurant.source === '老辣妹介紹'
+                            ? 'from-rose-500 via-pink-500 to-amber-400'
+                            : 'from-rose-400 via-pink-400 to-orange-300'
+                        }`} />
+
+                        <div className="p-5 sm:p-6 flex-1 flex flex-col space-y-3.5">
+                          <div className="flex items-start justify-between gap-3">
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center gap-1.5 flex-wrap mb-1.5">
+                                <span className="bg-rose-50 text-rose-600 text-[11px] font-bold px-2.5 py-0.5 rounded-full border border-rose-200">
+                                  {restaurant.area}
+                                </span>
+                                <span className="bg-stone-100 text-stone-700 text-[11px] font-bold px-2.5 py-0.5 rounded-full border border-stone-200">
+                                  {restaurant.category}
+                                </span>
+                                {restaurant.source && (
+                                  <span className="bg-gradient-to-r from-rose-500 to-pink-500 text-white text-[10px] font-black px-2 py-0.5 rounded-md shadow-2xs flex items-center gap-0.5">
+                                    🔥 {restaurant.source}
+                                  </span>
+                                )}
+                              </div>
+                              <div className="flex items-center gap-2">
+                                <span className="text-xl">{restaurant.tagEmoji || '🍴'}</span>
+                                <h3 className="text-lg font-black text-stone-900 leading-tight">
+                                  {restaurant.name}
+                                </h3>
+                              </div>
+                            </div>
+
+                            <div className="flex items-center gap-1 bg-amber-50 px-2.5 py-1.5 rounded-xl border border-amber-200 shrink-0 shadow-2xs">
+                              <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
+                              <span className="font-black text-amber-800 text-sm">{restaurant.rating}</span>
+                            </div>
+                          </div>
+
+                          <div className="bg-stone-50 rounded-2xl p-3.5 border border-stone-100 flex-1">
+                            <p className="text-stone-700 text-xs sm:text-sm leading-relaxed font-medium">
+                              {restaurant.recommendation}
+                            </p>
+                          </div>
+
+                          <div className="flex items-center justify-between pt-2 border-t border-stone-100 text-xs">
+                            <div className="flex items-center gap-1.5 text-stone-500 font-medium">
+                              <MapPin className="w-3.5 h-3.5 text-rose-500 shrink-0" />
+                              <span className="truncate max-w-[150px] sm:max-w-[200px]">{restaurant.location}</span>
+                            </div>
+                            <div className="flex items-center gap-3">
+                              <span className="text-rose-600 font-bold bg-rose-50 px-2 py-0.5 rounded-md border border-rose-100">
+                                {restaurant.priceRange}
+                              </span>
+                              <a
+                                href={restaurant.googleMapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(restaurant.name + ' ' + restaurant.area)}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="bg-stone-900 hover:bg-rose-600 text-white text-xs font-bold px-3 py-1.5 rounded-xl flex items-center gap-1 shadow-2xs transition-colors shrink-0"
+                              >
+                                <span>導航</span>
+                                <ExternalLink className="w-3 h-3" />
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
                 </div>
               </motion.div>
             )}

@@ -42,6 +42,9 @@ export interface Restaurant {
   area: string;
   recommendation: string;
   priceRange: string;
+  source?: string;
+  googleMapsUrl?: string;
+  tagEmoji?: string;
 }
 
 export interface HotelInfo {

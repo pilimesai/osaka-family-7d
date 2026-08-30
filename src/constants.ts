@@ -272,86 +272,244 @@ export const ESSENTIAL_INFO: EssentialInfo[] = [
 ];
 
 export const RESTAURANTS: Restaurant[] = [
+  // --- 老辣妹 心齋橋 / 美國村 / 道頓堀 美食推薦 ---
+  {
+    name: 'たこ焼き道楽わなか 道頓堀店',
+    category: '章魚燒',
+    rating: 4.5,
+    location: '道頓堀（近千日前）',
+    area: '大阪',
+    recommendation: '【老辣妹介紹】心齋橋必吃美食！外皮酥脆內餡滾燙軟嫩、章魚塊超大顆。老辣妹私心大推「鹽味」（無醬油無美乃滋，純鹽最能吃出高湯與章魚的鮮甜原味）以及「蔥花柚子醋」（ねぎポンず，清爽微酸解膩）。',
+    priceRange: '¥500-800',
+    source: '老辣妹介紹',
+    googleMapsUrl: 'https://maps.app.goo.gl/E8NtDNyfLCNoFnwp9',
+    tagEmoji: '🐙'
+  },
+  {
+    name: '元祖アイスドッグ (元祖冰淇淋熱狗)',
+    category: '街頭甜點',
+    rating: 4.4,
+    location: '美國村（三角公園旁）',
+    area: '大阪',
+    recommendation: '【老辣妹介紹】心齋橋必做六件事之一！剛起鍋現炸金黃酥脆的熱騰騰熱狗麵包，中間切開擠入冰涼香濃的日本牛乳霜淇淋。「冰火交融」一口咬下外熱酥脆、內冰甜順口，帶小孩逛美國村必吃的超人氣銅板點心！',
+    priceRange: '¥400-600',
+    source: '老辣妹介紹',
+    googleMapsUrl: 'https://maps.app.goo.gl/Xon9EZNVme3RxA6Z6',
+    tagEmoji: '🍦'
+  },
+  {
+    name: '牛たん炭火焼 吉次 鰻谷店',
+    category: '炭火燒牛舌',
+    rating: 4.6,
+    location: '東心齋橋 鰻谷（法拉格飯店步行 2 分）',
+    area: '大阪',
+    recommendation: '【老辣妹介紹】老辣妹激推的隱藏版牛舌愛店！道地仙台炭火厚切牛舌，師傅大火現烤炭香四溢、外脆內嫩多汁，搭配清甜牛尾湯與麥飯簡直絕配。就在法拉格飯店旁鰻谷巷內，大人想吃頂級牛舌首選！（註：非牛同行者可選其他料理）。',
+    priceRange: '¥2000-4000',
+    source: '老辣妹介紹',
+    googleMapsUrl: 'https://maps.app.goo.gl/vLsZFsSfAGS7N9SC7',
+    tagEmoji: '🥩'
+  },
+  {
+    name: '板前焼肉 一斗 東心斎橋店本館',
+    category: '黑毛和牛燒肉',
+    rating: 4.7,
+    location: '東心齋橋（法拉格飯店步行 3 分）',
+    area: '大阪',
+    recommendation: '【老辣妹介紹】心齋橋吃過驚為天人的頂級黑毛和牛燒肉老店！冷藏未冷凍肉質極致鮮美，油花均勻如雪花、入口即化，獨門特調醬汁甘甜解膩，肉食愛好者必訪。（註：全牛燒肉名店）。',
+    priceRange: '¥5000-10000',
+    source: '老辣妹介紹',
+    googleMapsUrl: 'https://maps.app.goo.gl/aWkwUimnjF7qU1WJ7',
+    tagEmoji: '🔥'
+  },
+
+  // --- 老辣妹 新世界 / 西成 美食推薦 ---
+  {
+    name: '串かつだるま 新世界総本店',
+    category: '元祖串炸',
+    rating: 4.3,
+    location: '新世界 / 鏘鏘橫丁',
+    area: '大阪',
+    recommendation: '【老辣妹介紹】大阪串炸創始發源總本店！麵衣極致細緻薄脆、完全不油膩。店內除了牛肉串，有海量非牛串炸（炸大蝦、鵪鶉蛋、蘆筍、莫札瑞拉起司、蓮藕、南瓜等）及道地燉牛筋/高麗菜，記得遵守特製醬汁不能二次回沾喔！',
+    priceRange: '¥1000-2000',
+    source: '老辣妹介紹',
+    googleMapsUrl: 'https://maps.app.goo.gl/A6XS5jRcYhn3K1d9A',
+    tagEmoji: '🍢'
+  },
+  {
+    name: '鉄板焼ホルモン やまき',
+    category: '在地鐵板燒',
+    rating: 4.5,
+    location: '西成區（今池站旁）',
+    area: '大阪',
+    recommendation: '【老辣妹介紹】大阪西成傳奇鐵板燒！大鐵板上現炒豬內臟與特製蒜味秘醬，香氣四溢、在地庶民氛圍濃厚，排隊人潮絡繹不絕的庶民美食。',
+    priceRange: '¥500-1500',
+    source: '老辣妹介紹',
+    googleMapsUrl: 'https://maps.app.goo.gl/WQyHMKYDRNKak1mr9',
+    tagEmoji: '🥘'
+  },
+
+  // --- 老辣妹 天滿 / 天神橋筋 美食推薦 ---
+  {
+    name: '西洋茶館 (British Tea House)',
+    category: '英倫復古喫茶',
+    rating: 4.6,
+    location: '天神橋筋商店街 / 扇町',
+    area: '大阪',
+    recommendation: '【老辣妹介紹】天滿超唯美的古典英式喫茶店！宛如走入歐洲老電影，店內手工現做戚風蛋糕、草莓鮮奶油蛋糕與英式下午茶現泡伯爵紅茶極具水準，逛天神橋筋或大阪天滿宮後最棒的優雅下午茶小憩點。',
+    priceRange: '¥800-1500',
+    source: '老辣妹介紹',
+    googleMapsUrl: 'https://maps.app.goo.gl/QLnYCC9ygndX8CRk7',
+    tagEmoji: '☕'
+  },
+  {
+    name: '鳴門鯛焼本舗 天神橋3丁目店',
+    category: '傳統鯛魚燒',
+    rating: 4.4,
+    location: '天神橋筋 3 丁目',
+    area: '大阪',
+    recommendation: '【老辣妹介紹】遵循古法「天然一丁燒」（一次只烤一隻）的職人鯛魚燒！外皮薄脆酥香、內餡飽滿滾燙。大推十勝紅豆與鳴門金時地瓜口味，冬天吃一口熱呼呼超幸福！',
+    priceRange: '¥250-400',
+    source: '老辣妹介紹',
+    googleMapsUrl: 'https://maps.app.goo.gl/8AoB6YWJTZXGfju26',
+    tagEmoji: '🐟'
+  },
+  {
+    name: 'お好み焼 焼きそば 味の 双月',
+    category: '大阪燒/炒麵',
+    rating: 4.4,
+    location: '天神橋筋商店街',
+    area: '大阪',
+    recommendation: '【老辣妹介紹】天神橋筋昭和感滿點的傳統大阪燒老店！厚實鬆軟的高麗菜麵糊與豐富海鮮/豬肉配料，淋上特製甜鹹醬汁與美乃滋，老饕在地滋味。',
+    priceRange: '¥800-1500',
+    source: '老辣妹介紹',
+    googleMapsUrl: 'https://maps.app.goo.gl/crRGHF9Pf7PDMf8n8',
+    tagEmoji: '🥞'
+  },
+  {
+    name: '千鳥屋宗家 天滿店',
+    category: '和菓子伴手禮',
+    rating: 4.3,
+    location: '天神橋筋',
+    area: '大阪',
+    recommendation: '【老辣妹介紹】創業於寬永七年的關西百年和菓子名店！招牌本千鳥饅頭（皮薄餡香白豆沙）、黑豆茶與千鳥酥，是大阪在地人買傳統伴手禮的經典選擇。',
+    priceRange: '¥500-1500',
+    source: '老辣妹介紹',
+    googleMapsUrl: 'https://maps.app.goo.gl/sco9Hw4QH9hhM1Xv7',
+    tagEmoji: '🍡'
+  },
+  {
+    name: '和牛タン次郎 大阪天満店',
+    category: '和牛牛舌放題',
+    rating: 4.5,
+    location: '天滿',
+    area: '大阪',
+    recommendation: '【老辣妹介紹】天滿超高人氣的和牛牛舌燒肉吃到飽！厚切蔥鹽牛舌、牛舌壽司等各種牛舌料理一次滿足，肉質鮮甜厚實。（註：全牛專門店）。',
+    priceRange: '¥4000-7000',
+    source: '老辣妹介紹',
+    googleMapsUrl: 'https://maps.app.goo.gl/Sdk1xYRX5LTQSnE76',
+    tagEmoji: '🥩'
+  },
+
+  // --- 經典親子與不吃牛人氣美食 ---
+  {
+    name: '名代炸豬排 Katsukura (Porta / 四條寺町)',
+    category: '炸豬排定食',
+    rating: 4.6,
+    location: '京都車站 Porta / 四條寺町',
+    area: '京都',
+    recommendation: '京都發源第一名炸豬排！酥脆三元豬豬排、大炸蝦定食，無限續加的高麗菜絲與燕麥飯，不吃牛必吃家庭首選。',
+    priceRange: '¥1500-2500',
+    tagEmoji: '🐷'
+  },
+  {
+    name: '道頓堀 今井 本店',
+    category: '烏龍麵・高湯名店',
+    rating: 4.5,
+    location: '道頓堀（法善寺附近）',
+    area: '大阪',
+    recommendation: '大阪烏龍麵的極致天花板！北海道天然昆布高湯甘甜醇厚，招牌豆皮烏龍麵豆皮厚實多汁，親子用餐溫暖舒服。',
+    priceRange: '¥900-1800',
+    tagEmoji: '🍜'
+  },
+  {
+    name: '千房大阪燒 (心齋橋店)',
+    category: '大阪燒',
+    rating: 4.4,
+    location: '心齋橋 / 道頓堀',
+    area: '大阪',
+    recommendation: '大阪名物鐵板大阪燒！推薦海鮮千房燒、豬肉大阪燒，在鐵板前熱騰騰現煎現吃，柴魚片跳舞小孩超愛看。',
+    priceRange: '¥1200-2000',
+    tagEmoji: '🥢'
+  },
+  {
+    name: '北極星蛋包飯 (心齋橋本店)',
+    category: '蛋包飯創始店',
+    rating: 4.4,
+    location: '西心齋橋（美國村旁）',
+    area: '大阪',
+    recommendation: '日本蛋包飯百年創始本店！保留傳統日式榻榻米庭園建築，滑嫩金黃蛋皮包裹雞肉/蘑菇/鮮蝦炒飯，小孩吃得開心又安心。',
+    priceRange: '¥1000-1800',
+    tagEmoji: '🍳'
+  },
   {
     name: '拉麵小路（坂内食堂）',
-    category: '拉麵',
+    category: '喜多方拉麵',
     rating: 4.3,
     location: '京都車站 10F',
     area: '京都',
     recommendation: '京都車站十樓的拉麵主題樓層，集結全日本知名拉麵店。坂内食堂的喜多方拉麵湯頭醇厚、叉燒軟嫩。',
     priceRange: '¥850-1200',
+    tagEmoji: '🍜'
   },
   {
     name: '% Arabica 嵐山',
-    category: '咖啡',
+    category: '精品咖啡',
     rating: 4.5,
     location: '京都嵐山',
     area: '京都',
     recommendation: '面對渡月橋的絕美咖啡店，拿鐵拉花精緻。嵐山限定杯也很值得收藏。',
     priceRange: '¥450-650',
-  },
-  {
-    name: 'たこ焼き道楽わなか',
-    category: '章魚燒',
-    rating: 4.4,
-    location: '道頓堀',
-    area: '大阪',
-    recommendation: '大阪排名前三的章魚燒名店。外酥內軟，章魚塊超大。推薦「ねぎポンず」（蔥花柚子醋）口味。',
-    priceRange: '¥500-800',
+    tagEmoji: '☕'
   },
   {
     name: '八重勝 (Yaekatsu)',
-    category: '串炸',
+    category: '老字號串炸',
     rating: 4.4,
     location: '新世界 (鏘鏘橫丁)',
     area: '大阪',
     recommendation: '當地人也大推的超人氣串炸老店！外皮薄脆不油膩，食材新鮮。炸蝦和鵪鶉蛋是必點，牛筋燉煮也非常入味。',
     priceRange: '¥1000-2000',
-  },
-  {
-    name: '串カツだるま',
-    category: '串炸',
-    rating: 4.2,
-    location: '道頓堀 / 新世界',
-    area: '大阪',
-    recommendation: '大阪串炸的代表名店！酥脆的麵衣配上特製醬汁，一串接一串停不下來。記得遵守「不能回沾」的規則。',
-    priceRange: '¥1000-2000',
+    tagEmoji: '🍢'
   },
   {
     name: '551 蓬萊',
-    category: '肉包',
+    category: '肉包・燒賣',
     rating: 4.6,
     location: '難波、天王寺等各店',
     area: '大阪',
     recommendation: '大阪第一名的肉包！皮薄餡多、肉汁飽滿。冬天吃熱騰騰的肉包超幸福。也有燒賣和餃子可以買。',
     priceRange: '¥200-500',
+    tagEmoji: '🥟'
   },
   {
-    name: 'りくろーおじさん',
-    category: '甜點',
+    name: 'りくろーおじさん (老爺爺起司蛋糕)',
+    category: '現烤起司蛋糕',
     rating: 4.5,
-    location: '難波本店',
+    location: '難波本店 / 大丸心齋橋',
     area: '大阪',
-    recommendation: '大阪人氣No.1 的起司蛋糕！剛出爐時搖晃的樣子超療癒。一個才 ¥965，CP 值超高。',
+    recommendation: '大阪人氣No.1 的起司蛋糕！剛出爐時搖晃的樣子超療癒。一個才 ¥965，CP 值超高。底部的葡萄乾是靈魂！',
     priceRange: '¥965',
-  },
-  {
-    name: 'ステーキランド 神戶館',
-    category: '神戶牛排',
-    rating: 4.3,
-    location: '三宮',
-    area: '神戶',
-    recommendation: '在鐵板前看師傅現煎神戶牛，油脂均勻、入口即化。有兒童套餐，價格比其他神戶牛排店親民。',
-    priceRange: '¥3000-8000',
+    tagEmoji: '🧀'
   },
   {
     name: '夫婦善哉',
-    category: '甜品',
+    category: '百年紅豆湯圓',
     rating: 4.1,
     location: '法善寺橫丁',
     area: '大阪',
     recommendation: '法善寺橫丁內的百年紅豆湯圓老店。特色是一人份分成兩碗，象徵夫婦圓滿。溫暖甜蜜的好味道。',
     priceRange: '¥800',
+    tagEmoji: '🍵'
   },
 ];
 
@@ -650,10 +808,63 @@ export const SHOPPING_SPOTS: ShoppingSpot[] = [
     address: '大阪府大阪市中央区心斎橋筋1-8-3',
     walkingTimeFromHotel: '步行約 3 分鐘',
     howToFind: '心齋橋 PARCO 1 樓臨心齋橋筋商店街入口，HUMAN MADE 愛心與老虎 Logo 櫥窗極醒目。',
-    theShortyTip: '【省時動線】1F HUMAN MADE 經常有限定款 T 恤與配件；逛完順路搭手扶梯直達 2F BEAMS 與 3F STUDIOUS。',
+    theShortyTip: '【省時動線】1F HUMAN MADE 經常有限定款 T 恤與配件；逛完順路搭手扶梯直達 2F BEAMS、3F STUDIOUS 與 9F Fueki 專賣店。',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=Shinsaibashi+PARCO',
     openingHours: '10:00 - 20:00',
     tagEmoji: '🛍️'
+  },
+  {
+    id: 'fueki_shop_parco',
+    name: 'フエキショップ (Fueki Shop 心齋橋 PARCO 9F)',
+    japaneseName: 'フエキショップ 心斎橋PARCO 9階',
+    city: '大阪',
+    zone: '心齋橋大丸/PARCO',
+    brands: ['Fueki (不易糊國寶小狗)', 'Fueki 聯名彩妝保養', 'Fueki 自助霜淇淋機', 'Fueki 限定文具公仔'],
+    styleCategory: '日本百年經典黃色小狗不易糊主題旗艦店・親子同樂・超萌伴手禮',
+    floorInfo: '心齋橋 PARCO 9F（東急 Hands / 動漫樓層旁）',
+    address: '大阪府大阪市中央区心斎橋筋1-8-3 心斎橋PARCO 9F',
+    walkingTimeFromHotel: '步行約 3 分鐘（PARCO 9 樓）',
+    howToFind: '搭乘心齋橋 PARCO 電梯直達 9 樓，整片亮黃色復古小狗 Fueki 佈景與巨型公仔極度吸睛！',
+    theShortyTip: '【老辣妹推薦！心齋橋必做六件事】日本家喻戶曉的黃色小狗 Fueki 不易糊主題專賣店！店內最大亮點是「Fueki 自助霜淇淋機」，買杯子後可以親手操作機器擠出超萌的 Fueki 霜淇淋！還有小狗造型護手霜、保濕霜、文具扭蛋與吊飾，大人小孩都超愛！',
+    googleMapsUrl: 'https://maps.app.goo.gl/3cza6D34HY7oLPNH8',
+    openingHours: '10:00 - 20:00',
+    tagEmoji: '🐶'
+  },
+
+  // --- Zone 3.5: 美國村古著潮流（Americamura）老辣妹推薦 ---
+  {
+    id: 'wego_vintage_americamura',
+    name: 'WEGO VINTAGE アメリカ村店 (超大海量美式古著)',
+    japaneseName: 'ウィゴー ヴィンテージ アメリカ村店',
+    city: '大阪',
+    zone: '美國村/心齋橋',
+    brands: ['WEGO VINTAGE', '美式二手古著', '復古樂團T恤', 'Remake重製服飾', '工裝襯衫與外套'],
+    styleCategory: '平價海量日系美式古著・Y2K街頭・超大挖寶空間',
+    floorInfo: '1F-2F 獨立概念門市',
+    address: '大阪府大阪市中央区西心斎橋1-16-8',
+    walkingTimeFromHotel: '步行約 6 分鐘（過御堂筋往西進入美國村）',
+    howToFind: '位於美國村三角公園旁熱鬧街區，醒目的 WEGO VINTAGE 霓虹招牌與門口滿滿特價古著衣架，辨識度極高。',
+    theShortyTip: '【老辣妹推薦！心齋橋必做六件事】WEGO 專門打造的超大型古著挖寶概念店！海量美式二手古著、復古運動外套、樂團 T-shirt 與美式工裝，價格非常親民（¥1,500~4,000 為主），很適合想體驗日本古著挖寶的人！',
+    googleMapsUrl: 'https://maps.app.goo.gl/UkoodnhRcu6e3JXj9',
+    openingHours: '11:00 - 20:00',
+    tagEmoji: '👕'
+  },
+  {
+    id: 'spinns_americamura',
+    name: 'SPINNS アメリカ村店 (日系年輕平價潮流・飾品配件海)',
+    japaneseName: 'スピンズ アメリカ村店',
+    city: '大阪',
+    zone: '美國村/心齋橋',
+    brands: ['SPINNS', '日系街頭原創服飾', '美式古著專區', '平價潮流配件飾品', '動漫聯名小物'],
+    styleCategory: '日本高校生人氣平價潮流・原宿街頭 Y2K・飾品配件海',
+    floorInfo: '1F-2F 寬敞街邊門市',
+    address: '大阪府大阪市中央区西心斎橋2-11-30 2F',
+    walkingTimeFromHotel: '步行約 7 分鐘（三角公園往南步行 1 分鐘）',
+    howToFind: '美國村主要十字路口附近，色彩繽紛的 SPINNS 招牌，沿著階梯走入充滿年輕活力的流行空間。',
+    theShortyTip: '【老辣妹推薦】年輕潮流必逛！結合了日系平價原創服飾、古著專區與超多百元平價飾品、帽子、墨鏡與潮流襪子。價格親切好入手，帶年輕朋友或小孩逛配件超好買！',
+    googleMapsUrl: 'https://maps.app.goo.gl/9hDrzHX6p7QqcxxS8',
+    openingHours: '11:00 - 20:00',
+    tagEmoji: '🧢'
   },
 
   // --- Zone 4: 梅田商圈（Umeda）一隻阿圓爆買推薦 ---
