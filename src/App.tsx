@@ -140,329 +140,357 @@ function App() {
             {/* ===================== TAB: ITINERARY ===================== */}
             {activeTab === 'itinerary' && (
               <motion.div key="itinerary" variants={containerVariants} initial="hidden" animate="visible" exit={{ opacity: 0 }}>
-                {/* Day Selector */}
-                <div className="flex gap-2 mb-6 overflow-x-auto no-scrollbar pb-2">
+
+                {/* ── Day Selector ── */}
+                <div className="flex gap-2 mb-5 overflow-x-auto no-scrollbar pb-2">
                   {ITINERARY.map((day) => (
                     <button
                       key={day.day}
                       onClick={() => setActiveDay(day.day)}
-                      className={`flex-1 min-w-[72px] py-3 px-2 rounded-2xl flex flex-col items-center transition-all border ${
+                      className={`flex-1 min-w-[64px] py-2.5 px-2 rounded-2xl flex flex-col items-center transition-all border ${
                         activeDay === day.day
-                          ? 'bg-gradient-to-br from-rose-500 to-pink-500 border-rose-500 text-white shadow-lg shadow-rose-200'
-                          : 'bg-white border-stone-100 text-stone-400 hover:border-rose-200 hover:text-rose-400'
+                          ? 'border-orange-400 text-white shadow-lg'
+                          : 'bg-white border-stone-100 text-stone-400 hover:border-orange-200 hover:text-orange-400'
                       }`}
+                      style={activeDay === day.day ? { background: 'linear-gradient(135deg, #F59E0B, #EA580C)' } : {}}
                     >
-                      <span className="text-lg mb-0.5">{DAY_EMOJIS[day.day - 1] || '✨'}</span>
-                      <span className="text-[10px] uppercase font-bold tracking-wider mb-0.5">Day</span>
-                      <span className="text-lg font-black leading-none">{day.day}</span>
+                      <span className="text-base mb-0.5">{DAY_EMOJIS[day.day - 1] || '✨'}</span>
+                      <span className="text-[9px] uppercase font-bold tracking-wider">Day</span>
+                      <span className="text-base font-black leading-none">{day.day}</span>
                     </button>
                   ))}
                 </div>
 
-                {/* Day Header */}
                 {currentDay && (
-                  <motion.div key={activeDay} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mb-6">
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="w-1.5 h-8 bg-gradient-to-b from-rose-500 to-pink-400 rounded-full" />
-                      <div className="flex-1">
-                        <h2 className="text-2xl font-black text-stone-900 leading-none mb-2">
-                          Day {currentDay.day} 總覽
-                        </h2>
-                        <div className="flex items-center gap-2">
-                          <span className={`text-[11px] font-bold px-3 py-1.5 rounded-full border ${tagStyle.bg} ${tagStyle.text} ${tagStyle.border}`}>
+                  <motion.div key={`day-content-${activeDay}`} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }}>
+
+                    {/* ── Day Header Banner ── */}
+                    <div className="rounded-2xl p-5 mb-5 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 50%, #FFCCBC 100%)', border: '1.5px solid #F5C89A' }}>
+                      <div className="absolute -right-8 -top-8 w-32 h-32 rounded-full opacity-20" style={{ background: 'radial-gradient(circle, #F59E0B, transparent)' }} />
+                      <div className="relative z-10">
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="text-2xl">{DAY_EMOJIS[currentDay.day - 1] || '✨'}</span>
+                          <span className="text-xs font-black px-2.5 py-0.5 rounded-full text-white" style={{ background: 'linear-gradient(135deg, #F59E0B, #EA580C)' }}>
+                            DAY {currentDay.day}
+                          </span>
+                          <span className="text-xs font-bold text-amber-700 bg-amber-100 border border-amber-200 px-2.5 py-0.5 rounded-full">
                             {currentDay.date}
                           </span>
                         </div>
+                        <p className="text-sm font-semibold text-amber-900 leading-relaxed mt-2 whitespace-pre-wrap">{currentDay.highlights.split('\n')[0]}</p>
                       </div>
                     </div>
-                  </motion.div>
-                )}
 
-                {/* Dashboard Grid */}
-                {currentDay && (
-                  <motion.div key={`grid-${activeDay}`} variants={containerVariants} initial="hidden" animate="visible" className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {/* Highlight Card */}
-                    <motion.div variants={itemVariants} className="col-span-1 md:col-span-2 bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl p-5 border border-blue-100 shadow-sm relative overflow-hidden">
-                      <div className="absolute -right-4 -top-4 w-24 h-24 bg-blue-500/10 rounded-full blur-xl"></div>
-                      <div className="flex items-center gap-2 mb-3">
-                        <div className="p-2 bg-blue-100 rounded-lg"><Zap className="w-5 h-5 text-blue-600" /></div>
-                        <h3 className="font-bold text-blue-900 text-lg">今日行程亮點</h3>
-                      </div>
-                      <p className="text-blue-800 leading-relaxed whitespace-pre-wrap">{currentDay.highlights}</p>
-                    </motion.div>
+                    {/* ── Main 2-Column Layout ── */}
+                    <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-4 items-start">
 
-                    {/* Schedule Card - Beautified Timeline */}
-                    <motion.div variants={itemVariants} className="col-span-1 md:col-span-2 bg-white rounded-2xl p-5 sm:p-6 border border-stone-200 shadow-sm relative overflow-hidden">
-                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 mb-4 border-b border-stone-100">
-                        <div className="flex items-center gap-2.5">
-                          <div className="p-2.5 bg-gradient-to-br from-rose-500 to-pink-600 rounded-xl text-white shadow-md shadow-rose-500/20">
-                            <Clock className="w-5 h-5" />
-                          </div>
-                          <div>
-                            <h3 className="font-black text-stone-900 text-lg sm:text-xl">
-                              當日時間安排與流暢動線
-                            </h3>
-                            <p className="text-xs text-stone-500 font-medium">按時間推進・清晰節點與避排隊提示</p>
+                      {/* ════════════════════════════
+                           LEFT: Timeline
+                          ════════════════════════════ */}
+                      <div className="space-y-0">
+                        {/* Section Header */}
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className="text-xs font-black px-2.5 py-1 rounded-full text-white" style={{ background: 'linear-gradient(135deg, #F59E0B, #EA580C)' }}>行程時間軸</span>
+                          <div className="h-px flex-1" style={{ background: 'linear-gradient(to right, #F59E0B30, transparent)' }} />
+                        </div>
+
+                        {/* Timeline Items */}
+                        <div className="relative">
+                          {/* Vertical line */}
+                          <div className="absolute left-[18px] top-6 bottom-6 w-0.5" style={{ background: 'linear-gradient(to bottom, #F59E0B, #EA580C80)' }} />
+
+                          <div className="space-y-3">
+                            {currentDay.schedule.split(/\r?\n/).filter(line => line.trim().length > 0).map((line, idx) => {
+                              const timeMatch = line.match(/^(\d{1,2}:\d{2}(?:[–\-]\d{1,2}:\d{2})?|早上|上午|中午|下午|傍晚|晚上|抵達後|約\d{1,2}:\d{2})/);
+                              const time = timeMatch ? timeMatch[1] : null;
+                              let content = timeMatch ? line.slice(timeMatch[0].length).trim() : line.replace(/^[→\-•]?\s*/, '').trim();
+
+                              const tagMatch = content.match(/^【([^】]+)】/);
+                              const tag = tagMatch ? tagMatch[1] : null;
+                              if (tag) content = content.slice(tagMatch![0].length).trim();
+
+                              // Detect activity type for icon
+                              const isMeal = content.includes('早餐') || content.includes('午餐') || content.includes('晚餐') || content.includes('餐廳') || content.includes('享用') || content.includes('拉麵') || content.includes('炸豬排') || content.includes('泡湯');
+                              const isTransport = content.includes('搭乘') || content.includes('巴士') || content.includes('電車') || content.includes('抵達') || content.includes('接駁') || content.includes('HARUKA') || content.includes('Rapi');
+                              const isHotel = content.includes('Check-in') || content.includes('入住') || content.includes('飯店') || content.includes('退房');
+                              const isShopping = content.includes('逛') || content.includes('商店') || content.includes('選物') || content.includes('採買') || content.includes('PARCO') || content.includes('百貨');
+                              const isLandmark = tag?.includes('地點') || content.includes('博物館') || content.includes('神社') || content.includes('公園') || content.includes('景區');
+
+                              const activityEmoji = isMeal ? '🍽️' : isHotel ? '🏨' : isShopping ? '🛍️' : isTransport ? '🚆' : isLandmark ? '📍' : '✨';
+
+                              const isHeader = line.startsWith('━━') || line.startsWith('🏠');
+
+                              if (isHeader) {
+                                return (
+                                  <div key={idx} className="ml-9 my-1 flex items-center gap-2">
+                                    <div className="h-px flex-1 bg-orange-200" />
+                                    <span className="text-[10px] font-bold text-orange-500 bg-orange-50 border border-orange-200 px-2 py-0.5 rounded-full">{content.replace(/^━+\s*/, '').replace(/\s*━+$/, '').trim()}</span>
+                                    <div className="h-px flex-1 bg-orange-200" />
+                                  </div>
+                                );
+                              }
+
+                              return (
+                                <div key={idx} className="relative flex items-start gap-0">
+                                  {/* Timeline node */}
+                                  <div className="flex-shrink-0 w-9 flex flex-col items-center">
+                                    <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center z-10 mt-2 transition-all ${
+                                      idx === 0 ? 'timeline-dot-active border-orange-400 bg-orange-400' : 'border-orange-300 bg-white'
+                                    }`}>
+                                      <div className={`w-2 h-2 rounded-full ${idx === 0 ? 'bg-white' : 'bg-orange-300'}`} />
+                                    </div>
+                                  </div>
+
+                                  {/* Content Card */}
+                                  <div className="flex-1 mb-2.5 rounded-xl border overflow-hidden" style={{ background: '#FFFBF6', borderColor: '#F0D9BE' }}>
+                                    <div className="px-3.5 pt-3 pb-2">
+                                      <div className="flex flex-wrap items-center gap-1.5 mb-1.5">
+                                        {time && (
+                                          <span className="text-[10px] font-black px-2 py-0.5 rounded-lg text-white flex items-center gap-1" style={{ background: 'linear-gradient(135deg, #D97706, #EA580C)' }}>
+                                            <Clock className="w-2.5 h-2.5" />
+                                            {time}
+                                          </span>
+                                        )}
+                                        {tag && (
+                                          <span className={`text-[10px] font-black px-2 py-0.5 rounded-lg border ${
+                                            tag.includes('地點') ? 'bg-rose-500 text-white border-rose-600'
+                                            : tag.includes('飯店') || tag.includes('入住') ? 'bg-purple-100 text-purple-700 border-purple-200'
+                                            : tag.includes('上車') || tag.includes('下車') ? 'bg-blue-100 text-blue-700 border-blue-200'
+                                            : 'bg-amber-100 text-amber-800 border-amber-200'
+                                          }`}>
+                                            {tag}
+                                          </span>
+                                        )}
+                                        <span className="text-base leading-none">{activityEmoji}</span>
+                                      </div>
+                                      <p className="text-xs font-semibold text-stone-800 leading-relaxed">{content}</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              );
+                            })}
                           </div>
                         </div>
-                        <span className="self-start sm:self-center bg-stone-100 text-stone-700 text-xs font-bold px-3 py-1 rounded-full border border-stone-200 flex items-center gap-1.5">
-                          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                          共 {currentDay.schedule.split(/\r?\n/).filter(l => l.trim().length > 0).length} 個行程時段
-                        </span>
-                      </div>
 
-                      {/* Interactive Time Nodes */}
-                      <div className="relative pl-6 sm:pl-8 space-y-3.5 before:absolute before:left-2.5 sm:before:left-3.5 before:top-3 before:bottom-3 before:w-0.5 before:bg-gradient-to-b before:from-rose-500 before:via-pink-400 before:to-emerald-400">
-                        {currentDay.schedule.split(/\r?\n/).filter(line => line.trim().length > 0).map((line, idx) => {
-                          const timeMatch = line.match(/^(\d{1,2}:\d{2}(?:[–-]\d{1,2}:\d{2})?|早上|上午|中午|下午|傍晚|晚上|抵達後|約\d{1,2}:\d{2})/);
-                          const time = timeMatch ? timeMatch[1] : null;
-                          let content = timeMatch ? line.slice(timeMatch[0].length).trim() : line.replace(/^[→\-•]\s*/, '').trim();
-
-                          const tagMatch = content.match(/^【([^】]+)】/);
-                          const tag = tagMatch ? tagMatch[1] : null;
-                          if (tag) {
-                            content = content.slice(tagMatch[0].length).trim();
-                          }
-
-                          return (
-                            <div key={idx} className="relative flex items-start gap-3 group">
-                              {/* Node Circle */}
-                              <div className="absolute -left-6 sm:-left-8 top-1.5 w-4 sm:w-5 h-4 sm:h-5 rounded-full bg-white border-2 border-rose-500 shadow-sm flex items-center justify-center group-hover:scale-125 group-hover:border-pink-600 transition-all z-10">
-                                <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-rose-500 group-hover:bg-pink-600 transition-colors" />
-                              </div>
-
-                              {/* Content Card */}
-                              <div className="flex-1 bg-stone-50/90 hover:bg-rose-50/50 p-3 sm:p-3.5 rounded-xl sm:rounded-2xl border border-stone-200/80 hover:border-rose-200 transition-all shadow-xs">
-                                <div className="flex flex-wrap items-center gap-2 mb-1.5">
-                                  {time && (
-                                    <span className="bg-stone-900 text-amber-300 text-[11px] sm:text-xs font-black px-2.5 py-0.5 rounded-lg flex items-center gap-1 shadow-xs tracking-wide">
-                                      <Clock className="w-3 h-3 text-amber-400" />
-                                      {time}
-                                    </span>
-                                  )}
-                                  {tag && (
-                                    <span className={`text-[10px] sm:text-[11px] font-black px-2.5 py-0.5 rounded-lg border shadow-2xs ${
-                                      tag.includes('地點')
-                                        ? 'bg-rose-500 text-white border-rose-600'
-                                        : tag.includes('放戰利品') || tag.includes('卸貨') || tag.includes('飯店')
-                                        ? 'bg-purple-600 text-white border-purple-700'
-                                        : 'bg-indigo-600 text-white border-indigo-700'
-                                    }`}>
-                                      {tag}
-                                    </span>
-                                  )}
-                                </div>
-                                <p className="text-xs sm:text-sm font-bold text-stone-800 leading-relaxed">
-                                  {content}
-                                </p>
-                              </div>
+                        {/* ── Guide Card (e.g. Airport T2→T1) ── */}
+                        {currentDay.guide && (
+                          <div className="mt-3 rounded-2xl overflow-hidden border" style={{ background: '#1C1917', borderColor: '#292524' }}>
+                            <div className="flex items-center gap-2 px-4 py-3" style={{ background: 'linear-gradient(135deg, #292524, #1C1917)' }}>
+                              <Navigation className="w-4 h-4 text-amber-400" />
+                              <h3 className="font-bold text-white text-sm">{currentDay.guide.title}</h3>
                             </div>
-                          );
-                        })}
-                      </div>
-                    </motion.div>
-
-                    {/* Transport Card */}
-                    <motion.div variants={itemVariants} className="col-span-1 md:col-span-2 bg-white rounded-2xl p-5 border border-stone-200 shadow-sm">
-                      <div className="flex items-center gap-2 mb-3">
-                        <div className="p-2 bg-stone-100 rounded-lg"><Train className="w-5 h-5 text-stone-600" /></div>
-                        <h3 className="font-bold text-stone-900 text-lg">交通方式</h3>
-                      </div>
-                      <p className="text-stone-600 leading-relaxed whitespace-pre-wrap">{currentDay.transport}</p>
-                      {currentDay.transportDetails && (
-                        <div className="mt-4 pt-4 border-t border-stone-100 space-y-3">
-                          <div className="flex items-start gap-2">
-                            <Ticket className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                            <div className="text-sm">
-                              <span className="font-bold text-stone-700">票價：</span>
-                              <span className="text-stone-600">{currentDay.transportDetails.price}</span>
-                            </div>
-                          </div>
-                          <div className="flex items-start gap-2">
-                            <Store className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                            <div className="text-sm">
-                              <span className="font-bold text-stone-700">購票：</span>
-                              <span className="text-stone-600">{currentDay.transportDetails.whereToBuy}</span>
-                            </div>
-                          </div>
-                          <div className="flex items-start gap-2">
-                            <Clock className="w-4 h-4 text-indigo-600 shrink-0 mt-0.5" />
-                            <div className="text-sm w-full">
-                              <span className="font-bold text-stone-700">推薦時刻表：</span>
-                              <ul className="mt-1 space-y-1">
-                                {currentDay.transportDetails.scheduleOptions.map((opt, idx) => (
-                                  <li key={idx} className="text-stone-600 bg-stone-50 px-2 py-1 rounded text-xs border border-stone-100">{opt}</li>
+                            <div className="px-4 py-3 space-y-3">
+                              <p className="text-stone-300 text-xs leading-relaxed">{currentDay.guide.description}</p>
+                              <ul className="space-y-2">
+                                {currentDay.guide.steps.map((step, idx) => (
+                                  <li key={idx} className="flex items-start gap-2 text-stone-200 text-xs">
+                                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                                    <span>{step}</span>
+                                  </li>
                                 ))}
                               </ul>
-                              {currentDay.transportDetails.note && (
-                                <p className="mt-2 text-xs text-amber-700 bg-amber-50 p-2 rounded border border-amber-100">{currentDay.transportDetails.note}</p>
+                              <div className="grid grid-cols-3 gap-2 mt-2">
+                                {currentDay.guide.images.map((img, idx) => (
+                                  <div
+                                    key={idx}
+                                    onClick={() => setPreviewImage({ url: img.url, caption: img.caption })}
+                                    className="rounded-xl overflow-hidden border border-white/10 cursor-pointer group"
+                                  >
+                                    <img src={img.url} alt={img.caption} className="w-full h-20 object-cover opacity-75 group-hover:opacity-100 transition-opacity" />
+                                    <div className="p-1.5 text-[10px] text-center text-stone-400 font-medium">{img.caption}</div>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                        )}
+
+                        {/* ── Shopping Hub card (Day 4/7) ── */}
+                        {(currentDay.day === 4 || currentDay.day === 7) && (
+                          <div className="mt-3 rounded-2xl overflow-hidden border relative" style={{ background: 'linear-gradient(135deg, #0F172A, #1E1B4B)', borderColor: '#4F46E5AA' }}>
+                            <div className="absolute inset-0 opacity-10" style={{ background: 'radial-gradient(circle at top right, #F43F5E, transparent), radial-gradient(circle at bottom left, #6366F1, transparent)' }} />
+                            <div className="relative z-10 p-4">
+                              <div className="flex items-center gap-2 mb-2">
+                                <span className="bg-rose-500 text-white text-[11px] font-black px-2.5 py-0.5 rounded-full flex items-center gap-1">
+                                  <Sparkles className="w-3 h-3" /> 日潮零折返路線
+                                </span>
+                              </div>
+                              <h3 className="text-base font-black text-white mb-1">大阪 NANGA ＆ HUMAN MADE 🛍️</h3>
+                              <p className="text-xs text-stone-300 leading-relaxed mb-3">
+                                SORA 堀江店（NANGA 聯名）、NANGA 旗艦店、HUMAN MADE（PARCO 1F）與 FREAK'S STORE（NAUTICA JP）
+                              </p>
+                              <div className="flex gap-2">
+                                <button
+                                  onClick={() => { setShoppingCityFilter('大阪'); setSelectedRoute('osaka_loop'); setActiveTab('shopping'); }}
+                                  className="flex-1 bg-gradient-to-r from-rose-500 to-pink-500 text-white text-xs font-bold px-3 py-2 rounded-xl flex items-center justify-center gap-1.5 transition-all hover:from-rose-600 hover:to-pink-600 cursor-pointer"
+                                >
+                                  <Navigation className="w-3.5 h-3.5" /> 零折返動線
+                                </button>
+                                <button
+                                  onClick={() => { setShoppingCityFilter('大阪'); setActiveTab('shopping'); }}
+                                  className="flex-1 bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs font-bold px-3 py-2 rounded-xl flex items-center justify-center gap-1.5 transition-all cursor-pointer"
+                                >
+                                  全部 18 家潮店 <ChevronRight className="w-3.5 h-3.5" />
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        )}
+
+                        {/* ── Food Recommendations ── */}
+                        <div className="mt-4">
+                          <div className="flex items-center gap-2 mb-3">
+                            <Utensils className="w-4 h-4 text-amber-600" />
+                            <h3 className="font-bold text-amber-900 text-sm">當日美食推薦 🍽️</h3>
+                          </div>
+                          <div className="rounded-2xl overflow-hidden border" style={{ background: '#FFFBF6', borderColor: '#F0D9BE' }}>
+                            <div className="px-4 py-3 text-xs font-medium text-stone-700 leading-relaxed whitespace-pre-wrap">
+                              {currentDay.food}
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* ── Child Highlights ── */}
+                        <div className="mt-3 rounded-2xl overflow-hidden border" style={{ background: '#FFF0F6', borderColor: '#FBCFE8' }}>
+                          <div className="flex items-center gap-2 px-4 py-2.5 border-b border-pink-100">
+                            <Baby className="w-4 h-4 text-pink-500" />
+                            <h3 className="font-bold text-pink-800 text-sm">6歲小孩亮點 🧒</h3>
+                          </div>
+                          <div className="px-4 py-3">
+                            <p className="text-pink-700 text-xs leading-relaxed whitespace-pre-wrap">{currentDay.childHighlights}</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* ════════════════════════════
+                           RIGHT: Info Sidebar
+                          ════════════════════════════ */}
+                      <div className="space-y-3">
+
+                        {/* ── Accommodation Card ── */}
+                        {currentDayHotel && (
+                          <div className="info-card">
+                            <div className="info-card-header">
+                              <BedDouble className="w-4 h-4 text-amber-700" />
+                              住宿資訊
+                            </div>
+                            <div className="p-4">
+                              <div className="flex items-start gap-3">
+                                <img
+                                  src={currentDayHotel.coverImage}
+                                  alt={currentDayHotel.name}
+                                  className="w-16 h-16 rounded-xl object-cover border shrink-0 cursor-pointer hover:opacity-90 transition-opacity"
+                                  style={{ borderColor: '#F0D9BE' }}
+                                  onClick={() => setPreviewImage({ url: currentDayHotel.coverImage, caption: currentDayHotel.name })}
+                                />
+                                <div className="flex-1 min-w-0">
+                                  <span className="text-[10px] font-bold text-amber-700 bg-amber-100 border border-amber-200 px-2 py-0.5 rounded-full inline-block mb-1">今日入住</span>
+                                  <h4 className="text-sm font-black text-stone-900 leading-snug">{currentDayHotel.name}</h4>
+                                  <p className="text-[11px] text-stone-500 mt-0.5 leading-snug">{currentDayHotel.area}</p>
+                                </div>
+                              </div>
+                              <p className="text-[11px] text-stone-500 mt-2.5 leading-relaxed">{currentDayHotel.stationExit}</p>
+                              {currentDayHotel.bookingNumber && (
+                                <div className="mt-2 text-[11px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-lg px-2.5 py-1.5">
+                                  📋 預訂編號：{currentDayHotel.bookingNumber}
+                                </div>
+                              )}
+                              <button
+                                onClick={() => { setSelectedHotelId(currentDayHotel.id); setActiveTab('hotels'); }}
+                                className="mt-2.5 w-full text-[11px] font-bold py-2 rounded-xl border transition-all flex items-center justify-center gap-1 hover:shadow-sm cursor-pointer"
+                                style={{ color: '#92400E', borderColor: '#F5DFC0', background: '#FFF8F0' }}
+                              >
+                                步行路線 & 照片 <ChevronRight className="w-3.5 h-3.5" />
+                              </button>
+                            </div>
+                          </div>
+                        )}
+
+                        {/* ── Transport Card ── */}
+                        <div className="info-card">
+                          <div className="info-card-header">
+                            <Train className="w-4 h-4 text-amber-700" />
+                            交通推薦
+                          </div>
+                          <div className="p-4 space-y-2">
+                            {currentDay.transport.split(/\r?\n/).filter(l => l.trim()).map((line, idx) => (
+                              <div key={idx} className="flex items-start gap-2 text-[12px] text-stone-700">
+                                <span className="text-base leading-none mt-0.5 shrink-0">
+                                  {line.includes('巴士') || line.includes('🚌') ? '🚌' : line.includes('步行') || line.includes('🚶') ? '🚶' : line.includes('電鐵') || line.includes('地鐵') || line.includes('JR') ? '🚆' : '🚕'}
+                                </span>
+                                <span className="leading-relaxed">{line.replace(/^[🚌🚶🚆🚕]\s*/, '')}</span>
+                              </div>
+                            ))}
+
+                            {currentDay.transportDetails && (
+                              <div className="mt-3 pt-3 border-t space-y-2" style={{ borderColor: '#F5DFC0' }}>
+                                <div className="flex items-start gap-1.5">
+                                  <Ticket className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                                  <div className="text-[11px]">
+                                    <span className="font-bold text-stone-700">票價：</span>
+                                    <span className="text-stone-600">{currentDay.transportDetails.price}</span>
+                                  </div>
+                                </div>
+                                <ul className="space-y-1">
+                                  {currentDay.transportDetails.scheduleOptions.map((opt, idx) => (
+                                    <li key={idx} className="text-[11px] text-stone-600 rounded-lg px-2.5 py-1.5 border" style={{ background: '#FFF8F0', borderColor: '#F5DFC0' }}>🕐 {opt}</li>
+                                  ))}
+                                </ul>
+                                {currentDay.transportDetails.note && (
+                                  <p className="text-[11px] text-amber-800 rounded-lg px-2.5 py-1.5 border" style={{ background: '#FFFBEB', borderColor: '#FDE68A' }}>
+                                    ⚠️ {currentDay.transportDetails.note}
+                                  </p>
+                                )}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+
+                        {/* ── Queue Tips / Daily Tips ── */}
+                        {currentDay.queueTips && (
+                          <div className="info-card">
+                            <div className="info-card-header">
+                              <Lightbulb className="w-4 h-4 text-amber-700" />
+                              今日小提醒
+                            </div>
+                            <div className="p-4 space-y-2">
+                              {currentDay.queueTips.split(/\r?\n/).filter(l => l.trim()).map((tip, idx) => (
+                                <div key={idx} className="flex items-start gap-2">
+                                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-500 shrink-0 mt-0.5" />
+                                  <p className="text-[12px] text-stone-700 leading-relaxed">{tip.replace(/^[✔✓✅•﹒→－-]\s*/, '')}</p>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* ── Flight Info (Day 1 & Day 7) ── */}
+                        {(currentDay.day === 1 || currentDay.day === 7) && (
+                          <div className="info-card">
+                            <div className="info-card-header">
+                              <Plane className="w-4 h-4 text-amber-700" />
+                              航班資訊
+                            </div>
+                            <div className="p-4 space-y-2">
+                              {currentDay.day === 1 && (
+                                <div className="flex items-center gap-2 text-[12px] text-stone-700">
+                                  <Plane className="w-3.5 h-3.5 text-rose-500 shrink-0" />
+                                  <span className="leading-relaxed">{TRIP_INFO.flights?.outbound}</span>
+                                </div>
+                              )}
+                              {currentDay.day === 7 && (
+                                <div className="flex items-center gap-2 text-[12px] text-stone-700">
+                                  <Plane className="w-3.5 h-3.5 text-blue-500 shrink-0 rotate-180" />
+                                  <span className="leading-relaxed">{TRIP_INFO.flights?.inbound}</span>
+                                </div>
                               )}
                             </div>
                           </div>
-                        </div>
-                      )}
-                    </motion.div>
-
-                    {/* Accommodation Quick Card */}
-                    {currentDayHotel && (
-                      <motion.div variants={itemVariants} className="col-span-1 md:col-span-2 bg-gradient-to-br from-purple-50 via-pink-50 to-white rounded-2xl p-5 border border-purple-100 shadow-sm">
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                          <div className="flex items-start gap-3.5">
-                            <img
-                              src={currentDayHotel.coverImage}
-                              alt={currentDayHotel.name}
-                              className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl object-cover border border-purple-200 shrink-0 shadow-sm cursor-pointer"
-                              onClick={() => setPreviewImage({ url: currentDayHotel.coverImage, caption: currentDayHotel.name })}
-                            />
-                            <div>
-                              <div className="flex items-center gap-2 mb-1 flex-wrap">
-                                <span className="bg-purple-600 text-white text-[11px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
-                                  <BedDouble className="w-3 h-3" /> 今日入住
-                                </span>
-                                {currentDayHotel.bookingNumber && (
-                                  <span className="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded-full border border-emerald-200">
-                                    編號 {currentDayHotel.bookingNumber}
-                                  </span>
-                                )}
-                              </div>
-                              <h3 className="font-black text-stone-900 text-base sm:text-lg leading-snug">
-                                {currentDayHotel.name}
-                              </h3>
-                              <p className="text-xs text-stone-500 font-medium mt-0.5">{currentDayHotel.stationExit}</p>
-                            </div>
-                          </div>
-                          <button
-                            onClick={() => {
-                              setSelectedHotelId(currentDayHotel.id);
-                              setActiveTab('hotels');
-                            }}
-                            className="bg-white hover:bg-purple-50 text-purple-700 border border-purple-200 px-4 py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm transition-colors whitespace-nowrap self-stretch sm:self-center"
-                          >
-                            <span>查看詳細步行路線 & 照片</span>
-                            <ChevronRight className="w-4 h-4" />
-                          </button>
-                        </div>
-                      </motion.div>
-                    )}
-
-                    {/* Queue Tips Card */}
-                    {currentDay.queueTips && (
-                      <motion.div variants={itemVariants} className="col-span-1 md:col-span-2 bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-5 border border-orange-100 shadow-sm">
-                        <div className="flex items-center gap-2 mb-3">
-                          <div className="p-2 bg-orange-100 rounded-lg"><AlertTriangle className="w-5 h-5 text-orange-600" /></div>
-                          <h3 className="font-bold text-orange-900 text-lg">避開排隊提醒</h3>
-                        </div>
-                        <p className="text-orange-800 font-medium leading-relaxed whitespace-pre-wrap">{currentDay.queueTips}</p>
-                      </motion.div>
-                    )}
-
-                    {/* Guide Card (Airport or other specific) */}
-                    {currentDay.guide && (
-                      <motion.div variants={itemVariants} className="col-span-1 md:col-span-2 bg-gradient-to-br from-stone-800 to-stone-900 rounded-2xl p-6 border border-stone-700 shadow-lg text-white">
-                        <div className="flex items-center gap-2 mb-4">
-                          <div className="p-2 bg-white/10 rounded-lg"><Navigation className="w-5 h-5 text-white" /></div>
-                          <h3 className="font-bold text-white text-lg">{currentDay.guide.title}</h3>
-                        </div>
-                        <p className="text-stone-300 leading-relaxed mb-5">{currentDay.guide.description}</p>
-                        <div className="bg-white/5 rounded-xl p-5 border border-white/10 mb-5">
-                          <ul className="space-y-3">
-                            {currentDay.guide.steps.map((step, idx) => (
-                              <li key={idx} className="flex items-start gap-3 text-stone-200">
-                                <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
-                                <span>{step}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                          {currentDay.guide.images.map((img, idx) => (
-                            <div
-                              key={idx}
-                              onClick={() => setPreviewImage({ url: img.url, caption: img.caption })}
-                              className="rounded-xl overflow-hidden border border-white/10 bg-black/20 cursor-pointer group"
-                            >
-                              <img src={img.url} alt={img.caption} className="w-full h-32 object-cover opacity-80 group-hover:opacity-100 transition-opacity group-hover:scale-105 duration-300" />
-                              <div className="p-2.5 text-xs text-center text-stone-300 font-medium">{img.caption}</div>
-                            </div>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-
-                    {/* Shopping Hub Quick Access Card (Day 4 & Day 7 for Osaka) */}
-                    {(currentDay.day === 4 || currentDay.day === 7) && (
-                      <motion.div
-                        variants={itemVariants}
-                        className="col-span-1 md:col-span-2 bg-gradient-to-br from-stone-900 via-slate-900 to-stone-950 rounded-3xl p-5 sm:p-6 border border-rose-500/30 shadow-xl text-white relative overflow-hidden"
-                      >
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-rose-500/10 rounded-full -mr-20 -mt-20 blur-3xl pointer-events-none" />
-                        <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/10 rounded-full -ml-20 -mb-20 blur-3xl pointer-events-none" />
-
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 relative z-10">
-                          <div className="space-y-1.5">
-                            <div className="flex items-center gap-2 flex-wrap">
-                              <span className="bg-rose-500 text-white text-[11px] font-black px-2.5 py-0.5 rounded-full flex items-center gap-1">
-                                <Sparkles className="w-3 h-3" /> TheShorty & 一隻阿圓
-                              </span>
-                              <span className="bg-white/10 text-white/90 text-[11px] font-bold px-2 py-0.5 rounded-full border border-white/20">
-                                📍 大阪・心齋橋 ＆ 梅田商圈
-                              </span>
-                            </div>
-                            <h3 className="text-xl sm:text-2xl font-black text-white leading-tight">
-                              大阪 NANGA ＆ HUMAN MADE 潮流零折返路線 🛍️
-                            </h3>
-                            <p className="text-xs sm:text-sm text-stone-300 leading-relaxed max-w-xl">
-                              已為您鎖定 SORA 堀江店（找 NANGA 聯名羽絨）、NANGA 旗艦店、HUMAN MADE（心齋橋 PARCO 1F）與 FREAK'S STORE（NAUTICA JP），標記精確地圖與無痛卸貨指引！
-                            </p>
-                          </div>
-
-                          <div className="flex flex-col sm:flex-row gap-2 shrink-0">
-                            <button
-                              onClick={() => {
-                                setShoppingCityFilter('大阪');
-                                setSelectedRoute('osaka_loop');
-                                setActiveTab('shopping');
-                              }}
-                              className="bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl flex items-center justify-center gap-1.5 shadow-md shadow-rose-900/30 transition-all cursor-pointer"
-                            >
-                              <Navigation className="w-4 h-4" />
-                              <span>查看大阪零折返動線</span>
-                            </button>
-                            <button
-                              onClick={() => {
-                                setShoppingCityFilter('大阪');
-                                setShoppingZoneFilter('ALL');
-                                setActiveTab('shopping');
-                              }}
-                              className="bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs font-bold px-4 py-2.5 rounded-xl flex items-center justify-center gap-1.5 transition-all cursor-pointer"
-                            >
-                              <span>查看全部 18 家潮店</span>
-                              <ChevronRight className="w-4 h-4" />
-                            </button>
-                          </div>
-                        </div>
-                      </motion.div>
-                    )}
-
-                    {/* Child Card */}
-                    <motion.div variants={itemVariants} className="bg-pink-50 rounded-2xl p-5 border border-pink-100 shadow-sm">
-                      <div className="flex items-center gap-2 mb-3">
-                        <div className="p-2 bg-pink-100 rounded-lg"><Baby className="w-5 h-5 text-pink-600" /></div>
-                        <h3 className="font-bold text-pink-900 text-lg">6歲小孩亮點</h3>
+                        )}
                       </div>
-                      <p className="text-pink-800 leading-relaxed whitespace-pre-wrap">{currentDay.childHighlights}</p>
-                    </motion.div>
+                    </div>
+                    {/* End 2-col grid */}
 
-                    {/* Food Card */}
-                    <motion.div variants={itemVariants} className="bg-emerald-50 rounded-2xl p-5 border border-emerald-100 shadow-sm">
-                      <div className="flex items-center gap-2 mb-3">
-                        <div className="p-2 bg-emerald-100 rounded-lg"><Utensils className="w-5 h-5 text-emerald-600" /></div>
-                        <h3 className="font-bold text-emerald-900 text-lg">當日推薦美食（多選一彈性備選）🍽️</h3>
-                      </div>
-                      <div className="text-emerald-950 text-xs sm:text-sm leading-relaxed whitespace-pre-wrap font-medium">
-                        {currentDay.food}
-                      </div>
-                    </motion.div>
                   </motion.div>
                 )}
               </motion.div>

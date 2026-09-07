@@ -18,4 +18,57 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  /* Warm infographic theme */
+  .bg-warm-cream {
+    background-color: #FFF8F0;
+  }
+  .bg-warm-card {
+    background-color: #FFFBF6;
+  }
+  .border-warm {
+    border-color: #F5DFC0;
+  }
+  .text-warm-orange {
+    color: #D97706;
+  }
+
+  /* Timeline dot pulse */
+  .timeline-dot-active {
+    animation: timeline-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  @keyframes timeline-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(234, 88, 12, 0.4); }
+    50% { box-shadow: 0 0 0 6px rgba(234, 88, 12, 0); }
+  }
+
+  /* Image placeholder shimmer */
+  .img-shimmer {
+    background: linear-gradient(90deg, #f5e6d0 25%, #fdf0e0 50%, #f5e6d0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  /* Sidebar info card */
+  .info-card {
+    @apply bg-white rounded-2xl border shadow-sm overflow-hidden;
+    border-color: #F0D9BE;
+  }
+  .info-card-header {
+    @apply flex items-center gap-2 px-4 py-3 font-bold text-sm;
+    background: linear-gradient(135deg, #FFF3E0, #FFE8C8);
+    color: #92400E;
+    border-bottom: 1px solid #F5DFC0;
+  }
+
+  /* Food option card */
+  .food-option-card {
+    @apply rounded-xl border p-3 text-sm leading-relaxed transition-all hover:shadow-md cursor-default;
+    background: #FFFBF6;
+    border-color: #F5DFC0;
+  }
 }
