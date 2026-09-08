@@ -26,6 +26,257 @@ const TAG_COLORS: Record<string, { bg: string; text: string; border: string }> =
 
 const DAY_EMOJIS = ['🚄', '⛩️', '🌊', '🛍️', '⛷️', '🐋', '✈️'];
 
+// ─── Activity Photo Mapping ─────────────────────────────────────────────────
+// Maps keyword patterns to curated Unsplash photo URLs
+const ACTIVITY_PHOTOS: { keywords: string[]; photos: string[] }[] = [
+  // ── Landmarks ──
+  {
+    keywords: ['嵐山', '竹林', '渡月橋'],
+    photos: [
+      'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1581456495146-65a71543f967?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+  {
+    keywords: ['鐵道博物館', '蒸汽火車', '模擬駕駛'],
+    photos: [
+      'https://images.unsplash.com/photo-1566387940638-72a8ef6a0aad?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1560705204-9b6a7eb28a6e?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+  {
+    keywords: ['天橋立', '飛龍觀'],
+    photos: [
+      'https://images.unsplash.com/photo-1590003596782-498dabc23b0a?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1624913503273-5f9c4e980dba?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+  {
+    keywords: ['伊根', '舟屋', '遊船'],
+    photos: [
+      'https://images.unsplash.com/photo-1568526381923-caf3fd520382?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1578271887552-5ac3a72752bc?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+  {
+    keywords: ['勝尾寺', '達摩'],
+    photos: [
+      'https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+  {
+    keywords: ['海遊館', '鯨鯊', '水族館'],
+    photos: [
+      'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+  {
+    keywords: ['六甲山', '雪樂園', '玩雪', '雪盆'],
+    photos: [
+      'https://images.unsplash.com/photo-1542640244-7e672d6cef4e?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+  {
+    keywords: ['天保山', '摩天輪', 'HEP FIVE'],
+    photos: [
+      'https://images.unsplash.com/photo-1610374792793-f016b77ca51a?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1508978285-91aace85048f?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+  {
+    keywords: ['道頓堀', '固力果'],
+    photos: [
+      'https://images.unsplash.com/photo-1610374792793-f016b77ca51a?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1508978285-91aace85048f?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+  {
+    keywords: ['心齋橋', '商店街'],
+    photos: [
+      'https://images.unsplash.com/photo-1590003596782-498dabc23b0a?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+  {
+    keywords: ['梅田', 'LUCUA', '阪急'],
+    photos: [
+      'https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+  {
+    keywords: ['NANGA', 'HUMAN MADE', 'PARCO', 'SORA'],
+    photos: [
+      'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+  // ── Transport ──
+  {
+    keywords: ['HARUKA', '關空特急'],
+    photos: [
+      'https://images.unsplash.com/photo-1566387940638-72a8ef6a0aad?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+  {
+    keywords: ['Rapi:t', '南海電鐵'],
+    photos: [
+      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1566387940638-72a8ef6a0aad?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+  {
+    keywords: ['關西機場', 'KIX', 'T2', 'T1'],
+    photos: [
+      'https://images.unsplash.com/photo-1540339832862-474599807836?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+  // ── Hotels ──
+  {
+    keywords: ['Vischio', 'Hotel Vischio'],
+    photos: [
+      'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1571003123771-bd6dc1427dfd?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+  {
+    keywords: ['Flag', '法拉格', '心齋橋法拉格'],
+    photos: [
+      'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1571003123771-bd6dc1427dfd?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+  {
+    keywords: ['泡湯', '大浴場', '溫泉'],
+    photos: [
+      'https://images.unsplash.com/photo-1576675784201-0e142b423952?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+  // ── Food ──
+  {
+    keywords: ['炸豬排', 'Katsukura', '豬排定食'],
+    photos: [
+      'https://images.unsplash.com/photo-1547592180-85f173990554?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+  {
+    keywords: ['拉麵', '坂内食堂'],
+    photos: [
+      'https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1552611052-33e04de081de?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+  {
+    keywords: ['章魚燒', 'たこ焼き'],
+    photos: [
+      'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1563612116625-3012372fccce?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+  {
+    keywords: ['蟹道樂', '螃蟹', '松葉蟹'],
+    photos: [
+      'https://images.unsplash.com/photo-1560717789-0ac7c58ac90a?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1559410545-0bdcd187e0a6?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1519984388953-d2406bc725e1?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+  {
+    keywords: ['烏龍麵', 'うどん'],
+    photos: [
+      'https://images.unsplash.com/photo-1618841557871-b4664fbf0cb3?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+  {
+    keywords: ['大阪燒', 'お好み焼き', '千房'],
+    photos: [
+      'https://images.unsplash.com/photo-1553621042-f6e147245754?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1571197119750-7c6dcf079b22?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+  {
+    keywords: ['蛋包飯', '北極星'],
+    photos: [
+      'https://images.unsplash.com/photo-1617343019423-93f5e8ef6a35?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+  {
+    keywords: ['串炸', '串かつ', 'だるま'],
+    photos: [
+      'https://images.unsplash.com/photo-1547592180-85f173990554?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+  {
+    keywords: ['壽司', '寿司', '海鮮丼'],
+    photos: [
+      'https://images.unsplash.com/photo-1617196034183-421b4040ed20?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1562802378-063ec186a863?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+  {
+    keywords: ['抹茶', '藍瓶', 'Blue Bottle'],
+    photos: [
+      'https://images.unsplash.com/photo-1530450843934-6deac00e66d4?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1545156521-77bd85671d30?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+  {
+    keywords: ['豆腐', '湯葉', '京料理'],
+    photos: [
+      'https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+  {
+    keywords: ['起司蛋糕', 'りくろー', '老爺爺'],
+    photos: [
+      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+  {
+    keywords: ['Porta', '地下街', '名代'],
+    photos: [
+      'https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1547592180-85f173990554?w=280&h=180&fit=crop&q=80',
+    ],
+  },
+];
+
+/**
+ * Returns up to 3 curated photo URLs for a given activity content string.
+ * Matches against ACTIVITY_PHOTOS keyword patterns.
+ */
+function getActivityPhotos(content: string): string[] {
+  for (const entry of ACTIVITY_PHOTOS) {
+    if (entry.keywords.some(kw => content.includes(kw))) {
+      return entry.photos.slice(0, 3);
+    }
+  }
+  return [];
+}
+
+
 function App() {
   const [activeTab, setActiveTab] = useState<'itinerary' | 'hotels' | 'shopping' | 'strategy' | 'food' | 'info'>('itinerary');
   const [activeDay, setActiveDay] = useState(1);
@@ -242,30 +493,59 @@ function App() {
                                   </div>
 
                                   {/* Content Card */}
-                                  <div className="flex-1 mb-2.5 rounded-xl border overflow-hidden" style={{ background: '#FFFBF6', borderColor: '#F0D9BE' }}>
-                                    <div className="px-3.5 pt-3 pb-2">
-                                      <div className="flex flex-wrap items-center gap-1.5 mb-1.5">
-                                        {time && (
-                                          <span className="text-[10px] font-black px-2 py-0.5 rounded-lg text-white flex items-center gap-1" style={{ background: 'linear-gradient(135deg, #D97706, #EA580C)' }}>
-                                            <Clock className="w-2.5 h-2.5" />
-                                            {time}
-                                          </span>
-                                        )}
-                                        {tag && (
-                                          <span className={`text-[10px] font-black px-2 py-0.5 rounded-lg border ${
-                                            tag.includes('地點') ? 'bg-rose-500 text-white border-rose-600'
-                                            : tag.includes('飯店') || tag.includes('入住') ? 'bg-purple-100 text-purple-700 border-purple-200'
-                                            : tag.includes('上車') || tag.includes('下車') ? 'bg-blue-100 text-blue-700 border-blue-200'
-                                            : 'bg-amber-100 text-amber-800 border-amber-200'
+                                  {(() => {
+                                    const photos = getActivityPhotos(content);
+                                    return (
+                                      <div className="flex-1 mb-2.5 rounded-xl border overflow-hidden" style={{ background: '#FFFBF6', borderColor: '#F0D9BE' }}>
+                                        <div className="px-3.5 pt-3 pb-2">
+                                          <div className="flex flex-wrap items-center gap-1.5 mb-1.5">
+                                            {time && (
+                                              <span className="text-[10px] font-black px-2 py-0.5 rounded-lg text-white flex items-center gap-1" style={{ background: 'linear-gradient(135deg, #D97706, #EA580C)' }}>
+                                                <Clock className="w-2.5 h-2.5" />
+                                                {time}
+                                              </span>
+                                            )}
+                                            {tag && (
+                                              <span className={`text-[10px] font-black px-2 py-0.5 rounded-lg border ${
+                                                tag.includes('地點') ? 'bg-rose-500 text-white border-rose-600'
+                                                : tag.includes('飯店') || tag.includes('入住') ? 'bg-purple-100 text-purple-700 border-purple-200'
+                                                : tag.includes('上車') || tag.includes('下車') ? 'bg-blue-100 text-blue-700 border-blue-200'
+                                                : 'bg-amber-100 text-amber-800 border-amber-200'
+                                              }`}>
+                                                {tag}
+                                              </span>
+                                            )}
+                                            <span className="text-base leading-none">{activityEmoji}</span>
+                                          </div>
+                                          <p className="text-xs font-semibold text-stone-800 leading-relaxed">{content}</p>
+                                        </div>
+                                        {/* ── Inline Photos ── */}
+                                        {photos.length > 0 && (
+                                          <div className={`px-2.5 pb-2.5 grid gap-1.5 ${
+                                            photos.length === 1 ? 'grid-cols-1' :
+                                            photos.length === 2 ? 'grid-cols-2' :
+                                            'grid-cols-3'
                                           }`}>
-                                            {tag}
-                                          </span>
+                                            {photos.map((photoUrl, pIdx) => (
+                                              <div
+                                                key={pIdx}
+                                                className="rounded-lg overflow-hidden cursor-pointer group relative"
+                                                onClick={() => setPreviewImage({ url: photoUrl, caption: content.slice(0, 30) })}
+                                              >
+                                                <img
+                                                  src={photoUrl}
+                                                  alt=""
+                                                  className="w-full h-20 object-cover group-hover:scale-105 transition-transform duration-300"
+                                                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                                                />
+                                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors rounded-lg" />
+                                              </div>
+                                            ))}
+                                          </div>
                                         )}
-                                        <span className="text-base leading-none">{activityEmoji}</span>
                                       </div>
-                                      <p className="text-xs font-semibold text-stone-800 leading-relaxed">{content}</p>
-                                    </div>
-                                  </div>
+                                    );
+                                  })()}
                                 </div>
                               );
                             })}
