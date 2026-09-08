@@ -27,251 +27,217 @@ const TAG_COLORS: Record<string, { bg: string; text: string; border: string }> =
 const DAY_EMOJIS = ['🚄', '⛩️', '🌊', '🛍️', '⛷️', '🐋', '✈️'];
 
 // ─── Activity Photo Mapping ─────────────────────────────────────────────────
-// Maps keyword patterns to curated Unsplash photo URLs
-const ACTIVITY_PHOTOS: { keywords: string[]; photos: string[] }[] = [
-  // ── Landmarks ──
-  {
-    keywords: ['嵐山', '竹林', '渡月橋'],
+// category: 'food' | 'landmark' | 'hotel' | 'transport' | 'shopping'
+// FOOD entries are placed first → meal lines match food photos even if location name also appears
+const ACTIVITY_PHOTOS: { category: string; keywords: string[]; photos: string[] }[] = [
+
+  // ══ FOOD (highest priority) ══════════════════════════════════════════════
+  { category: 'food', keywords: ['炸豬排', 'Katsukura', '名代炸豬排', '豬排定食'],
     photos: [
-      'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1581456495146-65a71543f967?w=280&h=180&fit=crop&q=80',
-    ],
-  },
-  {
-    keywords: ['鐵道博物館', '蒸汽火車', '模擬駕駛'],
+      'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+  { category: 'food', keywords: ['拉麵', '坂内食堂', '京都拉麵'],
     photos: [
-      'https://images.unsplash.com/photo-1566387940638-72a8ef6a0aad?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1560705204-9b6a7eb28a6e?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=280&h=180&fit=crop&q=80',
-    ],
-  },
-  {
-    keywords: ['天橋立', '飛龍觀'],
+      'https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+  { category: 'food', keywords: ['豆腐', '湯葉', '天婦羅', '京野菜', '京料理'],
     photos: [
-      'https://images.unsplash.com/photo-1590003596782-498dabc23b0a?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1624913503273-5f9c4e980dba?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=280&h=180&fit=crop&q=80',
-    ],
-  },
-  {
-    keywords: ['伊根', '舟屋', '遊船'],
+      'https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1490818387583-1baba5e638af?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+  { category: 'food', keywords: ['章魚燒', 'たこ焼き'],
     photos: [
-      'https://images.unsplash.com/photo-1568526381923-caf3fd520382?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1578271887552-5ac3a72752bc?w=280&h=180&fit=crop&q=80',
-    ],
-  },
-  {
-    keywords: ['勝尾寺', '達摩'],
+      'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1563612116625-3012372fccce?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+  { category: 'food', keywords: ['蟹道樂', '螃蟹', '松葉蟹'],
     photos: [
-      'https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=280&h=180&fit=crop&q=80',
-    ],
-  },
-  {
-    keywords: ['海遊館', '鯨鯊', '水族館'],
+      'https://images.unsplash.com/photo-1560717789-0ac7c58ac90a?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1559410545-0bdcd187e0a6?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1519984388953-d2406bc725e1?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+  { category: 'food', keywords: ['烏龍麵', 'うどん'],
     photos: [
-      'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=280&h=180&fit=crop&q=80',
-    ],
-  },
-  {
-    keywords: ['六甲山', '雪樂園', '玩雪', '雪盆'],
+      'https://images.unsplash.com/photo-1618841557871-b4664fbf0cb3?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+  { category: 'food', keywords: ['大阪燒', 'お好み焼き', '千房'],
     photos: [
-      'https://images.unsplash.com/photo-1542640244-7e672d6cef4e?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=280&h=180&fit=crop&q=80',
-    ],
-  },
-  {
-    keywords: ['天保山', '摩天輪', 'HEP FIVE'],
+      'https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1498654200943-1088dd4438ae?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+  { category: 'food', keywords: ['串炸', '串かつ', 'だるま', '新世界'],
     photos: [
-      'https://images.unsplash.com/photo-1610374792793-f016b77ca51a?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1508978285-91aace85048f?w=280&h=180&fit=crop&q=80',
-    ],
-  },
-  {
-    keywords: ['道頓堀', '固力果'],
+      'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1432139509613-5c4255815697?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+  { category: 'food', keywords: ['壽司', '寿司', '海鮮丼'],
     photos: [
-      'https://images.unsplash.com/photo-1610374792793-f016b77ca51a?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1508978285-91aace85048f?w=280&h=180&fit=crop&q=80',
-    ],
-  },
-  {
-    keywords: ['心齋橋', '商店街'],
+      'https://images.unsplash.com/photo-1617196034183-421b4040ed20?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1562802378-063ec186a863?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1583623025817-d180a2221d0a?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+  { category: 'food', keywords: ['蛋包飯', '北極星'],
     photos: [
-      'https://images.unsplash.com/photo-1590003596782-498dabc23b0a?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=280&h=180&fit=crop&q=80',
-    ],
-  },
-  {
-    keywords: ['梅田', 'LUCUA', '阪急'],
+      'https://images.unsplash.com/photo-1617343019423-93f5e8ef6a35?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+  { category: 'food', keywords: ['抹茶', '藍瓶', 'Blue Bottle'],
     photos: [
-      'https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=280&h=180&fit=crop&q=80',
-    ],
-  },
-  {
-    keywords: ['NANGA', 'HUMAN MADE', 'PARCO', 'SORA'],
+      'https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1545156521-77bd85671d30?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+  { category: 'food', keywords: ['起司蛋糕', 'りくろー', '老爺爺'],
     photos: [
-      'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=280&h=180&fit=crop&q=80',
-    ],
-  },
-  // ── Transport ──
-  {
-    keywords: ['HARUKA', '關空特急'],
+      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+  { category: 'food', keywords: ['Porta', '地下街享用', '晚餐', '午餐', '早餐', '名代'],
     photos: [
-      'https://images.unsplash.com/photo-1566387940638-72a8ef6a0aad?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=280&h=180&fit=crop&q=80',
-    ],
-  },
-  {
-    keywords: ['Rapi:t', '南海電鐵'],
+      'https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+
+  // ══ HOTEL / ONSEN ════════════════════════════════════════════════════════
+  { category: 'hotel', keywords: ['泡湯', '大浴場', '溫泉'],
     photos: [
-      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1566387940638-72a8ef6a0aad?w=280&h=180&fit=crop&q=80',
-    ],
-  },
-  {
-    keywords: ['關西機場', 'KIX', 'T2', 'T1'],
+      'https://images.unsplash.com/photo-1576675784201-0e142b423952?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+  { category: 'hotel', keywords: ['Vischio', 'Hotel Vischio', '辦理入住', 'Check-in'],
     photos: [
-      'https://images.unsplash.com/photo-1540339832862-474599807836?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=280&h=180&fit=crop&q=80',
-    ],
-  },
-  // ── Hotels ──
-  {
-    keywords: ['Vischio', 'Hotel Vischio'],
+      'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1571003123771-bd6dc1427dfd?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+  { category: 'hotel', keywords: ['Flag', '法拉格', 'Monterey'],
     photos: [
-      'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1571003123771-bd6dc1427dfd?w=280&h=180&fit=crop&q=80',
-    ],
-  },
-  {
-    keywords: ['Flag', '法拉格', '心齋橋法拉格'],
+      'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+
+  // ══ SHOPPING ════════════════════════════════════════════════════════════
+  { category: 'shopping', keywords: ['NANGA', 'HUMAN MADE', 'PARCO', 'SORA'],
     photos: [
-      'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1571003123771-bd6dc1427dfd?w=280&h=180&fit=crop&q=80',
-    ],
-  },
-  {
-    keywords: ['泡湯', '大浴場', '溫泉'],
+      'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+  { category: 'shopping', keywords: ['梅田', 'LUCUA', '阪急百貨'],
     photos: [
-      'https://images.unsplash.com/photo-1576675784201-0e142b423952?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=280&h=180&fit=crop&q=80',
-    ],
-  },
-  // ── Food ──
-  {
-    keywords: ['炸豬排', 'Katsukura', '豬排定食'],
+      'https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+  { category: 'shopping', keywords: ['心齋橋', '商店街', '逛街'],
     photos: [
-      'https://images.unsplash.com/photo-1547592180-85f173990554?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=280&h=180&fit=crop&q=80',
-    ],
-  },
-  {
-    keywords: ['拉麵', '坂内食堂'],
+      'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+
+  // ══ TRANSPORT (named trains only) ════════════════════════════════════════
+  { category: 'transport', keywords: ['HARUKA', '關空特急'],
     photos: [
-      'https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1552611052-33e04de081de?w=280&h=180&fit=crop&q=80',
-    ],
-  },
-  {
-    keywords: ['章魚燒', 'たこ焼き'],
+      'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+  { category: 'transport', keywords: ['Rapi:t', '南海電鐵'],
     photos: [
-      'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1563612116625-3012372fccce?w=280&h=180&fit=crop&q=80',
-    ],
-  },
-  {
-    keywords: ['蟹道樂', '螃蟹', '松葉蟹'],
+      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1560705204-9b6a7eb28a6e?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+  { category: 'transport', keywords: ['班機抵達', '航廈'],
     photos: [
-      'https://images.unsplash.com/photo-1560717789-0ac7c58ac90a?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1559410545-0bdcd187e0a6?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1519984388953-d2406bc725e1?w=280&h=180&fit=crop&q=80',
-    ],
-  },
-  {
-    keywords: ['烏龍麵', 'うどん'],
+      'https://images.unsplash.com/photo-1540339832862-474599807836?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+
+  // ══ LANDMARKS (lowest priority) ══════════════════════════════════════════
+  { category: 'landmark', keywords: ['竹林', '渡月橋', '嵐山悠閒', '嵐山漫步'],
     photos: [
-      'https://images.unsplash.com/photo-1618841557871-b4664fbf0cb3?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=280&h=180&fit=crop&q=80',
-    ],
-  },
-  {
-    keywords: ['大阪燒', 'お好み焼き', '千房'],
+      'https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+  { category: 'landmark', keywords: ['鐵道博物館', '蒸汽火車', '模擬駕駛'],
     photos: [
-      'https://images.unsplash.com/photo-1553621042-f6e147245754?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1571197119750-7c6dcf079b22?w=280&h=180&fit=crop&q=80',
-    ],
-  },
-  {
-    keywords: ['蛋包飯', '北極星'],
+      'https://images.unsplash.com/photo-1566387940638-72a8ef6a0aad?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1560705204-9b6a7eb28a6e?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+  { category: 'landmark', keywords: ['天橋立', '飛龍觀'],
     photos: [
-      'https://images.unsplash.com/photo-1617343019423-93f5e8ef6a35?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=280&h=180&fit=crop&q=80',
-    ],
-  },
-  {
-    keywords: ['串炸', '串かつ', 'だるま'],
+      'https://images.unsplash.com/photo-1624913503273-5f9c4e980dba?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1462275646964-a0e3386b89fa?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+  { category: 'landmark', keywords: ['伊根', '舟屋', '遊船'],
     photos: [
-      'https://images.unsplash.com/photo-1547592180-85f173990554?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=280&h=180&fit=crop&q=80',
-    ],
-  },
-  {
-    keywords: ['壽司', '寿司', '海鮮丼'],
+      'https://images.unsplash.com/photo-1568526381923-caf3fd520382?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1578271887552-5ac3a72752bc?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+  { category: 'landmark', keywords: ['勝尾寺', '達摩'],
     photos: [
-      'https://images.unsplash.com/photo-1617196034183-421b4040ed20?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1562802378-063ec186a863?w=280&h=180&fit=crop&q=80',
-    ],
-  },
-  {
-    keywords: ['抹茶', '藍瓶', 'Blue Bottle'],
+      'https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1562690868-60bbe7293e94?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+  { category: 'landmark', keywords: ['海遊館', '鯨鯊', '水族館'],
     photos: [
-      'https://images.unsplash.com/photo-1530450843934-6deac00e66d4?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1545156521-77bd85671d30?w=280&h=180&fit=crop&q=80',
-    ],
-  },
-  {
-    keywords: ['豆腐', '湯葉', '京料理'],
+      'https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+  { category: 'landmark', keywords: ['六甲山', '雪樂園', '玩雪', '雪盆'],
     photos: [
-      'https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=280&h=180&fit=crop&q=80',
-    ],
-  },
-  {
-    keywords: ['起司蛋糕', 'りくろー', '老爺爺'],
+      'https://images.unsplash.com/photo-1542640244-7e672d6cef4e?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1516912481808-3406841bd33c?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+  { category: 'landmark', keywords: ['天保山', '摩天輪', 'HEP FIVE'],
     photos: [
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=280&h=180&fit=crop&q=80',
-    ],
-  },
-  {
-    keywords: ['Porta', '地下街', '名代'],
+      'https://images.unsplash.com/photo-1464817739973-0128fe77aaa1?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1508978285-91aace85048f?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+  { category: 'landmark', keywords: ['道頓堀', '固力果'],
     photos: [
-      'https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=280&h=180&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1547592180-85f173990554?w=280&h=180&fit=crop&q=80',
-    ],
-  },
+      'https://images.unsplash.com/photo-1610374792793-f016b77ca51a?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1508978285-91aace85048f?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+  { category: 'landmark', keywords: ['四條河原町', '錦市場', '祇園'],
+    photos: [
+      'https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
+  { category: 'landmark', keywords: ['伏見稻荷', '千本鳥居', '稻荷'],
+    photos: [
+      'https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&w=280&h=180&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&w=280&h=180&fit=crop&q=80',
+    ] },
 ];
+
+// Pure-transport lines (just moving between places) → no photos
+const TRANSPORT_ONLY_RE = /^(搭乘|從.+搭.+直達|換乘|轉乘|接駁巴士|免費接駁|步行前往)/;
 
 /**
  * Returns up to 3 curated photo URLs for a given activity content string.
- * Matches against ACTIVITY_PHOTOS keyword patterns.
+ * Priority order: food → hotel → shopping → transport → landmark
+ * Pure-transport lines (搭乘 / 直達 / 免費接駁 …) are skipped and return [].
  */
 function getActivityPhotos(content: string): string[] {
-  for (const entry of ACTIVITY_PHOTOS) {
-    if (entry.keywords.some(kw => content.includes(kw))) {
-      return entry.photos.slice(0, 3);
-    }
+  if (TRANSPORT_ONLY_RE.test(content)) return [];
+  const priority = ['food', 'hotel', 'shopping', 'transport', 'landmark'];
+  for (const cat of priority) {
+    const entry = ACTIVITY_PHOTOS.find(
+      e => e.category === cat && e.keywords.some(kw => content.includes(kw))
+    );
+    if (entry) return entry.photos.slice(0, 3);
   }
   return [];
 }
