@@ -75,13 +75,37 @@ const ACTIVITY_PHOTOS: ActivityPhotoEntry[] = [
     keywords: ['天橋立', '飛龍觀'],
     photos: ['images/activities/amanohashidate.jpg'],
   },
-  // ══ 7. 京都鐵道博物館（梅小路蒸汽火車扇形車庫轉盤）═════════════════════
+  // ══ 7. 京都三條商圈（三條通街景・近代洋風1928歷史建築・日系文創選物街）══════
   {
     category: 'landmark',
-    keywords: ['鐵道博物館', '蒸汽火車', '模擬駕駛', '扇形車庫'],
+    keywords: ['三條商圈', '三條通', '三条商圈', '三条通'],
+    photos: ['images/activities/sanjo_shopping.jpg'],
+  },
+  // ══ 8. HUMAN MADE 1928（昭和歷史洋樓1928大樓・Blue Bottle 藍瓶咖啡）═════
+  {
+    category: 'landmark',
+    keywords: ['HUMAN MADE 1928', '1928洋樓', '1928大樓'],
+    photos: ['images/activities/human_made_1928.jpg'],
+  },
+  // ══ 9. THE NORTH FACE STANDARD 京都店（日本限定紫標 Purple Label 工裝）══
+  {
+    category: 'landmark',
+    keywords: ['THE NORTH FACE STANDARD', 'TNF STANDARD'],
+    photos: ['images/activities/tnf_standard.jpg'],
+  },
+  // ══ 10. SOU・SOU 京都總部聚落（全球唯一SOU・SOU村・十數分趾鞋・超萌童裝）══
+  {
+    category: 'landmark',
+    keywords: ['SOU・SOU', 'SOUSOU', 'わらべぎ', '分趾鞋'],
+    photos: ['images/activities/sou_sou_kyoto.jpg'],
+  },
+  // ══ 11. 京都鐵道博物館（梅小路蒸汽火車扇形車庫轉盤）═════════════════════
+  {
+    category: 'landmark',
+    keywords: ['京都鐵道博物館', '扇形車庫', '模擬駕駛', '蒸汽火車'],
     photos: ['images/activities/railway_museum.jpg'],
   },
-  // ══ 8. 嵐山悠閒漫步（嵯峨野竹林小徑・渡月橋）═══════════════════════════
+  // ══ 12. 嵐山悠閒漫步（嵯峨野竹林小徑・渡月橋）═══════════════════════════
   {
     category: 'landmark',
     keywords: ['嵐山悠閒漫步', '竹林小徑', '渡月橋', '嵐山漫步'],
