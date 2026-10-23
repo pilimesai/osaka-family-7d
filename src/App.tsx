@@ -78,7 +78,7 @@ const ACTIVITY_PHOTOS: ActivityPhotoEntry[] = [
   // ══ 7. 京都三條商圈（三條通街景・近代洋風1928歷史建築・日系文創選物街）══════
   {
     category: 'landmark',
-    keywords: ['三條商圈', '三條通', '三条商圈', '三条通'],
+    keywords: ['三條通街景', '三条通街景', '三條名店街'],
     photos: ['images/activities/sanjo_shopping.jpg'],
   },
   // ══ 8. HUMAN MADE 1928（昭和歷史洋樓1928大樓・Blue Bottle 藍瓶咖啡）═════
@@ -93,31 +93,43 @@ const ACTIVITY_PHOTOS: ActivityPhotoEntry[] = [
     keywords: ['THE NORTH FACE STANDARD', 'TNF STANDARD'],
     photos: ['images/activities/tnf_standard.jpg'],
   },
-  // ══ 10. SOU・SOU 京都總部聚落（全球唯一SOU・SOU村・十數分趾鞋・超萌童裝）══
+  // ══ 11. 嵐山 天龍寺（世界文化遺產・曹源池庭園借景名勝）══════════════════
+  {
+    category: 'landmark',
+    keywords: ['天龍寺', '曹源池'],
+    photos: ['images/activities/tenryuji_temple.jpg'],
+  },
+  // ══ 12. 嵐山 嵯峨野竹林小徑（翠綠竹林幽靜隧道・野宮神社）═════════════════
+  {
+    category: 'landmark',
+    keywords: ['竹林之道', '竹林小徑', '野宮神社'],
+    photos: ['images/activities/arashiyama_bamboo.jpg'],
+  },
+  // ══ 13. 嵐山京料理與特色午餐（嵯峨豆腐・炸蝦烏龍麵・よしむら・HANANA）════
+  {
+    category: 'food',
+    keywords: ['嵐山午餐', '京豆腐', '嵯峨豆腐', '湯葉', '京料理', '手打炸蝦烏龍麵', 'よしむら', 'HANANA'],
+    photos: ['images/activities/kyoto_tofu.jpg'],
+  },
+  // ══ 14. 嵐山 渡月橋（橫跨大堰川冬景・地標木橋全景）══════════════════════
+  {
+    category: 'landmark',
+    keywords: ['渡月橋地標', '渡月橋'],
+    photos: ['images/activities/arashiyama_togetsukyo.jpg'],
+  },
+  // ══ 15. SOU・SOU 京都總部聚落（全球唯一SOU・SOU村・十數分趾鞋・超萌童裝）══
   {
     category: 'landmark',
     keywords: ['SOU・SOU', 'SOUSOU', 'わらべぎ', '分趾鞋'],
     photos: ['images/activities/sou_sou_kyoto.jpg'],
   },
-  // ══ 11. 京都鐵道博物館（梅小路蒸汽火車扇形車庫轉盤）═════════════════════
+  // ══ 16. 新京極・寺町通商店街（京都傳統風情拱頂購物街）══════════════════
   {
     category: 'landmark',
-    keywords: ['京都鐵道博物館', '扇形車庫', '模擬駕駛', '蒸汽火車'],
-    photos: ['images/activities/railway_museum.jpg'],
+    keywords: ['新京極／寺町通商店街', '新京極／寺町通', '新京極', '寺町通'],
+    photos: ['images/activities/shinkyogoku_street.jpg'],
   },
-  // ══ 12. 嵐山悠閒漫步（嵯峨野竹林小徑・渡月橋）═══════════════════════════
-  {
-    category: 'landmark',
-    keywords: ['嵐山悠閒漫步', '竹林小徑', '渡月橋', '嵐山漫步'],
-    photos: ['images/activities/arashiyama_bamboo.jpg'],
-  },
-  // ══ 9. 嵐山京料理（嵯峨豆腐・熱湯葉生麩天婦羅定食）═════════════════════
-  {
-    category: 'food',
-    keywords: ['京豆腐', '嵯峨豆腐', '湯葉', '京料理'],
-    photos: ['images/activities/kyoto_tofu.jpg'],
-  },
-  // ══ 10. 名代炸豬排 Katsukura（三元黑豬排・現磨芝麻醬定食）═════════════
+  // ══ 16. 名代炸豬排 Katsukura（三元黑豬排・現磨芝麻醬定食）═════════════
   {
     category: 'food',
     keywords: ['名代炸豬排', 'Katsukura', '炸豬排', '豬排定食'],
