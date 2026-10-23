@@ -541,7 +541,7 @@ function App() {
                         <div className="mt-3 rounded-2xl overflow-hidden border" style={{ background: '#FFF0F6', borderColor: '#FBCFE8' }}>
                           <div className="flex items-center gap-2 px-4 py-2.5 border-b border-pink-100">
                             <Baby className="w-4 h-4 text-pink-500" />
-                            <h3 className="font-bold text-pink-800 text-sm">6歲小孩亮點 🧒</h3>
+                            <h3 className="font-bold text-pink-800 text-sm">7歲小孩亮點 🧒</h3>
                           </div>
                           <div className="px-4 py-3">
                             <p className="text-pink-700 text-xs leading-relaxed whitespace-pre-wrap">{currentDay.childHighlights}</p>
@@ -1972,7 +1972,7 @@ function App() {
                     <div>
                       <h3 className="font-bold text-rose-800 text-lg mb-2">關於這個行程</h3>
                       <p className="text-rose-700/90 text-base leading-relaxed">
-                        避開排隊・不吃牛 專屬版！為帶 6 歲小孩的家庭設計，確保旅途順暢、充滿回憶。
+                        避開排隊・不吃牛 專屬版！為帶 7 歲小孩的家庭設計，確保旅途順暢、充滿回憶。
                       </p>
                     </div>
                   </div>
