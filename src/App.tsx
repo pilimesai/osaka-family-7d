@@ -138,8 +138,20 @@ const ACTIVITY_PHOTOS: ActivityPhotoEntry[] = [
   // ══ 13. 梅田 HEP FIVE（地標巨型紅色摩天輪百萬夜景）═════════════════════
   {
     category: 'landmark',
-    keywords: ['HEP FIVE', '天保山大摩天輪', '紅色摩天輪', '摩天輪'],
+    keywords: ['HEP FIVE', '紅色摩天輪', '紅色巨大摩天輪'],
     photos: ['images/activities/hep_five.jpg'],
+  },
+  // ══ 14. 大阪港 天保山大摩天輪（港灣夕陽浪漫夜景巨型摩天輪）════════════════
+  {
+    category: 'landmark',
+    keywords: ['天保山大摩天輪', '天保山摩天輪', '天保山'],
+    photos: ['images/activities/tempozan_wheel.jpg'],
+  },
+  // ══ 15. 大阪樂高樂園探索中心（天保山 3F 室內樂高世界）═════════════════════
+  {
+    category: 'landmark',
+    keywords: ['樂高樂園', '樂高', 'LEGOLAND'],
+    photos: ['images/activities/legoland_osaka.jpg'],
   },
   // ══ 14. 道頓堀 固力果跑跑人（戎橋霓虹看板經典夜景）════════════════════
   {
