@@ -156,10 +156,22 @@ const ACTIVITY_PHOTOS: ActivityPhotoEntry[] = [
   // ══ 14. 大阪港 天保山大摩天輪（港灣夕陽浪漫夜景巨型摩天輪）════════════════
   {
     category: 'landmark',
-    keywords: ['天保山大摩天輪', '天保山摩天輪', '天保山'],
+    keywords: ['天保山大摩天輪', '天保山摩天輪'],
     photos: ['images/activities/tempozan_wheel.jpg'],
   },
-  // ══ 15. 大阪樂高樂園探索中心（天保山 3F 室內樂高世界）═════════════════════
+  // ══ 15. 天保山美食街・浪花美食橫丁（杵屋烏龍麵・炸蝦天婦羅・復古美食）══════
+  {
+    category: 'food',
+    keywords: ['杵屋烏龍麵', '浪花美食橫丁', '杵屋', '天保山午餐'],
+    photos: ['images/activities/tempozan_food.jpg'],
+  },
+  // ══ 16. 天保山 Marketplace（港灣大型購物休閒中心・商場外觀）═════════════
+  {
+    category: 'landmark',
+    keywords: ['直達天保山 Marketplace', '天保山 Marketplace'],
+    photos: ['images/activities/tempozan_marketplace.jpg'],
+  },
+  // ══ 17. 大阪樂高樂園探索中心（天保山 3F 室內樂高世界）═════════════════════
   {
     category: 'landmark',
     keywords: ['樂高樂園', '樂高', 'LEGOLAND'],
