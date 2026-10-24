@@ -28,7 +28,7 @@ const DAY_EMOJIS = ['🚄', '⛩️', '🌊', '🛍️', '⛷️', '🐋', '✈�
 
 // ─── Activity Photo Mapping ─────────────────────────────────────────────────
 // Pure-transport, directions, drop-off/pick-up, walking steps, or logistics lines → NEVER show activity photos
-const SKIP_PHOTO_RE = /(【(?:上車地點|下車地點|乘車地點|集合地點|步驟|路線|最省力交通)】|步驟[①②③④⑤12345]|出蟹道樂大門|^🚌|^🚶|^━━━|接駁巴士|搭乘|換乘|轉乘|前往集合地點|步行前往|返回飯店|辦理退房|退房寄放行李|返回飯店取行李|打理行李)/;
+const SKIP_PHOTO_RE = /(【(?:上車地點|下車地點|乘車地點|集合地點|步驟|路線|最省力交通)】|步驟[①②③④⑤12345]|出大樓後|出蟹道樂大門|^🚌|^🚶|^━━━|接駁巴士|搭乘|換乘|轉乘|前往集合地點|步行前往|返回飯店|辦理退房|退房寄放行李|返回飯店取行李|打理行李)/;
 
 interface ActivityPhotoEntry {
   category: 'food' | 'landmark' | 'hotel' | 'transport';
@@ -39,7 +39,13 @@ interface ActivityPhotoEntry {
 // ─── Verified, Authentic Local Photos for Osaka-Kyoto-Kobe 7-Day Itinerary ───
 // All photos are verified local assets in public/images/, 100% matched to their actual venues.
 const ACTIVITY_PHOTOS: ActivityPhotoEntry[] = [
-  // ══ 1. 道頓堀 蟹道樂（松葉蟹全蟹料理・巨大機械紅螃蟹）══════════════════
+  // ══ 1. 道頓堀 綜合燒肉 あぶりや（國產牛・黑豚五花・阿波尾雞・海鮮蔬菜・無煙燒肉）════
+  {
+    category: 'food',
+    keywords: ['あぶりや', 'Aburiya', '綜合燒肉', '国産牛焼肉', '燒肉'],
+    photos: ['images/activities/aburiya_yakiniku.jpg'],
+  },
+  // ══ 1b. 道頓堀 蟹道樂（松葉蟹全蟹料理・巨大機械紅螃蟹）══════════════════
   {
     category: 'food',
     keywords: ['蟹道樂', '螃蟹', '松葉蟹', '全蟹料理'],
