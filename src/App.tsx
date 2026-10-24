@@ -153,6 +153,18 @@ const ACTIVITY_PHOTOS: ActivityPhotoEntry[] = [
     keywords: ['泡麵博物館', '泡麵工廠', '合味道', '安藤百福', 'CUPNOODLES', '杯麵'],
     photos: ['images/activities/cupnoodles_museum.jpg'],
   },
+  // ══ 20. 手打うどん 吾妻（大阪最古老160年手打細烏龍麵・ささめうどん）══════
+  {
+    category: 'food',
+    keywords: ['吾妻', 'ささめうどん', '吾妻（Azuma）'],
+    photos: ['images/activities/azuma_udon.jpg'],
+  },
+  // ══ 21. しゃぶ亭 心齋橋本店（一人一鍋特選六白黑豬涮涮鍋）═════════════════
+  {
+    category: 'food',
+    keywords: ['しゃぶ亭', '豚しゃぶ', '六白黑豬', '黑豬火鍋'],
+    photos: ['images/activities/shabutei_hotpot.jpg'],
+  },
   // ══ 11. 北極星蛋包飯（心齋橋百年老店日式庭園滑嫩蛋包飯）═══════════════
   {
     category: 'food',
@@ -412,7 +424,9 @@ function App() {
                           <div className="absolute left-[18px] top-6 bottom-6 w-0.5" style={{ background: 'linear-gradient(to bottom, #F59E0B, #EA580C80)' }} />
 
                           <div className="space-y-3">
-                            {currentDay.schedule.split(/\r?\n/).filter(line => line.trim().length > 0).map((line, idx) => {
+                            {(() => {
+                              const seenPhotosOnDay = new Set<string>();
+                              return currentDay.schedule.split(/\r?\n/).filter(line => line.trim().length > 0).map((line, idx) => {
                               const timeMatch = line.match(/^(\d{1,2}:\d{2}(?:[–\-]\d{1,2}:\d{2})?|早上|上午|中午|下午|傍晚|晚上|抵達後|約\d{1,2}:\d{2})/);
                               const time = timeMatch ? timeMatch[1] : null;
                               let content = timeMatch ? line.slice(timeMatch[0].length).trim() : line.replace(/^[→\-•]?\s*/, '').trim();
@@ -453,9 +467,13 @@ function App() {
                                     </div>
                                   </div>
 
-                                  {/* Content Card */}
                                   {(() => {
-                                    const photos = getActivityPhotos(content, tag);
+                                    const rawPhotos = getActivityPhotos(content, tag);
+                                    const photos = rawPhotos.filter(url => {
+                                      if (seenPhotosOnDay.has(url)) return false;
+                                      seenPhotosOnDay.add(url);
+                                      return true;
+                                    });
                                     return (
                                       <div className="flex-1 mb-2.5 rounded-xl border overflow-hidden" style={{ background: '#FFFBF6', borderColor: '#F0D9BE' }}>
                                         <div className="px-3.5 pt-3 pb-2">
@@ -509,7 +527,8 @@ function App() {
                                   })()}
                                 </div>
                               );
-                            })}
+                            });
+                          })()}
                           </div>
                         </div>
 
