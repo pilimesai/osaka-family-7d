@@ -165,6 +165,12 @@ const ACTIVITY_PHOTOS: ActivityPhotoEntry[] = [
     keywords: ['吾妻', 'ささめうどん', '吾妻（Azuma）'],
     photos: ['images/activities/azuma_udon.jpg'],
   },
+  // ══ 22. 道頓堀 今井 本店（大阪高湯之神・名物豆皮烏龍麵＆極上親子丼）══════
+  {
+    category: 'food',
+    keywords: ['今井', '道頓堀 今井', '今井 本店', '豆皮烏龍麵', '極上親子丼'],
+    photos: ['images/activities/imai_udon.jpg'],
+  },
   // ══ 21. しゃぶ亭 心齋橋本店（一人一鍋特選六白黑豬涮涮鍋）═════════════════
   {
     category: 'food',
