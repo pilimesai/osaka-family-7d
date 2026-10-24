@@ -135,6 +135,24 @@ const ACTIVITY_PHOTOS: ActivityPhotoEntry[] = [
     keywords: ['名代炸豬排', 'Katsukura', '炸豬排', '豬排定食'],
     photos: ['images/activities/katsukura_tonkatsu.jpg'],
   },
+  // ══ 17. teamLab Biovortex Kyoto（2025/10全新開幕・日本最大沉浸光影展）════════
+  {
+    category: 'landmark',
+    keywords: ['teamLab', 'Biovortex', '運動森林', '光影展'],
+    photos: ['images/activities/teamlab_biovortex.jpg'],
+  },
+  // ══ 18. どうとんぼり神座（京都Porta店・白菜大滿貫蔬菜高湯拉麵）═════════════
+  {
+    category: 'food',
+    keywords: ['神座拉麵', '神座', 'どうとんぼり神座', 'Kamukura'],
+    photos: ['images/activities/kamukura_ramen.jpg'],
+  },
+  // ══ 19. 大阪池田 泡麵博物館（安藤百福紀念館・專屬杯麵DIY彩繪太空包）════════
+  {
+    category: 'landmark',
+    keywords: ['泡麵博物館', '泡麵工廠', '合味道', '安藤百福', 'CUPNOODLES', '杯麵'],
+    photos: ['images/activities/cupnoodles_museum.jpg'],
+  },
   // ══ 11. 北極星蛋包飯（心齋橋百年老店日式庭園滑嫩蛋包飯）═══════════════
   {
     category: 'food',
