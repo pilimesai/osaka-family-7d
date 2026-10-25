@@ -165,7 +165,13 @@ const ACTIVITY_PHOTOS: ActivityPhotoEntry[] = [
     keywords: ['吾妻', 'ささめうどん', '吾妻（Azuma）'],
     photos: ['images/activities/azuma_udon.jpg'],
   },
-      // ══ 24. にぎり長次郎 法善寺店（關西頂級活魚水產迴轉壽司）══════════════════
+        // ══ 25. Workman Colors（日本國民機能神店・極致CP值戶外休閒選物）═════════════
+  {
+    category: 'landmark',
+    keywords: ['Workman Colors', 'Workman', 'WORKMAN', 'ワークマン'],
+    photos: ['images/activities/workman_colors.jpg'],
+  },
+// ══ 24. にぎり長次郎 法善寺店（關西頂級活魚水產迴轉壽司）══════════════════
   {
     category: 'food',
     keywords: ['にぎり長次郎', '長次郎', 'CHOJIRO', '長次郎 法善寺店'],
