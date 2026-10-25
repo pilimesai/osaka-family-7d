@@ -350,18 +350,12 @@ const ACTIVITY_MAP_RULES: ActivityMapItem[] = [
 ];
 
 function getActivityMap(content: string, tag: string | null, day?: number): { name: string; url: string } | null {
-  const fullText = (tag ? tag + ' ' : '') + content;
+  // Ignore route steps (e.g. 步驟①, 步驟②)
+  if (tag && tag.includes('步驟')) return null;
+  // Ignore in-hotel morning breakfast/lounge lines
+  if (content.includes('飯店悠閒享用早餐') || content.includes('飯店 Lounge 享用')) return null;
 
-  if (fullText.includes('飯店悠閒享用早餐') || fullText.includes('Hotel Vischio')) {
-    if (day && [1, 2, 3].includes(day)) {
-      return { name: 'Hotel Vischio Kyoto', url: 'https://maps.google.com/?q=Hotel+Vischio+Kyoto' };
-    }
-  }
-  if (fullText.includes('飯店 Lounge 享用') || fullText.includes('法拉格') || fullText.includes('回飯店休息') || fullText.includes('回心齋橋')) {
-    if (day && [3, 4, 5, 6, 7].includes(day)) {
-      return { name: '心齋橋法拉格飯店', url: 'https://maps.google.com/?q=HOTEL+THE+FLAG+Shinsaibashi' };
-    }
-  }
+  const fullText = (tag ? tag + ' ' : '') + content;
 
   for (const item of ACTIVITY_MAP_RULES) {
     if (item.keywords.some(k => fullText.includes(k))) {
@@ -590,6 +584,7 @@ function App() {
                           <div className="space-y-3">
                             {(() => {
                               const seenPhotosOnDay = new Set<string>();
+                              const seenMapsOnDay = new Set<string>();
                               if (currentDayHotel?.coverImage) {
                                 seenPhotosOnDay.add(currentDayHotel.coverImage);
                               }
@@ -645,7 +640,13 @@ function App() {
                                       <div className="flex-1 mb-2.5 rounded-xl border overflow-hidden" style={{ background: '#FFFBF6', borderColor: '#F0D9BE' }}>
                                         <div className="px-3.5 pt-3 pb-2">
                                           {(() => {
-                                            const mapInfo = getActivityMap(content, tag, currentDay.day);
+                                            const rawMapInfo = getActivityMap(content, tag, currentDay.day);
+                                            let mapInfo: { name: string; url: string } | null = null;
+                                            if (rawMapInfo && !seenMapsOnDay.has(rawMapInfo.name) && !seenMapsOnDay.has(rawMapInfo.url)) {
+                                              seenMapsOnDay.add(rawMapInfo.name);
+                                              seenMapsOnDay.add(rawMapInfo.url);
+                                              mapInfo = rawMapInfo;
+                                            }
                                             return (
                                               <div className="flex flex-wrap items-center justify-between gap-1.5 mb-1.5">
                                                 <div className="flex flex-wrap items-center gap-1.5">
