@@ -14,6 +14,7 @@ export interface DayItinerary {
   childHighlights: string;
   food: string;
   queueTips?: string;
+  practicalTips?: string;
   hotelId?: string;
   guide?: {
     title: string;

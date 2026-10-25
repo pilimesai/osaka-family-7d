@@ -281,7 +281,8 @@ function getActivityPhotos(content: string, tag?: string): string[] {
 
 
 function App() {
-  const [activeTab, setActiveTab] = useState<'itinerary' | 'hotels' | 'shopping' | 'strategy' | 'food' | 'info'>('itinerary');
+  const [activeTab, setActiveTab] = useState<'itinerary' | 'hotels' | 'shopping' | 'food'>('itinerary');
+  const [showUniversalTips, setShowUniversalTips] = useState(false);
   const [activeDay, setActiveDay] = useState(1);
   const [selectedHotelId, setSelectedHotelId] = useState<string>('vischio_kyoto');
   const [copiedText, setCopiedText] = useState<string | null>(null);
@@ -370,9 +371,7 @@ function App() {
             { id: 'itinerary', label: '每日行程', icon: Calendar },
             { id: 'hotels', label: '住宿路線', icon: Building2 },
             { id: 'shopping', label: '日潮選物', icon: ShoppingBag },
-            { id: 'strategy', label: '排隊攻略', icon: Target },
             { id: 'food', label: '美食推薦', icon: Utensils },
-            { id: 'info', label: '實用資訊', icon: Info },
           ].map((tab) => (
             <button
               key={tab.id}
@@ -739,18 +738,36 @@ function App() {
                           </div>
                         </div>
 
-                        {/* ── Queue Tips / Daily Tips ── */}
+                                                {/* ── Queue Tips / Strategy ── */}
                         {currentDay.queueTips && (
                           <div className="info-card">
-                            <div className="info-card-header">
-                              <Lightbulb className="w-4 h-4 text-amber-700" />
-                              今日小提醒
+                            <div className="info-card-header" style={{ background: 'linear-gradient(135deg, #FFF7ED, #FFEDD5)' }}>
+                              <Target className="w-4 h-4 text-rose-500" />
+                              <span className="text-amber-900 font-black">今日排隊與避塞攻略 🎯</span>
                             </div>
-                            <div className="p-4 space-y-2">
+                            <div className="p-4 space-y-2.5">
                               {currentDay.queueTips.split(/\r?\n/).filter(l => l.trim()).map((tip, idx) => (
                                 <div key={idx} className="flex items-start gap-2">
-                                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-500 shrink-0 mt-0.5" />
-                                  <p className="text-[12px] text-stone-700 leading-relaxed">{tip.replace(/^[✔✓✅•﹒→－-]\s*/, '')}</p>
+                                  <span className="w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0 mt-1.5" />
+                                  <p className="text-[12px] text-stone-700 leading-relaxed font-medium">{tip.replace(/^[✔✓✅•﹒→－-]\s*/, '')}</p>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* ── Daily Practical Tips ── */}
+                        {currentDay.practicalTips && (
+                          <div className="info-card">
+                            <div className="info-card-header" style={{ background: 'linear-gradient(135deg, #FEF3C7, #FDE68A)' }}>
+                              <Lightbulb className="w-4 h-4 text-amber-600" />
+                              <span className="text-amber-900 font-black">當日實用小錦囊 💡</span>
+                            </div>
+                            <div className="p-4 space-y-2.5">
+                              {currentDay.practicalTips.split(/\r?\n/).filter(l => l.trim()).map((tip, idx) => (
+                                <div key={idx} className="flex items-start gap-2">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0 mt-1.5" />
+                                  <p className="text-[12px] text-stone-700 leading-relaxed font-medium">{tip.replace(/^[✔✓✅•﹒→－-]\s*/, '')}</p>
                                 </div>
                               ))}
                             </div>
@@ -783,6 +800,98 @@ function App() {
                       </div>
                     </div>
                     {/* End 2-col grid */}
+                    {/* ── Universal Travel Guide & Emergency Contacts (實用資訊整合) ── */}
+                    <div className="mt-6 rounded-2xl border overflow-hidden" style={{ background: '#FFFBF6', borderColor: '#F0D9BE' }}>
+                      <button
+                        onClick={() => setShowUniversalTips(!showUniversalTips)}
+                        className="w-full px-5 py-4 flex items-center justify-between text-left transition-colors hover:bg-orange-50/50 cursor-pointer"
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className="w-9 h-9 rounded-xl flex items-center justify-center text-white shrink-0 shadow-sm" style={{ background: 'linear-gradient(135deg, #F59E0B, #EA580C)' }}>
+                            <ShieldCheck className="w-5 h-5" />
+                          </div>
+                          <div>
+                            <h3 className="text-sm font-black text-amber-950 flex flex-wrap items-center gap-2">
+                              全旅程實用指南 ＆ 海外緊急求助 📋
+                              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-800 border border-orange-200">必看必備</span>
+                            </h3>
+                            <p className="text-xs text-stone-500 mt-0.5">包含駐日急難電話、7歲兒童票價ICOCA、冬季洋蔥穿搭、退稅免稅規則與排隊原則</p>
+                          </div>
+                        </div>
+                        <span className="text-xs font-bold px-3 py-1.5 rounded-xl border transition-all text-amber-800 bg-amber-50 border-amber-200 shrink-0 ml-2">
+                          {showUniversalTips ? '收起指南 ▲' : '展開查看 ▼'}
+                        </span>
+                      </button>
+
+                      {showUniversalTips && (
+                        <div className="px-5 pb-5 pt-2 border-t space-y-4" style={{ borderColor: '#F5DFC0' }}>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                            {/* Emergency */}
+                            <div className="p-4 rounded-xl bg-white border border-rose-200 shadow-sm">
+                              <div className="flex items-center gap-2 mb-2 text-rose-600 font-black text-xs">
+                                <Phone className="w-4 h-4" /> 🆘 緊急聯絡 ＆ 海外就醫
+                              </div>
+                              <ul className="text-xs text-stone-700 space-y-1.5 leading-relaxed">
+                                <li><strong>日本報警：</strong>110 ｜ <strong>救護車/消防：</strong>119</li>
+                                <li><strong>台北駐大阪辦事處：</strong>06-6443-8481（緊急急難值班：090-8794-4568）</li>
+                                <li><strong>JNTO 觀光局繁中專線：</strong>050-3816-2787（24小時多語言免費求助）</li>
+                                <li><strong>健保海外核退：</strong>就醫保留收據明細與診斷書正本，6個月內向健保署申請。</li>
+                              </ul>
+                            </div>
+
+                            {/* Weather & Clothing */}
+                            <div className="p-4 rounded-xl bg-white border border-blue-200 shadow-sm">
+                              <div className="flex items-center gap-2 mb-2 text-blue-600 font-black text-xs">
+                                <Snowflake className="w-4 h-4" /> 🌡️ 冬季洋蔥穿搭（1-2月）
+                              </div>
+                              <ul className="text-xs text-stone-700 space-y-1.5 leading-relaxed">
+                                <li><strong>室外氣溫：</strong>約 2~10°C，需防風防潑水外套、保暖圍巾、毛帽手套與暖暖包。</li>
+                                <li><strong>室內暖氣：</strong>電車與商場暖氣約 22°C 極溫暖，採發熱衣+好脫外套，勿穿厚毛衣。</li>
+                                <li><strong>隨身保溫瓶：</strong>冬季乾燥，出門前在飯店裝溫水，小孩隨時潤喉補充水分。</li>
+                              </ul>
+                            </div>
+
+                            {/* Kids Tickets & ICOCA */}
+                            <div className="p-4 rounded-xl bg-white border border-emerald-200 shadow-sm">
+                              <div className="flex items-center gap-2 mb-2 text-emerald-600 font-black text-xs">
+                                <Ticket className="w-4 h-4" /> 🎫 7歲兒童交通與票價規則
+                              </div>
+                              <ul className="text-xs text-stone-700 space-y-1.5 leading-relaxed">
+                                <li><strong>鐵路半價：</strong>JR、地鐵、私鐵 6-11 歲為兒童半價票（觀光設施 4-11 歲兒童價）。</li>
+                                <li><strong>兒童版 ICOCA：</strong>於關西機場出示小孩護照申辦「こどもICOCA」，搭車超商嗶卡極順暢。</li>
+                                <li><strong>推車與體力：</strong>心齋橋與各大車站電梯便利，飯店均配有投幣洗脫烘衣機方便隨時換洗。</li>
+                              </ul>
+                            </div>
+
+                            {/* Tax Refund */}
+                            <div className="p-4 rounded-xl bg-white border border-amber-200 shadow-sm">
+                              <div className="flex items-center gap-2 mb-2 text-amber-700 font-black text-xs">
+                                <Tag className="w-4 h-4" /> 💰 日本購物退稅須知 (Tax Free)
+                              </div>
+                              <ul className="text-xs text-stone-700 space-y-1.5 leading-relaxed">
+                                <li><strong>免稅門檻：</strong>同一店家當日未稅消費滿 5,000 日圓即可免稅 10%。</li>
+                                <li><strong>必備證件：</strong>結帳時必須出示護照正本（影本無效），手機出示 Visit Japan Web 亦可。</li>
+                                <li><strong>密封包裝：</strong>藥妝零食等消耗品在境內請勿拆封，出境前裝入行李箱或隨身備查。</li>
+                              </ul>
+                            </div>
+                          </div>
+
+                          {/* Core Queue Principles */}
+                          <div className="p-3.5 rounded-xl border flex items-center gap-3" style={{ background: '#FFF8F0', borderColor: '#F5DFC0' }}>
+                            <div className="w-8 h-8 rounded-lg bg-orange-100 flex items-center justify-center shrink-0 text-orange-600 font-bold text-sm">
+                              🎯
+                            </div>
+                            <div className="text-xs text-stone-700 leading-relaxed">
+                              <strong>親子旅行三大排隊原則：</strong>
+                              ① 熱門景點早上去（勝尾寺 9點、泡麵館 9點半開館人最少）
+                              ② 需預約景點提前全網購（海遊館、樂高、teamLab 全 QR Code 零排隊）
+                              ③ 不為塞景點而塞，以 7 歲小朋友體力與睡眠為核心，輕鬆從容才能享受旅行！
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
 
                   </motion.div>
                 )}
@@ -1843,31 +1952,7 @@ function App() {
                     ))}
                 </div>
               </motion.div>
-            )}
-
-            {/* ===================== TAB: STRATEGY ===================== */}
-            {activeTab === 'strategy' && (
-              <motion.div key="strategy" variants={containerVariants} initial="hidden" animate="visible" exit={{ opacity: 0 }}>
-                <div className="mb-6">
-                  <h2 className="text-xl font-black text-stone-900 mb-1">排隊攻略 🎯</h2>
-                  <p className="text-stone-500 text-sm">遵守這些核心原則，讓旅程更順暢</p>
-                </div>
-                <div className="space-y-4">
-                  {QUEUE_STRATEGIES.map((strategy, idx) => (
-                    <motion.div key={idx} variants={itemVariants} className="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm flex flex-col md:flex-row items-start md:items-center gap-4">
-                      <div className="bg-rose-100 text-rose-600 font-black text-sm px-3 py-1.5 rounded-lg whitespace-nowrap">
-                        {strategy.category}
-                      </div>
-                      <p className="text-stone-700 font-medium leading-relaxed">
-                        {strategy.advice}
-                      </p>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            )}
-
-            {/* ===================== TAB: FOOD ===================== */}
+            )}            {/* ===================== TAB: FOOD ===================== */}
             {activeTab === 'food' && (
               <motion.div key="food" variants={containerVariants} initial="hidden" animate="visible" exit={{ opacity: 0 }} className="space-y-6">
                 {/* Food Header & Intro */}
@@ -2027,65 +2112,7 @@ function App() {
                     ))}
                 </div>
               </motion.div>
-            )}
-
-            {/* ===================== TAB: INFO ===================== */}
-            {activeTab === 'info' && (
-              <motion.div key="info" variants={containerVariants} initial="hidden" animate="visible" exit={{ opacity: 0 }} className="space-y-6">
-                <div>
-                  <h2 className="text-xl font-black text-stone-900 mb-1">行前必知 📋</h2>
-                  <p className="text-stone-400 text-sm mb-5">帶小孩出國的實用資訊整理</p>
-                  <div className="grid grid-cols-1 gap-3">
-                    {ESSENTIAL_INFO.map((item, index) => (
-                      <motion.div key={index} variants={itemVariants} className="bg-white p-5 rounded-2xl border border-stone-100 shadow-sm flex gap-4 items-start hover:shadow-md transition-shadow">
-                        <div className="w-11 h-11 bg-rose-50 rounded-xl flex items-center justify-center shrink-0 text-xl">{item.icon}</div>
-                        <div className="flex-1 min-w-0">
-                          <h3 className="font-bold text-stone-900 text-lg mb-1.5 leading-tight">{item.title}</h3>
-                          <p className="text-stone-600 text-base leading-relaxed">{item.content}</p>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-
-                <motion.div variants={itemVariants} className="bg-stone-900 rounded-3xl p-6 md:p-8 text-white relative overflow-hidden">
-                  <div className="absolute bottom-0 right-0 w-40 h-40 bg-rose-500/15 rounded-full -mb-20 -mr-20 blur-3xl" />
-                  <div className="absolute top-0 left-1/2 w-32 h-32 bg-pink-500/10 rounded-full -mt-16 blur-3xl" />
-                  <h3 className="text-xl font-black mb-6 flex items-center gap-3 leading-none relative">
-                    <Train className="w-6 h-6 text-rose-400" />
-                    交通攻略
-                  </h3>
-                  <div className="space-y-5 relative">
-                    {TRANSPORT_INFO.map((info, idx) => (
-                      <div key={idx} className="flex gap-4">
-                        <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center shrink-0 border border-white/10">
-                          {info.type === 'bus' ? <Bus className="w-5 h-5 text-rose-400" /> : info.type === 'pass' ? <Ticket className="w-5 h-5 text-rose-400" /> : info.type === 'tip' ? <Lightbulb className="w-5 h-5 text-rose-400" /> : <Train className="w-5 h-5 text-rose-400" />}
-                        </div>
-                        <div>
-                          <h4 className="font-bold text-white text-base">{info.name}</h4>
-                          <p className="text-stone-300 text-sm mt-1.5 leading-relaxed">{info.description}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-
-                <motion.div variants={itemVariants} className="bg-gradient-to-br from-rose-50 to-pink-50 rounded-2xl p-6 border border-rose-100">
-                  <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 bg-rose-100 rounded-xl flex items-center justify-center shrink-0">
-                      <Heart className="w-5 h-5 text-rose-500" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-rose-800 text-lg mb-2">關於這個行程</h3>
-                      <p className="text-rose-700/90 text-base leading-relaxed">
-                        避開排隊・不吃牛 專屬版！為帶 7 歲小孩的家庭設計，確保旅途順暢、充滿回憶。
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+            )}          </AnimatePresence>
         </div>
       </main>
 
@@ -2134,9 +2161,7 @@ function App() {
           { id: 'itinerary', label: '行程', icon: Calendar },
           { id: 'hotels', label: '住宿', icon: Building2 },
           { id: 'shopping', label: '選物', icon: ShoppingBag },
-          { id: 'strategy', label: '攻略', icon: Target },
           { id: 'food', label: '美食', icon: Utensils },
-          { id: 'info', label: '資訊', icon: Info },
         ].map((tab) => (
           <button
             key={tab.id}
