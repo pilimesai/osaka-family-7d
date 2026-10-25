@@ -280,6 +280,141 @@ function getActivityPhotos(content: string, tag?: string): string[] {
 }
 
 
+
+interface ActivityMapItem {
+  keywords: string[];
+  name: string;
+  url: string;
+}
+
+const ACTIVITY_MAP_RULES: ActivityMapItem[] = [
+  // --- Exact Specific Attractions & Restaurants First ---
+  { keywords: ['天保山大摩天輪', '天保山摩天輪'], name: '天保山大摩天輪', url: 'https://maps.google.com/?q=Tempozan+Giant+Ferris+Wheel' },
+  { keywords: ['樂高樂園', '樂高', 'LEGOLAND'], name: '大阪樂高樂園', url: 'https://maps.google.com/?q=Legoland+Discovery+Center+Osaka' },
+  { keywords: ['海遊館', 'Kaiyukan'], name: '大阪海遊館', url: 'https://maps.google.com/?q=Osaka+Aquarium+Kaiyukan' },
+  { keywords: ['天保山 Marketplace', '浪花美食橫丁', '杵屋'], name: '天保山 Marketplace', url: 'https://maps.google.com/?q=Tempozan+Marketplace' },
+  { keywords: ['大阪港站', '前往大阪港'], name: '大阪港站', url: 'https://maps.google.com/?q=Osakako+Station' },
+
+  { keywords: ['泡麵博物館', '安藤百福', '合味道', 'CUPNOODLES'], name: '池田泡麵博物館', url: 'https://maps.google.com/?q=Cup+Noodles+Museum+Osaka+Ikeda' },
+  { keywords: ['吾妻', 'ささめうどん', '吾妻（Azuma）'], name: '手打うどん 吾妻', url: 'https://maps.google.com/?q=Azuma+Udon+Ikeda' },
+  { keywords: ['池田站', '阪急池田'], name: '阪急池田站', url: 'https://maps.google.com/?q=Ikeda+Station+Osaka' },
+  { keywords: ['LUCUA 1100', 'LUCUA'], name: 'LUCUA 1100', url: 'https://maps.google.com/?q=LUCUA+osaka' },
+  { keywords: ['阪急百貨 梅田', '阪急百貨'], name: '阪急百貨 梅田總店', url: 'https://maps.google.com/?q=Hankyu+Umeda+Main+Store' },
+  { keywords: ['HEP FIVE', '紅色摩天輪'], name: 'HEP FIVE 摩天輪', url: 'https://maps.google.com/?q=HEP+FIVE+Ferris+Wheel' },
+  { keywords: ['しゃぶ亭'], name: 'しゃぶ亭 心齋橋本店', url: 'https://maps.google.com/?q=Shabutei+Shinsaibashi' },
+  { keywords: ['KITTE', 'つかだ'], name: 'KITTE 大阪', url: 'https://maps.google.com/?q=KITTE+Osaka' },
+
+  { keywords: ['勝尾寺', '達摩'], name: '箕面 勝尾寺', url: 'https://maps.google.com/?q=Katsuo-ji+Temple+Osaka' },
+  { keywords: ['箕面萱野'], name: '箕面萱野站', url: 'https://maps.google.com/?q=Minoh-kayano+Station' },
+  { keywords: ['塩そば 時空', '時空 OSAKA', '時空拉麵', '塩そば'], name: '塩そば 時空 OSAKA', url: 'https://maps.google.com/?q=Shio+Soba+Jiku+OSAKA' },
+  { keywords: ['にぎり長次郎', '長次郎', 'CHOJIRO'], name: 'にぎり長次郎 法善寺店', url: 'https://maps.google.com/?q=Nigiri+Chojiro+Hozenji' },
+  { keywords: ['心齋橋 PARCO', 'PARCO'], name: '心齋橋 PARCO', url: 'https://maps.google.com/?q=Shinsaibashi+PARCO' },
+  { keywords: ['NANGA SHOP OSAKA', 'NANGA 旗艦店', 'NANGA 日本官方'], name: 'NANGA 大阪旗艦店', url: 'https://maps.google.com/?q=NANGA+SHOP+OSAKA' },
+  { keywords: ['Carhartt WIP Osaka', 'Carhartt WIP 大阪'], name: 'Carhartt WIP 大阪', url: 'https://maps.google.com/?q=Carhartt+WIP+Store+Osaka' },
+  { keywords: ['SORA 堀江', 'SORA'], name: 'SORA 堀江店', url: 'https://maps.google.com/?q=SORA+Horie+Osaka' },
+  { keywords: ["FREAK'S STORE 心齋橋", "FREAK'S STORE"], name: "FREAK'S STORE 心齋橋", url: 'https://maps.google.com/?q=FREAKS+STORE+Shinsaibashi' },
+  { keywords: ['北極星', '蛋包飯'], name: '北極星蛋包飯 心齋橋', url: 'https://maps.google.com/?q=Hokkyokusei+Shinsaibashi' },
+  { keywords: ['道頓堀今井', '今井 本店', '今井'], name: '道頓堀 今井 本店', url: 'https://maps.google.com/?q=Dotonbori+Imai+Honten' },
+
+  { keywords: ['天橋立', '飛龍觀'], name: '天橋立 飛龍觀', url: 'https://maps.google.com/?q=Amanohashidate+View+Land' },
+  { keywords: ['伊根舟屋', '伊根', '觀光遊船'], name: '伊根舟屋 遊船', url: 'https://maps.google.com/?q=Ine+Bay+Sightseeing+Boat' },
+  { keywords: ['八條口觀光巴士', '觀光巴士停車場', '觀光巴士乘車處'], name: '八條口觀光巴士乘車處', url: 'https://maps.google.com/?q=Kyoto+Station+Hachijo+Gate+Bus+Stop' },
+  { keywords: ['あぶりや', 'Aburiya'], name: 'あぶりや 道頓堀御堂筋店', url: 'https://maps.google.com/?q=Aburiya+Dotonbori' },
+  { keywords: ['戎橋', '固力果', '跑跑人'], name: '道頓堀 固力果跑跑人', url: 'https://maps.google.com/?q=Glico+Man+Sign+Dotonbori' },
+  { keywords: ['心齋橋筋', '心齋橋筋商店街', '心齋橋周邊', '採買伴手禮'], name: '心齋橋筋商店街', url: 'https://maps.google.com/?q=Shinsaibashisuji+Shopping+Street' },
+  { keywords: ['串かつだるま', 'だるま', '串かつ'], name: '元祖串かつ だるま 心齋橋', url: 'https://maps.google.com/?q=Kushikatsu+Daruma+Shinsaibashi' },
+
+  { keywords: ['野宮神社'], name: '野宮神社', url: 'https://maps.google.com/?q=Nonomiya+Shrine+Kyoto' },
+  { keywords: ['天龍寺', '曹源池'], name: '天龍寺', url: 'https://maps.google.com/?q=Tenryu-ji+Temple+Kyoto' },
+  { keywords: ['渡月橋'], name: '嵐山渡月橋', url: 'https://maps.google.com/?q=Togetsukyo+Bridge+Kyoto' },
+  { keywords: ['嵐山大街', '長辻通', '嵐山午餐', 'よしむら', '古都芋'], name: '嵐山商店街', url: 'https://maps.google.com/?q=Arashiyama+Shopping+Street' },
+  { keywords: ['竹林之道', '竹林小徑', '竹林'], name: '嵐山竹林小徑', url: 'https://maps.google.com/?q=Arashiyama+Bamboo+Grove' },
+  { keywords: ['嵯峨嵐山站', '嵯峨嵐山', '嵯峨野線'], name: 'JR 嵯峨嵐山站', url: 'https://maps.google.com/?q=Saga-Arashiyama+Station' },
+  { keywords: ['HUMAN MADE 1928', 'HUMAN MADE', 'Blue Bottle'], name: 'HUMAN MADE 1928', url: 'https://maps.google.com/?q=HUMAN+MADE+1928+Kyoto' },
+  { keywords: ['SOU・SOU', 'SOU SOU', 'わらべぎ'], name: 'SOU・SOU 京都總部', url: 'https://maps.google.com/?q=SOU+SOU+Kyoto' },
+  { keywords: ['BAPEXCLUSIVE', 'BAPE'], name: 'BAPEXCLUSIVE 京都', url: 'https://maps.google.com/?q=BAPEXCLUSIVE+Kyoto' },
+  { keywords: ['teamLab', 'Biovortex'], name: 'teamLab Biovortex', url: 'https://maps.google.com/?q=teamLab+Biovortex+Kyoto' },
+  { keywords: ['名代炸豬排', 'Katsukura', 'Porta'], name: '名代炸豬排 (Porta)', url: 'https://maps.google.com/?q=Katsukura+Kyoto+Porta' },
+  { keywords: ['神座拉麵', '神座'], name: '神座拉麵 (京都站)', url: 'https://maps.google.com/?q=Dotonbori+Kamukura+Kyoto+Station' },
+
+  { keywords: ['Workman', 'AEON MALL'], name: 'AEON MALL KYOTO', url: 'https://maps.google.com/?q=AEON+MALL+KYOTO' },
+  { keywords: ['Hotel Vischio', 'Vischio', '比偲奇'], name: 'Hotel Vischio Kyoto', url: 'https://maps.google.com/?q=Hotel+Vischio+Kyoto' },
+  { keywords: ['法拉格', 'THE FLAG', '心齋橋法拉格'], name: '心齋橋法拉格飯店', url: 'https://maps.google.com/?q=HOTEL+THE+FLAG+Shinsaibashi' },
+
+  { keywords: ['第二航廈', 'T2'], name: '關西空港 T2', url: 'https://maps.google.com/?q=Kansai+International+Airport+Terminal+2' },
+  { keywords: ['第一航廈', 'T1', 'JR車站', 'JR 車站'], name: '關西空港駅 (JR)', url: 'https://maps.google.com/?q=Kansai+Airport+Station' },
+  { keywords: ['HARUKA', '鐵路便當'], name: '關西空港駅 (HARUKA)', url: 'https://maps.google.com/?q=Kansai+Airport+Station' },
+  { keywords: ['難波站', '南海難波', 'Rapi:t', '南海電鐵'], name: '南海難波站 (Rapi:t)', url: 'https://maps.google.com/?q=Namba+Station+Nankai' },
+  { keywords: ['抵達關西機場', '前往機場', '辦理登機', '關西機場'], name: '關西國際機場 (KIX)', url: 'https://maps.google.com/?q=Kansai+International+Airport' },
+  { keywords: ['難波享用美味午餐', '心齋橋/難波'], name: '道頓堀商圈', url: 'https://maps.google.com/?q=Dotonbori+Osaka' },
+];
+
+function getActivityMap(content: string, tag: string | null, day?: number): { name: string; url: string } | null {
+  const fullText = (tag ? tag + ' ' : '') + content;
+
+  if (fullText.includes('飯店悠閒享用早餐') || fullText.includes('Hotel Vischio')) {
+    if (day && [1, 2, 3].includes(day)) {
+      return { name: 'Hotel Vischio Kyoto', url: 'https://maps.google.com/?q=Hotel+Vischio+Kyoto' };
+    }
+  }
+  if (fullText.includes('飯店 Lounge 享用') || fullText.includes('法拉格') || fullText.includes('回飯店休息') || fullText.includes('回心齋橋')) {
+    if (day && [3, 4, 5, 6, 7].includes(day)) {
+      return { name: '心齋橋法拉格飯店', url: 'https://maps.google.com/?q=HOTEL+THE+FLAG+Shinsaibashi' };
+    }
+  }
+
+  for (const item of ACTIVITY_MAP_RULES) {
+    if (item.keywords.some(k => fullText.includes(k))) {
+      return { name: item.name, url: item.url };
+    }
+  }
+  return null;
+}
+
+function getDayFoodMaps(day: number): { name: string; url: string }[] {
+  switch (day) {
+    case 1:
+      return [
+        { name: 'JR 關西空港站 (鐵路便當/便利商店)', url: 'https://maps.google.com/?q=Kansai+Airport+Station' },
+        { name: 'Hotel Vischio 旁 7-Eleven / 超市', url: 'https://maps.google.com/?q=Hotel+Vischio+Kyoto' },
+      ];
+    case 2:
+      return [
+        { name: '名代炸豬排 Katsukura (Porta 地下街)', url: 'https://maps.google.com/?q=Katsukura+Kyoto+Porta' },
+        { name: 'どうとんぼり神座拉麵 (京都站地下街)', url: 'https://maps.google.com/?q=Dotonbori+Kamukura+Kyoto+Station' },
+      ];
+    case 3:
+      return [
+        { name: 'あぶりや 道頓堀御堂筋店 (綜合燒肉)', url: 'https://maps.google.com/?q=Aburiya+Dotonbori' },
+      ];
+    case 4:
+      return [
+        { name: '塩そば 時空 OSAKA (極上鹽拉麵)', url: 'https://maps.google.com/?q=Shio+Soba+Jiku+OSAKA' },
+        { name: 'にぎり長次郎 法善寺店 (活魚迴轉壽司)', url: 'https://maps.google.com/?q=Nigiri+Chojiro+Hozenji' },
+        { name: '道頓堀 今井 本店 (豆皮烏龍麵備案)', url: 'https://maps.google.com/?q=Dotonbori+Imai+Honten' },
+        { name: '北極星蛋包飯 心齋橋本店 (備案)', url: 'https://maps.google.com/?q=Hokkyokusei+Shinsaibashi' },
+      ];
+    case 5:
+      return [
+        { name: '手打うどん 吾妻 (池田160年烏龍麵)', url: 'https://maps.google.com/?q=Azuma+Udon+Ikeda' },
+        { name: 'しゃぶ亭 心齋橋本店 (黑豬涮涮鍋)', url: 'https://maps.google.com/?q=Shabutei+Shinsaibashi' },
+        { name: 'しゃぶしゃぶつかだ (KITTE大阪備案)', url: 'https://maps.google.com/?q=KITTE+Osaka' },
+      ];
+    case 6:
+      return [
+        { name: '天保山 Marketplace 浪花美食橫丁', url: 'https://maps.google.com/?q=Tempozan+Marketplace' },
+        { name: '元祖串かつ だるま 心齋橋店 (晚餐)', url: 'https://maps.google.com/?q=Kushikatsu+Daruma+Shinsaibashi' },
+      ];
+    case 7:
+      return [
+        { name: '道頓堀 / 難波美食街', url: 'https://maps.google.com/?q=Dotonbori+Osaka' },
+        { name: '關西國際機場 餐廳街', url: 'https://maps.google.com/?q=Kansai+International+Airport' },
+      ];
+    default:
+      return [];
+  }
+}
+
 function App() {
   const [activeTab, setActiveTab] = useState<'itinerary' | 'hotels' | 'shopping' | 'food'>('itinerary');
   const [showUniversalTips, setShowUniversalTips] = useState(false);
@@ -509,25 +644,47 @@ function App() {
                                     return (
                                       <div className="flex-1 mb-2.5 rounded-xl border overflow-hidden" style={{ background: '#FFFBF6', borderColor: '#F0D9BE' }}>
                                         <div className="px-3.5 pt-3 pb-2">
-                                          <div className="flex flex-wrap items-center gap-1.5 mb-1.5">
-                                            {time && (
-                                              <span className="text-[10px] font-black px-2 py-0.5 rounded-lg text-white flex items-center gap-1" style={{ background: 'linear-gradient(135deg, #D97706, #EA580C)' }}>
-                                                <Clock className="w-2.5 h-2.5" />
-                                                {time}
-                                              </span>
-                                            )}
-                                            {tag && (
-                                              <span className={`text-[10px] font-black px-2 py-0.5 rounded-lg border ${
-                                                tag.includes('地點') ? 'bg-rose-500 text-white border-rose-600'
-                                                : tag.includes('飯店') || tag.includes('入住') ? 'bg-purple-100 text-purple-700 border-purple-200'
-                                                : tag.includes('上車') || tag.includes('下車') ? 'bg-blue-100 text-blue-700 border-blue-200'
-                                                : 'bg-amber-100 text-amber-800 border-amber-200'
-                                              }`}>
-                                                {tag}
-                                              </span>
-                                            )}
-                                            <span className="text-base leading-none">{activityEmoji}</span>
-                                          </div>
+                                          {(() => {
+                                            const mapInfo = getActivityMap(content, tag, currentDay.day);
+                                            return (
+                                              <div className="flex flex-wrap items-center justify-between gap-1.5 mb-1.5">
+                                                <div className="flex flex-wrap items-center gap-1.5">
+                                                  {time && (
+                                                    <span className="text-[10px] font-black px-2 py-0.5 rounded-lg text-white flex items-center gap-1" style={{ background: 'linear-gradient(135deg, #D97706, #EA580C)' }}>
+                                                      <Clock className="w-2.5 h-2.5" />
+                                                      {time}
+                                                    </span>
+                                                  )}
+                                                  {tag && (
+                                                    <span className={`text-[10px] font-black px-2 py-0.5 rounded-lg border ${
+                                                      tag.includes('地點') ? 'bg-rose-500 text-white border-rose-600'
+                                                      : tag.includes('飯店') || tag.includes('入住') ? 'bg-purple-100 text-purple-700 border-purple-200'
+                                                      : tag.includes('上車') || tag.includes('下車') ? 'bg-blue-100 text-blue-700 border-blue-200'
+                                                      : 'bg-amber-100 text-amber-800 border-amber-200'
+                                                    }`}>
+                                                      {tag}
+                                                    </span>
+                                                  )}
+                                                  <span className="text-base leading-none">{activityEmoji}</span>
+                                                </div>
+
+                                                {/* Google Maps Pin Pill */}
+                                                {mapInfo && (
+                                                  <a
+                                                    href={mapInfo.url}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="inline-flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 rounded-lg text-rose-700 bg-rose-50 hover:bg-rose-100 border border-rose-200 transition-all shadow-2xs group shrink-0 active:scale-95"
+                                                    title={`在 Google Maps 打開「${mapInfo.name}」`}
+                                                  >
+                                                    <MapPin className="w-3 h-3 text-rose-500 group-hover:scale-110 transition-transform" />
+                                                    <span className="max-w-[130px] sm:max-w-none truncate">{mapInfo.name}</span>
+                                                    <ExternalLink className="w-2.5 h-2.5 text-rose-400 group-hover:text-rose-600 transition-colors" />
+                                                  </a>
+                                                )}
+                                              </div>
+                                            );
+                                          })()}
                                           <p className="text-xs font-semibold text-stone-800 leading-relaxed">{content}</p>
                                         </div>
                                         {/* ── Inline Photos ── */}
@@ -631,11 +788,35 @@ function App() {
 
                         {/* ── Food Recommendations ── */}
                         <div className="mt-4">
-                          <div className="flex items-center gap-2 mb-3">
-                            <Utensils className="w-4 h-4 text-amber-600" />
-                            <h3 className="font-bold text-amber-900 text-sm">當日美食推薦 🍽️</h3>
+                          <div className="flex items-center justify-between gap-2 mb-2">
+                            <div className="flex items-center gap-2">
+                              <Utensils className="w-4 h-4 text-amber-600" />
+                              <h3 className="font-bold text-amber-900 text-sm">當日美食推薦 🍽️</h3>
+                            </div>
                           </div>
                           <div className="rounded-2xl overflow-hidden border" style={{ background: '#FFFBF6', borderColor: '#F0D9BE' }}>
+                            {/* Restaurant Google Maps Quick Links */}
+                            {(() => {
+                              const foodMaps = getDayFoodMaps(currentDay.day);
+                              if (foodMaps.length === 0) return null;
+                              return (
+                                <div className="px-3.5 py-2.5 border-b flex flex-wrap gap-1.5" style={{ borderColor: '#F0D9BE', background: '#FFF7ED' }}>
+                                  {foodMaps.map((item, fIdx) => (
+                                    <a
+                                      key={fIdx}
+                                      href={item.url}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="inline-flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-lg text-amber-900 bg-white hover:bg-amber-100 border border-amber-300 transition-all shadow-2xs group cursor-pointer"
+                                    >
+                                      <MapPin className="w-3 h-3 text-rose-500 group-hover:scale-110 transition-transform" />
+                                      <span>{item.name}</span>
+                                      <ExternalLink className="w-2.5 h-2.5 text-amber-600 opacity-60" />
+                                    </a>
+                                  ))}
+                                </div>
+                              );
+                            })()}
                             <div className="px-4 py-3 text-xs font-medium text-stone-700 leading-relaxed whitespace-pre-wrap">
                               {currentDay.food}
                             </div>
