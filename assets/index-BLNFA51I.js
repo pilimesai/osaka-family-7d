@@ -224,21 +224,23 @@ Error generating stack: `+i.message+`
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const h5=[["path",{d:"M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2",key:"cjf0a3"}],["path",{d:"M7 2v20",key:"1473qp"}],["path",{d:"M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7",key:"j28e5"}]],bc=Tt("utensils",h5),Nn={title:"京阪神親子 7 天 6 夜",subtitle:"避開排隊・不吃牛 專屬版",dateRange:"1/31（日）～ 2/6（六）",season:"冬季",note:"4 大 1 小（7 歲小孩）、不趕行程、盡量不走回頭路",flights:{outbound:"去程：小港 14:20 ✈️ 關西 18:05",inbound:"回程：關西 16:00 ✈️ 小港 18:40"}},io=[{id:"vischio_kyoto",name:"Hotel Vischio Kyoto by GRANVIA",japaneseName:"ホテルヴィスキオ京都 by GRANVIA",checkInDate:"1月31日 15:00",checkOutDate:"2月2日 11:00",stayDuration:"2 晚（1/31 入住 ～ 2/2 退房）",area:"京都・JR京都車站八條口",address:"京都府京都市南区東九条上殿田町44-1",googleMapsUrl:"https://www.google.com/maps/search/?api=1&query=Hotel+Vischio+Kyoto+by+GRANVIA",phone:"+81 75-280-1111",coverImage:"images/hotels/vischio_kyoto_entrance.jpg",routeImage:"images/hotels/vischio_kyoto_route.jpg",stationExit:"JR京都站「八條西口」步行約 2 分鐘（無障礙平坦步道）",routeTitle:"JR京都站（八條西口）→ 飯店詳細步行路線",routeDescription:"從關西機場搭乘 HARUKA 抵達京都車站後，出站步行僅約 2 分鐘即可抵達！全程平坦寬敞無階梯，非常適合推嬰兒車與攜帶多件大行李的親子家庭。",routeSteps:["【步驟 1】搭乘 HARUKA 特急抵達 JR 京都車站月台後，依站內指標前往 1 樓「八條西口（Hachijo West Gate）」出剪票口。","【步驟 2】踏出八條西口大門，正前方對面為 Avanti 百貨與京阪巴士候車亭，前方有平整斑馬線。","【步驟 3】順著斑馬線過馬路至對面，沿著「竹田街道」往南（直行）約 80 公尺（約 2 分鐘路程）。","【步驟 4】左側即可看到「HOTEL VISCHIO KYOTO」質感大門與迎賓落地窗大廳，進入 1 樓大廳即可出示預訂憑證辦理 Check-in！"],highlights:["♨️ 住客專用大浴場＆桑拿（附設人工溫泉，洗淨飛行與走路的疲倦）","☕ 自助備品吧（大廳提供多款高品質茶包、濾掛咖啡、洗沐與保養備品自由挑選）","🧺 自助洗烘衣房（配備投幣式洗烘衣機，隨時清洗小孩衣物）","🛍️ 周邊機能極強：步行 1 分鐘到 Avanti 百貨（B1 有唐吉訶德驚安殿堂）、7-11 便利商店與地下街 Porta 美食"],familyTips:["推推車時從八條西口出來均為無障礙平面步道，不必上下樓梯或搬行李。","2 樓大浴場開放時間：06:00-10:00 / 15:00-01:00，晚上可帶小朋友先泡舒服的熱水澡再睡覺。"]},{id:"flag_shinsaibashi",name:"心齋橋法拉格飯店 (Hotel The Flag Shinsaibashi)",japaneseName:"ホテル ザ フラッグ 心斎橋",bookingNumber:"73529171015643",checkInDate:"2月2日 15:00",checkOutDate:"2月6日 11:00",stayDuration:"4 晚連住（2/2 入住 ～ 2/6 退房）",area:"大阪・心齋橋 / 道頓堀商圈",address:"大阪府大阪市中央区東心斎橋1-18-30",googleMapsUrl:"https://www.google.com/maps/search/?api=1&query=HOTEL+THE+FLAG+Shinsaibashi",phone:"+81 6-6121-8111",coverImage:"images/hotels/flag_shinsaibashi_entrance.jpg",routeImage:"images/hotels/flag_shinsaibashi_route.jpg",stationExit:"地下鐵御堂筋線「心齋橋站」6號出口（電梯走大丸南館或長堀地下街南12）步行 3 分鐘",routeTitle:"心齋橋站（御堂筋線）→ 飯店詳細步行路線",routeDescription:"座落於心齋橋筋商店街旁寧靜巷弄內，鬧中取靜。從心齋橋站步行僅約 3-4 分鐘，出巷口就能逛街用餐，帶小孩回房午睡或放戰利品都超方便！",routeSteps:["【步驟 1】搭乘御堂筋線至「心齋橋站（M19）」。推推車或拉大行李建議搭「大丸百貨南館電梯」或 Crysta 長堀地下街「南12號電梯」直達 1 樓地面；輕裝可直接走「6號出口」。","【步驟 2】出站後進入繁華熱鬧的「心齋橋筋商店街」，往難波／道頓堀方向（往南）前行約 1 分鐘（約 80 公尺）。","【步驟 3】在「鰻谷南通（Unagidani Minami-dori）」路口（見三木樂器／PABLO附近十字路口）左轉（往東轉入巷內）。","【步驟 4】沿著鰻谷南通直走約 150 公尺（約 2 分鐘），右手邊即可看到黑色現代外觀、門口擺放標誌性日式青苔球盆栽與巨石造景的「HOTEL THE FLAG」大門，進入大廳辦理 Check-in！"],highlights:["☕ 24小時 免費迎賓 Lounge（全天無限供應高品質研磨咖啡、精選茶飲與舒適休憩沙發）","🧺 自助洗衣房（配備高效率洗脫烘衣機，連住 4 晚洗衣服超省心）","🚶 黃金便利位置：出巷口即達心齋橋筋商店街，步行 7-8 分鐘可達道頓堀跑跑人招牌與眾多美食名店","🛏️ 高評價設計旅店：客房隔音極佳、床鋪舒適，大廳寬敞原木長桌氛圍典雅大方"],familyTips:["心齋橋逛街若買太多戰利品或小孩喊累，隨時可步行 2 分鐘回飯店放東西、上廁所或小憩。","最後一天（2/6）早上 11:00 退房後，可將全部行李免費寄放在櫃檯，輕裝在心齋橋周邊吃午餐採買，下午再回飯店提行李去搭南海電鐵 Rapi:t。"]}],ug=[{day:1,date:"1/31（日）",tagColor:"blue",highlights:`關西機場 → 京都入住 Hotel Vischio Kyoto\r
-HARUKA → 京都車站八條口 → 飯店Check-in → Porta／周邊逛街`,schedule:`18:05 班機抵達關西機場第二航廈（T2）\r
+ */const h5=[["path",{d:"M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2",key:"cjf0a3"}],["path",{d:"M7 2v20",key:"1473qp"}],["path",{d:"M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7",key:"j28e5"}]],bc=Tt("utensils",h5),Nn={title:"京阪神親子 7 天 6 夜",subtitle:"避開排隊・不吃牛 專屬版",dateRange:"1/31（日）～ 2/6（六）",season:"冬季",note:"4 大 1 小（7 歲小孩）、不趕行程、盡量不走回頭路",flights:{outbound:"去程：小港 14:20 ✈️ 關西 18:05",inbound:"回程：關西 16:00 ✈️ 小港 18:40"}},io=[{id:"vischio_kyoto",name:"Hotel Vischio Kyoto by GRANVIA",japaneseName:"ホテルヴィスキオ京都 by GRANVIA",checkInDate:"1月31日 15:00",checkOutDate:"2月2日 11:00",stayDuration:"2 晚（1/31 入住 ～ 2/2 退房）",area:"京都・JR京都車站八條口",address:"京都府京都市南区東九条上殿田町44-1",googleMapsUrl:"https://www.google.com/maps/search/?api=1&query=Hotel+Vischio+Kyoto+by+GRANVIA",phone:"+81 75-280-1111",coverImage:"images/hotels/vischio_kyoto_entrance.jpg",routeImage:"images/hotels/vischio_kyoto_route.jpg",stationExit:"JR京都站「八條西口」步行約 2 分鐘（無障礙平坦步道）",routeTitle:"JR京都站（八條西口）→ 飯店詳細步行路線",routeDescription:"從關西機場搭乘 HARUKA 抵達京都車站後，出站步行僅約 2 分鐘即可抵達！全程平坦寬敞無階梯，非常適合推嬰兒車與攜帶多件大行李的親子家庭。",routeSteps:["【步驟 1】搭乘 HARUKA 特急抵達 JR 京都車站月台後，依站內指標前往 1 樓「八條西口（Hachijo West Gate）」出剪票口。","【步驟 2】踏出八條西口大門，正前方對面為 Avanti 百貨與京阪巴士候車亭，前方有平整斑馬線。","【步驟 3】順著斑馬線過馬路至對面，沿著「竹田街道」往南（直行）約 80 公尺（約 2 分鐘路程）。","【步驟 4】左側即可看到「HOTEL VISCHIO KYOTO」質感大門與迎賓落地窗大廳，進入 1 樓大廳即可出示預訂憑證辦理 Check-in！"],highlights:["♨️ 住客專用大浴場＆桑拿（附設人工溫泉，洗淨飛行與走路的疲倦）","☕ 自助備品吧（大廳提供多款高品質茶包、濾掛咖啡、洗沐與保養備品自由挑選）","🧺 自助洗烘衣房（配備投幣式洗烘衣機，隨時清洗小孩衣物）","🛍️ 周邊機能極強：步行 1 分鐘到 Avanti 百貨（B1 有唐吉訶德驚安殿堂）、7-11 便利商店與地下街 Porta 美食"],familyTips:["推推車時從八條西口出來均為無障礙平面步道，不必上下樓梯或搬行李。","2 樓大浴場開放時間：06:00-10:00 / 15:00-01:00，晚上可帶小朋友先泡舒服的熱水澡再睡覺。"]},{id:"flag_shinsaibashi",name:"心齋橋法拉格飯店 (Hotel The Flag Shinsaibashi)",japaneseName:"ホテル ザ フラッグ 心斎橋",bookingNumber:"73529171015643",checkInDate:"2月2日 15:00",checkOutDate:"2月6日 11:00",stayDuration:"4 晚連住（2/2 入住 ～ 2/6 退房）",area:"大阪・心齋橋 / 道頓堀商圈",address:"大阪府大阪市中央区東心斎橋1-18-30",googleMapsUrl:"https://www.google.com/maps/search/?api=1&query=HOTEL+THE+FLAG+Shinsaibashi",phone:"+81 6-6121-8111",coverImage:"images/hotels/flag_shinsaibashi_entrance.jpg",routeImage:"images/hotels/flag_shinsaibashi_route.jpg",stationExit:"地下鐵御堂筋線「心齋橋站」6號出口（電梯走大丸南館或長堀地下街南12）步行 3 分鐘",routeTitle:"心齋橋站（御堂筋線）→ 飯店詳細步行路線",routeDescription:"座落於心齋橋筋商店街旁寧靜巷弄內，鬧中取靜。從心齋橋站步行僅約 3-4 分鐘，出巷口就能逛街用餐，帶小孩回房午睡或放戰利品都超方便！",routeSteps:["【步驟 1】搭乘御堂筋線至「心齋橋站（M19）」。推推車或拉大行李建議搭「大丸百貨南館電梯」或 Crysta 長堀地下街「南12號電梯」直達 1 樓地面；輕裝可直接走「6號出口」。","【步驟 2】出站後進入繁華熱鬧的「心齋橋筋商店街」，往難波／道頓堀方向（往南）前行約 1 分鐘（約 80 公尺）。","【步驟 3】在「鰻谷南通（Unagidani Minami-dori）」路口（見三木樂器／PABLO附近十字路口）左轉（往東轉入巷內）。","【步驟 4】沿著鰻谷南通直走約 150 公尺（約 2 分鐘），右手邊即可看到黑色現代外觀、門口擺放標誌性日式青苔球盆栽與巨石造景的「HOTEL THE FLAG」大門，進入大廳辦理 Check-in！"],highlights:["☕ 24小時 免費迎賓 Lounge（全天無限供應高品質研磨咖啡、精選茶飲與舒適休憩沙發）","🧺 自助洗衣房（配備高效率洗脫烘衣機，連住 4 晚洗衣服超省心）","🚶 黃金便利位置：出巷口即達心齋橋筋商店街，步行 7-8 分鐘可達道頓堀跑跑人招牌與眾多美食名店","🛏️ 高評價設計旅店：客房隔音極佳、床鋪舒適，大廳寬敞原木長桌氛圍典雅大方"],familyTips:["心齋橋逛街若買太多戰利品或小孩喊累，隨時可步行 2 分鐘回飯店放東西、上廁所或小憩。","最後一天（2/6）早上 11:00 退房後，可將全部行李免費寄放在櫃檯，輕裝在心齋橋周邊吃午餐採買，下午再回飯店提行李去搭南海電鐵 Rapi:t。"]}],ug=[{day:1,date:"1/31（日）",tagColor:"blue",highlights:`關西機場 → HARUKA車上悠閒晚餐 → 京都入住 Hotel Vischio Kyoto 泡湯早休息\r
+關西機場選購鐵路便當/熱食 → 關空特急 HARUKA 車上晚餐 → 20:34 抵達京都車站八條口 → 飯店Check-in → 2F大浴場泡湯放鬆早休息`,schedule:`18:05 班機抵達關西機場第二航廈（T2）\r
 18:45 搭乘免費接駁巴士前往第一航廈（T1）JR車站\r
-19:16 搭乘關空特急 HARUKA 直達京都車站（八條口）\r
-20:34 抵達京都車站，八條西口步行 2 分鐘直達「Hotel Vischio Kyoto」辦理入住\r
-21:00 Porta 地下街享用「名代炸豬排」定食晚餐\r
-22:00 飯店 2 樓大浴場泡湯洗淨疲憊，早點休息`,transport:`關空特急 HARUKA\r
+19:00 於 JR 車站旁選購喜愛的日本鐵路便當（駅弁）、特色鐵路便當、厚切三明治與日式飯糰點心飲料\r
+19:16 搭乘關空特急 HARUKA 直達京都車站（車程 78 分鐘，於個人折疊餐桌悠閒享用車上晚餐看夜景，不慌不忙）\r
+20:34 抵達京都車站，八條西口平坦步道步行 2 分鐘直達「Hotel Vischio Kyoto」辦理入住\r
+21:00 全員換上舒適浴衣直奔飯店 2 樓大浴場享受人工溫泉與桑拿洗淨疲倦，喝杯冰水早點就寢！`,transport:`關空特急 HARUKA\r
 關西機場 → 京都車站（八條口）`,transportDetails:{price:"大人 2,200 日圓 / 兒童 (6-11歲) 1,100 日圓",whereToBuy:"建議提前在 Klook / KKday 購買電子票以節省時間，也可至現場 JR 綠色售票機或人工窗口購買",scheduleOptions:["19:16 發車 → 20:34 抵達京都 (HARUKA 54號)","19:46 發車 → 21:04 抵達京都 (HARUKA 56號)","20:16 發車 → 21:34 抵達京都 (HARUKA 58號)"],note:"班機 18:05 抵達，出關加接駁車時間約需 1 小時，建議搭乘 19:16 之後的班次最保險。"},hotelId:"vischio_kyoto",childHighlights:`第一次搭 HARUKA 特急\r
 沿途看冬季日本風景\r
-飯店 2 樓泡大浴場`,food:`【抵達晚餐/宵夜・3選1（21:00 京都車站周邊）】\r
-① 名代炸豬排 Katsukura（Porta地下街）：【不吃牛首選】酥脆三元豬排與大炸蝦定食，無限續高麗菜絲與燕麥飯，京都站八條口出站 2 分鐘直達。\r
-② 京都拉麵小路 坂内食堂（京都車站 10F）：【小孩最愛】喜多方清爽濃醇醬油湯頭與極嫩叉燒拉麵，營業至 22:00 免排隊。\r
-③ 豆皮烏龍麵／和風定食（Porta地下街）：天然高湯豆皮烏龍麵暖胃無負擔；或飯店 1 樓便利商店熱食輕鬆回房吃。`,queueTips:`第一天不排景點\r
-出站 2 分鐘迅速進飯店休息`,guide:{title:"長輩與小孩專用：機場轉航廈圖文指南 (T2 → T1)",description:"搭乘從高雄小港起飛的班機將抵達關西空港第二航廈 (T2)。因為所有電車都在第一航廈 (T1)，抵達後請先搭乘「免費接駁車」前往 T1。",steps:["步驟1：領完行李入境後，直走尋找「Terminal 1 / Shuttle Bus」的指示牌","步驟2：走出大門外，就會看到綠白相間的免費接駁車 (約7-9分鐘一班)","步驟3：上車不需付費，車程約10分鐘。下車後搭乘手扶梯上2樓，跟著指標走即可抵達JR/南海電車站 (關西空港駅)"],images:[{url:"images/guide/kix_t2_exit.jpg",caption:"1. 尋找藍色指示牌"},{url:"images/guide/kix_t2_bus.jpg",caption:"2. 搭乘綠白色接駁車"},{url:"images/guide/kix_t1_arrival.jpg",caption:"3. 下車後跟著指標上樓"}]}},{day:2,date:"2/1（一）",tagColor:"orange",highlights:`京都嵐山單向黃金線 ＆ 下午三條日潮選物 ＆ 傍晚沉浸 teamLab Biovortex Kyoto・宿 Hotel Vischio Kyoto\r
-上午：嵐山（竹林之道 → 野宮神社 → 天龍寺北門進正門出 → 嵐山大街 → 渡月橋） → 下午：三條商圈精華（HUMAN MADE 1928 藍瓶咖啡下午茶 ＆ SOU・SOU 村/TNF紫標精準採買） → 傍晚：直奔飯店旁 teamLab Biovortex Kyoto 沉浸互動展 → 京都站 Porta 神座拉麵暖胃晚餐 → 返回飯店大浴場泡湯`,schedule:`07:30 飯店悠閒享用早餐\r
+飯店 2 樓泡大浴場`,food:`【抵達晚餐・HARUKA 列車悠閒野餐 (19:16-20:34)】\r
+🍱 關空特急 HARUKA 車上晚餐【親子首選・最輕鬆解脫】：HARUKA 每個座位均備有高鐵級折疊餐桌與杯架！搭車前於 JR 關空車站旁選購特色鐵路便當（新幹線便當/厚切三元豚豬排三明治/日式炸雞飯糰/海鮮散壽司），78分鐘車程邊看夜景邊吃晚餐，小孩不挨餓、大人不趕路！\r
+\r
+【抵達飯店後宵夜/點心（若還想吃）】\r
+① 飯店旁 7-Eleven / Avanti 超市：步行 1 分鐘買北海道十勝鮮乳、熱包子、甜點與啤酒回房享用。\r
+② Porta 地下街外帶熟食/麵食：營業至 21:30（最後點餐），清爽豆皮烏龍麵暖胃。`,queueTips:`第一天不排景點・出站 2 分鐘迅速進飯店休息\r
+【抵達晚餐妙招】：抵達京都已過 20:30，帶著 7 歲小孩與大行李切勿在京都車站花時間排隊等候現炸豬排（容易超過餐廳 21:30 最後點餐時間且小孩太累）。強烈建議在 JR 關西空港站 2 樓買好便當點心帶上 HARUKA 車上吃，一到京都 20:34 直接進飯店泡湯休息，全家最舒適！`,guide:{title:"長輩與小孩專用：機場轉航廈圖文指南 (T2 → T1)",description:"搭乘從高雄小港起飛的班機將抵達關西空港第二航廈 (T2)。因為所有電車都在第一航廈 (T1)，抵達後請先搭乘「免費接駁車」前往 T1。",steps:["步驟1：領完行李入境後，直走尋找「Terminal 1 / Shuttle Bus」的指示牌","步驟2：走出大門外，就會看到綠白相間的免費接駁車 (約7-9分鐘一班)","步驟3：上車不需付費，車程約10分鐘。下車後搭乘手扶梯上2樓，跟著指標走即可抵達JR/南海電車站 (關西空港駅)"],images:[{url:"images/guide/kix_t2_exit.jpg",caption:"1. 尋找藍色指示牌"},{url:"images/guide/kix_t2_bus.jpg",caption:"2. 搭乘綠白色接駁車"},{url:"images/guide/kix_t1_arrival.jpg",caption:"3. 下車後跟著指標上樓"}]}},{day:2,date:"2/1（一）",tagColor:"orange",highlights:`京都嵐山單向黃金線 ＆ 下午三條日潮選物 ＆ 傍晚沉浸 teamLab Biovortex Kyoto・宿 Hotel Vischio Kyoto\r
+上午：嵐山（竹林之道 → 野宮神社 → 天龍寺北門進正門出 → 嵐山大街 → 渡月橋） → 下午：三條商圈精華（HUMAN MADE 1928 藍瓶咖啡下午茶 ＆ SOU・SOU 村/TNF紫標精準採買） → 傍晚：直奔飯店旁 teamLab Biovortex Kyoto 沉浸互動展 → 京都站 Porta「名代炸豬排 Katsukura」金黃定食大餐 → 返回飯店大浴場泡湯`,schedule:`07:30 飯店悠閒享用早餐\r
 08:30 從 JR 京都站搭乘 JR 嵯峨野線約 15 分鐘直達「嵯峨嵐山站」\r
 08:50-10:00【第 1 站・竹林之道＆野宮神社】出站直奔竹林小徑（早上 9 點人潮最少最好拍！），漫步至野宮神社摸摸黑色鳥居旁的許願神石「龜石」\r
 10:00-11:00【第 2 站・天龍寺北門進正門出】穿透捷徑！從竹林走進天龍寺北門，漫步曹源池庭園賞山水，再從正門走出直達大街，一步冤枉路都不多走\r
@@ -250,7 +252,7 @@ HARUKA → 京都車站八條口 → 飯店Check-in → Porta／周邊逛街`,sc
 15:30-16:30【第 7 站・日潮精選②】SOU・SOU 京都總部聚落 ＆ TNF STANDARD（漫步 4 分鐘朝聖 SOU・SOU 村挑選超萌童裝わらべぎ與口金包，或入手日本限定 TNF 紫標工裝）\r
 16:35-17:00 從地鐵烏丸線「四條站」搭車 3 分鐘直達京都站，步行回 Hotel Vischio 放戰利品、洗手輕裝出發\r
 17:15-19:15【第 8 站・重頭戲】teamLab Biovortex Kyoto（從飯店步行僅 7-9 分鐘！2025/10 全新開幕日本最大 teamLab，運動森林奔跑攀爬、未來園彩繪互動放電 2 小時）\r
-19:30-20:45【第 9 站・京都站 Porta 神座拉麵】步行直通京都車站 Porta 地下街，享用「どうとんぼり神座（神座拉麵）」熱騰騰大白菜蔬菜鮮甜高湯拉麵與酥脆煎餃，全程室內免吹冷風\r
+19:30-20:45【第 9 站・Porta 名代炸豬排】步行直通京都車站 Porta 地下街，悠閒享用「名代炸豬排 Katsukura」！現磨白芝麻、金黃酥脆三元黑豬排與特大炸海蝦定食，無限續加香 Q 燕麥飯與細切高麗菜絲，全家大口吃肉超滿足（備案：神座拉麵 蔬菜高湯拉麵）\r
 21:00 步行 2 分鐘回 Hotel Vischio Kyoto，享受 2 樓大浴場泡湯消除疲勞，早點就寢準備隔天包車出發`,transport:`上午：京都站搭 JR 嵯峨野線 15 分鐘直達嵯峨嵐山（單向步行：JR站 → 竹林 → 天龍寺北門進正門出 → 商店街 → 渡月橋）\r
 下午：JR/地鐵烏丸線前往三條商圈，再搭地鐵 3 分鐘返抵京都站\r
 傍晚：全步行動線！飯店 🚶 7 分鐘 ➔ teamLab Biovortex 🚶 8 分鐘 ➔ 京都站 Porta 地下街 🚶 2 分鐘 ➔ 飯店大浴場`,hotelId:"vischio_kyoto",childHighlights:`嵐山竹林晨間散步與野宮神社摸龜石許願\r
@@ -258,7 +260,7 @@ HARUKA → 京都車站八條口 → 飯店Check-in → Porta／周邊逛街`,sc
 HUMAN MADE 1928 店內 Blue Bottle 藍瓶咖啡下午茶鬆餅點心\r
 SOU・SOU 超萌童裝わらべぎ與十數配件\r
 teamLab Biovortex 巨型光影互動、運動森林爬坡跳躍與彩繪水族投影\r
-神座拉麵清甜大白菜高湯、日式煎餃與炸雞（小孩整碗喝光）\r
+名代炸豬排自己親手研磨香噴噴白芝麻、大口吃金黃炸豬排與大炸蝦（或神座拉麵清甜蔬菜湯）\r
 飯店 2 樓大浴場泡澡`,food:`【嵐山午餐・精選名店 4 選 1 (12:15-13:30)】\r
 ① 嵐山よしむら（渡月橋畔名店）：【景觀 No.1・渡月橋全景】坐在二樓大片景觀窗前，邊俯瞰渡月橋與桂川冬景、邊享用現磨手打蕎麥麵與香酥炸蝦天婦羅定食，非牛親子首選。\r
 ② 嵐山手打炸蝦烏龍麵（渡月橋畔）：【小孩最愛・出餐快速】熱呼呼柴魚高湯讚岐烏龍麵與香脆炸大蝦，暖胃又完全不耽誤下午行程。\r
@@ -269,15 +271,15 @@ teamLab Biovortex 巨型光影互動、運動森林爬坡跳躍與彩繪水族�
 ☕ Blue Bottle 藍瓶咖啡（HUMAN MADE 1928 店內）：洋樓古蹟內喝拿鐵吃鬆餅，大人輪流挑限定衣服，小孩吃點心。\r
 🍵 SOU・SOU 在茶寮（四條新京極）：超萌十數數字和菓子與手刷宇治抹茶。\r
 \r
-【京都車站 Porta 地下街晚餐・暖胃拉麵首選 (19:30-20:45)】\r
-① 🍜 どうとんぼり神座（神座拉麵）京都 Porta 店【親子暖胃首選 No.1】：teamLab 結束步行直通 Porta 地下街西區！秘傳蔬菜醬油高湯＋滿滿脆甜大白菜與薄切豬肉片，清爽甘甜完全不油膩、完全不吃牛，湯頭自然鮮甜連小孩都會把整碗喝光！店面寬敞有沙發卡座，天冷吹完風吃這碗超幸福。\r
-② 🐷 名代炸豬排 Katsukura（Porta 地下街）：同在地下街東區！三元黃金炸豬排與酥脆大炸蝦定食，高麗菜絲與燕麥飯無限續加。\r
-③ 🍜 祇園拉麵 京（京都車站 10F 拉麵小路備案）：京都發源！丹波黑雞白湯拉麵與小朋友最愛的鐵板金黃炒飯。`,queueTips:`【嵐山不折返黃金走法（醉日本推薦）】：JR 嵯峨嵐山站出站後直奔「竹林小徑」，從「天龍寺北門進入」欣賞曹源池庭園，再由「天龍寺正門走出」直達嵐山大街，順遊至渡月橋！一路向南單向循環，完全不走回頭路！\r
+【京都車站 Porta 地下街晚餐・放電後大餐首選 (19:30-20:45)】\r
+① 🐷 名代炸豬排 Katsukura（Porta 地下街）【放電後大餐・首選 No.1】：teamLab 結束步行直通 Porta 地下街！19:15 剛好是黃金晚餐時段，全家悠閒坐下親手研磨香噴噴白芝麻，享用外酥內嫩的低溫三元黑豬排、特大炸海蝦定食，無限續加香 Q 燕麥飯、清脆高麗菜絲與白味噌湯，小孩大口扒飯大人吃得過癮！（不吃牛首選、小孩友善）。\r
+② 🍜 どうとんぼり神座（神座拉麵）京都 Porta 店【清爽高湯備案】：若當晚想喝熱湯，可選神座拉麵大白菜蔬菜鮮甜高湯拉麵與酥脆煎餃。\r
+③ 🍜 祇園拉麵 京（京都車站 10F 拉麵小路備案）：京都發源！丹波黑雞白湯拉麵與鐵板金黃炒飯。`,queueTips:`【嵐山不折返黃金走法（醉日本推薦）】：JR 嵯峨嵐山站出站後直奔「竹林小徑」，從「天龍寺北門進入」欣賞曹源池庭園，再由「天龍寺正門走出」直達嵐山大街，順遊至渡月橋！一路向南單向循環，完全不走回頭路！\r
 【teamLab Biovortex Kyoto 購票與穿著須知】：\r
 ① 採全預約制：建議出發前 2-4 週於官網或 Klook/KKday 預約「17:00 或 17:30 場次」，現場掃 QR Code 即可快速入場。\r
 ② 穿著球鞋：運動森林有繩網、軟墊立體坡道，務必穿著防滑平底球鞋，勿穿高跟鞋。\r
 ③ 免費置物櫃：入場前可將下午三條買的戰利品與厚重大衣鎖進免費置物櫃，輕裝入場體驗。\r
-【神座拉麵極順動線】：teamLab 玩完後走地下連通道進入京都 Porta 地下街西區，神座拉麵免在室外挨凍吹風排隊，店內沙發座位寬敞，吃完熱騰騰拉麵走 2 分鐘直達 Hotel Vischio 泡大浴場！`},{day:3,date:"2/2（二）",tagColor:"green",highlights:`🚌 KKday 觀光包車一日遊 ＆ 天橋立 ＆ 伊根舟屋 → 道頓堀綜合燒肉大餐 → 入住大阪心齋橋法拉格飯店\r
+【名代炸豬排極順動線】：teamLab 19:15 玩完後走地下連通道直達京都 Porta 地下街，名代炸豬排正好在晚餐時間入座享用現炸定食，吃完走 2 分鐘直達 Hotel Vischio 泡大浴場，動線極順完全不挨凍！`},{day:3,date:"2/2（二）",tagColor:"green",highlights:`🚌 KKday 觀光包車一日遊 ＆ 天橋立 ＆ 伊根舟屋 → 道頓堀綜合燒肉大餐 → 入住大阪心齋橋法拉格飯店\r
 上車：08:45 京都車站八條口觀光巴士停車場 → 天橋立 → 伊根舟屋 → 下車：18:30 道頓堀御堂筋（あぶりや 燒肉） → 晚餐後步行入住法拉格飯店`,schedule:`07:30 飯店悠閒享用早餐 ＆ 辦理退房，打理行李（行李全放 KKday 專車行李廂）\r
 🚌 08:45【上車地點】京都車站八條口觀光巴士停車場（Hotel Vischio Kyoto 步行約 3 分鐘）\r
 10:30-13:00 日本三景「天橋立」搭纜車登飛龍觀、享用特色午餐\r
