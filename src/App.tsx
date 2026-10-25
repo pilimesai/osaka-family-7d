@@ -396,8 +396,9 @@ function getDayFoodMaps(day: number): { name: string; url: string }[] {
       ];
     case 6:
       return [
-        { name: '天保山 Marketplace 浪花美食橫丁', url: 'https://maps.google.com/?q=Tempozan+Marketplace' },
-        { name: '元祖串かつ だるま 心齋橋店 (晚餐)', url: 'https://maps.google.com/?q=Kushikatsu+Daruma+Shinsaibashi' },
+        { name: '元祖串かつ だるま 心齋橋店 (第1首選)', url: 'https://maps.google.com/?q=Kushikatsu+Daruma+Shinsaibashi' },
+        { name: '天保山 Marketplace 浪花美食橫丁 (午餐)', url: 'https://maps.google.com/?q=Tempozan+Marketplace' },
+        { name: '壽司郎 道頓堀店 (備案)', url: 'https://maps.google.com/?q=Sushiro+Dotonbori' },
       ];
     case 7:
       return [
