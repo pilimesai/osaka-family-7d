@@ -28,7 +28,7 @@ const DAY_EMOJIS = ['🚄', '⛩️', '🌊', '🛍️', '⛷️', '🐋', '✈�
 
 // ─── Activity Photo Mapping ─────────────────────────────────────────────────
 // Pure-transport, directions, drop-off/pick-up, walking steps, or logistics lines → NEVER show activity photos
-const SKIP_PHOTO_RE = /(【(?:上車地點|下車地點|乘車地點|集合地點|步驟|路線|最省力交通)】|步驟[①②③④⑤12345]|出大樓後|出蟹道樂大門|^🚌|^🚶|^━━━|接駁巴士|搭乘|換乘|轉乘|前往集合地點|步行前往|返回飯店|辦理退房|退房寄放行李|返回飯店取行李|打理行李)/;
+const SKIP_PHOTO_RE = /(【(?:上車地點|下車地點|乘車地點|集合地點|步驟|路線|最省力交通)】|步驟[①②③④⑤12345]|出大樓後|出蟹道樂大門|^🚌|^🚶|^━━━|接駁巴士|前往集合地點|步行前往|辦理退房|退房寄放行李|返回飯店取行李|打理行李|(?:回|返回).*?(?:飯店|Lounge|休息|放戰利品|打包)|(?:^|\s)(?:搭乘|換乘|轉乘)(?:地鐵|電車|JR|南海|阪急|特急|中央線|御堂筋|公車|巴士|專車))/;
 
 interface ActivityPhotoEntry {
   category: 'food' | 'landmark' | 'hotel' | 'transport';
@@ -438,6 +438,9 @@ function App() {
                           <div className="space-y-3">
                             {(() => {
                               const seenPhotosOnDay = new Set<string>();
+                              if (currentDayHotel?.coverImage) {
+                                seenPhotosOnDay.add(currentDayHotel.coverImage);
+                              }
                               return currentDay.schedule.split(/\r?\n/).filter(line => line.trim().length > 0).map((line, idx) => {
                               const timeMatch = line.match(/^(\d{1,2}:\d{2}(?:[–\-]\d{1,2}:\d{2})?|早上|上午|中午|下午|傍晚|晚上|抵達後|約\d{1,2}:\d{2})/);
                               const time = timeMatch ? timeMatch[1] : null;
